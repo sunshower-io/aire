@@ -1,1 +1,5 @@
-export class HelloWorld {}
+export class HelloWorld {
+    
+    hello = "world dawg";
+    
+}

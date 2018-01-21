@@ -40,7 +40,7 @@ gulp.task('build-system', function() {
         .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(typescriptCompiler())
         .pipe(sourcemaps.write('.', {includeContent: false, sourceRoot: '/src'}))
-        .pipe(gulp.dest(paths.output));
+        .pipe(gulp.dest(paths.output + 'amd'));
 });
 
 
