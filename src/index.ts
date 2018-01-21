@@ -1,3 +1,5 @@
-export function configure(config) {
-  config.globalResources('./hello-world');
+import {FrameworkConfiguration} from 'aurelia-framework';
+
+export function configure(config: FrameworkConfiguration) {
+    config.globalResources('./hello-world');
 }
