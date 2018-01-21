@@ -3,12 +3,14 @@ System.config({
   transpiler: false,
   paths: {
     "github:*": "jspm_packages/github/*",
-    "npm:*": "jspm_packages/npm/*"
+    "npm:*": "jspm_packages/npm/*",
   },
 
   map: {
     "aurelia-framework": "npm:aurelia-framework@1.1.5",
     "aurelia-polyfills": "npm:aurelia-polyfills@1.0.0",
+    "golden-layout": "npm:golden-layout@1.5.9/goldenlayout.js",
+    "jquery": "npm:jquery@3.3.1",
     "npm:aurelia-binding@1.6.0": {
       "aurelia-logging": "npm:aurelia-logging@1.4.0",
       "aurelia-metadata": "npm:aurelia-metadata@1.0.3",
@@ -52,6 +54,9 @@ System.config({
       "aurelia-pal": "npm:aurelia-pal@1.4.0",
       "aurelia-path": "npm:aurelia-path@1.1.1",
       "aurelia-task-queue": "npm:aurelia-task-queue@1.2.1"
+    },
+    "npm:golden-layout@1.5.9": {
+      "jquery": "npm:jquery@3.3.1"
     }
   }
 });
