@@ -1,34 +1,53 @@
-let gulp = require('gulp');
-let runSequence = require('run-sequence');
-let paths = require('../paths');
-var typescript = require('gulp-typescript');
-var plumber = require('gulp-plumber');
-var notify = require('gulp-notify');
-var changed = require('gulp-changed');
-var sourcemaps = require('gulp-sourcemaps');
-let compilerOptions = require('../babel-options');
-let assign = Object.assign || require('object.assign');
+let gulp = require('gulp'),
+    runSequence = require('run-sequence'),
+    paths = require('../paths'),
+    typescript = require('gulp-typescript'),
+    plumber = require('gulp-plumber'),
+    notify = require('gulp-notify'),
+    changed = require('gulp-changed'),
+    sourcemaps = require('gulp-sourcemaps'),
+    pug = require('gulp-pug'),
+    compilerOptions = require('../babel-options'),
+    assign = Object.assign || require('object.assign');
 
-gulp.task('build-html', function() {
-  return gulp.src(paths.html)
-    .pipe(gulp.dest(paths.output + 'es2015'))
-    .pipe(gulp.dest(paths.output + 'commonjs'))
-    .pipe(gulp.dest(paths.output + 'amd'))
-    .pipe(gulp.dest(paths.output + 'system'));
+gulp.task('build-pug', function () {
+    return gulp.src(paths.pug)
+        .pipe(pug)
 });
 
-gulp.task('build-css', function() {
-  return gulp.src(paths.css)
-    .pipe(gulp.dest(paths.output + 'es2015'))
-    .pipe(gulp.dest(paths.output + 'commonjs'))
-    .pipe(gulp.dest(paths.output + 'amd'))
-    .pipe(gulp.dest(paths.output + 'system'));
+gulp.task('build-pug', function () {
+    return gulp.src(paths.pug)
+        .pipe(pug({pretty: true}).on('error', function (er) {
+            console.log(er);
+        }))
+        .pipe(changed(paths.output, {extension: '.html'}))
+        .pipe(gulp.dest(paths.output + 'es2015'))
+        .pipe(gulp.dest(paths.output + 'commonjs'))
+        .pipe(gulp.dest(paths.output + 'amd'))
+        .pipe(gulp.dest(paths.output + 'system'));
+});
+
+gulp.task('build-html', function () {
+    return gulp.src(paths.html)
+        .pipe(gulp.dest(paths.output + 'es2015'))
+        .pipe(gulp.dest(paths.output + 'commonjs'))
+        .pipe(gulp.dest(paths.output + 'amd'))
+        .pipe(gulp.dest(paths.output + 'system'));
+});
+
+
+gulp.task('build-css', function () {
+    return gulp.src(paths.css)
+        .pipe(gulp.dest(paths.output + 'es2015'))
+        .pipe(gulp.dest(paths.output + 'commonjs'))
+        .pipe(gulp.dest(paths.output + 'amd'))
+        .pipe(gulp.dest(paths.output + 'system'));
 });
 
 
 var typescriptCompiler = typescriptCompiler || null;
-gulp.task('build-system', function() {
-    if(!typescriptCompiler) {
+gulp.task('build-system', function () {
+    if (!typescriptCompiler) {
         typescriptCompiler = typescript.createProject('tsconfig.json', {
             "typescript": require('typescript')
         });
@@ -44,11 +63,10 @@ gulp.task('build-system', function() {
 });
 
 
-
-gulp.task('build', function(callback) {
-  return runSequence(
-    'clean',
-    ['build-html', 'build-css', 'build-system'],
-    callback
-  );
+gulp.task('build', function (callback) {
+    return runSequence(
+        'clean',
+        ['build-html', 'build-css', 'build-system', 'build-pug'],
+        callback
+    );
 });

@@ -38,6 +38,7 @@
     "gulp-eslint": "^3.0.1",
     "gulp-notify": "^2.2.0",
     "gulp-plumber": "^1.1.0",
+    "gulp-pug": "^3.3.0",
     "gulp-sourcemaps": "^2.2.0",
     "gulp-typescript": "^3.1.6",
     "gulp-yuidoc": "^0.1.2",

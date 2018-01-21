@@ -8,6 +8,7 @@ module.exports = {
     css: appRoot + '**/*.css',
     style: 'styles/**/*.css',
     output: outputRoot,
+    pug: appRoot + '**/*.pug',
     doc: './doc',
     dtsSrc: [
         './typings/**/*.d.ts',
