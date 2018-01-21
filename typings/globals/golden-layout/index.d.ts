@@ -1,6 +1,7 @@
 declare class GoldenLayout {
     constructor(c: any, element?:Element);
 
+    config: any;
     registerComponent(a: any, b: any);
 
     init(): void;
