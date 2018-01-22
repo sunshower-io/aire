@@ -8,11 +8,22 @@ let gulp = require('gulp'),
     sourcemaps = require('gulp-sourcemaps'),
     pug = require('gulp-pug'),
     compilerOptions = require('../babel-options'),
-    assign = Object.assign || require('object.assign');
+    concat = require('gulp-concat'),
+    assign = Object.assign || require('object.assign'),
+    scss = require('gulp-sass');
 
 gulp.task('build-pug', function () {
     return gulp.src(paths.pug)
         .pipe(pug)
+});
+
+gulp.task('build-scss', function() {
+    return gulp.src(paths.themes)
+        .pipe(scss({
+            includePaths: ['./jspm_packages', './node_modules']
+        }).on('error', scss.logError))
+        .pipe(concat('sunshower.css')).pipe(gulp.dest(paths.output + 'amd'));
+    
 });
 
 gulp.task('build-pug', function () {
@@ -66,7 +77,7 @@ gulp.task('build-system', function () {
 gulp.task('build', function (callback) {
     return runSequence(
         'clean',
-        ['build-html', 'build-css', 'build-system', 'build-pug'],
+        ['build-html', 'build-css', 'build-system', 'build-pug', 'build-scss'],
         callback
     );
 });

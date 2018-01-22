@@ -1,5 +1,10 @@
 import {FrameworkConfiguration} from 'aurelia-framework';
 
 export function configure(config: FrameworkConfiguration) {
-    config.globalResources(['./layout', './layout/component', './layout/row']);
+    config.globalResources([
+        './layout', 
+        './layout/component', 
+        './layout/row',
+        './base/header'
+    ]);
 }
