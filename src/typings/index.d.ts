@@ -1,4 +1,4 @@
-declare module "sunshower/lang" {
+declare module "aire/lang" {
     export class UUID {
        
         public readonly value : string;
