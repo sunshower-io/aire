@@ -79,6 +79,7 @@
     "@material/textfield": "0.28.0",
     "@material/theme": "^0.29.0",
     "@material/toolbar": "^0.28.0",
-    "@material/typography": "^0.28.0"
+    "@material/typography": "^0.28.0",
+    "material-design-icons": "^3.0.1"
   }
 }

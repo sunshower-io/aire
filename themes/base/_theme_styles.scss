@@ -14,6 +14,26 @@ h1, h2, h3, h4, h5, h6 {
   font-weight:500;
 }
 
+h1 {
+  @extend .mdc-typography--display1;
+}
+
+h2 {
+  @extend .mdc-typography--headline;
+}
+
+//ul {
+//  @extend .mdc-list;
+//
+//  li {
+//    @extend .mdc-list-item
+//  }
+//}
+
+.mdc-text-field {
+  @extend .mdc-text-field--outlined;
+}
+
 #styleguide {
 
   & > section {
@@ -48,6 +68,7 @@ input[type="button"], input[type="submit"], button, a.mdc-button {
     background-color: rgba(255, 255, 255, 0.5);
     padding: $standard-padding*4;
     padding-top: $standard-padding*2;
+    border-radius: 4px;
 
 
     a {
