@@ -68,15 +68,15 @@
     "directories": {
       "dist": "dist/amd"
     },
+    "dependencies": {},
     "devDependencies": {
       "aurelia-polyfills": "^1.0.0"
     }
   },
-
   "dependencies": {
     "@material/button": "^0.29.0",
     "@material/list": "^0.29.0",
-    "@material/textfield": "^0.29.0",
+    "@material/textfield": "0.28.0",
     "@material/theme": "^0.29.0",
     "@material/toolbar": "^0.28.0",
     "@material/typography": "^0.28.0"
