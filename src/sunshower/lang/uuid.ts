@@ -1,4 +1,4 @@
-import {range} from 'lib/lang'
+import {range} from 'sunshower/lang'
 
 export class UUID {
     public readonly value: string;
