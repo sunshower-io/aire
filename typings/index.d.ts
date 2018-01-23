@@ -1,5 +1,5 @@
-/// <reference path="globals/jquery/index.d.ts" />
 /// <reference path="globals/golden-layout/index.d.ts" />
+/// <reference path="globals/jquery/index.d.ts" />
 /// <reference path="modules/aurelia-binding/index.d.ts" />
 /// <reference path="modules/aurelia-bootstrapper/index.d.ts" />
 /// <reference path="modules/aurelia-dependency-injection/index.d.ts" />
