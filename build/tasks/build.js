@@ -55,6 +55,11 @@ gulp.task('build-css', function () {
         .pipe(gulp.dest(paths.output + 'system'));
 });
 
+gulp.task('build-images', function() {
+    return gulp.src(paths.images)
+        .pipe(gulp.dest(paths.output + 'amd'));
+});
+
 
 var typescriptCompiler = typescriptCompiler || null;
 gulp.task('build-system', function () {
@@ -77,7 +82,7 @@ gulp.task('build-system', function () {
 gulp.task('build', function (callback) {
     return runSequence(
         'clean',
-        ['build-html', 'build-css', 'build-system', 'build-pug', 'build-scss'],
+        ['build-html', 'build-css', 'build-system', 'build-pug', 'build-scss', 'build-images'],
         callback
     );
 });

@@ -24,20 +24,42 @@ router-view {
   width:100%;
 }
 
-.backsplash {
+.full-size {
   width:100%;
   height:100%;
+  position:relative;
+}
+
+.vertical-holder {
+  @extend .full-size;
   -webkit-transform-style: preserve-3d;
   -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
-
-  .sunshower-form-holder {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-  }
 }
 
+.vertical-aligner {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.loader-holder {
+  @extend .vertical-holder;
+  text-align:center;
+
+  .loader {
+    @extend .vertical-aligner;
+  }
+
+}
+
+.backsplash {
+  @extend .vertical-holder;
+
+  .sunshower-form-holder {
+    @extend .vertical-aligner
+  }
+}
 
 a {
   cursor: pointer;
