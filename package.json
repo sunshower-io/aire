@@ -57,6 +57,7 @@
     "object.assign": "^4.0.4",
     "require-dir": "^0.3.1",
     "run-sequence": "^1.2.2",
+    "typescript": "^2.6.2",
     "vinyl-paths": "^2.1.0",
     "yargs": "^7.0.2"
   },
@@ -68,18 +69,21 @@
       "dist": "dist/amd"
     },
     "dependencies": {
-      "@material/toolbar": "^0.28.0",
       "aurelia-framework": "^1.1.5",
       "golden-layout": "^1.5.9",
-      "jquery": "^3.3.1",
-      "material-components-web": "^0.28.0",
-      "phosphor-dockpanel": "^0.9.7"
+      "jquery": "^3.3.1"
     },
     "devDependencies": {
       "aurelia-polyfills": "^1.0.0"
+    },
+
+    "dependencies": {
+      "@material/button": "^0.29.0",
+      "@material/list": "^0.29.0",
+      "@material/textfield": "^0.29.0",
+      "@material/theme": "^0.29.0",
+      "@material/toolbar": "^0.28.0",
+      "@material/typography": "^0.28.0"
     }
-  },
-  "dependencies": {
-    "@material/toolbar": "^0.28.0"
   }
 }

@@ -1,0 +1,77 @@
+@import "_variables";
+
+@import "@material/theme/mdc-theme";
+@import "@material/button/mdc-button";
+//@import "@material/button/mdc-button.scss";
+@import "@material/typography/mdc-typography";
+
+body {
+  @extend .mdc-typography;
+  @extend .mdc-theme--text-primary-on-light;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight:500;
+}
+
+#styleguide {
+
+  & > section {
+    margin: 0 auto 100px auto;
+    max-width: 800px;
+    padding: 16px;
+  }
+  & > h1, & > h2, & > h3, & > h4, & > h5, & > h6 {
+    margin-left: 16px;
+  }
+}
+
+input[type="button"], input[type="submit"], button, a.mdc-button {
+  @extend .mdc-button;
+  @extend .mdc-ripple-upgraded;
+
+}
+
+.mdc-dialog__footer__button {
+  @extend .mdc-ripple-upgraded;
+}
+
+.mdc-dialog__surface {
+  @include mdc-elevation(12);
+}
+
+
+.backsplash {
+  @extend .gradient;
+
+  .sunshower-form-holder {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: $standard-padding*4;
+    padding-top: $standard-padding*2;
+
+
+    a {
+      color: $mdc-theme-secondary;
+    }
+  }
+}
+
+
+
+.gradient {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e57373+0,fff8e1+75 */
+  background: rgb(229,115,115); /* Old browsers */
+  background: -moz-linear-gradient(-45deg, rgba(229,115,115,1) 0%, rgba(255,248,225,1) 75%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, rgba(229,115,115,1) 0%,rgba(255,248,225,1) 75%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, rgba(229,115,115,1) 0%,rgba(255,248,225,1) 75%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e57373', endColorstr='#fff8e1',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.success {
+  color: $material-color-teal-800;
+}
+
+
+a.mdc-toolbar__title {
+  color: inherit;
+}

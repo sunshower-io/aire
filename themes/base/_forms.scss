@@ -1,0 +1,39 @@
+.sunshower-form-holder {
+  padding: $standard-padding;
+
+
+  .sunshower-button-holder {
+    text-align:right;
+  }
+}
+
+.mdc-form-field {
+  width:$field-width;
+}
+
+.mdc-text-field--upgraded {
+  width:$field-width;
+}
+
+.mdc-text-field + .mdc-text-field-helper-text {
+  width:$field-width;
+}
+
+.mdc-select {
+  width:$field-width;
+
+  select {
+    -webkit-appearance: none !important;
+    -moz-appearance: none !important;
+  }
+}
+
+.mdc-slider {
+  width: $field-width;
+}
+
+.mdc-switch-label {
+  margin-top: $standard-padding/2;
+  margin-bottom: $standard-padding/2;
+  padding-left: $standard-padding/2 !important;
+}
