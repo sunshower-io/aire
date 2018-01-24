@@ -5,6 +5,7 @@ export function configure(config: FrameworkConfiguration) {
         './layout', 
         './layout/component', 
         './layout/row',
-        './base/header'
+        './base/header',
+        './components/text-field'
     ]);
 }

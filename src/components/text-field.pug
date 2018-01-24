@@ -1,0 +1,9 @@
+template
+    div(ref="element").mdc-form-field.mdc-text-field.mdc-text-field--outlined.mdc-text-field--with-trailing-icon.mdc-text-field--upgraded
+        input(id.bind="getId()").mdc-text-field__input(type.bind='type' value.bind="value" required)
+        label.mdc-text-field__label(for.bind='getId()') ${label} 
+        i.material-icons.mdc-text-field__icon(tabindex='0') lock
+        .mdc-text-field__outline.mdc-ripple-upgraded
+            svg
+                path.mdc-text-field__outline-path
+        .mdc-text-field__idle-outline
