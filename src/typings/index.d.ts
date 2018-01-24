@@ -18,3 +18,10 @@ declare module "aire/lib/lang" {
     }
 
 }
+
+
+declare module "aire/api/security" {
+    export class SecurityService {
+        isActive() : Promise<boolean>
+    }
+}
