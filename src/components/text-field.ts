@@ -1,8 +1,8 @@
 import {MDCTextField} from '@material/textfield'
-import {bindable, customElement} from "aurelia-framework";
 
-import {FieldType} from "aire/components/components";
 import {UUID} from "aire/lib/lang";
+import {FieldType} from "aire/components/components";
+import {bindable, bindingMode, customElement} from "aurelia-framework";
 
 @customElement("text-field")
 export class TextField {
@@ -10,10 +10,13 @@ export class TextField {
 
     private element: Element;
 
-
-    @bindable public label: string;
     @bindable public id: string;
-    @bindable public value: string;
+    @bindable public label: string;
+    
+    @bindable({
+        defaultBindingMode: bindingMode.twoWay
+    })
+    public value: string;
 
     @bindable public type: FieldType = "text";
 
@@ -21,14 +24,6 @@ export class TextField {
 
     attached(): void {
         this.field = new MDCTextField(this.element);
-    }
-
-    public getValue(): string {
-        return this.field.getValue();
-    }
-
-    public setValue(value: string) {
-        this.field.setValue(value);
     }
 
 
