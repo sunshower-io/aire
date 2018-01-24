@@ -1,4 +1,7 @@
-declare module "aire/lang" {
+declare module "aire/lib/lang" {
+    
+    export const range: (a:number, b:number) =>  number[];
+    
     export class UUID {
        
         public readonly value : string;

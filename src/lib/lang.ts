@@ -1,4 +1,7 @@
-import {range} from 'aire/lang/range'
+export const range = (start, end) =>
+    Array.from({length: (end - start)}, (v, k) => k + start);
+
+
 
 export class UUID {
     public readonly value: string;
@@ -49,3 +52,4 @@ export class UUID {
     }
 
 }
+
