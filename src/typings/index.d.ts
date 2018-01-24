@@ -29,6 +29,12 @@ declare module "aire/api/security" {
     
     
     export class User {
+        public username : string;
+        public password : string;
+        public firstName: string;
+        public lastName: string;
+        public emailAddress: string;
+        public phoneNumber: string;
         constructor(v?: any);
         
         toJson(): Object;
