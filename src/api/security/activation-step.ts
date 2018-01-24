@@ -11,8 +11,6 @@ export class ActivationStep implements PipelineStep {
     async run(instruction: NavigationInstruction, next: Next): Promise<any> {
         let active = await this.service.isActive(),
             routingToActivate = instruction.getAllInstructions().some(i => i.config.name == this.activationLocation);
-        
-
         if (active) {
             if (routingToActivate) {
                 return next.cancel(new RedirectToRoute("login"));
@@ -24,16 +22,6 @@ export class ActivationStep implements PipelineStep {
             return next();
         }
         return next.cancel(new RedirectToRoute("activate"));
-        
-        // return next.complete(new RedirectToRoute(this.activationLocation));
-
-        // if(active) {
-        //     console.log("Completing!");
-        //     return next();
-        // } else {
-        //     console.log("redirecting!");
-        //     return next.complete(new RedirectToRoute(this.activationLocation));
-        // }
     }
 
 }

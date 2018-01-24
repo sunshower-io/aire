@@ -22,11 +22,12 @@ declare module "aire/lib/lang" {
 
 declare module "aire/api/security" {
     import {NavigationInstruction, Next, PipelineStep} from "aurelia-router";
+    import {Authentication} from "aire/api/security/model";
 
     export class SecurityService {
         isActive(): Promise<boolean>
-
-        activate(u: User): Activation;
+        login(u: User) : Promise<Authentication>
+        activate(u: User): Promise<Activation>;
     }
 
     export class Activation {
