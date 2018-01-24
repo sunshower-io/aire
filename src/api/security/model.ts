@@ -1,3 +1,19 @@
+export class Authentication {
+    static Type: string = "io.sunshower.sdk.v1.model.core.security.AuthenticationElement";
+
+    type: string;
+    token: Token;
+    principal: User;
+
+    constructor(v?: any) {
+        if (v) {
+            this.token = new Token(v.token);
+            this.principal = new User(v.principal);
+        }
+        this.type = Authentication.Type;
+    }
+}
+
 export class User {
     username: string;
     password: string;
@@ -47,22 +63,6 @@ export class Token {
             Object.assign(this, v);
         }
         this.type = Token.Type;
-    }
-}
-
-export class Authentication {
-    static Type: string = "io.sunshower.sdk.v1.model.core.security.AuthenticationElement";
-
-    type: string;
-    token: Token;
-    principal: User;
-
-    constructor(v?: any) {
-        if (v) {
-            this.token = new Token(v.token);
-            this.principal = new User(v.principal);
-        }
-        this.type = Authentication.Type;
     }
 }
 

@@ -1,8 +1,7 @@
 import {BooleanValue} from "aire/lib/types";
 import {autoinject} from "aurelia-framework";
-import {HttpClient, json} from "aurelia-fetch-client";
-import {Activation, User} from "aire/api/security";
-import {Authentication} from "aire/api/security/model";
+import {HttpClient} from "aurelia-fetch-client";
+import {Activation, User, Authentication} from "aire/api/security";
 
 @autoinject
 export class SecurityService {
