@@ -26,6 +26,13 @@ declare module "aire/api/security" {
     export class SecurityService {
         isActive(): Promise<boolean>
     }
+    
+    
+    export class User {
+        constructor(v?: any);
+        
+        toJson(): Object;
+    }
 
     export class ActivationStep implements PipelineStep {
         constructor(service: SecurityService,
