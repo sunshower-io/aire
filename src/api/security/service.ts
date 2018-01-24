@@ -1,7 +1,9 @@
 import {BooleanValue} from "aire/lib/types";
-import {autoinject} from "aurelia-framework";
+import {autoinject, LogManager} from "aurelia-framework";
 import {HttpClient} from "aurelia-fetch-client";
-import {Activation, User, Authentication} from "aire/api/security";
+import {Activation, Authentication, User} from "aire/api/security";
+
+var log = LogManager.getLogger("aire:security-service");
 
 @autoinject
 export class SecurityService {
@@ -10,29 +12,34 @@ export class SecurityService {
 
     }
 
-    async login(user:User)  : Promise<Authentication> {
+    async login(user: User): Promise<Authentication> {
         let validation = await this.client.fetch('security/authenticate', {
-            method: 'post',
-            body: JSON.stringify(user.toJson())
-        }),
-        jsonvalue = await validation;
+                method: 'put',
+                body: JSON.stringify(user.toJson())
+            }),
+            jsonvalue = await validation;
         return new Authentication(jsonvalue);
     }
 
     async activate(user: User): Promise<Activation> {
+        log.debug("Activating...");
         let activate = await this.client.fetch('activation/activate', {
                 method: 'post',
                 body: JSON.stringify(user.toJson())
             }),
-            jsvalue = activate.json();
-        return new Activation(jsvalue);
+            jsvalue = activate.json(),
+            activation = new Activation(jsvalue);
+        // log.debug("Successfully activated sunshower");
+        return activation;
     }
 
 
     async isActive(): Promise<boolean> {
+        log.debug("Checking sunshower activation status...");
         let bresult = await this.client.fetch('activation'),
             jsvalue = await bresult.json(),
             el = new BooleanValue(jsvalue);
+        log.debug("sunshower active: ", el.value);
         return el.value
     }
 }

@@ -1,4 +1,6 @@
 declare module "aire/lib/lang" {
+    
+    export const parseBoolean: (a:any) => boolean;
 
     export const range: (a: number, b: number) => number[];
 
