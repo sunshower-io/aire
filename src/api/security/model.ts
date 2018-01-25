@@ -8,7 +8,7 @@ export class Authentication {
 
     constructor(v?: any) {
         if (v) {
-            this.token = new Token(v.token);
+            this.token = v.token;
             this.principal = new User(v.principal);
         }
         this.type = Authentication.Type;
@@ -67,6 +67,7 @@ export class Token {
         this.value = value;
         this.type = Token.Type;
     }
+    
 }
 
 

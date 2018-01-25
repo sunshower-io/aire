@@ -20,7 +20,7 @@ export class SecurityService {
                 method: 'put',
                 body: JSON.stringify(token)
             }),
-                jsonv = resp.json(),
+                jsonv = await resp.json(),
                 auth = new Authentication(jsonv);
             log.debug("successfully authenticated by token");
             return auth;
@@ -51,7 +51,7 @@ export class SecurityService {
                 method: 'put',
                 body: JSON.stringify(user.toJson())
             }),
-            jsonvalue = await validation;
+            jsonvalue = await validation.json();
         return new Authentication(jsonvalue);
     }
 
@@ -61,7 +61,7 @@ export class SecurityService {
                 method: 'post',
                 body: JSON.stringify(user.toJson())
             }),
-            jsvalue = activate.json(),
+            jsvalue = await activate.json(),
             activation = new Activation(jsvalue);
         log.debug("Successfully activated sunshower");
         return activation;
