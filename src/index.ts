@@ -6,6 +6,8 @@ export function configure(config: FrameworkConfiguration) {
         './layout/component', 
         './layout/row',
         './base/header',
-        './components/text-field'
+        './components/text-field',
+        './components/toolbar',
+        './components/card'
     ]);
 }
