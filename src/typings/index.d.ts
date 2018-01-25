@@ -21,12 +21,55 @@ declare module "aire/lib/lang" {
 
 }
 
+declare module "aire/api/storage" {
+    export interface BrowserStorage {
+        get(key: string): string;
+
+        set(key: string, value: string): string;
+
+        clear(key:string);
+
+        contains(key: string): boolean;
+    }
+    
+    export class CookieStorage implements BrowserStorage {
+        get(key: string): string;
+
+        set(key: string, value: string): string;
+
+        clear(key: string);
+
+        contains(key: string): boolean;
+        
+    }
+}
 
 declare module "aire/api/security" {
     import {NavigationInstruction, Next, PipelineStep} from "aurelia-router";
+    import {CookieStorage} from "aire/api/storage";
     
     export class Token {
+        static CookieKey: string;
+
+        static HeaderKey: string;
+
         value: string;
+        
+        constructor(value?: string);
+        
+    }
+    
+    
+    export class AuthenticationManager {
+        constructor(
+            service: SecurityService,
+            storage: CookieStorage,
+        )
+        
+        login(user: User) : Promise<Authentication>
+        
+        getAuthentication() : Promise<User>;
+        
     }
     
     export class Authentication {
@@ -40,6 +83,8 @@ declare module "aire/api/security" {
         isActive(): Promise<boolean>
         login(u: User) : Promise<Authentication>
         activate(u: User): Promise<Activation>;
+        validate(token: Token) : Promise<boolean>;
+        authenticateByToken(token: Token) : Promise<Authentication>;
     }
 
     export class Activation {

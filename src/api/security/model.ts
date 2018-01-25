@@ -1,4 +1,5 @@
 export class Authentication {
+   
     static Type: string = "io.sunshower.sdk.v1.model.core.security.AuthenticationElement";
 
     type: string;
@@ -52,16 +53,18 @@ export class User {
 
 export class Token {
 
+    static CookieKey: string = "sunshower-auth-token";
+
+    static HeaderKey: string = "X-AUTH-TOKEN";
+
     static Type: string = "io.sunshower.sdk.v1.model.core.security.AuthenticationTokenElement";
 
 
     type: string;
     value: string;
 
-    constructor(v?: any) {
-        if (v) {
-            Object.assign(this, v);
-        }
+    constructor(value?: string) {
+        this.value = value;
         this.type = Token.Type;
     }
 }

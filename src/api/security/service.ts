@@ -1,7 +1,7 @@
 import {BooleanValue} from "aire/lib/types";
 import {autoinject, LogManager} from "aurelia-framework";
 import {HttpClient} from "aurelia-fetch-client";
-import {Activation, Authentication, User} from "aire/api/security";
+import {Activation, Authentication, Token, User} from "aire/api/security";
 
 var log = LogManager.getLogger("aire:security-service");
 
@@ -10,6 +10,40 @@ export class SecurityService {
 
     constructor(private client: HttpClient) {
 
+    }
+   
+    async authenticateByToken(token: Token) : Promise<Authentication> {
+        log.debug("attempting to authenticate by token: ", token.value);
+        
+        try {
+            let resp = await this.client.fetch('security/token/authenticate', {
+                method: 'put',
+                body: JSON.stringify(token)
+            }),
+                jsonv = resp.json(),
+                auth = new Authentication(jsonv);
+            log.debug("successfully authenticated by token");
+            return auth;
+        } catch(e) {
+            log.debug("failed to validate token: reason", e);
+            throw e;
+        }
+    }
+    
+    
+    async validate(token: Token) : Promise<boolean> {
+        log.debug("attempting to validate token: ", token.value);
+        try {
+            await this.client.fetch('security/validate', {
+                method: 'put',
+                body: JSON.stringify(token)
+            });
+            log.debug("token successfully validated");
+            return true;
+        } catch(er) {
+            log.debug("Sunshower rejected token.  Reason: ", er);
+            return false;
+        }
     }
 
     async login(user: User): Promise<Authentication> {
