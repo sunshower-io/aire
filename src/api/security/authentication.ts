@@ -1,7 +1,11 @@
 import {autoinject, LogManager} from 'aurelia-framework';
-import {CookieStorage} from "aire/api/storage/storage";
-import {Authentication, SecurityService, Token, User} from "aire/api/security";
-import {BrowserStorage} from "aire/api/storage";
+import {BrowserStorage, CookieStorage} from "aire/api/storage";
+import {
+    Authentication, 
+    SecurityService, 
+    Token, 
+    User
+} from "aire/api/security";
 
 var log = LogManager.getLogger("aire:authentication-manager");
 

@@ -63,7 +63,7 @@ export class SecurityService {
             }),
             jsvalue = activate.json(),
             activation = new Activation(jsvalue);
-        // log.debug("Successfully activated sunshower");
+        log.debug("Successfully activated sunshower");
         return activation;
     }
 
