@@ -5,7 +5,9 @@ export enum StorageMode {
     Local
 }
 
-var log = LogManager.getLogger("aire:storage");
+let log = LogManager.getLogger("aire:storage");
+    
+
 
 export interface BrowserStorage {
     get(key: string): string;
@@ -15,6 +17,7 @@ export interface BrowserStorage {
     clear(key:string);
 
     contains(key: string): boolean;
+    
 }
 
 export class LocalStorage implements BrowserStorage {
@@ -101,4 +104,25 @@ export class CookieStorage implements BrowserStorage {
         d.setTime(d.getTime() + (expiration * 24 * 60 * 60 * 1000));
         document.cookie = key + "=" + value + ";" + expires + ";path=/";
     }
+}
+
+export const Cookies = new CookieStorage(),
+    Local = new LocalStorage();
+
+export function clear(key: string, mode: StorageMode) : string {
+    let storage = mode == StorageMode.Cookie ? Cookies : Local,
+        value = storage.get(key);
+    storage.clear(key);
+    return value;
+}
+
+
+export function get(key: string, mode: StorageMode) : string {
+    let storage = mode == StorageMode.Cookie ? Cookies : Local;
+    return storage.get(key);
+}
+
+export function set(key: string, value: string, mode: StorageMode) : string {
+    let storage = mode == StorageMode.Cookie ? Cookies : Local;
+    return storage.set(key, value);
 }
