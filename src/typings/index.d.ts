@@ -61,6 +61,7 @@ declare module "aire/api/storage" {
 
 declare module "aire/api/security" {
     import {NavigationInstruction, Next, PipelineStep} from "aurelia-router";
+    import {HttpClient} from "aurelia-fetch-client";
 
     export class Token {
         static CookieKey: string;
@@ -75,7 +76,7 @@ declare module "aire/api/security" {
 
 
     export class AuthenticationManager {
-
+        constructor(service:SecurityService);
         login(user: User): Promise<Authentication>
 
         getAuthentication(): Promise<User>;
@@ -91,6 +92,7 @@ declare module "aire/api/security" {
     }
 
     export class SecurityService {
+        constructor(client:HttpClient);
         isActive(): Promise<boolean>
 
         login(u: User): Promise<Authentication>
