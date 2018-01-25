@@ -12,6 +12,7 @@ export class TextField {
 
     @bindable public id: string;
     @bindable public label: string;
+    @bindable public icon: string = '';
     
     @bindable({
         defaultBindingMode: bindingMode.twoWay

@@ -1,0 +1,8 @@
+template
+    section.mdc-card__primary
+        h1.mdc-card__title.mdc-card__title--large(if.bind="title") ${title}
+        h2.mdc-card__subtitle(if.bind="subtitle") subtitle
+    section.mdc-card__supporting-text(if.bind="text") ${text}
+    section.mdc-card__actions
+        a.mdc-button.mdc-button--compact.mdc-card__action Action 1
+        a.mdc-button.mdc-button--compact.mdc-card__action Action 2
