@@ -11,3 +11,12 @@
 - Make a change in aire, then run `gulp build && jspm link github:sunshower-io/aire -y` to update your consuming project
 
 
+## Building all the things
+
+1.  `mvn clean install -f bom && gradle clean build pTML` on sunshower-devops
+2.  `mvn clean install -f bom && gradle clean build pTML` on sunshower-base (do not -x test)
+3.  `mvn clean install -f bom && gradle clean build pTML` on sunshower-core (do not -x test)
+4.  `mvn clean install -f bom && gradle clean build pTML -x test` on sunshower-kernel
+5.  `mvn clean install -f bom && gradle clean build pTML` on sunshower-sdk (do not -x test)
+6.  `mvn clean install -f bom && gradle clean build pTML -x test` on sunshower
+7.  `gradle clean build && gradle cRunL -i` on root of atmosphere (or whichever plugin)
