@@ -1,5 +1,6 @@
-import {customElement} from "aurelia-framework";
+import {containerless, customElement} from "aurelia-framework";
 
+@containerless
 @customElement("toolbar")
 export class Toolbar {
 

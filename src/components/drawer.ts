@@ -9,5 +9,6 @@ export class Drawer {
 
     attached(): void {
         this.drawer = new MDCTemporaryDrawer(this.element);
+        this.drawer.open = true;
     }
 }
