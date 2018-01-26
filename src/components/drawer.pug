@@ -1,0 +1,14 @@
+template
+    aside(ref="element").mdc-drawer.mdc-drawer--temporary.mdc-typography
+        nav.mdc-drawer__drawer
+            header.mdc-drawer__header
+                .mdc-drawer__header-content
+                    | Header here
+            nav#icon-with-text-demo.mdc-drawer__content.mdc-list
+                a.mdc-list-item.mdc-list-item--activated(href='#')
+                    i.material-icons.mdc-list-item__graphic(aria-hidden='true') inbox
+                    | Inbox
+                a.mdc-list-item(href='#')
+                    i.material-icons.mdc-list-item__graphic(aria-hidden='true') star
+                    | Star
+    

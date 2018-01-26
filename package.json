@@ -75,6 +75,7 @@
   },
   "dependencies": {
     "@material/button": "^0.29.0",
+    "@material/drawer": "^0.29.0",
     "@material/list": "^0.29.0",
     "@material/textfield": "0.28.0",
     "@material/theme": "^0.29.0",

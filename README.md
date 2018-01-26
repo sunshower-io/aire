@@ -11,3 +11,8 @@
 - Make a change in aire, then run `gulp build && jspm link github:sunshower-io/aire -y` to update your consuming project
 
 
+### Creating a new component
+
+1. We use material-components-web, so to add a new binding for a MCW component, install it via npm `npm install --save @material/component`
+-- For instance, to install `drawer` run `npm install --save @material/drawer`
+
