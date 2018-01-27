@@ -68,7 +68,9 @@
     "directories": {
       "dist": "dist/amd"
     },
-    "dependencies": {},
+    "dependencies": {
+      "aurelia-event-aggregator": "^1.0.1"
+    },
     "devDependencies": {
       "aurelia-polyfills": "^1.0.0"
     }

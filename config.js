@@ -20,6 +20,7 @@ System.config({
     "@material/theme": "npm:@material/theme@0.29.0",
     "@material/toolbar": "npm:@material/toolbar@0.28.0",
     "@material/typography": "npm:@material/typography@0.28.0",
+    "aurelia-event-aggregator": "npm:aurelia-event-aggregator@1.0.1",
     "aurelia-framework": "npm:aurelia-framework@1.1.5",
     "aurelia-polyfills": "npm:aurelia-polyfills@1.0.0",
     "golden-layout": "npm:golden-layout@1.5.9",
@@ -91,6 +92,9 @@ System.config({
     "npm:aurelia-dependency-injection@1.3.2": {
       "aurelia-metadata": "npm:aurelia-metadata@1.0.3",
       "aurelia-pal": "npm:aurelia-pal@1.4.0"
+    },
+    "npm:aurelia-event-aggregator@1.0.1": {
+      "aurelia-logging": "npm:aurelia-logging@1.4.0"
     },
     "npm:aurelia-framework@1.1.5": {
       "aurelia-binding": "npm:aurelia-binding@1.6.0",
