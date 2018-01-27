@@ -90,6 +90,9 @@ declare module "aire/api/storage" {
 
 declare module "aire/api/security" {
 
+    import {NavigationInstruction, Next, PipelineStep} from "aurelia-router";
+    import {HttpClient} from "aurelia-fetch-client";
+
     export class Token {
         static CookieKey: string;
 
