@@ -1,3 +1,30 @@
+declare module 'aire/components/events' {
+    import {Logger} from "aurelia-logging";
+    import {EventAggregator, Subscription} from "aurelia-event-aggregator";
+    export module Events {
+        const log: Logger;
+
+        export var eventAggregator: EventAggregator;
+
+        export function setEventAggregator(e: EventAggregator): void;
+
+        export type Action<T> = (T) => void;
+
+        export class Drawer {
+            public readonly opened: boolean;
+            
+            static readonly TOGGLED;
+            
+            constructor(opened: boolean);
+
+            static on(topic: string, cb: Action<Drawer>): Subscription;
+
+            public static toggled(opened: boolean);
+            
+        }
+    }
+}
+
 declare module "aire/lib/lang" {
 
     export const parseBoolean: (a: any) => boolean;
@@ -55,13 +82,13 @@ declare module "aire/api/storage" {
     export const Local: BrowserStorage;
 
     export function clear(key: string, mode: StorageMode): string;
+
     export function set(key: string, value: string, mode: StorageMode): string;
+
     export function get(key: string, mode: StorageMode): string;
 }
 
 declare module "aire/api/security" {
-    import {NavigationInstruction, Next, PipelineStep} from "aurelia-router";
-    import {HttpClient} from "aurelia-fetch-client";
 
     export class Token {
         static CookieKey: string;
@@ -76,7 +103,8 @@ declare module "aire/api/security" {
 
 
     export class AuthenticationManager {
-        constructor(service:SecurityService);
+        constructor(service: SecurityService);
+
         login(user: User): Promise<Authentication>
 
         getAuthentication(): Promise<User>;
@@ -92,7 +120,8 @@ declare module "aire/api/security" {
     }
 
     export class SecurityService {
-        constructor(client:HttpClient);
+        constructor(client: HttpClient);
+
         isActive(): Promise<boolean>
 
         login(u: User): Promise<Authentication>

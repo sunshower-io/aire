@@ -1,14 +1,31 @@
 template
-    aside(ref="element").mdc-drawer.mdc-drawer--temporary.mdc-typography
+    aside(ref="element").mdc-drawer.mdc-drawer--temporary.demo-drawer
         nav.mdc-drawer__drawer
             header.mdc-drawer__header
-                .mdc-drawer__header-content
+                .mdc-drawer__header-content.mdc-theme--text-primary-on-primary.mdc-theme--primary-bg
                     | Header here
-            nav#icon-with-text-demo.mdc-drawer__content.mdc-list
-                a.mdc-list-item.mdc-list-item--activated(href='#')
-                    i.material-icons.mdc-list-item__graphic(aria-hidden='true') inbox
-                    | Inbox
-                a.mdc-list-item(href='#')
-                    i.material-icons.mdc-list-item__graphic(aria-hidden='true') star
-                    | Star
-    
+            nav.mdc-drawer__content.mdc-list-group
+                #icon-with-text-demo.mdc-list
+                    a.mdc-list-item.mdc-list-item--selected.demo-drawer-list-item(href='#')
+                        i.material-icons.mdc-list-item__graphic(aria-hidden='true') inbox
+                        | Inbox
+                    a.mdc-list-item.demo-drawer-list-item(href='#')
+                        i.material-icons.mdc-list-item__graphic(aria-hidden='true') star
+                        | Star
+                    a.mdc-list-item.demo-drawer-list-item(href='#')
+                        i.material-icons.mdc-list-item__graphic(aria-hidden='true') send
+                        | Sent Mail
+                    a.mdc-list-item.demo-drawer-list-item(href='#')
+                        i.material-icons.mdc-list-item__graphic(aria-hidden='true') drafts
+                        | Drafts
+                hr.mdc-list-divider
+                .mdc-list
+                    a.mdc-list-item.demo-drawer-list-item(href='#')
+                        i.material-icons.mdc-list-item__graphic(aria-hidden='true') email
+                        | All Mail
+                    a.mdc-list-item.demo-drawer-list-item(href='#')
+                        i.material-icons.mdc-list-item__graphic(aria-hidden='true') delete
+                        | Trash
+                    a.mdc-list-item.demo-drawer-list-item(href='#')
+                        i.material-icons.mdc-list-item__graphic(aria-hidden='true') report
+                        | Spam

@@ -1,4 +1,4 @@
-let gulp = require('gulp'),
+var gulp = require('gulp'),
     runSequence = require('run-sequence'),
     paths = require('../paths'),
     typescript = require('gulp-typescript'),
@@ -10,7 +10,8 @@ let gulp = require('gulp'),
     compilerOptions = require('../babel-options'),
     concat = require('gulp-concat'),
     assign = Object.assign || require('object.assign'),
-    scss = require('gulp-sass');
+    scss = require('gulp-sass'),
+    dtsGen = require('dts-generator').default;
 
 gulp.task('build-pug', function () {
     return gulp.src(paths.pug)
@@ -60,6 +61,14 @@ gulp.task('build-images', function() {
         .pipe(gulp.dest(paths.output + 'amd'));
 });
 
+gulp.task('definitions', function() {
+    dtsGen({
+        name: 'aire',
+        project: './',
+        out: 'lib/dts/lib_name.d.ts'
+    });
+});
+
 
 var typescriptCompiler = typescriptCompiler || null;
 gulp.task('build-system', function () {
@@ -69,13 +78,17 @@ gulp.task('build-system', function () {
         });
     }
 
-    return gulp.src(paths.dtsSrc.concat(paths.source))
+    var result = gulp.src(paths.dtsSrc.concat(paths.source))
         .pipe(plumber({errorHandler: notify.onError('Error: <%= error.message %>')}))
         .pipe(changed(paths.output, {extension: '.ts'}))
         .pipe(sourcemaps.init({loadMaps: true}))
-        .pipe(typescriptCompiler())
-        .pipe(sourcemaps.write('.', {includeContent: false, sourceRoot: '/src'}))
+        .pipe(typescriptCompiler());
+        
+    result// .pipe(sourcemaps.write('.', {includeContent: false, sourceRoot: '/src'}))
+        .pipe(sourcemaps.write())
         .pipe(gulp.dest(paths.output + 'amd'));
+    
+    return result;
 });
 
 
