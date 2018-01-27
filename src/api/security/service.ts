@@ -11,7 +11,26 @@ export class SecurityService {
     constructor(private client: HttpClient) {
 
     }
-   
+    
+    
+    async logout(t:Token)  : Promise<boolean> {
+        log.debug('logging out...');
+        t.value = "$$logout$$" + t;
+        try {
+            await this.client.fetch('security/token/authenticate', {
+                method: 'put',
+                body: JSON.stringify(t)
+            });
+            log.debug("successfully terminated session");
+            return true;
+        }
+        catch(e) {
+            log.debug("encountered error while attempting to logout: ", e);
+            return false;
+        }
+    }
+    
+    
     async authenticateByToken(token: Token) : Promise<Authentication> {
         log.debug("attempting to authenticate by token: ", token.value);
         

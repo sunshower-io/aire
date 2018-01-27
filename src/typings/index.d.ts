@@ -124,6 +124,8 @@ declare module "aire/api/security" {
 
     export class SecurityService {
         constructor(client: HttpClient);
+        
+        logout(t: Token) : Promise<Boolean>;
 
         isActive(): Promise<boolean>
 
