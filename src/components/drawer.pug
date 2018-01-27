@@ -1,16 +1,17 @@
 template
-    aside(ref="element").aire-drawer.mdc-drawer--temporary
+    aside(ref="element" show.bind="expanded").aire-drawer.mdc-drawer--temporary
         nav.mdc-drawer__drawer
             header.mdc-drawer__header
                 .mdc-drawer__header-content.mdc-theme--text-primary-on-primary.mdc-theme--primary-bg
-                    slot(name="header" ref="header")
+                    slot(name="header")
                     
             nav.mdc-drawer__content.mdc-list-group(ref="contents")
             
-    div.mdc-toolbar-fixed-adjust(style="width:64px")
-        nav.mdc-drawer.mdc-drawer-permanent(ref="minifiedElement")
-            slot(name="contents")
-                    
+    div.mdc-toolbar-fixed-adjust(style="height:100%; display:flex; flex: 1 1 auto; height:100%; box-sizing:border-box" show.bind="!expanded")
+        nav.mdc-drawer.mdc-drawer--permanent(style="width:56px;")
+            div(ref="minifiedElement").mdc-list-group
+                slot(name="contents")
+        slot(name="main")            
         //slot(name = "header")
             //drawer-header
             //list 
