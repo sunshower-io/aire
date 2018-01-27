@@ -26,6 +26,13 @@ export class AuthenticationManager {
         this.storage = new CookieStorage();
     }
 
+    
+    async logout() : Promise<boolean> {
+        log.delegate("logging out");
+        let token = new Token(this.resolveToken()),
+            result = await this.service.logout(token);
+        return result.valueOf();
+    }
 
     async login(user: User): Promise<Authentication> {
         this.storage.clear(Token.CookieKey);
