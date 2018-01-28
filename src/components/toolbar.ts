@@ -14,7 +14,7 @@ export class Toolbar {
     }
     
     onMenuClick() {
-        Events.Drawer.toggled(true);
+        Events.Drawer.publish(Events.Drawer.TOGGLED, null);
     }
 
 

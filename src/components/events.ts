@@ -27,7 +27,7 @@ export module Events {
             
         }
         
-        public publish(evt: string, drawer: VMDrawer) {
+        public static publish(evt: string, drawer: VMDrawer) {
             eventAggregator.publish(evt, new Drawer(drawer));
         }
         
