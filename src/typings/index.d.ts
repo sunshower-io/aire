@@ -107,6 +107,7 @@ declare module "aire/api/security" {
 
     export class AuthenticationManager {
         constructor(service: SecurityService);
+        logout() : Promise<void>;
 
         login(user: User): Promise<Authentication>
 
