@@ -7,11 +7,11 @@ declare module 'aire/routing' {
         protected children(parent: RouteConfig[], path: string): RouteConfig[];
     }
 
+    export interface RouteRelationship {
+        isChildOf(cfgs:RouteConfig[], path: string);
+    }
     export module StructureAwareRouter {
 
-        export class RouteRelationship {
-            public isChildOf(cfgs:RouteConfig[], path: string);
-        }
     }
 }
 

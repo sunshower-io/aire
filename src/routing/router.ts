@@ -2,7 +2,7 @@ import {RouteConfig} from "aurelia-router";
 
 export class StructureAwareRouter {
 
-    protected routeConfig(cfgs: RouteConfig[]) : StructureAwareRouter.RouteRelationship {
+    protected routeConfig(cfgs: RouteConfig[]) : RouteRelationship {
         return StructureAwareRouter.routeConfig(cfgs);
     }
     
@@ -33,11 +33,10 @@ export module StructureAwareRouter {
 
 
     export function routeConfig(cfgs: RouteConfig[]): RouteRelationship {
-        return new RouteRelationship(cfgs);
+        return new Relationship(cfgs);
     }
 
-
-    export class RouteRelationship {
+    class Relationship {
         private path: string;
         private parent: RouteConfig[];
 
@@ -57,8 +56,12 @@ export module StructureAwareRouter {
             childMappings.set(path, this.child);
         }
     }
+
 }
 
+export interface RouteRelationship {
 
+    isChildOf(parent: RouteConfig[], path: string): void;
+}
 
 
