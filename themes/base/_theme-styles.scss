@@ -112,3 +112,13 @@ a.mdc-toolbar__title {
   width: 100%;
   box-sizing: border-box;
 }
+
+.header-action {
+  a {
+    font-size: 12px;
+  }
+
+  .material-icons {
+    vertical-align: middle;
+  }
+}
