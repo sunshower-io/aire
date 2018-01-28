@@ -1,6 +1,8 @@
 import {EventAggregator, Subscription} from "aurelia-event-aggregator";
 import {LogManager} from "aurelia-framework";
 
+import {Drawer as VMDrawer} from 'aire/components/drawer';
+
 export module Events {
     const log = LogManager.getLogger('aire:events');
     
@@ -14,20 +16,24 @@ export module Events {
     export type Action<T> = (T) => void;
 
     export class Drawer {
-        
-        static readonly TOGGLED = "events:drawer:toggled";
 
-        constructor(public readonly opened: boolean) {
+        static readonly TOGGLED = "events:drawer:toggled";
+        static readonly OPENED = "events:drawer:opened";
+        static readonly CLOSED = "events:drawer:closed";
+     
+        
+
+        constructor(public readonly drawer: VMDrawer) {
+            
         }
         
+        public publish(evt: string, drawer: VMDrawer) {
+            eventAggregator.publish(evt, new Drawer(drawer));
+        }
         
         static on(topic: string, cb: Action<Drawer>) : Subscription {
             return eventAggregator.subscribe(topic, cb);
         }
             
-
-        public static toggled(opened: boolean) {
-            eventAggregator.publish(Drawer.TOGGLED, new Drawer(opened));
-        }
     }
 }

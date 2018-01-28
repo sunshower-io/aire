@@ -1,6 +1,28 @@
+declare module 'aire/components/drawer' {
+    
+    export class Drawer {
+        public expanded: boolean;
+        public open() : void;
+        public close() : void;
+    }
+}
+
 declare module 'aire/components/events' {
     import {Logger} from "aurelia-logging";
     import {EventAggregator, Subscription} from "aurelia-event-aggregator";
+    import {Drawer as VMDrawer} from 'aire/components/drawer';
+    
+    
+    export class Drawer {
+        expanded: boolean;
+        open() : void;
+        
+        close() : void;
+        
+        
+    }
+    
+    
     export module Events {
         const log: Logger;
 
@@ -11,16 +33,19 @@ declare module 'aire/components/events' {
         export type Action<T> = (T) => void;
 
         export class Drawer {
-            public readonly opened: boolean;
             
-            static readonly TOGGLED;
+            
+            public readonly drawer:VMDrawer;
+            
+            static readonly TOGGLED : string;
+            static readonly OPENED  : string;
+            static readonly CLOSED  : string;
             
             constructor(opened: boolean);
+            
+            public static publish(t: string, d:VMDrawer);
 
             static on(topic: string, cb: Action<Drawer>): Subscription;
-
-            public static toggled(opened: boolean);
-            
         }
     }
 }

@@ -1,4 +1,8 @@
-import {containerless, customElement} from "aurelia-framework";
+import {
+    containerless, 
+    customElement, 
+    bindable
+} from "aurelia-framework";
 import {MDCTemporaryDrawer, MDCTemporaryDrawerFoundation, util} from '@material/drawer';
 
 import {Events} from "aire/components/events";
@@ -8,7 +12,8 @@ import DrawerEvent = Events.Drawer;
 @customElement("drawer")
 export class Drawer {
 
-    private expanded: boolean;
+    @bindable
+    public expanded: boolean;
     private element: Element;
     private contents: Element;
     private header: Element;
@@ -29,9 +34,10 @@ export class Drawer {
         drawer.listen('MDCTemporaryDrawer:close', () => {
             this.close();
         });
+        DrawerEvent.publish(DrawerEvent.OPENED, this);
     }
 
-    private open(): void {
+    public open(): void {
         this.expanded = true;
         this.contents.appendChild(
             this.minifiedElement.querySelector('.mdc-list')
@@ -39,7 +45,7 @@ export class Drawer {
         this.drawer.open = this.expanded;
     }
 
-    private close(): void {
+    public close(): void {
         this.expanded = false;
         this.minifiedElement.appendChild(this.contents.querySelector('.mdc-list'));
     }
