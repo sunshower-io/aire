@@ -62,3 +62,17 @@ router-view {
 a {
   cursor: pointer;
 }
+
+
+.sunshower-drawer-mini {
+  @extend .mdc-toolbar-fixed !optional; //todo fix
+  display:flex;
+  flex: 1 1 auto;
+  height:100%;
+  box-sizing:border-box;
+}
+
+
+.mdc-toolbar__menu-icon {
+  padding: 16px !important;
+}

@@ -6,8 +6,8 @@ template
                     slot(name="header")
             nav.mdc-drawer__content.mdc-list-group(ref="contents")
             
-    div.mdc-toolbar-fixed-adjust(style="height:100%; display:flex; flex: 1 1 auto; height:100%; box-sizing:border-box" show.bind="!expanded")
+    div.sunshower-drawer-mini.mdc-toolbar-fixed(show.bind="!expanded")
         nav.mdc-drawer.mdc-drawer--permanent(style="width:56px;")
             div(ref="minifiedElement").mdc-list-group
                 slot(name="contents")
-        slot(name="main")            
+        slot(name="main")
