@@ -11,9 +11,12 @@ export class StructureAwareRouter {
         return StructureAwareRouter.children(parent, path);
     }
     
+    hasAnyChildren(parent: RouteConfig[]) : boolean {
+        return StructureAwareRouter.hasAnyChildren(parent);
+    }
+    
     hasChildren(parent: RouteConfig[], path: string) : boolean {
         return StructureAwareRouter.hasChildren(parent, path);
-        
     }
 }
 
@@ -23,6 +26,10 @@ export module StructureAwareRouter {
     const mappings: Map<RouteConfig[], Map<string, RouteConfig[]>> =
         new Map<RouteConfig[], Map<string, RouteConfig[]>>();
 
+    export function hasAnyChildren(parent: RouteConfig[]) {
+        let p = mappings.get(parent);
+        return !!p;
+    }
     
     export function hasChildren(parent: RouteConfig[], path: string) : boolean {
         let p = mappings.get(parent);
