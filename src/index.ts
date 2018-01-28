@@ -27,6 +27,7 @@ export function configure(config: FrameworkConfiguration) {
         './components/text-field',
         './components/toolbar',
         './components/card',
-        './components/drawer'
+        './components/drawer',
+        './components/tab-panel'
     ]);
 }
