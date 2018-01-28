@@ -1,9 +1,10 @@
-import {customElement} from "aurelia-framework";
+import {containerless, customElement} from "aurelia-framework";
 import {MDCTemporaryDrawer, MDCTemporaryDrawerFoundation, util} from '@material/drawer';
 
 import {Events} from "aire/components/events";
 import DrawerEvent = Events.Drawer;
 
+@containerless
 @customElement("drawer")
 export class Drawer {
 
