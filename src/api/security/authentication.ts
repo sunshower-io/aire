@@ -1,11 +1,21 @@
-import {autoinject, LogManager} from 'aurelia-framework';
-import {BrowserStorage, CookieStorage} from "aire/api/storage";
+import {LogManager} from 'aurelia-framework';
+import {
+    clear,
+    get,
+    StorageMode,
+    CookieStorage,
+    BrowserStorage
+} from "aire/api/storage";
+
+
 import {
     Authentication, 
     Token, 
     User,
     SecurityService,
 } from "aire/api/security";
+
+
 import {inject} from "aurelia-dependency-injection";
 
 var log = LogManager.getLogger("aire:authentication-manager");
@@ -28,9 +38,11 @@ export class AuthenticationManager {
 
     
     async logout() : Promise<boolean> {
-        log.delegate("logging out");
+        log.debug("logging out");
         let token = new Token(this.resolveToken()),
             result = await this.service.logout(token);
+        clear(Token.CookieKey, StorageMode.Local);
+        clear(Token.CookieKey, StorageMode.Cookie);
         return result.valueOf();
     }
 
@@ -81,6 +93,12 @@ export class AuthenticationManager {
         if (token) {
             log.debug("found non-expired token from previous visit");
             this.token.value = token;
+            return token;
+        }
+        log.debug("attempting to resolve from local storage...");
+        token = get(Token.CookieKey, StorageMode.Local);
+        if(token) {
+            log.debug("resolved token from local storage");
             return token;
         }
         log.debug("no existing tokens");

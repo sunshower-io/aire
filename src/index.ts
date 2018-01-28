@@ -28,6 +28,7 @@ export function configure(config: FrameworkConfiguration) {
         './components/toolbar',
         './components/card',
         './components/drawer',
+        './components/tab-panel',
         './components/grid-list'
     ]);
 }

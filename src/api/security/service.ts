@@ -15,7 +15,7 @@ export class SecurityService {
     
     async logout(t:Token)  : Promise<boolean> {
         log.debug('logging out...');
-        t.value = "$$logout$$" + t;
+        t.value = "$$logout$$" + t.value;
         try {
             await this.client.fetch('security/token/authenticate', {
                 method: 'put',
