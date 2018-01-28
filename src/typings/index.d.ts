@@ -1,3 +1,19 @@
+declare module 'aire/routing' {
+
+    import {RouteConfig} from "aurelia-router";
+
+    export class StructureAwareRouter {
+        protected routeConfig(cfgs: RouteConfig[]): StructureAwareRouter.RouteRelationship;
+        protected children(parent: RouteConfig[], path: string): RouteConfig[];
+    }
+
+    export module StructureAwareRouter {
+
+        export class RouteRelationship {
+        }
+    }
+}
+
 declare module 'aire/components/drawer' {
     
     export class Drawer {
