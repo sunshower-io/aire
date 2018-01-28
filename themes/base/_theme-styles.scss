@@ -8,7 +8,7 @@
 body {
   @extend .mdc-typography;
   @extend .mdc-theme--text-primary-on-light;
-  background: lighten($mdc-theme-background, 10%);
+  background: lighten($mdc-theme-background, 7.5%);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -100,9 +100,15 @@ a.mdc-toolbar__title {
 }
 
 .sunshower-card-holder .mdc-card {
-  background: white;
+  background: $mdc-theme-background; //todo make change color on hover
 }
 
 .sunshower-card-holder .mdc-card__supporting-text {
   text-align:center;
+}
+
+.sunshower-card-holder .mdc-card__primary {
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
 }
