@@ -10,8 +10,7 @@ var gulp = require('gulp'),
     compilerOptions = require('../babel-options'),
     concat = require('gulp-concat'),
     assign = Object.assign || require('object.assign'),
-    scss = require('gulp-sass'),
-    dtsGen = require('dts-generator').default;
+    scss = require('gulp-sass');
 
 gulp.task('build-pug', function () {
     return gulp.src(paths.pug)
@@ -61,13 +60,13 @@ gulp.task('build-images', function() {
         .pipe(gulp.dest(paths.output + 'amd'));
 });
 
-gulp.task('definitions', function() {
-    dtsGen({
-        name: 'aire',
-        project: './',
-        out: 'lib/dts/lib_name.d.ts'
-    });
-});
+// gulp.task('definitions', function() {
+//     dtsGen({
+//         name: 'aire',
+//         project: './',
+//         out: 'lib/dts/lib_name.d.ts'
+//     });
+// });
 
 
 var typescriptCompiler = typescriptCompiler || null;

@@ -26,7 +26,6 @@
     "aurelia-templating-router": "github:aurelia/templating-router"
   },
   "globalDependencies": {
-    "index": "github:sunshower-io/aire/src/typings/index.d.ts",
     "jquery": "registry:dt/jquery#1.10.0+20170310222111"
   }
 }
