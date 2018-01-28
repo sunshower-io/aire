@@ -10,7 +10,7 @@ declare module 'aire/routing' {
     export module StructureAwareRouter {
 
         export class RouteRelationship {
-            isChildOf(cfgs:RouteConfig[], path: string);
+            public isChildOf(cfgs:RouteConfig[], path: string);
         }
     }
 }
