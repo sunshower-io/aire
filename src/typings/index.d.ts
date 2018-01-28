@@ -3,7 +3,7 @@ declare module 'aire/routing' {
     import {RouteConfig} from "aurelia-router";
 
     export class StructureAwareRouter {
-        protected routeConfig(cfgs: RouteConfig[]): StructureAwareRouter.RouteRelationship;
+        protected routeConfig(cfgs: RouteConfig[]): RouteRelationship;
         protected children(parent: RouteConfig[], path: string): RouteConfig[];
     }
 
