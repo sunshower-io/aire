@@ -1,0 +1,8 @@
+template
+    .mdc-grid-list.mdc-grid-list--header-caption.sunshower-card-holder
+        ul.mdc-grid-list__tiles
+            li.mdc-grid-tile(repeat.for="tile of tiles")
+                .mdc-grid-tile__primary
+                    .mdc-grid-tile__primary-content ${tile.content}
+                span.mdc-grid-tile__secondary
+                    span.mdc-grid-tile__title ${tile.title}

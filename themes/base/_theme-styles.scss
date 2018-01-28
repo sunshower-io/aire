@@ -8,7 +8,7 @@
 body {
   @extend .mdc-typography;
   @extend .mdc-theme--text-primary-on-light;
-  background: lighten($mdc-theme-background, 2.5%);
+  background: lighten($mdc-theme-background, 7.5%);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -97,4 +97,28 @@ input[type="button"], input[type="submit"], button, a.mdc-button {
 
 a.mdc-toolbar__title {
   color: inherit;
+}
+
+.sunshower-card-holder .mdc-card {
+  background: $mdc-theme-background; //todo make change color on hover
+}
+
+.sunshower-card-holder .mdc-card__supporting-text {
+  text-align:center;
+}
+
+.sunshower-card-holder .mdc-card__primary {
+  text-align: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.header-action {
+  a {
+    font-size: 12px;
+  }
+
+  .material-icons {
+    vertical-align: middle;
+  }
 }

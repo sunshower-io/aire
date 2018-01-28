@@ -7,9 +7,7 @@ export class Card {
     @bindable private title : string;
     @bindable private subtitle : string;
     @bindable private text : string;
-    @bindable private action1 : {text: string, action: any};
-    @bindable private action2 : {text: string, action: any};
-
-    //todo bind actions
+    @bindable private links : {text: string, action: Function}[];
+    @bindable private isLink : boolean;
 
 }

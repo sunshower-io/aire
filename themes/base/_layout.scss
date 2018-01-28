@@ -18,7 +18,7 @@ body {
   width: 100%;
 }
 
-router-view {
+router-view, main {
   width:100%;
 }
 
@@ -70,10 +70,25 @@ a {
   flex: 1 1 auto;
   height:100%;
   box-sizing:border-box;
-  width: 56px; //todo peg to toolbar height
 }
 
 
 .mdc-toolbar__menu-icon {
   padding: 16px !important;
+}
+
+
+.mdc-grid-list--header-caption .mdc-grid-tile__primary-content:not(img) {
+    padding-top:50px;
+}
+
+
+.sunshower-card-holder .mdc-card {
+  width: 200px;
+  height: 200px;
+}
+
+.header-action {
+  position: absolute;
+  top: $standard-padding;
 }
