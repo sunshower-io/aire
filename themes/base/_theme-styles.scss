@@ -126,10 +126,22 @@ a.mdc-toolbar__title {
 
 .mdc-tab-bar-scroller {
   background-color: $mdc-theme-primary-light;
+
+  .mdc-tab-bar {
+    margin:0;
+  }
 }
 
-.mdc-drawer {
-  .mdc-list-group {
-    border-bottom: 1px solid $material-color-blue-grey-100;
+.mdc-tab {
+  min-width:120px;
+}
+
+.mdc-drawer__content .mdc-list-group {
+  border-width: 1px 0 1px 0;
+  border-style: solid;
+  border-color: $mdc-theme-background;
+
+  &.expanded {
+    border-color: $material-color-blue-grey-100;
   }
 }
