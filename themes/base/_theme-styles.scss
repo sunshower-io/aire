@@ -122,3 +122,14 @@ a.mdc-toolbar__title {
     vertical-align: middle;
   }
 }
+
+
+.mdc-tab-bar-scroller {
+  background-color: $mdc-theme-primary-light;
+}
+
+.mdc-drawer {
+  .mdc-list-group {
+    border-bottom: 1px solid $material-color-blue-grey-100;
+  }
+}

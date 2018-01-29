@@ -1,26 +1,24 @@
 template
-    .demo-tabs__scroller
-        h2.mdc-typography--title.demo-title 
-        div(ref="element").mdc-tab-bar-scroller
-            .mdc-tab-bar-scroller__indicator.mdc-tab-bar-scroller__indicator--back
-                a.mdc-tab-bar-scroller__indicator__inner.material-icons(href='#', aria-label='scroll back button')
-                    | navigate_before
-            .mdc-tab-bar-scroller__scroll-frame
-                nav.mdc-tab-bar.mdc-tab-bar-scroller__scroll-frame__tabs
-                    slot(name="tabs")
-                    //a.mdc-tab.mdc-tab--active(href='#one') Item One
-                    //a.mdc-tab(href='#two') Item Two
-                    //a.mdc-tab(href='#three') Item Three
-                    //a.mdc-tab(href='#four') Item Four
-                    //a.mdc-tab(href='#five') Item Five
-                    //a.mdc-tab(href='#six') Item Six
-                    //a.mdc-tab(href='#seven') Item Seven
-                    //a.mdc-tab(href='#eight') Item Eight
-                    //a.mdc-tab(href='#nine') Item Nine
-                    span.mdc-tab-bar__indicator
-            .mdc-tab-bar-scroller__indicator.mdc-tab-bar-scroller__indicator--forward
-                a.mdc-tab-bar-scroller__indicator__inner.material-icons(href='#', aria-label='scroll forward button')
-                    | navigate_next
+    div(ref="element").mdc-tab-bar-scroller
+        .mdc-tab-bar-scroller__indicator.mdc-tab-bar-scroller__indicator--back
+            a.mdc-tab-bar-scroller__indicator__inner.material-icons(href='#', aria-label='scroll back button')
+                | navigate_before
+        .mdc-tab-bar-scroller__scroll-frame
+            nav.mdc-tab-bar.mdc-tab-bar-scroller__scroll-frame__tabs
+                slot(name="tabs")
+                //a.mdc-tab.mdc-tab--active(href='#one') Item One
+                //a.mdc-tab(href='#two') Item Two
+                //a.mdc-tab(href='#three') Item Three
+                //a.mdc-tab(href='#four') Item Four
+                //a.mdc-tab(href='#five') Item Five
+                //a.mdc-tab(href='#six') Item Six
+                //a.mdc-tab(href='#seven') Item Seven
+                //a.mdc-tab(href='#eight') Item Eight
+                //a.mdc-tab(href='#nine') Item Nine
+                span.mdc-tab-bar__indicator
+        .mdc-tab-bar-scroller__indicator.mdc-tab-bar-scroller__indicator--forward
+            a.mdc-tab-bar-scroller__indicator__inner.material-icons(href='#', aria-label='scroll forward button')
+                | navigate_next
     div.panels            
         slot(name="content")
             
