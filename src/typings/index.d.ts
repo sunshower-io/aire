@@ -1,3 +1,4 @@
+
 declare module 'aire/routing' {
 
     import {RouteConfig} from "aurelia-router";
@@ -70,6 +71,9 @@ declare module 'aire/components/events' {
 }
 
 declare module "aire/lib/lang" {
+    export interface Serializable {
+        toJson() : string;
+    }
 
     export const parseBoolean: (a: any) => boolean;
 

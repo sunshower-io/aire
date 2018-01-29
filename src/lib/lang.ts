@@ -9,3 +9,7 @@ var falsy = /^(?:f(?:alse)?|no?|0+)$/i;
 export const parseBoolean: (o:any) => boolean = (val) => {
     return !falsy.test(val) && !!val;
 };
+
+export interface Serializable {
+    toJson() : string;
+}
