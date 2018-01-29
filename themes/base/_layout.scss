@@ -92,3 +92,20 @@ a {
   position: absolute;
   top: $standard-padding;
 }
+
+
+.mdc-drawer__drawer {
+  .mdc-list-group__subheader.mdc-list-item {
+    margin:0;
+  }
+
+  .mdc-list--dense {
+    padding-left:0 !important;
+    margin-top:0 !important;
+    padding-top:0 !important;
+
+    .mdc-list-item {
+      padding-left: 72px !important; //padding-left + icon + margin-right of icon
+    }
+  }
+}
