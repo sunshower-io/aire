@@ -4,13 +4,23 @@ var Karma = require('karma').Server;
 /**
  * Run test once and exit
  */
-gulp.task('test', function(done) {
-  new Karma({
-    configFile: __dirname + '/../../karma.conf.js',
-    singleRun: true
-  }, done).start();
-});
+// gulp.task('test', function(done) {
+//   new Karma({
+//     configFile: __dirname + '/../../karma.conf.js',
+//     singleRun: true
+//   }, done).start();
+// });
 
+gulp.task('test', function(done) {
+    Karma.start({
+        // configFile: __dirname + '/karma.conf.js',
+    configFile: __dirname + '/../../karma.conf.js',
+        singleRun: true
+    }, function() {
+        console.log("Done");
+        // done();
+    });
+});
 /**
  * Watch for file changes and re-run tests on each change
  */

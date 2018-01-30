@@ -13,3 +13,5 @@ export const parseBoolean: (o:any) => boolean = (val) => {
 export interface Serializable {
     toJson() : string;
 }
+
+

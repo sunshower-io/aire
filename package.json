@@ -19,6 +19,7 @@
     "url": "http://github.com/aurelia/skeleton-plugin"
   },
   "devDependencies": {
+    "@types/karma": "^1.7.3",
     "aurelia-tools": "^1.0.0",
     "babel-eslint": "^7.1.1",
     "babel-plugin-syntax-flow": "^6.18.0",
@@ -31,6 +32,7 @@
     "babel-preset-stage-1": "^6.22.0",
     "conventional-changelog": "1.1.3",
     "del": "^2.2.2",
+    "es6-module-loader": "^0.17.11",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-bump": "^2.7.0",
@@ -46,15 +48,19 @@
     "gulp-yuidoc": "^0.1.2",
     "isparta": "^4.0.0",
     "istanbul": "^1.0.0-alpha.2",
+    "jasmine": "^2.9.0",
     "jasmine-core": "^2.5.2",
     "jspm": "^0.16.53",
-    "karma": "^1.5.0",
+    "karma": "^1.7.0",
     "karma-babel-preprocessor": "^6.0.1",
     "karma-chrome-launcher": "^2.0.0",
     "karma-coverage": "^1.1.1",
-    "karma-jasmine": "^1.1.0",
+    "karma-jasmine": "^1.1.1",
     "karma-jspm": "2.2.2",
+    "karma-systemjs": "^0.16.0",
+    "karma-typescript": "^3.0.10",
     "object.assign": "^4.0.4",
+    "reflect-metadata": "^0.1.12",
     "require-dir": "^0.3.1",
     "run-sequence": "^1.2.2",
     "typescript": "^2.6.2",
@@ -69,7 +75,10 @@
       "dist": "dist/amd"
     },
     "dependencies": {
-      "aurelia-event-aggregator": "^1.0.1"
+      "aurelia-dependency-injection": "^1.3.2",
+      "aurelia-event-aggregator": "^1.0.1",
+      "aurelia-path": "^1.1.1",
+      "reflect-metadata": "^0.1.12"
     },
     "devDependencies": {
       "aurelia-polyfills": "^1.0.0"
@@ -78,6 +87,7 @@
   "dependencies": {
     "@material/button": "^0.29.0",
     "@material/card": "^0.29.0",
+    "@material/checkbox": "^0.29.0",
     "@material/drawer": "^0.29.0",
     "@material/grid-list": "^0.29.0",
     "@material/list": "^0.29.0",
@@ -86,6 +96,7 @@
     "@material/theme": "^0.29.0",
     "@material/toolbar": "^0.28.0",
     "@material/typography": "^0.28.0",
+    "aurelia-path": "^1.1.1",
     "material-design-icons": "^3.0.1"
   }
 }
