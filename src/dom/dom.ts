@@ -10,15 +10,15 @@ export declare type Class = Function;
 
 
 export function generated(instance: any, key: string) {
-    let value = this[key] || UUID.random(),
+    console.log("instance", instance);
+    let value = instance[key] || UUID.random(),
         getter = function (): string {
             return value;
         },
         setter = function (v: string): void {
             value = v;
         };
-    if(delete this[key]) {
-
+    if(delete instance[key]) {
         Object.defineProperty(instance, key, {
             get: getter,
             set: setter,
