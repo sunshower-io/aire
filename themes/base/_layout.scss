@@ -114,3 +114,7 @@ a {
 .sunshower-toggler {
   cursor: pointer;
 }
+
+div[slot="content"] {
+  padding: 0 $standard-padding;
+}
