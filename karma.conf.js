@@ -36,7 +36,9 @@ module.exports = function (config) {
         exclude: [],
 
         karmaTypescriptConfig: {
-            compilerOptions: {},
+            compilerOptions: {
+                module: 'es6'
+            },
             tsconfig: './tsconfig.json',
             resolve: {
                 directories: ['node_modules', 'jspm_packages']
