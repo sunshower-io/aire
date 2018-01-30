@@ -100,7 +100,10 @@ a.mdc-toolbar__title {
 }
 
 .sunshower-card-holder .mdc-card {
-  background: $mdc-theme-background; //todo make change color on hover
+  border-bottom:5px solid $mdc-theme-secondary;
+  &:hover {
+    border-color: $mdc-theme-primary;
+  }
 }
 
 .sunshower-card-holder .mdc-card__supporting-text {
