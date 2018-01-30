@@ -59,6 +59,7 @@
     "karma-jspm": "2.2.2",
     "karma-systemjs": "^0.16.0",
     "karma-typescript": "^3.0.10",
+    "karma-typescript-preprocessor": "^0.3.1",
     "object.assign": "^4.0.4",
     "reflect-metadata": "^0.1.12",
     "require-dir": "^0.3.1",

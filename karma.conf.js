@@ -9,34 +9,47 @@ module.exports = function (config) {
 
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['jspm', 'jasmine'],
+        frameworks: ['jspm', 'jasmine', 'karma-typescript'],
 
         jspm: {
             // Edit this to your needs
-            loadFiles: ['test/setup.js', 'test/unit/**/*.js'],
-            serveFiles: ['dist/amd/**/*.js'],
+            loadFiles: ['test/karma-main.js', 'test/setup.js', 'test/unit/**/*.js'],
+            serveFiles: ['dist/amd/**/*.js', 'jspm_packages/**/*.js'],
             paths: {
                 "*": "*",
                 'aire/*': 'dist/amd/*',
                 'github:*': 'jspm_packages/github/*',
                 'npm:*': 'jspm_packages/npm/*'
-            }
+            },
+
+
         },
 
         // list of files / patterns to load in the browser
         files: [
+            'src/**/*.ts',
+            'test/**/*.ts',
             {pattern: "node_modules/reflect-metadata/Reflect.js", include: true},
         ],
 
         // list of files to exclude
         exclude: [],
 
+        karmaTypescriptConfig: {
+            compilerOptions: {},
+            tsconfig: './tsconfig.json',
+            resolve: {
+                directories: ['node_modules', 'jspm_packages']
+            }
+        },
+
 
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
         preprocessors: {
             'test/**/*.js': ['babel'],
-            'src/**/*.js': ['babel']
+            'src/**/*.js': ['babel'],
+            'test/**/*.ts': ['karma-typescript']
         },
         'babelPreprocessor': {
             options: {

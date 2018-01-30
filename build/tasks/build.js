@@ -17,13 +17,13 @@ gulp.task('build-pug', function () {
         .pipe(pug)
 });
 
-gulp.task('build-scss', function() {
+gulp.task('build-scss', function () {
     return gulp.src(paths.themes)
         .pipe(scss({
             includePaths: [__dirname + '/jspm_packages/npm/@material', 'node_modules']
         }).on('error', scss.logError))
         .pipe(concat('sunshower.css')).pipe(gulp.dest(paths.output + 'amd'));
-    
+
 });
 
 gulp.task('build-pug', function () {
@@ -55,7 +55,7 @@ gulp.task('build-css', function () {
         .pipe(gulp.dest(paths.output + 'system'));
 });
 
-gulp.task('build-images', function() {
+gulp.task('build-images', function () {
     return gulp.src(paths.images)
         .pipe(gulp.dest(paths.output + 'amd'));
 });
@@ -82,11 +82,12 @@ gulp.task('build-system', function () {
         .pipe(changed(paths.output, {extension: '.ts'}))
         .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(typescriptCompiler());
-        
+
     result// .pipe(sourcemaps.write('.', {includeContent: false, sourceRoot: '/src'}))
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(paths.output + 'amd'));
-    
+        .pipe(gulp.dest(paths.output + 'amd'))
+        .pipe(gulp.dest(paths.output + 'system'));
+
     return result;
 });
 
