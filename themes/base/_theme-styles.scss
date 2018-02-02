@@ -101,6 +101,8 @@ a.mdc-toolbar__title {
 
 .sunshower-card-holder .mdc-card {
   border-bottom:5px solid $mdc-theme-secondary;
+  cursor: pointer;
+
   &:hover {
     border-color: $mdc-theme-primary;
   }
@@ -116,11 +118,7 @@ a.mdc-toolbar__title {
   box-sizing: border-box;
 }
 
-.header-action {
-  a {
-    font-size: 12px;
-  }
-
+.header-info {
   .material-icons {
     vertical-align: middle;
   }
