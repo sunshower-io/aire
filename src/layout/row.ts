@@ -5,7 +5,6 @@ import {autoinject, bindable, customElement, TemplatingEngine} from "aurelia-fra
 @customElement('row')
 export class Row {
 
-    frapper: string = "coolbeans";
     private element: Element;
 
     @bindable
@@ -15,9 +14,6 @@ export class Row {
 
     }
 
-    onClick() {
-        this.frapper = "fuck";
-    }
 
 
     attached(): void {
