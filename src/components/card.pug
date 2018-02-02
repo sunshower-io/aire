@@ -7,9 +7,9 @@ template
         section.mdc-card__actions(if.bind="links && links.length > 0")
             a.mdc-button.mdc-button--compact.mdc-card__action(
                 repeat.for="link of links"
-                click.delegate="link.action"
+                href.bind="link.action"
                 ) ${link.text}
-    .mdc-card__actions--vertical.mdc-card(if.bind="isLink" click.delegate="links[0].action")
+    .mdc-card__actions--vertical.mdc-card(if.bind="isLink" href.bind="links[0].action")
         section.mdc-card__supporting-text(if.bind="text") ${text}
         section.mdc-card__primary
             h1.mdc-card__title.mdc-card__title--large(if.bind="title") ${title}

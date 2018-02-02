@@ -99,23 +99,35 @@ a.mdc-toolbar__title {
   color: inherit;
 }
 
-.sunshower-card-holder .mdc-card {
-  border-bottom:5px solid $mdc-theme-secondary;
-  cursor: pointer;
 
-  &:hover {
-    border-color: $mdc-theme-primary;
+
+.sunshower-card-holder {
+
+  .mdc-card {
+    border-bottom: 5px solid $mdc-theme-secondary;
+    cursor: pointer;
+
+    &:hover {
+      border-color: $mdc-theme-primary;
+    }
   }
-}
 
-.sunshower-card-holder .mdc-card__supporting-text {
-  text-align:center;
-}
+  .mdc-card__supporting-text {
+    text-align:center;
+    width:100%;
+    box-sizing:border-box;
+  }
 
-.sunshower-card-holder .mdc-card__primary {
-  text-align: center;
-  width: 100%;
-  box-sizing: border-box;
+
+  .mdc-card__primary {
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .mdc-card__title {
+    text-transform: capitalize;
+  }
 }
 
 .header-info {
