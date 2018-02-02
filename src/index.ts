@@ -29,6 +29,7 @@ export function configure(config: FrameworkConfiguration) {
         './components/card',
         './components/drawer',
         './components/tab-panel',
-        './components/grid-list'
+        './components/grid-list',
+        './components/checkbox'
     ]);
 }

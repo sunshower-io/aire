@@ -1,5 +1,6 @@
 import {autoinject, Container, customAttribute} from "aurelia-framework";
 
+import 'jquery';
 import 'golden-layout';
 
 @autoinject
@@ -19,22 +20,23 @@ export class Layout {
 
     attached(): void {
         var config = {
+            dimensions: {
+                minItemHeight: 50
+            },
+            
             content: [{
                 type: 'row',
                 content: [
                     {
                         type: 'component',
-                        componentName: 'test1',
+                        componentName: 'main',
+                        width: 90,
                         componentState: {text: 'Component 1'}
                     },
                     {
                         type: 'component',
-                        componentName: 'test1',
-                        componentState: {text: 'Component 2'}
-                    },
-                    {
-                        type: 'component',
-                        componentName: 'test2',
+                        componentName: 'right',
+                        width:10,
                         componentState: {text: 'Component 2'}
                     }
                 ]
