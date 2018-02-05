@@ -13,30 +13,31 @@ export class Layout {
 
     constructor(private element: Element,
                 private injectionContext: Container) {
-        this.layout = new GoldenLayout({}, element);
+        this.layout = new GoldenLayout(
+            {dimensions: {
+            minItemHeight: 50,
+            headerHeight:48
+            }
+        }, element);
         this.configuration = this.layout.config;
         injectionContext.registerInstance(GoldenLayout, this.layout);
     }
 
     attached(): void {
         var config = {
-            dimensions: {
-                minItemHeight: 50
-            },
-            
             content: [{
                 type: 'row',
                 content: [
                     {
                         type: 'component',
                         componentName: 'main',
-                        width: 90,
+                        width: 80,
                         componentState: {text: 'Component 1'}
                     },
                     {
                         type: 'component',
                         componentName: 'right',
-                        width:10,
+                        width:20,
                         componentState: {text: 'Component 2'}
                     }
                 ]
