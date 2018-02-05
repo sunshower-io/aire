@@ -118,3 +118,7 @@ a {
 div[slot="content"] {
   padding: 0 $standard-padding;
 }
+
+a.mdc-card {
+  text-decoration: none;
+}

@@ -1,15 +1,15 @@
 template
-    .mdc-card__actions--vertical.mdc-card(if.bind="!isLink")
-        section.mdc-card__supporting-text(if.bind="text") ${text}
-        section.mdc-card__primary
-            h1.mdc-card__title.mdc-card__title--large(if.bind="title") ${title}
-            h2.mdc-card__subtitle(if.bind="subtitle") ${subtitle}
-        section.mdc-card__actions(if.bind="links && links.length > 0")
-            a.mdc-button.mdc-button--compact.mdc-card__action(
-                repeat.for="link of links"
-                href.bind="link.action"
-                ) ${link.text}
-    .mdc-card__actions--vertical.mdc-card(if.bind="isLink" href.bind="links[0].action")
+    //.mdc-card__actions--vertical.mdc-card(if.bind="!link")
+    //    section.mdc-card__supporting-text(if.bind="text") ${text}
+    //    section.mdc-card__primary
+    //        h1.mdc-card__title.mdc-card__title--large(if.bind="title") ${title}
+    //        h2.mdc-card__subtitle(if.bind="subtitle") ${subtitle}
+    //    section.mdc-card__actions(if.bind="links && links.length > 0")
+    //        a.mdc-button.mdc-button--compact.mdc-card__action(
+    //            repeat.for="link of links"
+    //            href.bind="link.action"
+    //            ) ${link.text}
+    a.mdc-card__actions--vertical.mdc-card(href.bind="link")
         section.mdc-card__supporting-text(if.bind="text") ${text}
         section.mdc-card__primary
             h1.mdc-card__title.mdc-card__title--large(if.bind="title") ${title}

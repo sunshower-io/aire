@@ -8,6 +8,10 @@ export class Card {
     @bindable private subtitle : string;
     @bindable private text : string;
     @bindable private links : {text: string, action: string}[];
-    @bindable private isLink : boolean;
+    @bindable private link : string;
 
+
+    attached() {
+        console.log(this);
+    }
 }
