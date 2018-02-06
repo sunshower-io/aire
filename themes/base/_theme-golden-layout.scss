@@ -28,12 +28,10 @@ $bg: lighten($mdc-theme-background, 7.5%);
     background: $mdc-theme-primary-light;
     border:none;
     color: $material-color-blue-grey-900;
-    //box-sizing:border-box;
-    //todo border-bottom
+    border-bottom: 2px solid $mdc-theme-primary-light;
 
     &.lm_active {
-
-      //todo border
+      border-color: $material-color-blue-grey-900; //todo fix color
     }
   }
 }
