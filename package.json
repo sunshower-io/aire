@@ -90,6 +90,7 @@
     "@material/card": "^0.29.0",
     "@material/checkbox": "^0.29.0",
     "@material/drawer": "^0.29.0",
+    "@material/fab": "^0.30.0",
     "@material/grid-list": "^0.29.0",
     "@material/list": "^0.29.0",
     "@material/tabs": "^0.29.0",

@@ -30,6 +30,7 @@ export function configure(config: FrameworkConfiguration) {
         './components/drawer',
         './components/tab-panel',
         './components/grid-list',
-        './components/checkbox'
+        './components/checkbox',
+        './components/fab'
     ]);
 }

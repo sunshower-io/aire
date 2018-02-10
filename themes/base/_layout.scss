@@ -130,3 +130,17 @@ div[slot="content"] {
 a.mdc-card {
   text-decoration: none;
 }
+
+
+.sunshower-fab--absolute {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+@media(min-width: 1024px) {
+  .sunshower-fab--absolute {
+    bottom: 1.5rem;
+    right: 1.5rem;
+  }
+}
