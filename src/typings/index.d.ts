@@ -33,13 +33,13 @@ declare module 'aire/components' {
         title : string;
         optional : boolean;
         number : number;
-        active : boolean;
         editable : boolean;
         done : boolean;
     }
 
     export class Stepper {
         steps : Step[];
+        activeStep : number;
     }
 
 }

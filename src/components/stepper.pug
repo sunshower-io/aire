@@ -1,10 +1,10 @@
 template
-    .mdl-stepper-horizontal-alternative
-        .mdl-stepper(repeat.for="step of steps"
-            class="${step.active ? 'active-step' : ''} ${step.editable ? 'editable-step' : ''} ${step.done ? 'step-done' : ''}")
-            .mdl-stepper-circle
+    .mdc-stepper-horizontal-alternative(class="mdc-steps-${steps.length}")
+        .mdc-stepper(repeat.for="step of steps"
+            class="${step.number === activeStep ? 'active-step' : ''} ${step.editable ? 'editable-step' : ''} ${step.done ? 'step-done' : ''}")
+            .mdc-stepper-circle
                 span ${step.number}
-            .mdl-stepper-title ${step.title}
-            .mdl-stepper-optional(if.bind="step.optional") Optional
-            .mdl-stepper-bar-left
-            .mdl-stepper-bar-right
+            .mdc-stepper-title ${step.title}
+            .mdc-stepper-optional(if.bind="step.optional") Optional
+            .mdc-stepper-bar-left
+            .mdc-stepper-bar-right
