@@ -107,6 +107,10 @@ a.mdc-toolbar__title {
     border-bottom: 5px solid $mdc-theme-secondary;
     cursor: pointer;
 
+    &:only-child {
+      margin: 0 auto;
+    }
+
     &:hover {
       border-color: $mdc-theme-primary;
     }

@@ -31,6 +31,7 @@ export function configure(config: FrameworkConfiguration) {
         './components/tab-panel',
         './components/grid-list',
         './components/checkbox',
-        './components/fab'
+        './components/fab',
+        './components/stepper'
     ]);
 }

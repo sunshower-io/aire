@@ -18,7 +18,7 @@
 -- For instance, to install `drawer` run `npm install --save @material/drawer`
 
 
-1.  `mvn clean install -f bom && gradle clean build pTML` on sunshower-devops
+1.  `mvn clean install -f bom && gradle clean build pTML` on sunshower-devops (this does not currently seem to work)
 2.  `mvn clean install -f bom && gradle clean build pTML` on sunshower-base (do not -x test)
 3.  `mvn clean install -f bom && gradle clean build pTML` on sunshower-core (do not -x test)
 4.  `mvn clean install -f bom && gradle clean build pTML -x test` on sunshower-kernel

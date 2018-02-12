@@ -1,0 +1,12 @@
+template
+    .mdl-card.mdl-shadow--2dp
+        .mdl-card__supporting-text
+            .mdl-stepper-horizontal-alternative
+                .mdl-stepper(repeat.for="step of steps"
+                    class="${step.active ? 'active-step' : ''} ${step.editable ? 'editable-step' : ''} ${step.done ? 'step-done' : ''}")
+                    .mdl-stepper-circle
+                        span ${step.number}
+                    .mdl-stepper-title ${step.title}
+                    .mdl-stepper-optional(if.bind="step.optional") Optional
+                    .mdl-stepper-bar-left
+                    .mdl-stepper-bar-right
