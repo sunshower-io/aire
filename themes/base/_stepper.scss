@@ -17,6 +17,7 @@
     display: table-cell;
     position: relative;
     padding: 24px;
+    cursor: pointer;
     &:hover {
       background-color: rgba(0, 0, 0, 0.06);
     }
@@ -99,14 +100,14 @@
     .mdc-stepper-optional {
       font-size: 12px;
     }
-    &.active-step .mdc-stepper-optional {
-      color: rgba(0, 0, 0, 0.54);
-    }
     .mdc-stepper-bar-left {
       position: absolute;
       top: 36px;
       height: 1px;
       border-top: 1px solid #BDBDBD;
+      left: 0;
+      right: 50%;
+      margin-right: 20px;
     }
     .mdc-stepper-bar-right {
       position: absolute;
@@ -116,11 +117,6 @@
       right: 0;
       left: 50%;
       margin-left: 20px;
-    }
-    .mdc-stepper-bar-left {
-      left: 0;
-      right: 50%;
-      margin-right: 20px;
     }
   }
 

@@ -166,3 +166,28 @@ a.mdc-toolbar__title {
     border-color: $material-color-blue-grey-100;
   }
 }
+
+.mdc-stepper-step {
+
+  .mdc-stepper-title, .mdc-stepper-optional {
+    color: rgba($material-color-blue-grey-900, 0.26);
+  }
+
+  &.active-step .mdc-stepper-title {
+    color: rgba($material-color-blue-grey-900, 0.87);
+  }
+
+  .mdc-stepper-circle {
+    background-color: $material-color-blue-grey-500;
+  }
+
+  &.active-step .mdc-stepper-circle {
+    background-color: $mdc-theme-primary !important;
+  }
+
+  .mdc-stepper-bar-left, .mdc-stepper-bar-right {
+    border-color: $material-color-blue-grey-500 !important;
+  }
+
+
+}

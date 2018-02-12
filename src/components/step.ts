@@ -3,5 +3,4 @@ export class Step {
     optional : boolean;
     number : number;
     editable : boolean;
-    done : boolean;
 }

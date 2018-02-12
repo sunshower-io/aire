@@ -34,7 +34,6 @@ declare module 'aire/components' {
         optional : boolean;
         number : number;
         editable : boolean;
-        done : boolean;
     }
 
     export class Stepper {
