@@ -27,11 +27,27 @@ declare module 'aire/components/drawer' {
     }
 }
 
+declare module 'aire/components' {
+
+    export class Step {
+        title : string;
+        optional : boolean;
+        number : number;
+        active : boolean;
+        editable : boolean;
+        done : boolean;
+    }
+
+    export class Stepper {
+        steps : Step[];
+    }
+
+}
+
 declare module 'aire/components/events' {
     import {Logger} from "aurelia-logging";
     import {EventAggregator, Subscription} from "aurelia-event-aggregator";
     import {Drawer as VMDrawer} from 'aire/components/drawer';
-    
     
     export class Drawer {
         expanded: boolean;
