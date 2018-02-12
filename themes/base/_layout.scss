@@ -123,7 +123,7 @@ a {
   cursor: pointer;
 }
 
-div[slot="content"], div[role="content"] {
+[slot="content"], [role="content"] {
   padding: 0 $standard-padding;
 }
 

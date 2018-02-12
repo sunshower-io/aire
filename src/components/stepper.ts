@@ -7,6 +7,6 @@ export class Stepper {
     steps : Step[];
 
     @bindable
-    activeStep : number = 1;
+    activeStep : number;
 
 }
