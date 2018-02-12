@@ -5,6 +5,7 @@
 @import "@material/toolbar/mdc-toolbar";
 @import "@material/typography/mdc-typography";
 
+
 body {
   @extend .mdc-typography;
   @extend .mdc-theme--text-primary-on-light;
@@ -103,9 +104,12 @@ a.mdc-toolbar__title {
 
 .sunshower-card-holder {
 
+  //TODO bring in line with material components latest version
   .mdc-card {
     border-bottom: 5px solid $mdc-theme-secondary;
+    background-color: white;
     cursor: pointer;
+    color:$off-black;
 
     &:only-child {
       margin: 0 auto;
