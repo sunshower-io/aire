@@ -93,6 +93,7 @@
     "@material/fab": "^0.30.0",
     "@material/grid-list": "^0.30.0",
     "@material/icon-toggle": "^0.30.0",
+    "@material/layout-grid": "^0.24.0",
     "@material/list": "^0.30.0",
     "@material/ripple": "^0.30.0",
     "@material/tabs": "^0.30.0",

@@ -191,3 +191,9 @@ a.mdc-toolbar__title {
 
 
 }
+
+aside.mdc-layout-grid__cell {
+  border: 1px solid $mdc-theme-primary;
+  padding: $standard-padding;
+  background-color: $mdc-theme-background;
+}
