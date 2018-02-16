@@ -1,6 +1,6 @@
 import {bindable, containerless, customElement} from "aurelia-framework";
 
-@containerless
+// @containerless
 @customElement("card")
 export class Card {
 
@@ -12,6 +12,5 @@ export class Card {
 
 
     attached() {
-        console.log(this);
     }
 }
