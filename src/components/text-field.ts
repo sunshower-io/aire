@@ -13,6 +13,8 @@ export class TextField {
     @bindable public id: string;
     @bindable public label: string;
     @bindable public icon: string = '';
+    @bindable public disabled: boolean;
+    @bindable public required: boolean;
     
     @bindable({
         defaultBindingMode: bindingMode.twoWay
