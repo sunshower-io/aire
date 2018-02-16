@@ -8,7 +8,7 @@ import {bindable, bindingMode, customElement} from "aurelia-framework";
 export class TextField {
 
 
-    private element: Element;
+    private element: HTMLElement;
 
     @bindable public id: string;
     @bindable public label: string;
@@ -25,6 +25,11 @@ export class TextField {
 
     attached(): void {
         this.field = new MDCTextField(this.element);
+        if (this.value != null) {
+            this.field.outline_.foundation_.updateSvgPath(
+                this.field.label_.foundation_.adapter_.getWidth() - 20,
+                false); //currently prefilled + outline is broken, this kinda gets around it
+        }
     }
 
 
