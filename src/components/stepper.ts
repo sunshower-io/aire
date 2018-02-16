@@ -1,7 +1,9 @@
-import {bindable, customElement} from "aurelia-framework";
+import {bindable, customElement, inject} from "aurelia-framework";
 import {Step} from "aire/components/step";
+import { EventAggregator } from 'aurelia-event-aggregator';
 
 @customElement("stepper")
+@inject(EventAggregator)
 export class Stepper {
     @bindable
     steps : Step[];
@@ -12,9 +14,17 @@ export class Stepper {
     @bindable
     eventListener : string;
 
+    constructor(private eventAggregator : EventAggregator) {
+
+    }
+
     changeStep(step : Step) {
-        this.activeStep = step.number;
-        //TODO set up events to change activeStep in parent
+        if (step.isNavigable(this.activeStep, this.steps[this.activeStep -1].optional)) {
+            this.activeStep = step.number;
+            this.eventAggregator.publish('STEPPER_NAVIGATION', {step: this.activeStep});
+        } else {
+            //TODO figure out good non-navigable UX
+        }
     }
 
 }

@@ -1,7 +1,8 @@
 template
     .mdc-stepper-horizontal-alternative(class="mdc-steps-${steps.length}")
         .mdc-stepper-step(repeat.for="step of steps"
-            class="${step.isActive(activeStep) ? 'active-step' : ''} ${step.editable ? 'editable-step' : ''} ${step.isDone(activeStep) ? 'step-done' : ''}")
+            class="${step.isActive(activeStep) ? 'active-step' : ''} ${step.editable ? 'editable-step' : ''} ${step.isDone(activeStep) ? 'step-done' : ''}"
+            click.delegate="changeStep(step)")
             .mdc-stepper-circle
                 span ${step.number}
             .mdc-stepper-title ${step.title}
