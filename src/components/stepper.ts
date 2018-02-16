@@ -9,4 +9,12 @@ export class Stepper {
     @bindable
     activeStep : number;
 
+    @bindable
+    eventListener : string;
+
+    changeStep(step : Step) {
+        this.activeStep = step.number;
+        //TODO set up events to change activeStep in parent
+    }
+
 }

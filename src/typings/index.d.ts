@@ -34,6 +34,10 @@ declare module 'aire/components' {
         optional : boolean;
         number : number;
         editable : boolean;
+
+        isActive(active : number) : boolean;
+        isDone(active : number) : boolean;
+        isNavigable(activeNumber : number, activeOptional : boolean) : boolean;
     }
 
     export class Stepper {
