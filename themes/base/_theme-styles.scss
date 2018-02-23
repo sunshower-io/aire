@@ -9,7 +9,7 @@
 body {
   @extend .mdc-typography;
   @extend .mdc-theme--text-primary-on-light;
-  background: lighten($mdc-theme-background, 7.5%);
+  background: $mdc-theme-background-lighter;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -96,6 +96,29 @@ input[type="button"], input[type="submit"], button, a.mdc-button {
 }
 
 
+.mdc-toolbar {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1a237e+0,3f51b5+99 */
+  background: #1a237e; /* Old browsers */
+  background: -moz-linear-gradient(left, #1a237e 0%, #3f51b5 99%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #1a237e 0%,#3f51b5 99%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #1a237e 0%,#3f51b5 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1a237e', endColorstr='#3f51b5',GradientType=1 ); /* IE6-9 */
+  color: white;
+}
+
+.mdc-drawer--temporary {
+  .mdc-drawer__header::before {
+    padding-top: 56px; //height of nav; todo set dynamically
+  }
+
+
+  .mdc-drawer__header-content {
+    background-color: #1a237e !important;
+    color: white;
+  }
+}
+
+
 a.mdc-toolbar__title {
   color: inherit;
 }
@@ -106,7 +129,7 @@ a.mdc-toolbar__title {
 
   //TODO bring in line with material components latest version
   .mdc-card {
-    border-bottom: 5px solid $mdc-theme-secondary;
+    border-bottom: 50px solid $mdc-theme-secondary;
     background-color: white;
     cursor: pointer;
     color:$off-black;

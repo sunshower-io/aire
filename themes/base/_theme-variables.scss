@@ -45,6 +45,7 @@ $material-color-indigo-a200: #536dfe;
 $material-color-indigo-a400: #3d5afe;
 $material-color-indigo-a700: #304ffe;
 
+$material-color-amber-25: #fffcf3; //not from material
 $material-color-amber-50: #fff8e1;
 $material-color-amber-100: #ffecb3;
 $material-color-amber-200: #ffe082;
@@ -82,6 +83,7 @@ $mdc-theme-secondary-light: $material-color-indigo-300 !default;
 $mdc-theme-secondary-dark: $material-color-indigo-700 !default;
 
 $mdc-theme-background: $material-color-amber-50 !default;
+$mdc-theme-background-lighter: $material-color-amber-25;
 
 $mdc-theme-text-colors: (
         dark: (
