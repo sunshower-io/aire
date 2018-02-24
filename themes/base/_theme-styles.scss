@@ -113,13 +113,13 @@ input[type="button"], input[type="submit"], button, a.mdc-button {
 
 .mdc-drawer--temporary {
   .mdc-drawer__header::before {
-    padding-top: 56px; //height of nav; todo set dynamically
+    padding-top: 64px; //height of nav; todo set dynamically
   }
 
 
   .mdc-drawer__header-content {
     background-color: #1a237e !important;
-    color: white;
+    color: white !important;
   }
 }
 
@@ -135,6 +135,17 @@ a.mdc-toolbar__title {
   .mdc-card__title {
     @extend .mdc-typography--headline;
     text-transform: capitalize;
+    text-align: center;
+    line-height:3rem;
+  }
+
+  .mdc-card__title {
+    background-color: $mdc-theme-primary;
+    color: white;
+  }
+
+  .mdc-card__media:hover .mdc-card__title {
+    background-color: $mdc-theme-secondary;
   }
 }
 

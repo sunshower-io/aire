@@ -1,18 +1,16 @@
-import {bindable, containerless, customElement} from "aurelia-framework";
+import {bindable, customElement} from "aurelia-framework";
+import {Image} from "aire/components/image";
 
-// @containerless
 @customElement("card")
 export class Card {
 
     @bindable private title : string;
-    @bindable private subtitle : string;
-    @bindable private text : string;
-    @bindable private links : {text: string, action: string}[];
+    @bindable private links : {icon: string, action: string}[];
     @bindable private link : string;
+    @bindable private image : Image;
 
 
     attached() {
     }
 
-    //todo pull out subtitle and text, add image
 }

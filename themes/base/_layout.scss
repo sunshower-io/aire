@@ -101,24 +101,33 @@ a {
 
   card, .mdc-card {
     width: 200px;
+  }
+
+  .mdc-card__media--square {
     height: 200px;
   }
 
-  .mdc-card__title {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
-    line-height:3rem;
-    background-color: $mdc-theme-primary;
-    color: white;
-  }
-
-  card:hover .mdc-card__title {
-    background-color: $mdc-theme-secondary;
-  }
 }
 
+.mdc-card__media {
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: contain;
+  padding: $standard-padding;
+  background-origin: content-box;
+  //background-image is set in card.pug
+}
+
+.mdc-card__media--square::before {
+  margin-top:0;
+}
+
+.mdc-card__title {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  text-overflow:ellipsis;
+}
 
 .header-info {
   position: absolute;
