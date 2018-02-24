@@ -33,6 +33,11 @@ h2 {
 //  }
 //}
 
+main {
+  border-top: 5px solid $mdc-theme-primary;
+}
+
+
 .mdc-text-field {
   @extend .mdc-text-field--outlined;
 }
@@ -189,6 +194,8 @@ a.mdc-toolbar__title {
     border-color: $material-color-blue-grey-100;
   }
 }
+
+
 
 .mdc-stepper-step {
 
