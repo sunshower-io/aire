@@ -13,4 +13,6 @@ export class Card {
 
     attached() {
     }
+
+    //todo pull out subtitle and text, add image
 }

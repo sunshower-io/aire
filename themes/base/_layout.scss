@@ -91,10 +91,34 @@ a {
 }
 
 
-.sunshower-card-holder .mdc-card {
-  width: 200px;
-  height: 200px;
+.sunshower-card-holder {
+  text-align:center;
+
+  card {
+    display: inline-block;
+    margin: 0 $standard-padding $standard-padding $standard-padding;
+  }
+
+  card, .mdc-card {
+    width: 200px;
+    height: 200px;
+  }
+
+  .mdc-card__title {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    line-height:3rem;
+    background-color: $mdc-theme-primary;
+    color: white;
+  }
+
+  card:hover .mdc-card__title {
+    background-color: $mdc-theme-secondary;
+  }
 }
+
 
 .header-info {
   position: absolute;

@@ -9,8 +9,19 @@ template
     //            repeat.for="link of links"
     //            href.bind="link.action"
     //            ) ${link.text}
-    a.mdc-card__actions--vertical.mdc-card(href.bind="link")
-        section.mdc-card__supporting-text(if.bind="text") ${text}
-        section.mdc-card__primary
-            h1.mdc-card__title.mdc-card__title--large(if.bind="title") ${title}
-            h2.mdc-card__subtitle(if.bind="subtitle") ${subtitle}
+    //a.mdc-card__actions--vertical.mdc-card(href.bind="link")
+    //    section.mdc-card__supporting-text(if.bind="text") ${text}
+    //    section.mdc-card__primary
+    //        h1.mdc-card__title.mdc-card__title--large(if.bind="title") ${title}
+    //        h2.mdc-card__subtitle(if.bind="subtitle") ${subtitle}
+
+
+    .mdc-card
+        a.mdc-card__primary-action.demo-card__primary-action.mdc-ripple-upgraded(href.bind="link")
+            .mdc-card__media.mdc-card__media--square
+                .mdc-card__media-content
+                    //TODO image here as background
+                    .mdc-card__title ${title}
+        .mdc-card__actions.mdc-card__action-icons
+            i.material-icons.mdc-icon-toggle.mdc-card__action.mdc-card__action--icon.mdc-ripple-upgraded.mdc-rippkle-upgraded--unbounded(repeat.for="link of links" if.bind="false")
+            //TODO complete icon stuff

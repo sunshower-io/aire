@@ -132,36 +132,8 @@ a.mdc-toolbar__title {
 
 .sunshower-card-holder {
 
-  //TODO bring in line with material components latest version
-  .mdc-card {
-    border-bottom: 50px solid $mdc-theme-secondary;
-    background-color: white;
-    cursor: pointer;
-    color:$off-black;
-
-    &:only-child {
-      margin: 0 auto;
-    }
-
-    &:hover {
-      border-color: $mdc-theme-primary;
-    }
-  }
-
-  .mdc-card__supporting-text {
-    text-align:center;
-    width:100%;
-    box-sizing:border-box;
-  }
-
-
-  .mdc-card__primary {
-    text-align: center;
-    width: 100%;
-    box-sizing: border-box;
-  }
-
   .mdc-card__title {
+    @extend .mdc-typography--headline;
     text-transform: capitalize;
   }
 }
