@@ -47,6 +47,16 @@ declare module 'aire/components' {
 
 }
 
+declare module 'aire/components/image' {
+    export class Image {
+        public url : string;
+        public encoding : string;
+        public image : string;
+
+        constructor(data?:any);
+    }
+}
+
 declare module 'aire/components/events' {
     import {Logger} from "aurelia-logging";
     import {EventAggregator, Subscription} from "aurelia-event-aggregator";
