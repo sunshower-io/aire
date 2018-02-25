@@ -178,28 +178,32 @@ a.mdc-toolbar__title {
   }
 }
 
-
+.mdc-stepper-horizontal-alternative {
+  background-color: $mdc-theme-primary-light;
+}
 
 .mdc-stepper-step {
 
   .mdc-stepper-title, .mdc-stepper-optional {
-    color: rgba($material-color-blue-grey-900, 0.26);
+    color: $mdc-theme-background-lighter !important;
   }
 
   &.active-step .mdc-stepper-title {
-    color: rgba($material-color-blue-grey-900, 0.87);
+    color: $mdc-theme-background !important;
   }
 
   .mdc-stepper-circle {
-    background-color: $material-color-blue-grey-500;
+    background-color: $mdc-theme-background-lighter !important;
+    color: $mdc-theme-secondary !important;
   }
 
   &.active-step .mdc-stepper-circle {
-    background-color: $mdc-theme-primary !important;
+    background-color: $mdc-theme-secondary !important;
+    color: $mdc-theme-background !important;
   }
 
   .mdc-stepper-bar-left, .mdc-stepper-bar-right {
-    border-color: $material-color-blue-grey-500 !important;
+    border-color: $mdc-theme-background !important;
   }
 
 
