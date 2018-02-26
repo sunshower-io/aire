@@ -178,27 +178,23 @@ a.mdc-toolbar__title {
   }
 }
 
-.mdc-stepper-horizontal-alternative {
-  background-color: $mdc-theme-primary-light;
-}
-
 .mdc-stepper-step {
 
   .mdc-stepper-title, .mdc-stepper-optional {
-    color: $mdc-theme-background-lighter !important;
+    color: $mdc-theme-primary-light !important;
   }
 
   &.active-step .mdc-stepper-title {
-    color: $mdc-theme-background !important;
+    color: $mdc-theme-primary !important;
   }
 
   .mdc-stepper-circle {
-    background-color: $mdc-theme-background-lighter !important;
-    color: $mdc-theme-secondary !important;
+    background-color: $mdc-theme-primary-light !important;
+    color: $mdc-theme-background !important;
   }
 
   &.active-step .mdc-stepper-circle {
-    background-color: $mdc-theme-secondary !important;
+    background-color: $mdc-theme-primary !important;
     color: $mdc-theme-background !important;
   }
 
@@ -213,4 +209,9 @@ aside.mdc-layout-grid__cell {
   border-top: 5px solid $mdc-theme-primary;
   padding: $standard-padding;
   background-color: white;
+  font-size:9rem;
+
+  h2 {
+    font-size: 1.2rem;
+  }
 }
