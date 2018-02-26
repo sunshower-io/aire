@@ -106,10 +106,15 @@ input[type="button"], input[type="submit"], button, a.mdc-button {
   background: white;
   color: $mdc-theme-secondary-dark;
 
-  a {
+  a.mdc-toolbar__title {
     color: inherit;
   }
 
+  a.mdc-toolbar__menu-icon {
+    color: $material-color-blue-grey-500;
+    border-bottom:1px solid $mdc-theme-background;
+    border-right:1px solid $mdc-theme-background;
+  }
 }
 
 .mdc-drawer--temporary {
@@ -134,7 +139,21 @@ input[type="button"], input[type="submit"], button, a.mdc-button {
 
 .mdc-drawer--permanent {
   .mdc-list-item {
-    color: $mdc-theme-secondary;
+    border-bottom:1px solid $mdc-theme-background;
+
+    .mdc-list-item__graphic {
+      color: $material-color-blue-grey-500;
+    }
+
+    &.mdc-list-item--selected .mdc-list-item__graphic {
+      color: $mdc-theme-primary;
+    }
+    &:hover .mdc-list-item__graphic {
+      color: $mdc-theme-primary-light;
+    }
+    &::after, &::before {
+      background-color:inherit;
+    }
   }
 }
 
