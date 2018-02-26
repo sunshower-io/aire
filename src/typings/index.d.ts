@@ -99,8 +99,12 @@ declare module 'aire/components/events' {
 }
 
 declare module 'aire/dom' {
+    
     export type Class = Function;
+    
+    
     export function createEvent(name: string, value: any) : Event;
+    
 }
 
 declare module "aire/lib/lang" {
