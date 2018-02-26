@@ -22,6 +22,7 @@ $bg-chrome: $mdc-theme-background;
 }
 
 .lm_header {
+  border-bottom: 1px solid #e4e4e4; //TODO variablize
 
   .lm_tab {
     background: $bg-chrome;

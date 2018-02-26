@@ -13,12 +13,19 @@ export class Layout {
 
     constructor(private element: Element,
                 private injectionContext: Container) {
-        this.layout = new GoldenLayout(
-            {dimensions: {
-            minItemHeight: 50,
-            headerHeight:48
-            }
-        }, element);
+        this.layout = new GoldenLayout({
+                dimensions: {
+                    minItemHeight: 50,
+                    headerHeight:48
+                },
+                settings: {
+                    showPopoutIcon: false,
+                    showMaximiseIcon: false,
+                    showCloseIcon: false,
+                    reorderEnabled: false,
+                    selectionEnabled: false
+                }
+            }, element);
         this.configuration = this.layout.config;
         injectionContext.registerInstance(GoldenLayout, this.layout);
     }
@@ -32,16 +39,18 @@ export class Layout {
                         type: 'component',
                         componentName: 'main',
                         width: 80,
-                        componentState: {text: 'Component 1'}
+                        componentState: {text: 'Component 1'},
+                        isCloseable: false
                     },
                     {
                         type: 'component',
                         componentName: 'right',
                         width:20,
-                        componentState: {text: 'Component 2'}
+                        componentState: {text: 'Component 2'},
+                        isCloseable: false
                     }
                 ]
-            }]
+            }] //TODO determine why isCloseable: false isn't working
         };
         this.configuration.content = config.content;
         setTimeout(() => {
