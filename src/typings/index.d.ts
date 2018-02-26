@@ -1,4 +1,3 @@
-
 declare module 'aire/routing' {
 
     import {RouteConfig} from "aurelia-router";
@@ -97,6 +96,11 @@ declare module 'aire/components/events' {
             static on(topic: string, cb: Action<Drawer>): Subscription;
         }
     }
+}
+
+declare module 'aire/dom' {
+    export type Class = Function;
+    export function createEvent(name: string, value: any) : Event;
 }
 
 declare module "aire/lib/lang" {
