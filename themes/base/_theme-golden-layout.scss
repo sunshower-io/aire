@@ -1,16 +1,7 @@
-$base: $material-color-amber-50;
-$color0: white;
-$color1: lighten($mdc-theme-background, 7.5%);
-$color2: $material-color-amber-200;
-$color3: $material-color-amber-500; // Appears 2 times
-$light: $material-color-blue-grey-100;
-$grey: $material-color-blue-grey-500;
-$dark: $material-color-blue-grey-900;
-$shadowcolor: $color3;
 $text: $material-color-blue-grey-900;
-$bg: #F2F2F0;
-$bg-chrome: $mdc-theme-background;
-$border-color: #e4e4e4;
+$bg: $mdc-theme-background-lighter;
+$bg-chrome: $mdc-theme-background-lighter;
+$border-color: $material-color-blue-grey-100;
 
 
 .lm_goldenlayout {
@@ -18,7 +9,7 @@ $border-color: #e4e4e4;
 }
 
 .lm_content {
-  background: $bg;
+  background: $bg !important;
   border: 1px solid $border-color;
 }
 
@@ -29,7 +20,7 @@ $border-color: #e4e4e4;
     background: $bg-chrome;
     border:1px solid $border-color !important;
     border-bottom: none !important;
-    color: $material-color-blue-grey-900;
+    color: $text;
     text-align: center;
     text-decoration: none;
     text-transform:uppercase;

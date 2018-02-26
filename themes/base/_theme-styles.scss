@@ -34,7 +34,7 @@ h2 {
 //}
 
 main {
-  border-top: 5px solid $mdc-theme-primary;
+  border-top: 5px solid $mdc-theme-background;
 }
 
 
@@ -103,32 +103,45 @@ input[type="button"], input[type="submit"], button, a.mdc-button {
 
 .mdc-toolbar {
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1a237e+0,3f51b5+99 */
-  background: #1a237e; /* Old browsers */
-  background: -moz-linear-gradient(left, #1a237e 0%, #3f51b5 50%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, #1a237e 0%,#3f51b5 50%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right, #1a237e 0%,#3f51b5 50%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1a237e', endColorstr='#3f51b5',GradientType=1 ); /* IE6-9 */
-  color: white;
+  background: white;
+  color: $mdc-theme-secondary-dark;
+
+  a {
+    color: inherit;
+  }
+
 }
 
 .mdc-drawer--temporary {
-  .mdc-drawer__header::before {
-    padding-top: 64px; //height of nav; todo set dynamically
-  }
-
 
   .mdc-drawer__header-content {
-    background-color: #1a237e !important;
+    background-color: $mdc-theme-secondary-dark !important;
     color: white !important;
   }
 }
+.mdc-drawer__content .mdc-list-group {
+  border-width: 1px 0 1px 0;
+  border-style: solid;
+  border-color: $mdc-theme-background;
 
+  &.expanded {
+    border-color: $material-color-blue-grey-100;
+  }
+}
+.mdc-drawer {
+  background: white !important;
+}
 
-a.mdc-toolbar__title {
-  color: inherit;
+.mdc-drawer--permanent {
+  .mdc-list-item {
+    color: $mdc-theme-secondary;
+  }
 }
 
 
+.mdc-card {
+  background: white !important;
+}
 
 .sunshower-card-holder {
 
@@ -166,16 +179,6 @@ a.mdc-toolbar__title {
 
 .mdc-tab {
   min-width:120px;
-}
-
-.mdc-drawer__content .mdc-list-group {
-  border-width: 1px 0 1px 0;
-  border-style: solid;
-  border-color: $mdc-theme-background;
-
-  &.expanded {
-    border-color: $material-color-blue-grey-100;
-  }
 }
 
 .mdc-stepper-step {

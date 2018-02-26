@@ -45,8 +45,7 @@ $material-color-indigo-a200: #536dfe;
 $material-color-indigo-a400: #3d5afe;
 $material-color-indigo-a700: #304ffe;
 
-$material-color-amber-25: #fffcf6; //not from material
-$material-color-amber-50: #F2F2EB; //TODO revert, just for testing
+$material-color-amber-50: #fff8e1;
 $material-color-amber-100: #ffecb3;
 $material-color-amber-200: #ffe082;
 $material-color-amber-300: #ffd54f;
@@ -81,10 +80,10 @@ $mdc-theme-primary-dark: $material-color-red-800 !default;
 
 $mdc-theme-secondary: $material-color-indigo-500 !default;
 $mdc-theme-secondary-light: $material-color-indigo-300 !default;
-$mdc-theme-secondary-dark: $material-color-indigo-700 !default;
+$mdc-theme-secondary-dark: $material-color-indigo-900 !default;
 
-$mdc-theme-background: $material-color-amber-50 !default;
-$mdc-theme-background-lighter: $material-color-amber-25;
+$mdc-theme-background: $material-color-blue-grey-50 !default;
+$mdc-theme-background-lighter: $material-color-blue-grey-25;
 
 $mdc-theme-text-colors: (
         dark: (
@@ -95,17 +94,17 @@ $mdc-theme-text-colors: (
                 icon: $material-color-blue-grey-700
         ),
         light: (
-                primary: $material-color-amber-50,
-                secondary: $material-color-amber-100,
-                hint: $material-color-amber-100,
-                disabled: $material-color-amber-100,
-                icon: $material-color-amber-100
+                primary: $material-color-blue-grey-50,
+                secondary: $material-color-blue-grey-50,
+                hint: $material-color-blue-grey-50,
+                disabled: $material-color-blue-grey-50,
+                icon: $material-color-blue-grey-50
         )
 ) !default;
 
 
 $off-black: $material-color-blue-grey-900;
-$off-white: $material-color-amber-50;
+$off-white: $material-color-blue-grey-50;
 
 
 

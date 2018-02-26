@@ -83,6 +83,9 @@ a {
 
 .mdc-toolbar__menu-icon {
   padding: 16px !important;
+  width: $nav-height;
+  height: $nav-height;
+  box-sizing: border-box;
 }
 
 
@@ -180,4 +183,25 @@ a.mdc-card {
 
 a.mdc-fab {
   text-decoration:none;
+}
+
+.mdc-drawer--permanent {
+  width: $nav-height;
+
+  .mdc-list-item {
+    height:$nav-height;
+  }
+
+  .mdc-list-item__graphic {
+    margin: 0 auto;
+  }
+
+}
+
+.mdc-drawer--temporary .mdc-drawer__header::before {
+    padding-top: $nav-height;
+}
+
+.mdc-toolbar {
+  min-height:$nav-height !important;
 }

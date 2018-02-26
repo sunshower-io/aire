@@ -7,7 +7,7 @@ template
             nav.mdc-drawer__content.mdc-list-group(ref="contents")
             
     div.sunshower-drawer-mini.mdc-toolbar-fixed(show.bind="!expanded")
-        nav.mdc-drawer.mdc-drawer--permanent(style="width:56px;")
+        nav.mdc-drawer.mdc-drawer--permanent
             div(ref="minifiedElement").mdc-list-group
                 slot(name="contents")
         slot(name="main")
