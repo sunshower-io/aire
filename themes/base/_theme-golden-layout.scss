@@ -12,7 +12,7 @@ $bg: lighten($mdc-theme-background, 7.5%);
 
 
 .lm_goldenlayout {
-  background: $mdc-theme-primary-light;
+  background: $mdc-theme-background-lighter;
 }
 
 .lm_content {
@@ -20,18 +20,25 @@ $bg: lighten($mdc-theme-background, 7.5%);
   border: none;
 }
 
-
-//yoinked from mdc tabs, need to refactor
+//TODO beautify
 .lm_header {
 
   .lm_tab {
-    background: $mdc-theme-primary-light;
-    border:none;
+    background: $mdc-theme-background-lighter;
+    border:0 solid transparent;
     color: $material-color-blue-grey-900;
-    border-bottom: 2px solid $mdc-theme-primary-light;
+    text-align: center;
+    text-decoration: none;
+    text-transform:uppercase;
+    white-space: nowrap;
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
 
     &.lm_active {
-      border-color: $material-color-blue-grey-900; //todo fix color
+      background: white;
+      border-top: 5px solid $mdc-theme-primary-light !important;
     }
   }
 }
