@@ -8,11 +8,12 @@ $grey: $material-color-blue-grey-500;
 $dark: $material-color-blue-grey-900;
 $shadowcolor: $color3;
 $text: $material-color-blue-grey-900;
-$bg: lighten($mdc-theme-background, 7.5%);
+$bg: #F2F2F0;
+$bg-chrome: $mdc-theme-background;
 
 
 .lm_goldenlayout {
-  background: $mdc-theme-background-lighter;
+  background: $bg-chrome;
 }
 
 .lm_content {
@@ -20,11 +21,10 @@ $bg: lighten($mdc-theme-background, 7.5%);
   border: none;
 }
 
-//TODO beautify
 .lm_header {
 
   .lm_tab {
-    background: $mdc-theme-background-lighter;
+    background: $bg-chrome;
     border:0 solid transparent;
     color: $material-color-blue-grey-900;
     text-align: center;
@@ -37,7 +37,7 @@ $bg: lighten($mdc-theme-background, 7.5%);
     letter-spacing: 0.04em;
 
     &.lm_active {
-      background: white;
+      background: $bg;
       border-top: 5px solid $mdc-theme-primary-light !important;
     }
   }

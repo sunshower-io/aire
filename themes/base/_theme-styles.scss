@@ -104,9 +104,9 @@ input[type="button"], input[type="submit"], button, a.mdc-button {
 .mdc-toolbar {
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1a237e+0,3f51b5+99 */
   background: #1a237e; /* Old browsers */
-  background: -moz-linear-gradient(left, #1a237e 0%, #3f51b5 99%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(left, #1a237e 0%,#3f51b5 99%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to right, #1a237e 0%,#3f51b5 99%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  background: -moz-linear-gradient(left, #1a237e 0%, #3f51b5 50%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #1a237e 0%,#3f51b5 50%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #1a237e 0%,#3f51b5 50%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1a237e', endColorstr='#3f51b5',GradientType=1 ); /* IE6-9 */
   color: white;
 }
@@ -209,7 +209,7 @@ aside.mdc-layout-grid__cell {
   border-top: 5px solid $mdc-theme-primary;
   padding: $standard-padding;
   background-color: white;
-  font-size:9rem;
+  font-size:.9rem;
 
   h2 {
     font-size: 1.2rem;
