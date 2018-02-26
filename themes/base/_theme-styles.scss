@@ -115,7 +115,6 @@ input[type="button"], input[type="submit"], button, a.mdc-button {
 
   a.mdc-toolbar__menu-icon {
     color: $material-color-blue-grey-500;
-    border-bottom:$border-style;
     border-right:$border-style;
   }
 }
@@ -164,6 +163,10 @@ input[type="button"], input[type="submit"], button, a.mdc-button {
 
   .mdc-list-item {
     border-bottom:$border-style;
+
+    &:first-child {
+      border-top:$border-style;
+    }
   }
 }
 
