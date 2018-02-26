@@ -38,6 +38,7 @@ export class Layout {
                     {
                         type: 'component',
                         componentName: 'main',
+                        title: 'view',
                         width: 80,
                         componentState: {text: 'Component 1'},
                         isCloseable: false
@@ -46,8 +47,13 @@ export class Layout {
                         type: 'component',
                         componentName: 'right',
                         width:20,
+                        title: 'properties',
                         componentState: {text: 'Component 2'},
-                        isCloseable: false
+                        isCloseable: false,
+                        header: {
+                            // show: false
+                            // show: 'left'
+                        }
                     }
                 ]
             }] //TODO determine why isCloseable: false isn't working
