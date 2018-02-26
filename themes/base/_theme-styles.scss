@@ -6,6 +6,8 @@
 @import "@material/typography/mdc-typography";
 
 
+$border-style: 1px solid $mdc-theme-background;
+
 body {
   @extend .mdc-typography;
   @extend .mdc-theme--text-primary-on-light;
@@ -108,52 +110,60 @@ input[type="button"], input[type="submit"], button, a.mdc-button {
 
   a.mdc-toolbar__title {
     color: inherit;
+    font-size: 1.5rem;
   }
 
   a.mdc-toolbar__menu-icon {
     color: $material-color-blue-grey-500;
-    border-bottom:1px solid $mdc-theme-background;
-    border-right:1px solid $mdc-theme-background;
+    border-bottom:$border-style;
+    border-right:$border-style;
+  }
+}
+
+
+.mdc-drawer, .mdc-drawer__drawer {
+  background: white !important;
+
+  .mdc-list-item__graphic {
+    color: $material-color-blue-grey-500 !important;
+  }
+
+  .mdc-list-item {
+
+    &.mdc-list-item--selected .mdc-list-item__graphic {
+      color: $mdc-theme-primary !important;
+    }
+    &:hover .mdc-list-item__graphic {
+      color: $mdc-theme-primary-light !important;
+    }
+    &::after, &::before {
+      background-color:inherit;
+    }
   }
 }
 
 .mdc-drawer--temporary {
 
   .mdc-drawer__header-content {
-    background-color: $mdc-theme-secondary-dark !important;
-    color: white !important;
+    background-color: white !important;
+    border-bottom: $border-style;
   }
-}
-.mdc-drawer__content .mdc-list-group {
-  border-width: 1px 0 1px 0;
-  border-style: solid;
-  border-color: $mdc-theme-background;
 
-  &.expanded {
-    border-color: $material-color-blue-grey-100;
+  .mdc-drawer__content .mdc-list-group {
+    border-bottom: $border-style;
   }
-}
-.mdc-drawer {
-  background: white !important;
+
+  .mdc-list--dense .mdc-list-item {
+    border-top:$border-style;
+  }
+
 }
 
 .mdc-drawer--permanent {
+
+
   .mdc-list-item {
-    border-bottom:1px solid $mdc-theme-background;
-
-    .mdc-list-item__graphic {
-      color: $material-color-blue-grey-500;
-    }
-
-    &.mdc-list-item--selected .mdc-list-item__graphic {
-      color: $mdc-theme-primary;
-    }
-    &:hover .mdc-list-item__graphic {
-      color: $mdc-theme-primary-light;
-    }
-    &::after, &::before {
-      background-color:inherit;
-    }
+    border-bottom:$border-style;
   }
 }
 

@@ -71,16 +71,6 @@ a {
   cursor: pointer;
 }
 
-
-.sunshower-drawer-mini {
-  @extend .mdc-toolbar-fixed !optional; //todo fix
-  display:flex;
-  flex: 1 1 auto;
-  height:100%;
-  box-sizing:border-box;
-}
-
-
 .mdc-toolbar__menu-icon {
   padding: 16px !important;
   width: $nav-height;
@@ -88,6 +78,9 @@ a {
   box-sizing: border-box;
 }
 
+.mdc-toolbar__title {
+  margin-left: $standard-padding !important;
+}
 
 .mdc-grid-list--header-caption .mdc-grid-tile__primary-content:not(img) {
     padding-top:50px;
@@ -132,15 +125,29 @@ a {
   text-overflow:ellipsis;
 }
 
-.header-info {
-  position: absolute;
-  top: $standard-padding;
+//drawer-related stuff
+
+.sunshower-drawer-mini {
+  @extend .mdc-toolbar-fixed !optional; //todo fix
+  display:flex;
+  flex: 1 1 auto;
+  height:100%;
+  box-sizing:border-box;
 }
 
+.header-info {
+  font-size: 1.2rem;
+}
 
-.mdc-drawer__drawer {
-  .mdc-list-group__subheader.mdc-list-item {
-    margin:0;
+.mdc-drawer, .mdc-drawer__drawer {
+  .mdc-list-item {
+    height: $nav-height;
+    box-sizing: border-box;
+
+
+    &.mdc-list-group__subheader {
+      margin: 0;
+    }
   }
 
   .mdc-list--dense {
