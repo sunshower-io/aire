@@ -23,6 +23,7 @@ export function configure(config: FrameworkConfiguration) {
         './layout', 
         './layout/component', 
         './layout/row',
+        './layout/stack',
         './base/header',
         './components/text-field',
         './components/toolbar',
