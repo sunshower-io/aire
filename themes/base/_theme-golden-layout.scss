@@ -19,6 +19,7 @@ $border-color: $material-color-blue-grey-100;
     cursor: default;
     background: $bg-chrome;
     border:1px solid $border-color !important;
+    border-top-width:5px !important;
     border-bottom: none !important;
     color: $text;
     text-align: center;
@@ -32,7 +33,7 @@ $border-color: $material-color-blue-grey-100;
 
     &.lm_active {
       background: $bg;
-      border-top: 5px solid $mdc-theme-primary-light !important;
+      border-top-color: $mdc-theme-primary-light !important;
     }
   }
 }
