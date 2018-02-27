@@ -60,19 +60,8 @@ export class Layout {
                             }
                         ]
                     }
-
-
-
-                    // {
-                    //     type: 'component',
-                    //     componentName: 'right',
-                    //     width:20,
-                    //     title: 'properties',
-                    //     componentState: {text: 'Component 2'},
-                    //     isCloseable: false
-                    // }
                 ]
-            }] //TODO determine why isCloseable: false isn't working
+            }] 
         };
         this.configuration.content = config.content;
         setTimeout(() => {
