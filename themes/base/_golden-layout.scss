@@ -29,3 +29,11 @@
     display:none;
   }
 }
+
+.lm_content .mdc-list--two-line.mdc-list--dense {
+  padding: 0;
+
+  .mdc-list-item {
+    height: 50px;
+  }
+}
