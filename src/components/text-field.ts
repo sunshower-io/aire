@@ -28,8 +28,9 @@ export class TextField {
     attached(): void {
         this.field = new MDCTextField(this.element);
         if (this.value != null) {
+            let originalWidth = this.field.label_.foundation_.getWidth();
             this.field.outline_.foundation_.updateSvgPath(
-                this.field.label_.foundation_.adapter_.getWidth() - 20,
+                originalWidth*.75,
                 false); //currently prefilled + outline is broken, this kinda gets around it
         }
     }
