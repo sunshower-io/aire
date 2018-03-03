@@ -9,8 +9,12 @@ export class Card {
     @bindable private link : string;
     @bindable private image : Image;
 
+    private src : string;
 
     attached() {
+        let img = this.image as any;
+        this.src = `data:image/svg+xml;base64, ${img.image}`;
+        console.log("SOURCE", this.src);
     }
 
 }

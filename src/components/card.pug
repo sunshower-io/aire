@@ -18,7 +18,8 @@ template
 
     .mdc-card
         a.mdc-card__primary-action.demo-card__primary-action.mdc-ripple-upgraded(href.bind="link")
-            .mdc-card__media.mdc-card__media--square(style="background-image:url(${card.image.getSrc()})")
+            .mdc-card__media.mdc-card__media--square
+                img(src.bind="src")
                 .mdc-card__media-content
                     .mdc-card__title ${name}
         //.mdc-card__actions.mdc-card__action-icons(if.bind="links.length !== 0")
