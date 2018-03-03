@@ -1,7 +1,10 @@
 template
     div.mdc-form-field.mdc-text-field.mdc-text-field--outlined.mdc-text-field--upgraded(
             ref="element"
-            class="${icon !== '' ? 'mdc-text-field--with-trailing-icon' : ''} ${disabled ? 'mdc-text-field--disabled' : ''}")
+            class="${icon !== '' ? 'mdc-text-field--with-trailing-icon' : ''} " +
+            "${disabled ? 'mdc-text-field--disabled' : ''} " +
+            "${dense ? 'mdc-text-field--dense : ''}"
+            )
         input.mdc-text-field__input(id.bind="getId()" type.bind="type" value.bind="value" disabled.bind="disabled" required.bind="required")
         label.mdc-text-field__label(for.bind='getId()' class.bind="value != null ? 'mdc-text-field__label--float-above' : ''") ${label}
         i.material-icons.mdc-text-field__icon(if.bind="icon !== ''") ${icon}

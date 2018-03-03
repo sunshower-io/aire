@@ -30,10 +30,15 @@
   }
 }
 
-.lm_content .mdc-list--two-line.mdc-list--dense {
-  padding: 0;
+.lm-content .panel {
+  padding: $standard-padding/2;
 
-  .mdc-list-item {
-    height: 50px;
+  .mdc-list--two-line.mdc-list--dense {
+    padding: 0;
+
+    .mdc-list-item {
+      height: 50px;
+      padding: 0;
+    }
   }
 }
