@@ -16,7 +16,7 @@ export class TextField {
     @bindable public disabled: boolean;
     @bindable public required: boolean;
     @bindable public dense: boolean;
-    @bindable public asUnderline: boolean; //todo hook in this option
+    @bindable public asUnderline: boolean = false;
     
     @bindable({
         defaultBindingMode: bindingMode.twoWay
@@ -29,11 +29,11 @@ export class TextField {
 
     attached(): void {
         this.field = new MDCTextField(this.element);
-        if (this.value != null) {
+        if (this.value != null && !this.asUnderline) {
             let originalWidth = this.field.label_.foundation_.getWidth();
             this.field.outline_.foundation_.updateSvgPath(
                 originalWidth*.75,
-                false); //currently prefilled + outline is broken, this kinda gets around it
+                false); //currently prefilled + outline is broken, so this does the math
         }
     }
 
