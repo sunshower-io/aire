@@ -15,6 +15,8 @@ export class TextField {
     @bindable public icon: string = '';
     @bindable public disabled: boolean;
     @bindable public required: boolean;
+    @bindable public dense: boolean;
+    @bindable public asUnderline: boolean; //todo hook in this option
     
     @bindable({
         defaultBindingMode: bindingMode.twoWay
