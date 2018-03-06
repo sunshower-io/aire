@@ -94,7 +94,6 @@ gulp.task('build-system', function () {
 
 gulp.task('build', function (callback) {
     return runSequence(
-        'clean',
         ['build-html', 'build-css', 'build-system', 'build-pug', 'build-scss', 'build-images'],
         callback
     );

@@ -1,4 +1,7 @@
-import {bindable, customElement} from "aurelia-framework";
+import {
+    bindable, 
+    customElement
+} from "aurelia-framework";
 import {Image} from "aire/components/image";
 
 @customElement("card")

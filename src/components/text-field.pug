@@ -7,8 +7,9 @@ template
             )
         input.mdc-text-field__input(id.bind="getId()" type.bind="type" value.bind="value" disabled.bind="disabled" required.bind="required")
         label.mdc-text-field__label(for.bind='getId()' class.bind="value != null ? 'mdc-text-field__label--float-above' : ''") ${label}
-        i.material-icons.mdc-text-field__icon(if.bind="icon !== ''") ${icon}
+        i.la.la-fw.mdc-text-field__icon(if.bind="icon !== ''" class.bind="icon") 
         .mdc-text-field__outline.mdc-ripple-upgraded
             svg
                 path.mdc-text-field__outline-path
         .mdc-text-field__idle-outline
+            
