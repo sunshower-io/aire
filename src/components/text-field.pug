@@ -1,18 +1,15 @@
 template
     div.mdc-form-field.mdc-text-field.mdc-text-field--upgraded(
             ref="element"
-            class="${asUnderline ? '' : 'mdc-text-field--outlined'} " +
-            "${icon !== '' ? 'mdc-text-field--with-trailing-icon' : ''} " +
+            class="${icon !== '' ? 'mdc-text-field--with-trailing-icon' : ''} " +
             "${disabled ? 'mdc-text-field--disabled' : ''} " +
-            "${dense ? 'mdc-text-field--dense : ''}"
+            "${dense ? 'mdc-text-field--dense' : ''}"
             )
         input.mdc-text-field__input(id.bind="getId()" type.bind="type" value.bind="value" disabled.bind="disabled" required.bind="required")
-        label.mdc-text-field__label(for.bind='getId()' class.bind="value != null ? 'mdc-text-field__label--float-above' : ''") ${label}
-        i.la.la-fw.mdc-text-field__icon(class.bind="icon")
+        label.mdc-text-field__label(for.bind='getId()' class.bind="value ? 'mdc-floating-label--float-above' : ''") ${label}
+        i.la.la-fw.mdc-text-field__icon(if.bind="icon != ''" class.bind="icon")
 
-        .mdc-text-field__outline.mdc-ripple-upgraded(if.bind="!asUnderline")
+        .mdc-text-field__outline.mdc-ripple-upgraded
             svg
                 path.mdc-text-field__outline-path
-        .mdc-text-field__idle-outline(if.bind="!asUnderline")
-
-        .mdc-line-ripple.mdc-ripple-upgraded(if.bind="asUnderline")
+        .mdc-text-field__idle-outline

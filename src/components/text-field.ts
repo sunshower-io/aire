@@ -16,7 +16,7 @@ export class TextField {
     @bindable public disabled: boolean;
     @bindable public required: boolean;
     @bindable public dense: boolean;
-    @bindable public asUnderline: boolean = false;
+    // @bindable public underlined: boolean = false;
     
     @bindable({
         defaultBindingMode: bindingMode.twoWay
@@ -29,7 +29,7 @@ export class TextField {
 
     attached(): void {
         this.field = new MDCTextField(this.element);
-        if (this.value != null && !this.asUnderline) {
+        if (this.value != null) {
             let originalWidth = this.field.label_.foundation_.getWidth();
             this.field.outline_.foundation_.updateSvgPath(
                 originalWidth*.75,

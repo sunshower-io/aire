@@ -39,7 +39,7 @@ export class Layout {
                         type: 'component',
                         componentName: 'main',
                         title: 'view',
-                        width: 70,
+                        width: 65,
                         componentState: {text: 'Component 1'},
                         isCloseable: false
                     },
