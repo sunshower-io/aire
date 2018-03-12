@@ -33,6 +33,7 @@ export function configure(config: FrameworkConfiguration) {
         './components/grid-list',
         './components/checkbox',
         './components/fab',
-        './components/stepper'
+        './components/stepper',
+        './components/linear-progress'
     ]);
 }

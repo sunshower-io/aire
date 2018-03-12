@@ -17,7 +17,6 @@ export class Card {
     attached() {
         let img = this.image as any;
         this.src = `data:image/svg+xml;base64, ${img.image}`;
-        console.log("SOURCE", this.src);
     }
 
 }
