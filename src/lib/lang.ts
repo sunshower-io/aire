@@ -6,12 +6,20 @@ export const range = (start, end) =>
 
 
 var falsy = /^(?:f(?:alse)?|no?|0+)$/i;
-export const parseBoolean: (o:any) => boolean = (val) => {
+export const parseBoolean: (o: any) => boolean = (val) => {
     return !falsy.test(val) && !!val;
 };
 
 export interface Serializable {
-    toJson() : string;
+    toJson(): string;
 }
 
 
+export module Types {
+    export const Identifier = 'io.sunshower.sdk.lang.IdentifierElement';
+}
+
+export interface Identifier {
+    type: string;
+    value: string;
+}

@@ -112,6 +112,11 @@ declare module "aire/lib/lang" {
         toJson() : string;
     }
 
+    
+    export interface Identifier {
+        type: string;
+        value: string;
+    }
     export const parseBoolean: (a: any) => boolean;
 
     export const range: (a: number, b: number) => number[];
