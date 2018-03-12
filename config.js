@@ -23,6 +23,7 @@ System.config({
 
   map: {
     "@material/button": "npm:@material/button@0.29.0",
+    "@material/linear-progress": "npm:@material/linear-progress@0.30.0",
     "@material/list": "npm:@material/list@0.29.0",
     "@material/textfield": "npm:@material/textfield@0.29.0",
     "@material/theme": "npm:@material/theme@0.29.0",
@@ -67,6 +68,11 @@ System.config({
     "npm:@material/elevation@0.28.0": {
       "@material/animation": "npm:@material/animation@0.25.0",
       "@material/theme": "npm:@material/theme@0.4.0"
+    },
+    "npm:@material/linear-progress@0.30.0": {
+      "@material/animation": "npm:@material/animation@0.25.0",
+      "@material/base": "npm:@material/base@0.29.0",
+      "@material/theme": "npm:@material/theme@0.30.0"
     },
     "npm:@material/list@0.29.0": {
       "@material/ripple": "npm:@material/ripple@0.29.0",
