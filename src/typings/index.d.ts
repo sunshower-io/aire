@@ -112,7 +112,14 @@ declare module "aire/lib/lang" {
         toJson() : string;
     }
 
-    
+
+    export interface LoadingListener {
+        onLoadingStart();
+
+        onLoadingFinished();
+
+        onLoadError(e);
+    }
     export interface Identifier {
         type: string;
         value: string;

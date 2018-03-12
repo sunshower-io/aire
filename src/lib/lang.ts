@@ -23,3 +23,12 @@ export interface Identifier {
     type: string;
     value: string;
 }
+
+
+export interface LoadingListener {
+    onLoadingStart();
+    
+    onLoadingFinished();
+    
+    onLoadError(e);
+}
