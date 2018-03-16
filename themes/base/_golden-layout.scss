@@ -30,6 +30,10 @@
   }
 }
 
+.lm-content {
+  overflow: auto; 
+}
+
 .lm-content .panel {
   padding: $standard-padding/2;
 

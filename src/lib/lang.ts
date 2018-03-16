@@ -4,6 +4,13 @@ export * from "aire/lib/types";
 export const range = (start, end) =>
     Array.from({length: (end - start)}, (v, k) => k + start);
 
+export type Class<T> = {new(...args:any[]) : T};
+
+export function getClass<T>(t:T) : Class<T> {
+    let a = t.constructor;
+    return <Class<T>> a;
+}
+
 
 var falsy = /^(?:f(?:alse)?|no?|0+)$/i;
 export const parseBoolean: (o: any) => boolean = (val) => {

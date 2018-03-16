@@ -23,7 +23,6 @@ gulp.task('build-scss', function () {
             includePaths: [__dirname + '/jspm_packages/npm/@material', 'node_modules']
         }).on('error', scss.logError))
         .pipe(concat('sunshower.css')).pipe(gulp.dest(paths.output + 'amd'));
-
 });
 
 gulp.task('build-pug', function () {

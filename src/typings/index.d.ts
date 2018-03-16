@@ -99,9 +99,11 @@ declare module 'aire/components/events' {
 }
 
 declare module 'aire/dom' {
-    
-    export type Class = Function;
-    
+
+
+    export type Class<T> = {new(...args:any[]) : T};
+
+    export function getClass<T>(t:T) : Class<T>;
     
     export function createEvent(name: string, value: any) : Event;
     
