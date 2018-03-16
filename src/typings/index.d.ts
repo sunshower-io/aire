@@ -101,9 +101,6 @@ declare module 'aire/components/events' {
 declare module 'aire/dom' {
 
 
-    export type Class<T> = {new(...args:any[]) : T};
-
-    export function getClass<T>(t:T) : Class<T>;
     
     export function createEvent(name: string, value: any) : Event;
     
@@ -113,6 +110,9 @@ declare module "aire/lib/lang" {
     export interface Serializable {
         toJson() : string;
     }
+    export type Class<T> = {new(...args:any[]) : T};
+
+    export function getClass<T>(t:T) : Class<T>;
 
 
     export interface LoadingListener {

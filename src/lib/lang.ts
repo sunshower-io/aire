@@ -12,7 +12,7 @@ export function getClass<T>(t:T) : Class<T> {
 }
 
 
-var falsy = /^(?:f(?:alse)?|no?|0+)$/i;
+const falsy = /^(?:f(?:alse)?|no?|0+)$/i;
 export const parseBoolean: (o: any) => boolean = (val) => {
     return !falsy.test(val) && !!val;
 };
