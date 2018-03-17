@@ -19,7 +19,7 @@
     "url": "http://github.com/aurelia/skeleton-plugin"
   },
   "devDependencies": {
-      "@material/linear-progress": "^0.30.0",
+    "@material/linear-progress": "^0.30.0",
     "@types/karma": "^1.7.3",
     "aurelia-tools": "^1.0.0",
     "babel-eslint": "^7.1.1",

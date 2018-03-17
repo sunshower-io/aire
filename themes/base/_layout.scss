@@ -222,7 +222,7 @@ a.mdc-fab {
 }
 
 .mdc-list-item.mdc-list-item--expanded {
-  min-height:48px;
+  min-height:72px;
   height: auto !important;
 }
 
@@ -234,3 +234,13 @@ a.mdc-fab {
 //.lm_content, .lm_content .mdc-list-item--dense, .lm_content .mdc-list-item {
 //  overflow: visible;
 //}
+
+.panel .mdc-list-item {
+  min-height:72px;
+  height: auto !important;
+  padding:0;
+
+  ul, .mdc-list-item__text {
+    margin: 0 $standard-padding;
+  }
+}
