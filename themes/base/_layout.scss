@@ -231,16 +231,19 @@ a.mdc-fab {
     line-height:1rem !important;
 }
 
-//.lm_content, .lm_content .mdc-list-item--dense, .lm_content .mdc-list-item {
-//  overflow: visible;
-//}
-
 .panel .mdc-list-item {
   min-height:72px;
   height: auto !important;
-  padding:0;
+  padding-right:$standard-padding;
 
-  ul, .mdc-list-item__text {
-    margin: 0 $standard-padding;
+  @for $i from 1 to 6 {
+    &.property-level-#{$i} {
+      padding-left:$standard-padding*$i;
+    }
   }
+
+  &.property-level-1:not(:first-child) {
+    border-top:1px solid $mdc-theme-background;
+  }
+
 }
