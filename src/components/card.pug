@@ -17,7 +17,7 @@ template
 
 
     .mdc-card
-        a.mdc-card__primary-action.demo-card__primary-action.mdc-ripple-upgraded(href.bind="link")
+        a.mdc-card__primary-action.demo-card__primary-action.mdc-ripple-upgraded(href.bind="link" click.delegate="clicked()")
             .mdc-card__media.mdc-card__media--square
                 img(src.bind="src")
                 .mdc-card__media-content

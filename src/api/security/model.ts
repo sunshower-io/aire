@@ -1,3 +1,4 @@
+
 export class Authentication {
    
     static Type: string = "io.sunshower.sdk.v1.model.core.security.AuthenticationElement";
@@ -18,6 +19,7 @@ export class Authentication {
 export class User {
     username: string;
     password: string;
+
     firstName: string;
     lastName: string;
     emailAddress: string;
@@ -34,6 +36,7 @@ export class User {
             this.lastName = v['last-name'];
             this.emailAddress = v['email-address'];
             this.phoneNumber = v['phone-number'];
+            this.type = v['type'];
         }
     }
 
@@ -44,7 +47,8 @@ export class User {
             "last-name": this.lastName,
             "email-address": this.emailAddress,
             "phone-number": this.phoneNumber,
-            password: this.password
+            password: this.password,
+            type: User.Type
         }
     }
 
