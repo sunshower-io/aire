@@ -247,3 +247,9 @@ a.mdc-fab {
   }
 
 }
+
+.panel > * {
+  > button, > p {
+    margin: $standard-padding/2;
+  }
+}
