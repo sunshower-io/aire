@@ -34,6 +34,7 @@ export function configure(config: FrameworkConfiguration) {
         './components/checkbox',
         './components/fab',
         './components/stepper',
+        './components/progress-bar',
         './components/linear-progress'
     ]);
 }

@@ -25,9 +25,13 @@ export class Card {
     }
 
 
-    clicked() : void {
+    clicked() : boolean {
+        if(this.link) {
+            return true;
+        }
         let e = createEvent('clicked', this.value);
         this.el.dispatchEvent(e);
+        return false;
     }
 
     attached() {
