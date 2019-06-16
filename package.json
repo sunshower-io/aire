@@ -1,0 +1,37 @@
+{
+  "name": "aire",
+  "version": "0.0.0",
+  "description": "UIKit bindings for Aurelia",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sunshower-io/aire.git"
+  },
+  "keywords": [
+    "aurelia",
+    "uikit"
+  ],
+  "author": "Josiah Haswell, Lisa Gumerman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sunshower-io/aire/issues"
+  },
+  "homepage": "https://github.com/sunshower-io/aire#readme",
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^4.0.2",
+    "gulp-changed": "^4.0.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-pug": "^4.0.1",
+    "gulp-scss": "^1.4.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-typescript": "^5.0.1",
+    "jspm": "^0.17.0-beta.49",
+    "require-dir": "^1.2.0",
+    "typescript": "^3.5.2"
+  }
+}
