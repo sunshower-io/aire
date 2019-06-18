@@ -1,2 +1,9 @@
 template
-    h1 frapper!
+    a(
+        if.bind="href"
+        click.delegate="dispatch($event)"
+    ).uk-button ${label}
+    button(
+        if.bind="!href"
+        click.delegate="dispatch($event)"
+    ).uk-button.uk-button-default ${label}

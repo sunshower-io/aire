@@ -1,6 +1,7 @@
 SystemJS.config({
   paths: {
     "npm:": "jspm_packages/npm/",
+    "github:": "jspm_packages/github/",
     "aire/": "src/"
   },
   browserConfig: {
@@ -27,7 +28,8 @@ SystemJS.config({
 SystemJS.config({
   packageConfigPaths: [
     "npm:@*/*.json",
-    "npm:*.json"
+    "npm:*.json",
+    "github:*/*.json"
   ],
   map: {
     "aurelia-binding": "npm:aurelia-binding@2.3.1",
@@ -40,6 +42,7 @@ SystemJS.config({
     "aurelia-path": "npm:aurelia-path@1.1.3",
     "aurelia-task-queue": "npm:aurelia-task-queue@1.3.3",
     "aurelia-templating": "npm:aurelia-templating@1.10.2",
+    "css": "github:systemjs/plugin-css@0.1.37",
     "fs": "npm:jspm-nodelibs-fs@0.2.1",
     "path": "npm:jspm-nodelibs-path@0.2.3",
     "process": "npm:jspm-nodelibs-process@0.2.1",
