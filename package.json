@@ -2,7 +2,7 @@
   "name": "aire",
   "version": "0.0.0",
   "description": "UIKit bindings for Aurelia",
-  "main": "index.js",
+  "main": "aire.js",
   "scripts": {
     "test": "test"
   },
@@ -33,5 +33,30 @@
     "jspm": "^0.17.0-beta.49",
     "require-dir": "^1.2.0",
     "typescript": "^3.5.2"
+  },
+  "jspm": {
+    "name": "aire",
+    "main": "aire.js",
+    "dependencies": {
+      "aurelia-framework": "npm:aurelia-framework@^1.3.1",
+      "uikit": "npm:uikit@^3.1.5"
+    },
+    "devDependencies": {
+      "plugin-babel": "npm:systemjs-plugin-babel@^0.0.25"
+    },
+    "peerDependencies": {
+      "aurelia-binding": "npm:aurelia-binding@^2.0.0",
+      "aurelia-dependency-injection": "npm:aurelia-dependency-injection@^1.0.0",
+      "aurelia-loader": "npm:aurelia-loader@^1.0.0",
+      "aurelia-logging": "npm:aurelia-logging@^1.0.0",
+      "aurelia-metadata": "npm:aurelia-metadata@^1.0.0",
+      "aurelia-pal": "npm:aurelia-pal@^1.0.0",
+      "aurelia-path": "npm:aurelia-path@^1.0.0",
+      "aurelia-task-queue": "npm:aurelia-task-queue@^1.0.0",
+      "aurelia-templating": "npm:aurelia-templating@^1.8.1",
+      "fs": "npm:jspm-nodelibs-fs@^0.2.0",
+      "path": "npm:jspm-nodelibs-path@^0.2.0",
+      "process": "npm:jspm-nodelibs-process@^0.2.0"
+    }
   }
 }
