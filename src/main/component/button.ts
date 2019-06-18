@@ -15,8 +15,13 @@ export class AireButton {
    * The text of the button/link
    */
   
-  @bindable label: string;
+  @bindable label: string = "whatever";
 
+  /**
+   * Optional link
+   */
+  @bindable href: string;
+  
   /**
    * The style of the button
    */
@@ -28,21 +33,20 @@ export class AireButton {
    */
   @bindable disabled: boolean;
 
-  /**
-   * Optional link
-   */
-  @bindable href: string;
 
 
   constructor(private el: Element) {
   }
 
   dispatch(e: Event) : void {
-    let event = createEvent('clicked', {
-      source: this,
-      wrapped: e,
-    });
-    this.el.dispatchEvent(event);
+    console.log("Got one");
+    this.label = "coolbeans";
+    console.log("LAbel", this.label);
+    // let event = createEvent('clicked', {
+    //   source: this,
+    //   wrapped: e,
+    // });
+    // this.el.dispatchEvent(event);
   }
 
 }
