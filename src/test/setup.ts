@@ -10,11 +10,8 @@ import * as path               from 'path';
 require('jsdom-global')();
 import 'mutationobserver-shim';
 
-let w = window as any,
-  observer = new w.MutationObserver();
 Object.defineProperty(global, 'MutationObserver', {
-  value : observer, 
-
+  value    : (window as any).MutationObserver,
   writable : true
 });
 

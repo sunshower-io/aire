@@ -1,6 +1,7 @@
 import {newComponent}    from "test/render";
-import {bootstrap}       from 'aurelia-bootstrapper';
 import {ComponentTester} from "aurelia-testing";
+import {Aurelia}         from 'aurelia-framework';
+import {bootstrap}       from 'aurelia-bootstrapper';
 
 export * from 'test/render';
 
@@ -8,13 +9,16 @@ export * from 'test/render';
 export async function expectComponent(
   template : string,
   ctx : any,
-  action : (a : ComponentTester, b? : any) => void,
-  done : () => void
+  action : (a : ComponentTester, b? : Aurelia) => void,
+  done ?: () => void
 ) {
-  let component = newComponent(template, ctx),
-    aurelia = null;
+  let component = newComponent(template, ctx);
+  
   await component.create(bootstrap);
+  let aurelia = (component as any).aurelia;
   action(component, aurelia);
   component.dispose();
-  done();
+  if(done) {
+    done();
+  }
 }

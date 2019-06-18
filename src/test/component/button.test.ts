@@ -2,6 +2,7 @@ import {
   expectComponent
 }                        from "test/core";
 import {BindingSignaler} from 'aurelia-templating-resources';
+import {AireButton}      from "aire/component/button";
 
 
 test(`a button must be creatable`, async (done) => {
@@ -27,9 +28,10 @@ test(`a button's label must be bindable`, async (done) => {
     console.log(cmp.element.outerHTML);
     let button = document.querySelector('aire-button button');
     (button as any).click();
-
-    console.log(cmp.element.outerHTML);
-
-  }, done);
+    setTimeout(() => {
+      console.log(cmp.element.outerHTML);
+      done();
+    }, 1000);
+  });
 
 });

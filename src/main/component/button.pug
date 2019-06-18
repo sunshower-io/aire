@@ -5,6 +5,6 @@ template
     ).uk-button ${label}
     h1 ${label}
     button(
-        //if.bind="!href"
-        click.delegate="dispatch($event)"
+        if.bind="!href"
+        click.trigger="dispatch($event)"
     ).uk-button.uk-button-default ${label}

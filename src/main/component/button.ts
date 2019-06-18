@@ -39,14 +39,10 @@ export class AireButton {
   }
 
   dispatch(e: Event) : void {
-    console.log("Got one");
-    this.label = "coolbeans";
-    console.log("LAbel", this.label);
-    // let event = createEvent('clicked', {
-    //   source: this,
-    //   wrapped: e,
-    // });
-    // this.el.dispatchEvent(event);
+    this.el.dispatchEvent(createEvent('click', {
+      cause: e,
+      source: this
+    }))
   }
 
 }
