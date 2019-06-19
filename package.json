@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/sunshower-io/aire#readme",
   "devDependencies": {
+    "@types/lodash": "^4.14.134",
     "aurelia-bootstrapper": "^2.3.3",
     "aurelia-loader-nodejs": "^1.0.1",
     "aurelia-pal-nodejs": "^1.2.0",
@@ -39,8 +40,7 @@
     "isomorphic-fetch": "^2.2.1",
     "jasmine": "^3.4.0",
     "jest": "^24.8.0",
-    "jsdom": "^15.1.1",
-    "jsdom-global": "^3.0.2",
+    "jest-environment-jsdom-fourteen": "^0.1.0",
     "jspm": "^0.17.0-beta.49",
     "mutationobserver-shim": "^0.3.3",
     "reflect-metadata": "^0.1.13",

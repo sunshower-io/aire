@@ -16,7 +16,7 @@ export async function expectComponent(
   
   await component.create(bootstrap);
   let aurelia = (component as any).aurelia;
-  action(component, aurelia);
+  await action(component, aurelia);
   component.dispose();
   if(done) {
     done();

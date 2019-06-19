@@ -39,6 +39,7 @@ export class AireButton {
   }
 
   dispatch(e: Event) : void {
+    this.label = "sup homeslice";
     this.el.dispatchEvent(createEvent('click', {
       cause: e,
       source: this

@@ -28,10 +28,8 @@ test(`a button's label must be bindable`, async (done) => {
     console.log(cmp.element.outerHTML);
     let button = document.querySelector('aire-button button');
     (button as any).click();
-    setTimeout(() => {
-      console.log(cmp.element.outerHTML);
-      done();
-    }, 1000);
+    console.log(cmp.element.outerHTML);
+    done();
   });
 
 });
