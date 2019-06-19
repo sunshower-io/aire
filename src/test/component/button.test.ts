@@ -1,15 +1,13 @@
 import {
   expectComponent
 }                        from "test/core";
-import {BindingSignaler} from 'aurelia-templating-resources';
-import {AireButton}      from "aire/component/button";
 
 
 test(`a button must be creatable`, async (done) => {
   let
     label = "Hello homeskillet!",
     template = `
-    aire-button(label.bind="label")
+        aire-button(label.bind="label")
   `;
   await expectComponent(template, {label}, (cmp => {
     let buttons = document.querySelectorAll('aire-button');
@@ -25,11 +23,15 @@ test(`a button's label must be bindable`, async (done) => {
     aire-button(label.bind="label")
   `;
   await expectComponent(template, {label}, (cmp, a) => {
-    console.log(cmp.element.outerHTML);
     let button = document.querySelector('aire-button button');
     (button as any).click();
-    console.log(cmp.element.outerHTML);
-    done();
+    let timeout = setTimeout(() => {
+      console.log(button);
+      done();
+    });
+
+
+
   });
 
 });

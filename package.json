@@ -28,6 +28,7 @@
     "aurelia-polyfills": "^1.3.4",
     "aurelia-testing": "^1.0.0",
     "browser-sync": "^2.26.7",
+    "document-register-element": "^1.13.2",
     "gulp": "^4.0.2",
     "gulp-changed": "^4.0.0",
     "gulp-concat": "^2.6.1",
@@ -41,13 +42,16 @@
     "jasmine": "^3.4.0",
     "jest": "^24.8.0",
     "jest-environment-jsdom-fourteen": "^0.1.0",
+    "jest-environment-jsdom-thirteen": "^1.0.1",
+    "jsdom-global": "^3.0.2",
     "jspm": "^0.17.0-beta.49",
     "mutationobserver-shim": "^0.3.3",
     "reflect-metadata": "^0.1.13",
     "require-dir": "^1.2.0",
     "ts-jest": "^24.0.2",
     "typescript": "^3.5.2",
-    "uikit": "^3.1.5"
+    "uikit": "^3.1.5",
+    "@types/jest": "^24.0.15"
   },
   "jspm": {
     "name": "aire",
@@ -74,8 +78,5 @@
       "path": "npm:jspm-nodelibs-path@^0.2.0",
       "process": "npm:jspm-nodelibs-process@^0.2.0"
     }
-  },
-  "dependencies": {
-    "@types/jest": "^24.0.15"
   }
 }
