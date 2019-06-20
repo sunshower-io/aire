@@ -1,13 +1,13 @@
-@mixin animate-transitions(
-  $color: $base-selection-background,
-  $foreground: $background-primary-background,
-  $transition: $hover-transition
-) {
-  &:hover {
-    color: $foreground;
-    background-color: $color;
-    transition: $hover-transition;
-  }
+@mixin animate-transitions() {
+//  $color: $global-primary-hover,
+//  $foreground: $white,
+//  $transition: $hover-transition
+//) {
+//  &:hover {
+//    color: $foreground;
+//    background-color: $color;
+//    transition: $hover-transition;
+//  }
 }
 
 @mixin base-component() {

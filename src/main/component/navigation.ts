@@ -3,7 +3,7 @@ import {
   bindable,
   customElement,
 } from 'aurelia-framework';
-
+import * as UIkit from 'uikit';
 import {NavModel, Router} from 'aurelia-router';
 import {dom}              from "aire/core/dom";
 
@@ -59,6 +59,11 @@ export class AireNavigation {
       this.label = nav.title;
       this.icon = nav.settings && nav.settings.icon;
     }
+  }
+
+
+  attached() : void {
+
   }
 
   async navigate() {

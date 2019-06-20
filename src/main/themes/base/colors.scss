@@ -13,7 +13,7 @@ $green: #77CCA4;
 $orange: #FF9900;
 $blue: #2385AF;
 $light-blue: #7bb5cf;
-$blue-purple: #370e8b;
+$blue-purple: #45438b;
 $light-blue: lighten($blue, 50%);
 
 $dark-green: #254033;
@@ -24,3 +24,7 @@ $black: #2C2C2C;
 $dark-red: #990000;
 $light-red: #ED1C24;
 $light-green: lighten($green, 0.5);
+
+.au-enter-active {
+  transition: 0.4s;
+}

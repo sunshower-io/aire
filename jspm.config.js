@@ -32,6 +32,7 @@ SystemJS.config({
     "github:*/*.json"
   ],
   map: {
+    "aurelia-animator-css": "npm:aurelia-animator-css@1.0.4",
     "aurelia-binding": "npm:aurelia-binding@2.3.1",
     "aurelia-dependency-injection": "npm:aurelia-dependency-injection@1.4.2",
     "aurelia-framework": "npm:aurelia-framework@1.3.1",

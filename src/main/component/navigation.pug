@@ -1,4 +1,4 @@
-template.navigation(
+template.aire.navigation(
     mouseenter.trigger ="visible = true"
     mouseleave.trigger ="visible = false"
     click.delegate="navigate()"
@@ -6,10 +6,10 @@ template.navigation(
     i(
         class.bind="icon"
     )
-    span.label(
+    span.label.au-animate.animate-fade-in.animate-fade-out(
         if.bind="parent && visible"
     ) ${label}
-    .expand(show.bind="visible")
+    .expand.au-animate.animate-fade-in.animate-fade-out(if.bind="visible")
         aire-navigation(
             child
             nav.bind="nav"
