@@ -1,6 +1,21 @@
 
+@import "colors";
+@import "variables";
+
+$fa-font-path: "assets";
+
+
+
+$base-selection-background: $white;
+$background-primary-background: $purple;
 
 @import 'variables-theme.scss';
 @import 'mixins-theme.scss';
 
 @import 'uikit-theme.scss';
+@import "light";
+@import "solid";
+@import "fontawesome";
+
+@import "components/page";
+@import "components/navigation";

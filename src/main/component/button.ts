@@ -34,12 +34,11 @@ export class AireButton {
   @bindable disabled: boolean;
 
 
-
   constructor(private el: Element) {
+
   }
 
   dispatch(e: Event) : void {
-    this.label = "sup homeslice";
     this.el.dispatchEvent(createEvent('click', {
       cause: e,
       source: this

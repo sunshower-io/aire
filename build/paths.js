@@ -3,10 +3,18 @@ var outputRoot = 'dist/';
 var exporSrvtRoot = 'export/';
 
 module.exports = {
+  scssIncludes : [
+      'node_modules/uikit/src/scss',
+      "node_modules/@fortawesome/fontawesome-pro/scss"
+      ],
+  assets: [
+    "node_modules/@fortawesome/fontawesome-pro/webfonts/**/*.{gif,jpg,png,svg,eot,ttf,woff,woff2}"
+
+  ],
   root: appRoot,
-  scss: ['themes/theme-default.scss'],
-  pug: appRoot + '**/*.pug',
-  source: appRoot + '**/*.ts',
+  scss: ['src/main/themes/**/*.scss'],
+  pug: appRoot + 'main/**/*.pug',
+  source: appRoot + 'main/**/*.ts',
   html: appRoot + '**/*.html',
   css: appRoot + '**/*.css',
   style: 'styles/**/*.css',

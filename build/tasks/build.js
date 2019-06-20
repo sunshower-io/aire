@@ -6,9 +6,11 @@ const {
     parallel,
     series
 } = require('gulp');
-
+const flatten = require('gulp-flatten');
+const scss = require('gulp-sass');
 const pug = require('gulp-pug');
 const paths = require('../paths');
+const concat = require('gulp-concat');
 const notify = require('gulp-notify');
 const changed = require('gulp-changed');
 const plumber = require('gulp-plumber');
@@ -21,8 +23,17 @@ const tsc = typescript.createProject('tsconfig.json', {
 });
 
 
+task('copy:assets', function () {
+    return src(paths.assets).pipe(dest(paths.output + "/assets"));
+});
+
 task('build:html', () => {
-    return src(paths.pug).pipe(pug()).pipe(dest(paths.output));
+    return src(paths.pug)
+        .pipe(pug())
+        .pipe(flatten({
+            includeParents: -1
+        }))
+        .pipe(dest(paths.output));
 });
 
 task('build:source', () => {
@@ -33,9 +44,20 @@ task('build:source', () => {
         .pipe(changed(paths.output, {extension: '.ts'}))
         .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(tsc())
+        .pipe(flatten({
+            includeParents: -1
+        }))
         .pipe(sourcemaps.write('.', {includeContent: false, sourceRoot: '.'}))
         .pipe(dest(paths.output));
 });
 
+task('build:styles', () => {
 
-task('build', parallel('build:source', 'build:html'));
+    return src(paths.scss).pipe(scss({
+        includePaths: paths.scssIncludes
+    })).pipe(concat('aire.css')).pipe(dest(paths.output));
+});
+
+task('copy', parallel('copy:assets'));
+
+task('build', parallel('build:source', 'build:html', 'build:styles', 'copy'));

@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/sunshower-io/aire#readme",
   "devDependencies": {
+    "@fortawesome/fontawesome-pro": "^5.9.0",
+    "@types/jest": "^24.0.15",
     "@types/lodash": "^4.14.134",
     "aurelia-bootstrapper": "^2.3.3",
     "aurelia-loader-nodejs": "^1.0.1",
@@ -32,6 +34,7 @@
     "gulp": "^4.0.2",
     "gulp-changed": "^4.0.0",
     "gulp-concat": "^2.6.1",
+    "gulp-flatten": "^0.4.0",
     "gulp-notify": "^3.2.0",
     "gulp-plumber": "^1.2.1",
     "gulp-pug": "^4.0.1",
@@ -50,8 +53,7 @@
     "require-dir": "^1.2.0",
     "ts-jest": "^24.0.2",
     "typescript": "^3.5.2",
-    "uikit": "^3.1.5",
-    "@types/jest": "^24.0.15"
+    "uikit": "^3.1.5"
   },
   "jspm": {
     "name": "aire",

@@ -1,0 +1,42 @@
+@mixin animate-transitions(
+  $color: $base-selection-background,
+  $foreground: $background-primary-background,
+  $transition: $hover-transition
+) {
+  &:hover {
+    color: $foreground;
+    background-color: $color;
+    transition: $hover-transition;
+  }
+}
+
+@mixin base-component() {
+  color: $base-selection-background;
+}
+
+
+@mixin align-text($selector, $height: 0em, $margin:0.5em) {
+  height: $height;
+
+  #{$selector} {
+    line-height: $height;
+    margin-left: $margin;
+  }
+
+}
+
+
+@mixin center($horizontal: true, $vertical: true) {
+  position: absolute;
+  @if ($horizontal and $vertical) {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } @else if ($horizontal) {
+    left: 50%;
+    transform: translate(-50%, 0);
+  } @else if ($vertical) {
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+}
