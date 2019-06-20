@@ -1,16 +1,20 @@
 template.navigation(
-    mouseover.delegate="visible = true"
-    mouseout.delegate="visible = false"
+    mouseenter.trigger ="visible = true"
+    mouseleave.trigger ="visible = false"
+    click.delegate="navigate()"
 )
     i(
         class.bind="icon"
     )
+    span.label(
+        if.bind="parent && visible"
+    ) ${label}
     .expand(show.bind="visible")
-        aire-button(
-            expand
-            icon.bind="nav.settings.icon"
-            active.bind="nav.active"
+        aire-navigation(
+            child
+            nav.bind="nav"
+            parent.bind="viewModel"
             repeat.for="nav of router.navigation"
-        ) ${nav.title}
+        )
 
 

@@ -7,7 +7,7 @@
 }
 
 aire-navigation, .navigation {
-  width: 4em;
+  width: 2em;
   background: $background-primary-background;
   border-left:none;
   position:fixed;
@@ -17,10 +17,30 @@ aire-navigation, .navigation {
   font-size: 1.2em;
   cursor: pointer;
 
+  &.child {
+    font-size: 1em;
+    position:relative;
+  }
+
+
+  span.label {
+    display:inline-block;
+    height:2em;
+    line-height:2em;
+    margin-top:-1px;
+    margin-left:0.5em;
+    padding: 0 1em;
+    position: absolute;
+    width:4em;
+    max-width:4em;
+    @include nav-border;
+    vertical-align: middle;
+  }
+
   @include nav-border;
   @include base-component;
   @include animate-transitions;
-  @include align-text('i', 3em, 1.5em);
+  @include align-text('i', 2em);
   aire-button {
     .uk-button {
       @include nav-border;
