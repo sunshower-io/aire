@@ -1,11 +1,15 @@
 @import "../mixins";
+
+@mixin nav-border() {
+  border-right: 1px solid $background-primary-background;
+  border-top: 1px solid $background-primary-background;
+  border-bottom: 1px solid $background-primary-background;
+}
+
 aire-navigation, .navigation {
   width: 4em;
   background: $background-primary-background;
   border-left:none;
-  border-right: 1px solid $background-primary-background;
-  border-top: 1px solid $background-primary-background;
-  border-bottom: 1px solid $background-primary-background;
   position:fixed;
   display: block;
   top:30%;
@@ -13,7 +17,14 @@ aire-navigation, .navigation {
   font-size: 1.2em;
   cursor: pointer;
 
+  @include nav-border;
   @include base-component;
   @include animate-transitions;
   @include align-text('i', 3em, 1.5em);
+  aire-button {
+    .uk-button {
+      @include nav-border;
+    }
+  }
 }
+

@@ -5,6 +5,7 @@ import {
 }                       from 'aurelia-framework';
 import {createEvent}    from "aire/core/events";
 import {ButtonModifier} from "aire/component/modifiers";
+import {dom}            from "aire/core/dom";
 
 
 @inject(Element)
@@ -15,7 +16,7 @@ export class AireButton {
    * The text of the button/link
    */
   
-  @bindable label: string = "whatever";
+  @bindable label: string;
 
   /**
    * Optional link
@@ -35,14 +36,16 @@ export class AireButton {
 
 
   constructor(private el: Element) {
-
+    dom.decorate(el, 'expand');
   }
 
   dispatch(e: Event) : void {
-    this.el.dispatchEvent(createEvent('click', {
-      cause: e,
-      source: this
-    }))
+    if(!this.disabled) {
+      this.el.dispatchEvent(createEvent('click', {
+        cause  : e,
+        source : this
+      }));
+    }
   }
 
 }

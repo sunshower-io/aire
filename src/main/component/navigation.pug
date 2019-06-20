@@ -1,4 +1,16 @@
-template.navigation(replace-part="navigation")
-    i(class.bind="icon")
+template.navigation(
+    mouseover.delegate="visible = true"
+    mouseout.delegate="visible = false"
+)
+    i(
+        class.bind="icon"
+    )
+    .expand(show.bind="visible")
+        aire-button(
+            expand
+            icon.bind="nav.settings.icon"
+            active.bind="nav.active"
+            repeat.for="nav of router.navigation"
+        ) ${nav.title}
 
 

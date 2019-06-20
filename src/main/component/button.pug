@@ -5,6 +5,8 @@ template
     ).uk-button ${label}
 
     button(
-        if.bind="!href"
+        show.bind="!href"
         click.trigger="dispatch($event)"
-    ).uk-button.uk-button-default ${label}
+    ).uk-button.uk-button-default
+        .button-content
+            slot

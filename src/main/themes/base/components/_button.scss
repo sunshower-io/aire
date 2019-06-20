@@ -1,0 +1,9 @@
+.aire-button {
+  &.expand {
+    width:2em;
+    height:2em;
+    .button-content {
+      visibility: hidden;
+    }
+  }
+}

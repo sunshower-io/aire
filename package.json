@@ -28,6 +28,7 @@
     "aurelia-loader-nodejs": "^1.0.1",
     "aurelia-pal-nodejs": "^1.2.0",
     "aurelia-polyfills": "^1.3.4",
+    "aurelia-router": "^1.7.1",
     "aurelia-testing": "^1.0.0",
     "browser-sync": "^2.26.7",
     "document-register-element": "^1.13.2",
