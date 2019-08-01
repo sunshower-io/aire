@@ -21,8 +21,10 @@ const typescript = require('gulp-typescript');
 const tsc = typescript.createProject('tsconfig.json', {
     typescript: require('typescript')
 });
+task('copy:package', () => {
+    return src('./package.json').pipe(dest(paths.output));
 
-
+});
 task('copy:assets', function () {
     return src(paths.assets).pipe(dest(paths.output + "/assets"));
 });
@@ -58,6 +60,6 @@ task('build:styles', () => {
     })).pipe(concat('aire.css')).pipe(dest(paths.output));
 });
 
-task('copy', parallel('copy:assets'));
+task('copy', parallel('copy:assets', 'copy:package'));
 
 task('build', parallel('build:source', 'build:html', 'build:styles', 'copy'));

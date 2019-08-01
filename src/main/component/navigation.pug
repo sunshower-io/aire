@@ -3,18 +3,34 @@ template.aire.navigation(
     mouseleave.trigger ="visible = false"
     click.delegate="navigate()"
 )
-    i(
-        class.bind="icon"
-    )
-    span.label.au-animate.animate-fade-in.animate-fade-out(
-        if.bind="parent && visible"
-    ) ${label}
-    .expand.au-animate.animate-fade-in.animate-fade-out(if.bind="visible")
-        aire-navigation(
-            child
-            nav.bind="nav"
-            parent.bind="viewModel"
-            repeat.for="nav of router.navigation"
-        )
+    template(if.bind="mode === 'routing'")
+        i(class.bind="icon")
+        span.label.au-animate.animate-fade-in.animate-fade-out(
+            if.bind="parent && visible"
+        ) ${label}
+        .expand.au-animate.animate-fade-in.animate-fade-out(if.bind="visible")
+            aire-navigation(
+                child
+                mode.bind="mode"
+                nav.bind="nav"
+                parent.bind="viewModel"
+                repeat.for="nav of router.navigation"
+            )
+
+    template(if.bind="mode === 'plugin'")
+        i(class.bind="icon")
+            span.label.au-animate.animate-fade-in.animate-fade-out(
+            if.bind="parent && visible"
+        ) ${label}
+        .expand.au-animate.animate-fade-in.animate-fade-out(if.bind="visible")
+            aire-navigation(
+                child
+                icon.bind="plugin.icon"
+                mode.bind="mode"
+                plugin.bind="plugin"
+                parent.bind="viewModel"
+                label.bind="plugin.label"
+                repeat.for="plugin of plugins"
+            )
 
 

@@ -20,7 +20,7 @@ $side-nav-background-color: #2d3e50;
 $side-nav-border-color: #354a5f;
 $side-nav-color: #7b898a;
 
-$navbar-background: linear-gradient(to left, $light-purple, $purple);;
+$navbar-background: linear-gradient(to left, $blue, $purple);
 $navbar-item-color: $white !important;
 $navbar-nav-item-height: 64px !default;
 
@@ -38,4 +38,5 @@ $navbar-nav-item-height: 64px !default;
 
 @import "components/page";
 @import "components/button";
+@import "components/navbar";
 @import "components/navigation";

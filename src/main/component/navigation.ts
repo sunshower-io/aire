@@ -2,6 +2,7 @@ import {
   inject,
   bindable,
   customElement,
+  bindingMode,
 } from 'aurelia-framework';
 import * as UIkit from 'uikit';
 import {NavModel, Router} from 'aurelia-router';
@@ -13,6 +14,18 @@ import {dom}              from "aire/core/dom";
 export class AireNavigation {
   private child: boolean;
 
+  @bindable plugins: Plugin[];
+
+  @bindable
+  plugin: Plugin;
+
+  @bindable({
+    defaultBindingMode: bindingMode.twoWay
+  })
+  activePlugin: Plugin;
+
+
+  @bindable mode: Mode = 'routing';
 
   @bindable private nav: NavModel;
 
@@ -47,6 +60,7 @@ export class AireNavigation {
   @bindable
   icon : string = "fal fa-ellipsis-v-alt";
 
+
   constructor(readonly el: Element) {
     this.child = dom.decorate(el, 'child');
     this.viewModel = this;
@@ -67,14 +81,33 @@ export class AireNavigation {
   }
 
   async navigate() {
-    let
-      p = this.parent,
-      r = this.router || (p && p.router),
-      n = this.nav;
-    if(r && n) {
-      r.navigate(n.href);
+    if(this.mode === 'routing') {
+      let
+        p = this.parent,
+        r = this.router || (p && p.router),
+        n = this.nav;
+      if (r && n) {
+        r.navigate(n.href);
+      }
+    } else {
+      let p = this.parent;
+      if(p)  {
+        p.activePlugin = this.plugin;
+      }
+
+
     }
     this.visible = false;
   }
 
+
+
+
 }
+
+export interface Plugin {
+  root: string;
+  icon: string;
+}
+
+export type Mode = 'routing' | 'plugin';
