@@ -1,30 +1,3 @@
-$aire-typography-font-family: "noto sans", "helvetica neue", "arial", sans serif !important;
-html, body {
-  width: 100%;
-  height: 100%;
-}
-
-@import "colors";
-@import "variables";
-
-$fa-font-path: "assets";
-@import 'fonts';
-
-//$global-color: $black;
-//$global-primary-background: $purple;
-//$global-secondary-background: $dark-gray-2;
-//$global-muted-color:$dark-gray-1;
-
-
-$side-nav-background-color: #2d3e50;
-$side-nav-border-color: #354a5f;
-$side-nav-color: #7b898a;
-
-$navbar-background: linear-gradient(to left, $blue, $purple);
-$navbar-item-color: $white !important;
-$navbar-nav-item-height: 64px !default;
-
-
 @import 'animations/animations.scss';
 @import 'variables-theme.scss';
 @import 'mixins-theme.scss';

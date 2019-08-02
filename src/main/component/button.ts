@@ -39,10 +39,6 @@ export class AireButton {
     dom.decorate(el, 'expand');
   }
 
-  attached() {
-    console.log("Sup");
-  }
-
   dispatch(e: Event) : void {
     if(!this.disabled) {
       this.el.dispatchEvent(createEvent('click', {

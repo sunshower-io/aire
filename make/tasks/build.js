@@ -2,6 +2,7 @@ const {
     dest,
     task,
     src,
+    series,
     parallel,
 } = require('gulp');
 const flatten = require('gulp-flatten');
@@ -20,7 +21,7 @@ const tsc = typescript.createProject('tsconfig.json', {
     typescript: require('typescript')
 });
 task('copy:package', () => {
-    return src('./package.json').pipe(dest(paths.output));
+    return src(['./package.json', './jspm.config.js']).pipe(dest(paths.output));
 
 });
 task('copy:assets', function () {
@@ -51,13 +52,24 @@ task('build:source', () => {
         .pipe(dest(paths.output));
 });
 
-task('build:styles', () => {
-
-    return src(paths.scss).pipe(scss({
+task('build:light', () => {
+    return src(paths.scss.light).pipe(scss({
         includePaths: paths.scssIncludes
-    })).pipe(concat('aire.css')).pipe(dest(paths.output));
+    })).pipe(concat('aire.css')).pipe(dest(paths.output + '/themes/light'));
 });
+
+
+task('build:dark', () => {
+    return src(paths.scss.dark).pipe(scss({
+        includePaths: paths.scssIncludes
+    })).pipe(concat('aire.css')).pipe(dest(paths.output + '/themes/dark'));
+});
+
+task('build:styles', parallel('build:light', 'build:dark'));
+
+
 
 task('copy', parallel('copy:assets', 'copy:package'));
 
 task('build', parallel('build:source', 'build:html', 'build:styles', 'copy'));
+

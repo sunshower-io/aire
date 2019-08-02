@@ -12,7 +12,11 @@ module.exports = {
 
   ],
   root: appRoot,
-  scss: ['src/main/themes/**/*.scss'],
+  // scss: ['src/main/themes/**/*.scss'],
+  scss: {
+    dark: 'src/main/themes/dark/theme.scss',
+    light: 'src/main/themes/light/theme.scss'
+  },
   pug: appRoot + 'main/**/*.pug',
   source: appRoot + 'main/**/*.ts',
   html: appRoot + '**/*.html',

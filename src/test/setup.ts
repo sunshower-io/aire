@@ -5,4 +5,4 @@ import 'aurelia-pal-browser';
 import {initialize} from 'aurelia-pal-browser';
 initialize();
 import * as path               from 'path';
-Options.relativeToDir = path.join(__dirname, '../../dist/main');
+Options.relativeToDir = path.join(__dirname, '../../dist');

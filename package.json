@@ -4,7 +4,9 @@
   "description": "UIKit bindings for Aurelia",
   "main": "aire.js",
   "scripts": {
-    "test": "test"
+    "clean": "gulp clean",
+    "test": "npx jest",
+    "build": "npm install && jspm install -y && gulp && npx jest"
   },
   "repository": {
     "type": "git",
@@ -61,7 +63,7 @@
   },
   "jspm": {
     "name": "aire",
-    "main": "dist/aire.js",
+    "main": "aire.js",
     "dependencies": {
       "aurelia-animator-css": "npm:aurelia-animator-css@^1.0.4",
       "aurelia-framework": "npm:aurelia-framework@^1.3.1",
