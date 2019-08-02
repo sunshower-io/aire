@@ -1,4 +1,12 @@
+plugins {
+    id "java-library"
+    id "maven-publish"
+}
 apply plugin: 'java'
+
+configurations {
+    web
+}
 
 
 task "build-all"(type: Exec) {
@@ -22,3 +30,27 @@ task clobber(type: Delete) {
 clean.dependsOn "clean-all"
 
 build.dependsOn install
+
+artifacts {
+    web install
+}
+
+
+publishing {
+    repositories {
+        maven {
+            url mavenRepositoryUrl
+
+            credentials {
+                username mavenRepositoryUsername
+                password mavenRepositoryPassword
+            }
+        }
+    }
+    publications {
+        mavenJava(MavenPublication) {
+            artifact install
+        }
+    }
+
+}
