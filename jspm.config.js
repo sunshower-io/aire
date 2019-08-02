@@ -81,5 +81,16 @@ SystemJS.config({
     "process": "npm:jspm-nodelibs-process@0.2.1",
     "text": "github:systemjs/plugin-text@0.0.11",
     "uikit": "npm:uikit@3.1.5"
+  },
+  bundles: {
+    "dist/app.js": [
+      "dist/aire.css!github:systemjs/plugin-text@0.0.11/text.js",
+      "dist/component/button.html!github:systemjs/plugin-text@0.0.11/text.js",
+      "dist/component/navbar.html!github:systemjs/plugin-text@0.0.11/text.js",
+      "dist/component/navigation.html!github:systemjs/plugin-text@0.0.11/text.js",
+      "dist/component/page.html!github:systemjs/plugin-text@0.0.11/text.js",
+      "dist/component/panel.html!github:systemjs/plugin-text@0.0.11/text.js",
+      "github:systemjs/plugin-text@0.0.11.json"
+    ]
   }
 });
