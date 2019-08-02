@@ -18,7 +18,7 @@ module.exports = {
   html: appRoot + '**/*.html',
   css: appRoot + '**/*.css',
   style: 'styles/**/*.css',
-  output: [outputRoot, exporSrvtRoot],
+  output: outputRoot,
   exportSrv: exporSrvtRoot,
   // locales: 'locales/**/*.yml',
   locales: ['en'],
