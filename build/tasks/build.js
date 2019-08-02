@@ -2,9 +2,7 @@ const {
     dest,
     task,
     src,
-    pipe,
     parallel,
-    series
 } = require('gulp');
 const flatten = require('gulp-flatten');
 const scss = require('gulp-sass');
@@ -43,7 +41,7 @@ task('build:source', () => {
         .pipe(plumber({
             errorHandler: notify.onError('Error: <%= error.message %>')
         }))
-        .pipe(changed(paths.output, {extension: '.ts'}))
+        .pipe(changed(...paths.output, {extension: '.ts'}))
         .pipe(sourcemaps.init({loadMaps: true}))
         .pipe(tsc())
         .pipe(flatten({

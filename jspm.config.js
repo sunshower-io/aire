@@ -58,17 +58,6 @@ SystemJS.config({
       }
     }
   },
-  bundles: {
-    "dist/app.js": [
-      "dist/aire.css!github:systemjs/plugin-text@0.0.11/text.js",
-      "dist/component/button.html!github:systemjs/plugin-text@0.0.11/text.js",
-      "dist/component/navbar.html!github:systemjs/plugin-text@0.0.11/text.js",
-      "dist/component/navigation.html!github:systemjs/plugin-text@0.0.11/text.js",
-      "dist/component/page.html!github:systemjs/plugin-text@0.0.11/text.js",
-      "dist/component/panel.html!github:systemjs/plugin-text@0.0.11/text.js",
-      "github:systemjs/plugin-text@0.0.11.json"
-    ]
-  },
   packageConfigPaths: [
     "npm:@*/*.json",
     "npm:*.json",
