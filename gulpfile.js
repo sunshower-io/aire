@@ -46,11 +46,11 @@ task('watch:typescript', () => {
 
 task('watch:docs:typescript', () => {
     watch(paths.docs.source,
-        series('build:docs:typescript', 'reload')).on('change', reportChange);
+        series('build:docs:source', 'reload')).on('change', reportChange);
 });
 
 task('watch:docs:html', () => {
-    watch([paths.docs.pug], series('build:html', 'reload')).on('change', reportChange);
+    watch([paths.docs.pug], series('build:docs:pug', 'reload')).on('change', reportChange);
 });
 task('watch:docs', parallel('watch:docs:typescript', 'watch:docs:html'));
 
