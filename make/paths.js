@@ -16,6 +16,7 @@ module.exports = {
   root: appRoot,
   // scss: ['src/main/themes/**/*.scss'],
   scss: {
+    base: 'src/main/themes/base/**/*.scss',
     dark: 'src/main/themes/dark/theme.scss',
     light: 'src/main/themes/light/theme.scss'
   },

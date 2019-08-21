@@ -59,7 +59,11 @@ task('watch:html', () => {
 });
 
 task('watch:styles', () => {
-    watch([paths.scss.light, paths.scss.dark], series('build:styles', 'reload')).on('change', reportChange);
+    watch([
+        paths.scss.light,
+        paths.scss.dark,
+        paths.scss.base
+    ], series('build:styles', 'reload')).on('change', reportChange);
 });
 
 task('reload', (done) => {

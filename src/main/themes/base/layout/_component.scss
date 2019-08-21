@@ -1,0 +1,10 @@
+
+@mixin component($expand:true, $display: block) {
+
+  display: $display;
+  @if($expand) {
+    width:100%;
+    height:100%;
+  }
+
+}

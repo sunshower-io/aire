@@ -1,0 +1,8 @@
+@import "component";
+
+
+
+
+.aire-page {
+  @include component();
+}
