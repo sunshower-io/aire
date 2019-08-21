@@ -20,6 +20,3 @@ task('unbundle:application', () => {
     return bundler.unbundle(config);
 });
 
-task('bundle', series('build', 'bundle:application'));
-
-task('unbundle', series('unbundle:application'));

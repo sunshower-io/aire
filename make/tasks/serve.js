@@ -1,7 +1,7 @@
 const {task, series} = require('gulp');
 const browserSync = require('browser-sync');
 
-task('serve', series('build', (done) => {
+task('serve:all', (done) => {
     browserSync(
         {
             injectChanges: true,
@@ -18,7 +18,7 @@ task('serve', series('build', (done) => {
         },
         done
     );
-}));
+});
 
 task('serve-bundle', (done) => {
     browserSync(

@@ -11,11 +11,18 @@ module.exports = {
     "node_modules/@fortawesome/fontawesome-pro/webfonts/**/*.{gif,jpg,png,svg,eot,ttf,woff,woff2}"
 
   ],
+
+  fonts: appRoot + 'main/themes/fonts/**/*',
   root: appRoot,
   // scss: ['src/main/themes/**/*.scss'],
   scss: {
     dark: 'src/main/themes/dark/theme.scss',
     light: 'src/main/themes/light/theme.scss'
+  },
+  docs: {
+    output: outputRoot + '/docs',
+    pug: appRoot + 'docs/**/*.pug',
+    source: appRoot + 'docs/**/*.ts',
   },
   pug: appRoot + 'main/**/*.pug',
   source: appRoot + 'main/**/*.ts',
@@ -26,7 +33,6 @@ module.exports = {
   exportSrv: exporSrvtRoot,
   // locales: 'locales/**/*.yml',
   locales: ['en'],
-  doc: './doc',
   e2eSpecsSrc: 'test/e2e/src/**/*.ts',
   e2eSpecsDist: 'test/e2e/dist/',
   dtsSrc: ['./typings/**/*.d.ts', './custom_typings/**/*.d.ts']

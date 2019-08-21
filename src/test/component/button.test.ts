@@ -25,10 +25,6 @@ test(`a button's label must be bindable`, async (done) => {
   await expectComponent(template, {label}, (cmp, a) => {
     let button = document.querySelector('aire-button button');
     (button as any).click();
-    let timeout = setTimeout(() => {
-      console.log(button);
-      done();
-    });
 
 
 

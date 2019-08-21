@@ -13,5 +13,3 @@ task('clean:all', () => {
 
 task('clean', series('clean:all'));
 
-task('default', series('clean', 'build'));
-

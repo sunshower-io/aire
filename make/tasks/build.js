@@ -25,7 +25,37 @@ task('copy:package', () => {
 
 });
 task('copy:assets', function () {
-    return src(paths.assets).pipe(dest(paths.output + "/assets"));
+    return src(paths.assets).pipe(dest(paths.output + "/themes/webfonts/"));
+});
+
+task('copy:fonts', () => {
+    return src(paths.fonts).pipe(dest(paths.output + '/themes/webfonts/'));
+});
+
+
+
+task('build:docs:source', () => {
+    return src(paths.dtsSrc.concat(paths.docs.source))
+        .pipe(plumber({
+            errorHandler: notify.onError('Error: <%= error.message %>')
+        }))
+        .pipe(changed(paths.output, {extension: '.ts'}))
+        .pipe(sourcemaps.init({loadMaps: true}))
+        .pipe(tsc())
+        .pipe(flatten({
+            includeParents: -1
+        }))
+        .pipe(sourcemaps.write('.', {includeContent: false, sourceRoot: '.'}))
+        .pipe(dest(paths.docs.output));
+});
+
+task('build:docs:pug', () => {
+    return src(paths.docs.pug)
+        .pipe(pug())
+        .pipe(flatten({
+            includeParents: -1
+        }))
+        .pipe(dest(paths.docs.output));
 });
 
 task('build:html', () => {
@@ -69,7 +99,17 @@ task('build:styles', parallel('build:light', 'build:dark'));
 
 
 
-task('copy', parallel('copy:assets', 'copy:package'));
+task('copy', parallel('copy:assets', 'copy:package', 'copy:fonts'));
+task('build:docs', parallel('build:docs:source', 'build:docs:pug'));
 
-task('build', parallel('build:source', 'build:html', 'build:styles', 'copy'));
+task('build', parallel(
+    series(
+        'build:source',
+        'build:docs:source'
+    ),
+    'build:html',
+    'build:styles',
+    'copy',
+    'build:docs:pug'
+));
 

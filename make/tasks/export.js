@@ -71,4 +71,3 @@ task('export-normalized-resources', (done) => {
     }
 });
 
-task('export', series('bundle', 'clean-export', 'export-normalized-resources', 'export-copy'));
