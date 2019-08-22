@@ -19,8 +19,7 @@ SystemJS.config({
       "defaultExtension": "js",
       "format": "amd"
     },
-    "/dist/docs": {
-      "main": "dist/docs/main",
+    "/dist/docs/": {
       "defaultExtension": "js",
       "format": "amd"
     },
@@ -134,6 +133,7 @@ SystemJS.config({
     "aurelia-history": "npm:aurelia-history@1.2.1",
     "aurelia-loader": "npm:aurelia-loader@1.0.2",
     "aurelia-logging": "npm:aurelia-logging@1.5.2",
+    "aurelia-logging-console": "npm:aurelia-logging-console@1.1.1",
     "aurelia-metadata": "npm:aurelia-metadata@1.0.6",
     "aurelia-pal": "npm:aurelia-pal@1.8.2",
     "aurelia-pal-browser": "npm:aurelia-pal-browser@1.8.1",
@@ -149,35 +149,5 @@ SystemJS.config({
     "process": "npm:jspm-nodelibs-process@0.2.1",
     "text": "github:systemjs/plugin-text@0.0.11",
     "uikit": "npm:uikit@3.1.5"
-  },
-  bundles: {
-    "aire/docs.js": [
-      "docs/application.html!github:systemjs/plugin-text@0.0.11/text.js",
-      "docs/application.js",
-      "docs/main.js"
-    ],
-    "aire/aire.js": [
-      "aire/aire.js",
-      "aire/component/button.html!github:systemjs/plugin-text@0.0.11/text.js",
-      "aire/component/button.js",
-      "aire/component/modifiers.js",
-      "aire/component/navbar.html!github:systemjs/plugin-text@0.0.11/text.js",
-      "aire/component/navbar.js",
-      "aire/component/page.html!github:systemjs/plugin-text@0.0.11/text.js",
-      "aire/component/page.js",
-      "aire/component/panel.html!github:systemjs/plugin-text@0.0.11/text.js",
-      "aire/component/panel.js",
-      "aire/component/type.js",
-      "aire/core/dom.js",
-      "aire/core/events.js",
-      "aire/jspm.config.js",
-      "aire/layout/page.html!github:systemjs/plugin-text@0.0.11/text.js",
-      "aire/layout/page.js",
-      "docs/application.html!github:systemjs/plugin-text@0.0.11/text.js",
-      "docs/application.js",
-      "docs/index.html!github:systemjs/plugin-text@0.0.11/text.js",
-      "docs/main.js",
-      "github:systemjs/plugin-text@0.0.11.json"
-    ]
   }
 });

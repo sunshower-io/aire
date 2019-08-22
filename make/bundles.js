@@ -9,7 +9,7 @@ module.exports = {
           'dist/docs/index.html!text'
       ],
       options: {
-        inject: true,
+        inject: false,
         minify: true
       }
     },
@@ -24,7 +24,7 @@ module.exports = {
           'aurelia-router',
       ],
       options: {
-        inject: true,
+        inject: false,
         minify: true
       }
     }
