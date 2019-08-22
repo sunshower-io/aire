@@ -1,7 +1,6 @@
 'use strict';
 
 const {
-    series,
     task,
     src,
     dest
