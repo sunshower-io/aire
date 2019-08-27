@@ -36,8 +36,6 @@ task(
 task('serve', series('serve:all'));
 
 
-task('default', (cb) => cb());
-
 
 task('watch:typescript', () => {
     watch(paths.source,

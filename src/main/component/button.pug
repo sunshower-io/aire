@@ -1,12 +1,2 @@
 template.aire-button.aire
-    a(
-        if.bind="href"
-        click.delegate="dispatch($event)"
-    ).uk-button ${label}
-
-    button(
-        show.bind="!href"
-        click.trigger="dispatch($event)"
-    ).uk-button.uk-button-default
-        .button-content
-            slot
+    button(click.trigger="click()") ${label}

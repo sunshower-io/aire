@@ -38,6 +38,10 @@ export class AireButton {
   constructor(private el: Element) {
     dom.decorate(el, 'expand');
   }
+  click() {
+    console.log("SUP");
+    this.label = "sup";
+  }
 
   dispatch(e: Event) : void {
     if(!this.disabled) {
