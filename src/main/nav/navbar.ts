@@ -4,8 +4,8 @@ import {
 } from 'aurelia-framework'
 
 @containerless
-@customElement('aire-footer')
-export class AireFooter {
+@customElement('aire-navbar')
+export class AireNavbar {
 
 
 }
