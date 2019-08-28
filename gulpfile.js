@@ -60,7 +60,11 @@ task('watch:styles', () => {
     watch([
         paths.scss.light,
         paths.scss.dark,
-        paths.scss.base
+        paths.scss.base,
+        paths.docs.scss.base,
+        paths.docs.scss.dark,
+        paths.docs.scss.light,
+
     ], series('build:styles', 'reload')).on('change', reportChange);
 });
 

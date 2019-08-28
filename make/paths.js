@@ -21,9 +21,16 @@ module.exports = {
     light: 'src/main/themes/light/theme.scss'
   },
   docs: {
+
+    scss: {
+      base: 'src/docs/styles/themes/base/**/*.scss',
+      dark: 'src/docs/styles/themes/dark/theme.scss',
+      light: 'src/docs/styles/themes/light/theme.scss'
+    },
     output: outputRoot + '/docs',
     pug: appRoot + 'docs/**/*.pug',
     source: appRoot + 'docs/**/*.ts',
+    assets: appRoot + 'docs/assets/**/*.{gif,svg,jpg,png}'
   },
   pug: appRoot + 'main/**/*.pug',
   source: appRoot + 'main/**/*.ts',

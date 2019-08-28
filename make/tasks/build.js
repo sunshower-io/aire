@@ -32,6 +32,9 @@ task('copy:fonts', () => {
     return src(paths.fonts).pipe(dest(paths.output + '/themes/webfonts/'));
 });
 
+task('copy:docs:assets', () => {
+    return src(paths.docs.assets).pipe(dest(paths.docs.output + '/assets'));
+});
 
 
 task('build:docs:source', () => {
@@ -88,6 +91,26 @@ task('build:static', () => {
     })).pipe(dest(paths.output + '/assets/styles'));
 });
 
+task('build:docs:styles', () => {
+    return src(paths.docs.scss.base).pipe(scss({
+        includePaths: paths.scssIncludes
+    })).pipe(concat('aire.css')).pipe(dest(paths.docs.output + '/themes/base'));
+});
+
+
+task('build:docs:light', () => {
+    return src(paths.docs.scss.light).pipe(scss({
+        includePaths: paths.scssIncludes
+    })).pipe(concat('aire.css')).pipe(dest(paths.docs.output + '/themes/light'));
+});
+
+
+task('build:docs:dark', () => {
+    return src(paths.docs.scss.dark).pipe(scss({
+        includePaths: paths.scssIncludes
+    })).pipe(concat('aire.css')).pipe(dest(paths.docs.output + '/themes/dark'));
+});
+
 task('build:light', () => {
     return src(paths.scss.light).pipe(scss({
         includePaths: paths.scssIncludes
@@ -101,12 +124,27 @@ task('build:dark', () => {
     })).pipe(concat('aire.css')).pipe(dest(paths.output + '/themes/dark'));
 });
 
-task('build:styles', parallel('build:light', 'build:dark'));
+task('build:styles', parallel(
+    'build:light',
+    'build:dark',
+    'build:docs:styles',
+    'build:docs:light',
+    'build:docs:dark'
+));
 
 
+task('copy', parallel(
+    'copy:assets',
+    'copy:package',
+    'copy:fonts',
+    'copy:docs:assets'
+));
 
-task('copy', parallel('copy:assets', 'copy:package', 'copy:fonts'));
-task('build:docs', parallel('build:docs:source', 'build:docs:pug'));
+
+task('build:docs', parallel(
+    'build:docs:source',
+    'build:docs:pug'
+));
 
 task('build', parallel(
     series(

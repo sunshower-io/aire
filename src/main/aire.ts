@@ -1,9 +1,15 @@
-import 'aire/themes/dark/aire.css!'
+// import 'aire/themes/dark/aire.css!'
 import {PLATFORM}               from 'aurelia-pal';
 import {FrameworkConfiguration} from 'aurelia-framework';
 
 export function configure(cfg : FrameworkConfiguration) {
   cfg.globalResources([
+
+    /**
+     * Components
+     */
+
+    'aire/component/image',
 
     /**
      * Layout Elements
