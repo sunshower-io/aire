@@ -1,21 +1,26 @@
 doctype html
-html(lang='en')
+html.theme-light
     head
         meta(charset="utf-8")
+        title
+        meta(name="viewport" content="width=device-width, initial-scale=1")
 
-        link(rel="stylesheet" href="../themes/light/aire.css")
-        script(src="/jspm_packages/npm/uikit@3.1.5/dist/js/uikit.min.js")
-        script(src="/jspm_packages/npm/uikit@3.1.5/dist/js/uikit-icons.min.js")
+
+        link(rel="stylesheet" href="/styles/splash.css")
         script(src="/jspm_packages/system.js")
         script(src="/jspm.config.js")
         script.
             System.import('aurelia-bootstrapper')
 
-
-
     body(aurelia-app="docs/main")
+        section#aire-splash
+            .left
+                div.wrapper
+                    .spinner
+                        i
+                        i
+                        i
+            .right
+                h1 Aire
+                h2 Powerful Components for Beautiful Applications
 
-        .uk-position-center.flex-center
-            .uk-text-primary(uk-spinner="ratio:4")
-            .uk-text-large Aurelia Aire
-            .uk-text-small Curated Aurelia/UIKit Bindings

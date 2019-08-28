@@ -12,9 +12,15 @@ html, body {
 
 
 
+template {
+  display:block;
+  width:100%;
+  height:100%;
+  border:1px solid blue;
+}
 
 
-@import 'animations/animations.scss';
+
 @import 'variables-theme.scss';
 @import 'mixins-theme.scss';
 
@@ -24,18 +30,6 @@ html, body {
 @import "fontawesome";
 
 
-@import "layout/page";
-@import "layout/navigation";
+@import "layout/viewport";
 
-
-@import "components/page";
-@import "components/button";
-@import "components/navbar";
-@import "components/navigation";
-
-.flex-center {
-  display:flex;
-  flex-direction: column;
-  align-items: center;
-}
 

@@ -7,7 +7,7 @@ import {ConsoleAppender} from 'aurelia-logging-console';
 export async function configure(application : Aurelia) {
   LogManager.addAppender(new ConsoleAppender());
   application.use
-             // .plugin('aire')
+             .plugin('aire')
              .developmentLogging('debug')
              .standardConfiguration();
   await application.start();

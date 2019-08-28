@@ -82,6 +82,12 @@ task('build:source', () => {
         .pipe(dest(paths.output));
 });
 
+task('build:static', () => {
+    return src('src/main/themes/spinner.scss').pipe(scss({
+        includePaths: paths.scssIncludes
+    })).pipe(dest(paths.output + '/assets/styles'));
+});
+
 task('build:light', () => {
     return src(paths.scss.light).pipe(scss({
         includePaths: paths.scssIncludes

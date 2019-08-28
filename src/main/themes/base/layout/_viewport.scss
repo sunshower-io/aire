@@ -1,0 +1,24 @@
+@import "../mixins";
+
+
+main.aire-viewport {
+  border:1px solid red;
+
+  @include expand;
+
+  main {
+
+
+  }
+
+  header {
+    height:32px;
+    border:1px solid red;
+  }
+
+
+  footer {
+    height: 32px;
+    border:1px solid blue;
+  }
+}

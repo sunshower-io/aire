@@ -1,18 +1,12 @@
+import 'aire/themes/dark/aire.css!'
 import {PLATFORM}               from 'aurelia-pal';
 import {FrameworkConfiguration} from 'aurelia-framework';
 
 export function configure(cfg : FrameworkConfiguration) {
   cfg.globalResources([
-
-    // Components
-    'aire/component/button',
-    'aire/component/type',
-    'aire/component/navbar',
-    // End Components
-
-    // Layout
-    'aire/layout/page'
-    // End Layout
+    'aire/layout/viewport',
+    'aire/layout/header',
+    'aire/layout/footer'
   ]).plugin(PLATFORM.moduleName('aurelia-animator-css'));
 
 }

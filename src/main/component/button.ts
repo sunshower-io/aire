@@ -4,8 +4,10 @@ import {
   customElement
 }                       from 'aurelia-framework';
 import {createEvent}    from "aire/core/events";
-import {ButtonModifier} from "aire/component/modifiers";
 import {dom}            from "aire/core/dom";
+import {
+  ButtonModifier
+} from "aire/component/modifiers";
 
 
 @inject(Element)
@@ -37,10 +39,6 @@ export class AireButton {
 
   constructor(private el: Element) {
     dom.decorate(el, 'expand');
-  }
-  click() {
-    console.log("SUP");
-    this.label = "sup";
   }
 
   dispatch(e: Event) : void {
