@@ -1,0 +1,57 @@
+@import "../mixins";
+
+
+body {
+  display:flex;
+  flex-direction:column;
+
+}
+
+header {
+  justify-self: flex-start;
+  border:1px solid gray;
+}
+
+footer {
+  justify-self: flex-end;
+  border:1px solid green;
+}
+
+div.main {
+  width:100%;
+  height:100%;
+  display:flex;
+  flex-direction:row;
+
+  nav {
+    justify-content:flex-start;
+    width:64px;
+    border:1px solid blue;
+  }
+  main {
+    border:1px solid red;
+    height:100%;
+    width:100%;
+  }
+
+
+}
+
+
+//main.aire-viewport {
+//  border:1px solid red;
+//
+//  @include expand;
+//
+//
+//  header {
+//    height:32px;
+//    border:1px solid red;
+//  }
+//
+//
+//  footer {
+//    height: 32px;
+//    border:1px solid blue;
+//  }
+//}

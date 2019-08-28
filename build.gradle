@@ -1,0 +1,56 @@
+plugins {
+    id "java-library"
+    id "maven-publish"
+}
+apply plugin: 'java'
+
+configurations {
+    web
+}
+
+
+task "build-all"(type: Exec) {
+    commandLine "npm", "run", "build"
+}
+
+
+task install(type: Zip, dependsOn: ["build-all"]) {
+    from "${project.projectDir}/dist/themes"
+    into "aire/themes"
+}
+
+task "clean-all"(type: Exec) {
+    commandLine "npm", "run", "clean"
+}
+
+task clobber(type: Delete) {
+    delete "node_modules", "jspm_packages"
+}
+
+clean.dependsOn "clean-all"
+
+build.dependsOn install
+
+artifacts {
+    web install
+}
+
+
+publishing {
+    repositories {
+        maven {
+            url mavenRepositoryUrl
+
+            credentials {
+                username mavenRepositoryUsername
+                password mavenRepositoryPassword
+            }
+        }
+    }
+    publications {
+        mavenJava(MavenPublication) {
+            artifact install
+        }
+    }
+
+}
