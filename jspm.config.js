@@ -125,9 +125,29 @@ SystemJS.config({
   },
   bundles: {
     "aire/app-build.js": [
-      "gulpfile.js",
-      "jest.config.js",
-      "jspm.config.js"
+      "aire/component/button.html!github:systemjs/plugin-text@0.0.11/text.js",
+      "aire/component/button.js",
+      "aire/component/image.html!github:systemjs/plugin-text@0.0.11/text.js",
+      "aire/component/image.js",
+      "aire/component/modifiers.js",
+      "aire/core/dom.js",
+      "aire/core/events.js",
+      "aire/layout/footer.html!github:systemjs/plugin-text@0.0.11/text.js",
+      "aire/layout/header.html!github:systemjs/plugin-text@0.0.11/text.js",
+      "aire/layout/page.html!github:systemjs/plugin-text@0.0.11/text.js",
+      "aire/layout/viewport.html!github:systemjs/plugin-text@0.0.11/text.js",
+      "aire/nav/location.html!github:systemjs/plugin-text@0.0.11/text.js",
+      "aire/nav/navbar.html!github:systemjs/plugin-text@0.0.11/text.js",
+      "aire/themes/dark/aire.css!github:systemjs/plugin-text@0.0.11/text.js",
+      "aire/themes/light/aire.css!github:systemjs/plugin-text@0.0.11/text.js",
+      "docs/default.html!github:systemjs/plugin-text@0.0.11/text.js",
+      "docs/documentation/index.html!github:systemjs/plugin-text@0.0.11/text.js",
+      "docs/index.html!github:systemjs/plugin-text@0.0.11/text.js",
+      "docs/themes/base/aire.css!github:systemjs/plugin-text@0.0.11/text.js",
+      "docs/themes/dark/aire.css!github:systemjs/plugin-text@0.0.11/text.js",
+      "docs/themes/light/aire.css!github:systemjs/plugin-text@0.0.11/text.js",
+      "docs/welcome.html!github:systemjs/plugin-text@0.0.11/text.js",
+      "github:systemjs/plugin-text@0.0.11.json"
     ],
     "aire/aurelia.js": [
       "npm:aurelia-animator-css@1.0.4.json",
@@ -176,6 +196,8 @@ SystemJS.config({
       "npm:aurelia-templating-binding@1.5.3/aurelia-templating-binding.js",
       "npm:aurelia-templating-resources@1.12.0.json",
       "npm:aurelia-templating-resources@1.12.0/aurelia-templating-resources.js",
+      "npm:aurelia-templating-router@1.4.0.json",
+      "npm:aurelia-templating-router@1.4.0/aurelia-templating-router.js",
       "npm:aurelia-templating@1.10.2.json",
       "npm:aurelia-templating@1.10.2/aurelia-templating.js"
     ]

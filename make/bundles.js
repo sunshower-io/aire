@@ -8,13 +8,29 @@ module.exports = {
     bundles: {
         "dist/app-build": {     // bundle name/path. Must be within `baseURL`. Output path will look like: `baseURL/dist/app-build.js`.
             includes: [
-                '[*.js]',
-                '*.html!text',
-                '*.css!text'
+                'dist/core/*.js',
+                'dist/component/*.js',
+                'dist/**/*.html!text',
+                'dist/**/*.css!text'
+            ],
+
+            excludes: [
+                'aurelia-bootstrapper',
+                'aurelia-fetch-client',
+                'aurelia-router',
+                'aurelia-animator-css',
+                'aurelia-framework',
+                'aurelia-templating-binding',
+                'aurelia-templating-router',
+                'aurelia-templating-resources',
+                'aurelia-history-browser',
+                'aurelia-pal-browser',
+                'aurelia-logging-console',
+                'aurelia-loader-default'
             ],
             options: {
                 inject: true,
-                minify: false
+                minify:true
             }
         },
 
@@ -27,6 +43,7 @@ module.exports = {
                 'aurelia-framework',
                 'aurelia-templating-binding',
                 'aurelia-templating-resources',
+                'aurelia-templating-router',
                 'aurelia-history-browser',
                 'aurelia-pal-browser',
                 'aurelia-logging-console',

@@ -1,4 +1,12 @@
 
+$global-muted-background: white;
+$purple: #660066;
+
+nav {
+  .uk-logo {
+    color: $purple;
+  }
+}
 
 @import 'variables-theme.scss';
 @import 'mixins-theme.scss';
