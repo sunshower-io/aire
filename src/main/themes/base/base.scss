@@ -31,5 +31,9 @@ template {
 
 
 @import "layout/viewport";
+@import "layout/page";
 
 
+p.primary, span.primary {
+  color: $purple;
+}

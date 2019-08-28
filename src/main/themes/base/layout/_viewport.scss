@@ -4,17 +4,24 @@
 body {
   display:flex;
   flex-direction:column;
-
 }
 
 header {
   justify-self: flex-start;
-  border:1px solid gray;
 }
 
 footer {
   justify-self: flex-end;
-  border:1px solid green;
+  height:24px;
+  display:flex;
+  flex-direction:row;
+  padding:0px 8px;
+
+  align-items: center;
+  justify-content:center;
+  &.f-large {
+    height:80px;
+  }
 }
 
 div.main {
@@ -26,32 +33,48 @@ div.main {
   nav {
     justify-content:flex-start;
     width:64px;
-    border:1px solid blue;
   }
+
+
   main {
-    border:1px solid red;
     height:100%;
     width:100%;
   }
 
+  /**
+  Header included
+   */
+  &.w-header {
+    height: calc(100% - 80px);
+  }
+
+  /**
+  Footer included
+   */
+  &.w-footer {
+    height: calc(100% - 24px);
+    &.f-large {
+      height: calc(100% - 80px);
+    }
+  }
+
+  &.w-footer.f-large {
+    height: calc(100% - 80px);
+  }
+
+
+  /**
+  Header and footer included
+   */
+  &.w-header.w-footer {
+    height: calc(100% - 104px);
+    &.f-large {
+      height: calc(100% - 160px);
+    }
+  }
+
+
+
 
 }
 
-
-//main.aire-viewport {
-//  border:1px solid red;
-//
-//  @include expand;
-//
-//
-//  header {
-//    height:32px;
-//    border:1px solid red;
-//  }
-//
-//
-//  footer {
-//    height: 32px;
-//    border:1px solid blue;
-//  }
-//}

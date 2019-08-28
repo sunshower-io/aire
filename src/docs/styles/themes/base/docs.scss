@@ -1,6 +1,10 @@
 
-$global-muted-background: white;
-$purple: #660066;
+@import "colors";
+
+router-view {
+  display:block;
+  height:100%;
+}
 
 nav {
   .uk-logo {
@@ -8,11 +12,12 @@ nav {
   }
 }
 
-@import 'variables-theme.scss';
-@import 'mixins-theme.scss';
-
-@import 'uikit-theme.scss';
-@import "light";
-@import "solid";
+//@import 'variables-theme.scss';
+//@import 'mixins-theme.scss';
+//
+//@import 'uikit-theme.scss';
+//@import "light";
+//@import "solid";
 @import "fontawesome";
+@import "base";
 

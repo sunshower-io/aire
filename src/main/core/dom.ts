@@ -14,6 +14,22 @@ export module dom {
     }
   }
 
+
+  export function setStyle(el:HTMLElement, style: string) : boolean {
+    let clist = el.classList,
+      set = clist.contains(style);
+    clist.add(style);
+    return !set;
+  }
+
+  export function unsetStyle(el: HTMLElement, style: string) : boolean {
+    let clist = el.classList,
+      set = clist.contains(style);
+    clist.remove(style);
+    return set;
+  }
+
+
   export function decorate(
     el : Element,
     decoration : string,

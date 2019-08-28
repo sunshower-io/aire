@@ -1,4 +1,15 @@
 template
-    aire-navbar
-        navbar-location(left)
-            aire-image
+    aire-viewport
+        aire-header
+            navbar-location(left)
+                aire-image(source="assets/icons/aire.svg" width="48", height="48")
+                    p.primary Aire
+        aire-page(hero)
+            aire-image(source="assets/icons/aurelia-uikit.svg"  width="256")
+            .text
+                | Beautiful, Enterprise-grade components built on Aurelia and UIKit
+            p.uk-margin
+                aire-button(primary) Get Started
+                aire-button(secondary) Examples
+        aire-footer(large)
+            p.primary version 1.0.0

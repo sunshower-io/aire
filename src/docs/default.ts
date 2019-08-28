@@ -6,16 +6,16 @@ export class DefaultPage {
   configureRouter(cfg: RouterConfiguration, router: Router) {
     cfg.map([
       {
-        route: 'welcome',
+        route: ['', 'welcome'],
         name: 'welcome',
         moduleId: './welcome'
       },
       {
-        route: ['', 'docs'],
+        route: 'docs',
         name: 'docs',
         moduleId: 'documentation/index'
       }
-    ])
+    ]);
 
   }
 

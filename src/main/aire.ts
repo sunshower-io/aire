@@ -10,6 +10,7 @@ export function configure(cfg : FrameworkConfiguration) {
      */
 
     'aire/component/image',
+    'aire/component/button',
 
     /**
      * Layout Elements

@@ -1,2 +1,3 @@
-template.aire-button.aire
-    button(click.trigger="click()") ${label}
+template.aire-button
+    a.uk-button(show.bind="type == 'link'" ref="anchor")
+        slot
