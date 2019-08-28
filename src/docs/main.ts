@@ -11,5 +11,5 @@ export async function configure(application : Aurelia) {
              .developmentLogging('debug')
              .standardConfiguration();
   await application.start();
-  await application.setRoot('docs/application');
+  await application.setRoot('docs/default');
 }

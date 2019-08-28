@@ -17,7 +17,8 @@ export function configure(cfg : FrameworkConfiguration) {
     /**
      * Navigation Elements
      */
-    'aire/nav/navbar'
+    'aire/nav/navbar',
+    'aire/nav/location',
 
 
   ]).plugin(PLATFORM.moduleName('aurelia-animator-css'));
