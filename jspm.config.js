@@ -133,11 +133,17 @@ SystemJS.config({
       "aire/core/dom.js",
       "aire/core/events.js",
       "aire/layout/footer.html!github:systemjs/plugin-text@0.0.11/text.js",
+      "aire/layout/footer.js",
       "aire/layout/header.html!github:systemjs/plugin-text@0.0.11/text.js",
+      "aire/layout/header.js",
       "aire/layout/page.html!github:systemjs/plugin-text@0.0.11/text.js",
+      "aire/layout/page.js",
       "aire/layout/viewport.html!github:systemjs/plugin-text@0.0.11/text.js",
+      "aire/layout/viewport.js",
       "aire/nav/location.html!github:systemjs/plugin-text@0.0.11/text.js",
+      "aire/nav/location.js",
       "aire/nav/navbar.html!github:systemjs/plugin-text@0.0.11/text.js",
+      "aire/nav/navbar.js",
       "aire/themes/dark/aire.css!github:systemjs/plugin-text@0.0.11/text.js",
       "aire/themes/light/aire.css!github:systemjs/plugin-text@0.0.11/text.js",
       "docs/default.html!github:systemjs/plugin-text@0.0.11/text.js",
@@ -147,7 +153,11 @@ SystemJS.config({
       "docs/themes/dark/aire.css!github:systemjs/plugin-text@0.0.11/text.js",
       "docs/themes/light/aire.css!github:systemjs/plugin-text@0.0.11/text.js",
       "docs/welcome.html!github:systemjs/plugin-text@0.0.11/text.js",
-      "github:systemjs/plugin-text@0.0.11.json"
+      "github:systemjs/plugin-text@0.0.11.json",
+      "npm:jspm-nodelibs-process@0.2.1.json",
+      "npm:jspm-nodelibs-process@0.2.1/process.js",
+      "npm:uikit@3.1.5.json",
+      "npm:uikit@3.1.5/dist/js/uikit.js"
     ],
     "aire/aurelia.js": [
       "npm:aurelia-animator-css@1.0.4.json",
@@ -200,6 +210,22 @@ SystemJS.config({
       "npm:aurelia-templating-router@1.4.0/aurelia-templating-router.js",
       "npm:aurelia-templating@1.10.2.json",
       "npm:aurelia-templating@1.10.2/aurelia-templating.js"
+    ],
+    "aire/docs.js": [
+      "docs/default.html!github:systemjs/plugin-text@0.0.11/text.js",
+      "docs/default.js",
+      "docs/documentation/index.html!github:systemjs/plugin-text@0.0.11/text.js",
+      "docs/documentation/index.js",
+      "docs/index.html!github:systemjs/plugin-text@0.0.11/text.js",
+      "docs/main.js",
+      "docs/themes/base/aire.css!github:systemjs/plugin-css@0.1.37/css.js",
+      "docs/themes/base/aire.css!github:systemjs/plugin-text@0.0.11/text.js",
+      "docs/themes/dark/aire.css!github:systemjs/plugin-text@0.0.11/text.js",
+      "docs/themes/light/aire.css!github:systemjs/plugin-text@0.0.11/text.js",
+      "docs/welcome.html!github:systemjs/plugin-text@0.0.11/text.js",
+      "docs/welcome.js",
+      "github:systemjs/plugin-css@0.1.37.json",
+      "github:systemjs/plugin-text@0.0.11.json"
     ]
   },
   packageConfigPaths: [
