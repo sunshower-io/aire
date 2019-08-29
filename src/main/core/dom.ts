@@ -4,14 +4,16 @@ export module dom {
     el : Element,
     decoration : string,
     className? : string
-  ) {
+  ) : boolean {
     if (sourceEl.hasAttribute(decoration)) {
       if (className) {
         el.classList.add(className);
       } else {
         el.classList.add(decoration);
       }
+      return true;
     }
+    return false;
   }
 
 

@@ -6,6 +6,9 @@
 header, footer {
   button {
     background-color: $white;
+    border: none !important;
+    width:32px;
+    height:38.4px;
   }
   button.control {
     width:64px;
@@ -28,6 +31,7 @@ header, footer {
     display:flex;
     flex-direction: column;
     button {
+      border: none !important;
       span {
         line-height:0;
         display:block;

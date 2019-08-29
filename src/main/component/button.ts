@@ -12,7 +12,6 @@ import {
 
 
 @inject(Element)
-@containerless
 @customElement('aire-button')
 export class AireButton {
 
@@ -22,7 +21,8 @@ export class AireButton {
     'secondary',
     'danger',
     'text',
-    'control'
+    'control',
+    'link'
   ];
 
 
@@ -62,8 +62,33 @@ export class AireButton {
 
   constructor(private el : Element) {
     dom.decorate(el, 'expand');
-    this.role = el.hasAttribute('link') ? 'link' : 'button';
+    this.role = !!el.getAttribute("href") ? 'link' : 'button';
     this.modifier = AireButton.modifierFor(el);
+  }
+
+  created() : void {
+    let el = this.el;
+    switch (this.role) {
+      case 'button': {
+        let remove = el.childNodes.item(0),
+          target = el.childNodes.item(1),
+          slot = el.childNodes.item(2);
+        remove.remove();
+        target.appendChild(slot);
+
+
+        break;
+      }
+      case 'link' : {
+        let remove = el.childNodes.item(1),
+          target = el.childNodes.item(0),
+          slot = el.childNodes.item(2);
+        remove.remove();
+        target.appendChild(slot);
+        break;
+      }
+
+    }
   }
 
 
@@ -87,13 +112,11 @@ export class AireButton {
         if(this.modifier == 'control') {
           this.button.classList.add('control');
         }
-        this.anchor.remove();
         break;
       case 'link':
         if(this.modifier == 'control') {
           this.anchor.classList.add('control');
         }
-        this.button.remove();
         break;
       default:
         throw new Error("Unknown button role for modifier: " + this.role);
@@ -101,14 +124,19 @@ export class AireButton {
   }
 
   private decorate() {
-    console.log(this.el.hasAttribute('text'));
+    let found : boolean,
+      target = this.role == 'link' ? this.anchor : this.button;
     for (let modifier of AireButton.modifiers) {
-      dom.decorateTo(
+      found = dom.decorateTo(
         this.el,
-        this.anchor,
+        target,
         modifier,
         `uk-button-${modifier}`
       );
+    }
+    if(!found) {
+      console.log("Setting default", target);
+      target.classList.add('uk-button-default');
     }
   }
 
