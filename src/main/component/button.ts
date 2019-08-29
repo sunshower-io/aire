@@ -25,6 +25,11 @@ export class AireButton {
     'link'
   ];
 
+  public static sizes : string[] = [
+    'small',
+    'large'
+  ];
+
 
   /**
    * Mode button?
@@ -51,6 +56,10 @@ export class AireButton {
    */
   private role : ButtonRole = 'button';
 
+  /**
+   * What kind of button are we?
+   */
+
   private modifier : ButtonModifier = 'default';
 
 
@@ -64,7 +73,7 @@ export class AireButton {
     dom.decorate(el, 'expand');
     this.role = !!
       (el.getAttribute("href") ||
-      el.getAttribute('href.bind'))
+        el.getAttribute('href.bind'))
                 ? 'link' : 'button';
     this.modifier = AireButton.modifierFor(el);
   }
@@ -127,19 +136,27 @@ export class AireButton {
   }
 
   private decorate() {
-    let found : boolean,
-      target = this.role == 'link' ? this.anchor : this.button;
+    let target = this.role == 'link' ? this.anchor : this.button,
+      found = this.extractModifiers(target, AireButton.modifiers);
+    if (!found) {
+      target.classList.add('uk-button-default');
+    }
+    this.extractModifiers(target, AireButton.sizes);
+
+  }
+
+  private extractModifiers(target:HTMLElement, modifiers: string[]) {
     for (let modifier of AireButton.modifiers) {
-      found = dom.decorateTo(
+      if(dom.decorateTo(
         this.el,
         target,
         modifier,
         `uk-button-${modifier}`
-      );
+      )) {
+        return true;
+      }
     }
-    if (!found) {
-      target.classList.add('uk-button-default');
-    }
+    return false;
   }
 
   private static modifierFor(el : Element) : ButtonModifier {
