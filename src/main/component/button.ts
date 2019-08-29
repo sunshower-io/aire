@@ -39,30 +39,33 @@ export class AireButton {
    * The text of the button/link
    */
 
-  @bindable label : string;
+  @bindable public label : string;
 
   /**
    * Optional link
    */
-  @bindable href : string;
+  @bindable public href : string;
 
   /**
    * The style of the button
    */
-  role : ButtonRole = 'link';
+  private role : ButtonRole = 'button';
 
-  modifier : ButtonModifier = 'default';
+  private modifier : ButtonModifier = 'default';
 
 
   /**
    * Is this button disabled?
    */
-  @bindable disabled : boolean;
+  @bindable public disabled : boolean;
 
 
   constructor(private el : Element) {
     dom.decorate(el, 'expand');
-    this.role = !!el.getAttribute("href") ? 'link' : 'button';
+    this.role = !!
+      (el.getAttribute("href") ||
+      el.getAttribute('href.bind'))
+                ? 'link' : 'button';
     this.modifier = AireButton.modifierFor(el);
   }
 
@@ -109,12 +112,12 @@ export class AireButton {
   private updateModifiers() {
     switch (this.role) {
       case 'button':
-        if(this.modifier == 'control') {
+        if (this.modifier == 'control') {
           this.button.classList.add('control');
         }
         break;
       case 'link':
-        if(this.modifier == 'control') {
+        if (this.modifier == 'control') {
           this.anchor.classList.add('control');
         }
         break;
@@ -134,8 +137,7 @@ export class AireButton {
         `uk-button-${modifier}`
       );
     }
-    if(!found) {
-      console.log("Setting default", target);
+    if (!found) {
       target.classList.add('uk-button-default');
     }
   }
