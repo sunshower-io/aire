@@ -1,57 +1,86 @@
 @import "../mixins";
 
+$small-nav-height: 38.4px;
+$large-nav-height: 80px;
 
 body {
-  display:flex;
-  flex-direction:column;
-
+  display: flex;
+  flex-direction: column;
 }
 
 header {
   justify-self: flex-start;
-  border:1px solid gray;
 }
 
 footer {
   justify-self: flex-end;
-  border:1px solid green;
+  height: $small-nav-height;
+  display: flex;
+  flex-direction: row;
+
+  &.f-large {
+    height: $large-nav-height;
+  }
 }
 
 div.main {
-  width:100%;
-  height:100%;
-  display:flex;
-  flex-direction:row;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
 
   nav {
-    justify-content:flex-start;
-    width:64px;
-    border:1px solid blue;
+    justify-content: flex-start;
+    width: 64px;
+    min-width: 64px;
+
+
   }
+
+
   main {
-    border:1px solid red;
-    height:100%;
-    width:100%;
+    height: 100%;
+    width: 100%;
+  }
+
+  /**
+  Header included
+   */
+  &.w-header {
+    height: calc(100% - #{$large-nav-height});
+  }
+
+  /**
+  Footer included
+   */
+  &.w-footer {
+    height: calc(100% - #{$small-nav-height});
+
+    &.f-large {
+      height: calc(100% - #{$large-nav-height});
+    }
+  }
+
+  &.w-footer.f-large {
+    height: calc(100% - #{$large-nav-height});
+  }
+
+
+  /**
+  Header and footer included
+   */
+  &.w-header.w-footer {
+    height: calc(100% - #{$small-nav-height + $large-nav-height});
+
+    &.f-large {
+      height: calc(100% - #{2 * $large-nav-height});
+    }
+    &.h-small {
+      height: calc(100% - #{2 * $small-nav-height});
+
+    }
   }
 
 
 }
 
-
-//main.aire-viewport {
-//  border:1px solid red;
-//
-//  @include expand;
-//
-//
-//  header {
-//    height:32px;
-//    border:1px solid red;
-//  }
-//
-//
-//  footer {
-//    height: 32px;
-//    border:1px solid blue;
-//  }
-//}

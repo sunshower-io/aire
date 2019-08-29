@@ -1,2 +1,10 @@
-template.aire-button.aire
-    button(click.trigger="click()") ${label}
+template.aire-button
+    a.uk-button(
+        ref="anchor"
+        href.bind="href"
+    )
+        slot
+    button.uk-button(
+        ref="button"
+    )
+        slot

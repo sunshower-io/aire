@@ -17,12 +17,12 @@ export class NavbarLocation {
   }
 
   attached() {
-    console.log("SUP");
     let el = this.el;
-    console.log(this.contents);
     dom.decorateTo(el, this.contents, 'left', 'uk-navbar-left');
     dom.decorateTo(el, this.contents, 'right', 'uk-navbar-right');
     dom.decorateTo(el, this.contents, 'center', 'uk-navbar-center');
+    dom.decorateTo(el, this.contents, 'control', 'control');
+
 
   }
 

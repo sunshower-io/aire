@@ -1,4 +1,8 @@
 template
     a.uk-navbar-item.uk-logo
-        img.uk-margin-small-right.uk-svg(src="assets/icons/logo.svg" width="128" height="32")
-        | Aire
+        img.uk-margin-small-right.uk-svg(
+            src.bind="source"
+            width.bind="width"
+            height.bind="height"
+        )
+        slot
