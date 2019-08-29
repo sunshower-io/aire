@@ -1,0 +1,47 @@
+@import "../colors";
+
+
+
+
+header, footer {
+  button {
+    background-color: $white;
+  }
+  button.control {
+    width:64px;
+    height:38.4px;
+    line-height:38.4px;
+    background-color: $emphasis;
+    padding:0;
+    color: $tertiary;
+    &:hover {
+      background-color: $secondary;
+      transition-duration:0.4s;
+    }
+  }
+}
+
+.main {
+  nav.uk-navbar-container {
+    background-color: $primary;
+    color: $tertiary;
+    display:flex;
+    flex-direction: column;
+    button {
+      span {
+        line-height:0;
+        display:block;
+        text-transform: none;
+      }
+      &:hover {
+        background-color: $secondary;
+        transition-duration:0.4s;
+      }
+      background-color: $primary;
+      color: $tertiary;
+      padding: 0;
+      width: 64px;
+      height:64px;
+    }
+  }
+}

@@ -1,10 +1,8 @@
 import {
-  containerless,
   customElement
 }            from 'aurelia-framework'
 import {dom} from "aire/core/dom";
 
-@containerless
 @customElement('aire-page')
 export class AirePage {
 

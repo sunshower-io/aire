@@ -1,3 +1,10 @@
 template.aire-button
-    a.uk-button(show.bind="type == 'link'" ref="anchor")
+    a.uk-button(
+        ref="anchor"
+        href.bind="href"
+    )
+        slot
+    button.uk-button(
+        ref="button"
+    )
         slot

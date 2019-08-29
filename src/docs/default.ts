@@ -13,7 +13,7 @@ export class DefaultPage {
       {
         route: 'docs',
         name: 'docs',
-        moduleId: 'documentation/index'
+        moduleId: './documentation/index'
       }
     ]);
 

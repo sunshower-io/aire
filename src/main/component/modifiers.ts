@@ -5,5 +5,10 @@ export type ButtonModifier =
   | 'secondary' 
   | 'danger' 
   | 'text' 
-  | 'link';
+  | 'control';
+
+
+export type ButtonRole = 'link' | 'button';
+
+
 
