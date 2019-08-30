@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/sunshower-io/aire#readme",
   "devDependencies": {
-    "@fortawesome/fontawesome-pro": "^5.9.0",
+    "@fortawesome/fontawesome-pro": "5.10.2",
     "@types/jest": "^24.0.15",
     "@types/lodash": "^4.14.134",
     "aurelia-bootstrapper": "^2.3.3",

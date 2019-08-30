@@ -13,6 +13,7 @@ export function configure(cfg : FrameworkConfiguration) {
     'aire/component/button',
     'aire/component/tooltip',
     'aire/component/position',
+    'aire/component/drawer',
 
     /**
      * Layout Elements

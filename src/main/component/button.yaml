@@ -1,5 +1,7 @@
 component:
   category: components
+  icon: fad fa-brackets
+
   name:
     key: components.button
     default: Button

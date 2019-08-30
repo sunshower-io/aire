@@ -52,9 +52,16 @@ export class AireButton {
   @bindable public href : string;
 
   /**
+   * Active?
+   */
+  @bindable public active: boolean;
+
+  /**
    * The style of the button
    */
   private role : ButtonRole = 'button';
+
+
 
   /**
    * What kind of button are we?
@@ -77,6 +84,7 @@ export class AireButton {
                 ? 'link' : 'button';
     this.modifier = AireButton.modifierFor(el);
   }
+
 
   created() : void {
     let el = this.el;
@@ -105,6 +113,7 @@ export class AireButton {
 
 
   dispatch(e : Event) : void {
+    console.log(this.active);
     if (!this.disabled) {
       this.el.dispatchEvent(createEvent('click', {
         cause  : e,

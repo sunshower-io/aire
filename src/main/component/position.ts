@@ -27,7 +27,6 @@ export class AirePosition {
         if(vm && vm.position) {
           let pos = vm as Positionable;
           pos.position = value;
-          console.log(value);
         }
       });
     }

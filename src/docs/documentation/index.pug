@@ -4,16 +4,20 @@ template
             aire-button(control)
                 i.fal.fa-cloud-sun-rain
             location(left)
-                aire-button(text tooltip="Loff you wabster" position="bottom")
+                aire-button(text tooltip="Loff you wabster" position="right")
                     i.fal.fa-cog
 
         aire-navbar
-            aire-button
-                i.fal.fa-cog
-            aire-button
-                i.fal.fa-cog
-                span hello
-        aire-page
+            aire-button(
+                repeat.for="nav of router.navigation"
+                active.bind="nav.isActive",
+                click.trigger="navigate(nav)"
+                tooltip.bind="nav.title"
+                position="right"
+            )
+                i(class.bind="nav.settings.icon")
+        aire-page(padded)
+            router-view
         aire-footer
             aire-button(control)
                 i.fal.fa-cog

@@ -1,5 +1,5 @@
 component:
-  category: components
+  category: items
   name:
     key: components.button
     default: Button
