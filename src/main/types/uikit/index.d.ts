@@ -36,6 +36,30 @@ declare module "uikit" {
 
 
   export function tooltip(el : HTMLElement, options? : TooltipOptions | string);
+
+
+  export type OffcanvasMode =
+    'slide'
+    | 'reveal'
+    | 'push'
+    | 'none';
+
+
+  export interface OffcanvasOptions {
+    mode ?: OffcanvasMode;
+    flip ?: boolean;
+    overlay?: boolean;
+    "esc-close" ?: boolean;
+    "bg-close"?: boolean;
+    container?: string;
+  }
+
+  export function offcanvas(el: HTMLElement, options?:OffcanvasOptions): Offcanvas;
+
+  export class Offcanvas {
+    show(): void;
+    hide(): void;
+  }
 }
 
 

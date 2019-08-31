@@ -14,6 +14,7 @@ export function configure(cfg : FrameworkConfiguration) {
     'aire/component/tooltip',
     'aire/component/position',
     'aire/component/drawer',
+    'aire/component/host',
 
     /**
      * Layout Elements
@@ -31,6 +32,6 @@ export function configure(cfg : FrameworkConfiguration) {
     'aire/nav/location',
 
 
-  ]).plugin(PLATFORM.moduleName('aurelia-animator-css'));
+  ]).plugin(PLATFORM.moduleName('aurelia-animator-velocity'));
 
 }

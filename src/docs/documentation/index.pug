@@ -8,10 +8,12 @@ template
                     i.fal.fa-cog
 
         aire-navbar
+            aire-drawer(host="ancestor:nav" visible.bind="showDrawer" click.trigger="hide()")
             aire-button(
                 repeat.for="nav of router.navigation"
                 active.bind="nav.isActive",
                 click.trigger="navigate(nav)"
+                mouseenter.trigger="show(nav)"
                 tooltip.bind="nav.title"
                 position="right"
             )
