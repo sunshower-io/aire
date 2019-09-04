@@ -1,5 +1,6 @@
 import {
   bindable,
+  autoinject,
   customElement
 }                 from 'aurelia-framework';
 import {debounce} from "aire/core/lang";
@@ -7,6 +8,7 @@ import {debounce} from "aire/core/lang";
 import {VelocityAnimator} from 'aurelia-animator-velocity';
 
 
+@autoinject
 @customElement('aire-drawer')
 export class AireDrawer {
 

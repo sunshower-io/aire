@@ -15,6 +15,7 @@ export function configure(cfg : FrameworkConfiguration) {
     'aire/component/position',
     'aire/component/drawer',
     'aire/component/host',
+    'aire/component/checkbox',
 
     /**
      * Layout Elements

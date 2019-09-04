@@ -5,6 +5,8 @@
   &.large {
     width: 400px;
   }
+  position:absolute;
+  overflow: hidden;
   transition: width 0.2s;
   background-color: #f9f9ff;
   box-sizing: content-box;

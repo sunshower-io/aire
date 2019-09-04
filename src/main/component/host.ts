@@ -34,7 +34,6 @@ export class Host {
     if(!viewModel.host) {
       throw new Error(`host '${viewModel} is not capable of hosting anything (no host property)`);
     }
-    console.log(this.host);
     viewModel.host = this.host;
   }
 
