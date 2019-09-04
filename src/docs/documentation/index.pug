@@ -12,17 +12,17 @@ template
                 host="ancestor:nav"
                 visible.bind="showDrawer"
                 click.trigger="hide()"
-                open
             )
-                header
-                    h1 frapper
+                aire-header
+                    h2 ${currentPage.title}
+                    aire-button
+                        i.fal.fa-times(click.trigger="hide()")
+
             aire-button(
                 repeat.for="nav of router.navigation"
                 active.bind="nav.isActive",
                 click.trigger="navigate(nav)"
                 mouseenter.trigger="show(nav)"
-                tooltip.bind="nav.title"
-                position="right"
             )
                 i(class.bind="nav.settings.icon")
         aire-page(padded)

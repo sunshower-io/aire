@@ -5,7 +5,6 @@ import {
 }                 from 'aurelia-framework';
 import {debounce} from "aire/core/lang";
 
-import {VelocityAnimator} from 'aurelia-animator-velocity';
 
 
 @autoinject
@@ -31,18 +30,18 @@ export class AireDrawer {
    *
    */
 
-  @bindable width : number = 400;
+  @bindable width : number = 256;
 
   private listener : EventListenerOrEventListenerObject;
 
-  constructor(readonly animator : VelocityAnimator) {
+  constructor(readonly el:Element) {
   }
 
 
   attached() : void {
     this.listener = debounce(this.updateLeft, 5);
     window.addEventListener('resize', this.listener);
-    this.drawer.style.width = 0 + 'px';
+    this.setWidth(0);
   }
 
   detached() : void {
@@ -53,30 +52,24 @@ export class AireDrawer {
     if (this.visible) {
       this.updateLeft();
     } else {
-
-      await this.animator.animate(this.drawer, {
-        width: 0,
-      }, {
-        duration: 0.2
-      });
+      this.setWidth(0);
     }
   }
 
   readonly updateLeft : () => void = async () => {
-    let drawer = this.drawer,
+    this.setWidth(this.width);
+  };
+
+
+  private setWidth(w: number) {
+    let drawer = this.el,
       host = this.host,
-      style = drawer.style;
+      style = (drawer as any).style;
     style.position = 'absolute';
     style.height = host.offsetHeight + 'px';
     style.left = host.offsetWidth + 'px';
-
-    await this.animator.animate(this.drawer, {
-      width:this.width,
-    }, {
-      duration: 0.2
-    });
-  };
-
+    style.width = w + 'px';
+  }
 
 }
 

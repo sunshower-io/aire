@@ -8,6 +8,8 @@ import {NavModel, Router, RouterConfiguration} from "aurelia-router";
 @autoinject
 export class Index {
 
+  private currentPage: NavModel;
+
   @bindable showDrawer : boolean;
 
   private router : Router;
@@ -26,7 +28,8 @@ export class Index {
     this.hide();
   }
 
-  show() {
+  show(item: NavModel) {
+    this.currentPage = item;
     this.showDrawer = true;
   }
 

@@ -1,14 +1,39 @@
-.aire-drawer {
-  &.small {
-    width: 256px;
-  }
-  &.large {
-    width: 400px;
-  }
+aire-drawer, .aire-drawer {
+  display:block;
   position:absolute;
   overflow: hidden;
   transition: width 0.2s;
   background-color: #f9f9ff;
-  box-sizing: content-box;
+  box-sizing: border-box;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+
+  .content {
+    header {
+      display: flex;
+      justify-content:space-between;
+      height:64px;
+      border-bottom: 1px solid $primary;
+      color: $dark-gray-2;
+      flex-direction:row;
+      box-sizing: content-box;
+      button {
+        &:hover {
+          background-color: unset;
+          color: $primary;
+        }
+
+        background-color: unset;
+        color: $dark-gray-2;
+        justify-self: flex-end;
+      }
+      h2 {
+        color: $dark-gray-2;
+        padding-left:8px;
+        line-height:64px;
+        vertical-align: middle;
+      }
+
+    }
+  }
 }

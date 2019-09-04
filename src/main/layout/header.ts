@@ -20,8 +20,6 @@ export class AireHeader extends ViewportComponent {
   constructor(readonly el: Element, viewport: AireViewport) {
     super(viewport, 'header');
     this.hasControl = true;
-
-    // this.hasControl = el.hasAttribute('control');
   }
 
 
