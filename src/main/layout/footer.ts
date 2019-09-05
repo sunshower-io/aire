@@ -9,6 +9,9 @@ import {
 }            from "aire/layout/viewport";
 import {dom} from "aire/core/dom";
 
+/**
+ * @group components
+ */
 @containerless
 @inject(Element, AireViewport)
 @customElement('aire-footer')

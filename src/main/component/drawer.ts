@@ -6,7 +6,9 @@ import {
 import {debounce} from "aire/core/lang";
 
 
-
+/**
+ * @group frapper
+ */
 @autoinject
 @customElement('aire-drawer')
 export class AireDrawer {
@@ -15,7 +17,9 @@ export class AireDrawer {
 
 
   /**
+   * frapper
    *
+   * don't you think so
    */
   @bindable public visible : boolean;
 

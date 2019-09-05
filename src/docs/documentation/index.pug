@@ -18,6 +18,10 @@ template
                     aire-button
                         i.fal.fa-times(click.trigger="hide()")
 
+                aire-button(repeat.for="component of currentPage.settings.components")
+                    i(class.bind="component.icon")
+                    | ${component.name}
+
             aire-button(
                 repeat.for="nav of router.navigation"
                 active.bind="nav.isActive",

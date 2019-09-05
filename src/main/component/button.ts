@@ -11,9 +11,25 @@ import {
 }                    from "aire/component/modifiers";
 
 
+/**
+ * category: buttons
+ * example: *coolbeans*
+ *
+ * @group components
+ * @icon whatever
+ * @groupIcon fa-whatever
+ *
+ *
+ */
+
+
 @inject(Element)
 @customElement('aire-button')
 export class AireButton {
+
+  /**
+   * hello
+   */
 
   public static modifiers : string[] = [
     'default',

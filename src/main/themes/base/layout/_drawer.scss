@@ -9,28 +9,46 @@ aire-drawer, .aire-drawer {
 
 
   .content {
+    aire-button {
+      display:block;
+      button {
+        &:hover {
+          text-decoration: underline;
+          background-color: unset;
+          font-weight:bold;
+          color: $primary;
+        }
+        background-color: unset;
+        color: $dark-gray-2;
+        justify-self: flex-end;
+      }
+    }
+    .drawer-main {
+      aire-button {
+        border-bottom: 1px solid $dark-gray-2;
+      }
+      button {
+        i {
+          margin-right:8px;
+        }
+        width:unset;
+        margin-left: 24px;
+      }
+    }
+
     header {
       display: flex;
       justify-content:space-between;
       height:64px;
       border-bottom: 1px solid $primary;
-      color: $dark-gray-2;
+      color: $light-gray-2;
       flex-direction:row;
       box-sizing: content-box;
-      button {
-        &:hover {
-          background-color: unset;
-          color: $primary;
-        }
-
-        background-color: unset;
-        color: $dark-gray-2;
-        justify-self: flex-end;
-      }
       h2 {
         color: $dark-gray-2;
-        padding-left:8px;
-        line-height:64px;
+        padding-left:12px;
+        line-height:58px;
+        display:block;
         vertical-align: middle;
       }
 

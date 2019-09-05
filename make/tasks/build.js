@@ -5,7 +5,9 @@ const {
     series,
     parallel,
 } = require('gulp');
-const process = require('./docs');
+const {
+    generateDocumentation
+} = require('./aire');
 const flatten = require('gulp-flatten');
 const scss = require('gulp-sass');
 const pug = require('gulp-pug');
@@ -39,8 +41,8 @@ task('copy:docs:assets', () => {
 
 
 task('build:docs:structure', (done) => {
-    return src('src/**/*.yaml')
-        .pipe(process())
+    return src('src/**/*.ts')
+        .pipe(generateDocumentation())
         .pipe(dest('./docs'));
 });
 
@@ -162,13 +164,13 @@ task('build', series(
     'build:docs:structure',
     'build:documentation',
     parallel(
-    series(
-        'build:source',
-        'build:docs:source'
-    ),
-    'build:html',
-    'build:styles',
-    'copy',
-    'build:docs:pug'
-)));
+        series(
+            'build:source',
+            'build:docs:source'
+        ),
+        'build:html',
+        'build:styles',
+        'copy',
+        'build:docs:pug'
+    )));
 
