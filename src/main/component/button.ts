@@ -17,7 +17,7 @@ import {
  *
  * @group components
  * @icon whatever
- * @groupIcon fa-whatever
+ * @groupIcon fal fa-cubes
  *
  *
  */

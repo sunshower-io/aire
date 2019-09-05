@@ -20,7 +20,7 @@ template
 
                 aire-button(repeat.for="component of currentPage.settings.components")
                     i(class.bind="component.icon")
-                    | ${component.name}
+                    | ${component['tag-name'] || component['name']}
 
             aire-button(
                 repeat.for="nav of router.navigation"

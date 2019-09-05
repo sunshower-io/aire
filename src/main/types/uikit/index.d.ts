@@ -10,6 +10,12 @@ declare module "uikit" {
     'delay-hide' : number;
   }
 
+  /**
+   * @group uikit
+   * @groupIcon fab fa-uikit
+   * @param el
+   * @param options
+   */
   export function navbar(el : HTMLElement, options? : NavbarOptions);
 
 
@@ -35,6 +41,10 @@ declare module "uikit" {
   }
 
 
+  /**
+   *
+   * @group uikit
+   */
   export function tooltip(el : HTMLElement, options? : TooltipOptions | string);
 
 
@@ -54,6 +64,10 @@ declare module "uikit" {
     container?: string;
   }
 
+  /**
+   *
+   * @group uikit
+   */
   export function offcanvas(el: HTMLElement, options?:OffcanvasOptions): Offcanvas;
 
   export class Offcanvas {

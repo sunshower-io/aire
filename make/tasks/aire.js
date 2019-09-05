@@ -101,6 +101,76 @@ class TypescriptPlugin extends Plugin {
 }
 
 
+class ModuleFunctionExtractorPlugin extends TypescriptPlugin {
+    constructor() {
+        super(typescript.SyntaxKind.ModuleDeclaration);
+    }
+
+
+    visit(node, fctx, assets, ctx) {
+        assets.functions = assets.functions || [];
+
+
+        function functionExtractor(node) {
+            if (node.kind === typescript.SyntaxKind.ModuleBlock) {
+                typescript.visitEachChild(node, functionExtractor);
+            }
+            if (node.kind === typescript.SyntaxKind.FunctionDeclaration) {
+                let funcdecl = {
+                    type: 'function',
+                    icon: 'fal fa-function',
+                    name: node.name.escapedText,
+                    parameters: []
+                };
+
+                if (node.jsDoc) {
+                    let doclet = node.jsDoc;
+                    for (let doc in Object.keys(doclet)) {
+                        let tags = doclet[doc].tags;
+                        for (let tagkey in tags) {
+                            let tag = tags[tagkey];
+                            let tn = tag && tag.tagName,
+                                name = tn && tn.escapedText;
+                            if (name === 'group') {
+                                funcdecl.group = tag.comment;
+                            } else if (name === 'groupIcon') {
+                                funcdecl.groupIcon = tag.comment
+                            }
+                        }
+                    }
+                }
+
+                if (node.parameters) {
+                    for (let param of node.parameters) {
+                        let t = param.type,
+                            tn = t && t.typeName,
+                            name = tn && tn.escapedText ||
+                                typescript.SyntaxKind[param.type.kind]
+                                    .replace('Keyword', '').toLowerCase();
+
+
+                        funcdecl.parameters.push({
+                            name: param.name.escapedText,
+                            type: name
+                        });
+                    }
+                }
+                funcdecl.group = funcdecl.group || 'default';
+                assets[funcdecl.group] = assets[funcdecl.group] || {components: []};
+                if(funcdecl.groupIcon) {
+                    assets[funcdecl.group].icon = funcdecl.groupIcon;
+                }
+                assets[funcdecl.group].components.push(funcdecl);
+                assets.current = funcdecl.group;
+            }
+        }
+
+        typescript.visitEachChild(node, functionExtractor);
+
+    }
+}
+
+
 class ClassExtractorPlugin extends TypescriptPlugin {
 
     constructor() {
@@ -114,8 +184,7 @@ class ClassExtractorPlugin extends TypescriptPlugin {
         };
 
 
-        let bindableHandler = (cl, node, assets) => {
-            let descriptor = assets.currentDescriptor;
+        let bindableHandler = (cl, node) => {
             let type = typescript.SyntaxKind[node.type.kind],
                 actual = type.replace("Keyword", "").toLowerCase();
             let doclet = node.jsDoc;
@@ -130,7 +199,7 @@ class ClassExtractorPlugin extends TypescriptPlugin {
                     }
                 }
             }
-            descriptor.properties.push({
+            cl.properties.push({
                 name: node.name.escapedText,
                 type: actual,
                 comments: comments.join('\n')
@@ -144,16 +213,12 @@ class ClassExtractorPlugin extends TypescriptPlugin {
     }
 
     visit(node, fctx, assets, ctx) {
-        assets.classes = assets.classes || [];
         let cl = {
-                base: fctx.base,
-                name: node.name.escapedText,
-            },
-            descriptor = {
-                properties: []
-            };
-
-        assets.currentDescriptor = descriptor;
+            type: 'class',
+            base: fctx.base,
+            name: node.name.escapedText,
+            properties: [],
+        };
         this.extractDecorators(cl, node, assets);
         this.extractAttributes(cl, node, assets);
 
@@ -164,18 +229,28 @@ class ClassExtractorPlugin extends TypescriptPlugin {
                 if (doclet[k].tags) {
                     let tags = doclet[k].tags;
                     for (let tag in tags) {
-                        this.handleTag(tags[tag], cl, descriptor);
+                        this.handleTag(tags[tag], cl);
 
                     }
                 }
                 comments.push(doclet[k].comment);
             }
-            assets.currentDescriptor.comments = comments.join('\n');
         }
-        assets.classes.push(cl);
+        cl.group = cl.group || 'default';
+        assets[cl.group] = assets[cl.group] || {
+            components: [],
+            properties: [],
+            icon: 'fal fa-sitemap'
+        };
+        cl.icon = cl.icon || 'fal fa-cube';
+        assets[cl.group].components.push(cl);
+        if (cl['group-icon']) {
+            assets[cl.group].icon = cl['group-icon'];
+        }
+        assets.current = cl;
     }
 
-    handleTag(tag, cl, descriptor) {
+    handleTag(tag, cl) {
         let tn = tag && tag.tagName,
             name = tn && tn.escapedText;
 
@@ -241,6 +316,7 @@ function generateDocumentation() {
         manager = new PluginManager();
 
     manager.register(new ClassExtractorPlugin());
+    manager.register(new ModuleFunctionExtractorPlugin());
     manager.registerInitializer('.ts', new TypescriptInitializer());
     return through.obj(function (file, inc, cb) {
         let directory = path.dirname(file.path),
@@ -260,9 +336,9 @@ function generateDocumentation() {
         let ctx = manager.initialize(fcontext, assets);
         manager.apply(fcontext, ctx, assets);
 
-        generateGroups(assets);
-        writeAssets(this, fcontext, assets);
+        // generateFunctionGroups(assets);
         writeDescriptor(this, fcontext, assets);
+        writeAssets(this, fcontext, assets);
 
 
         cb();
@@ -270,77 +346,27 @@ function generateDocumentation() {
 
 }
 
-function generateGroups(assets) {
-    let groups = assets.classes.reduce((acc, v, idx) => {
-        let cv = v['group'];
-        if (cv) {
-            let g = acc.find(t => t.name === cv);
-            if (!g) {
-                acc.push({
-                    name: cv,
-                    icon: v['group-icon'],
-                    components: [{
-                        base: v.base,
-                        icon: v.icon,
-                        name: v.name,
-                        'tag-name': v['tag-name'],
-                        component: v.component
-                    }]
-                })
-            } else {
-                g.components.push({
-                    base: v.base,
-                    name: v.name,
-                    icon: v.icon,
-                    'tag-name': v['tag-name'],
-                    component: v.component
-                });
-            }
-
-            delete v['group'];
-            delete v['group-icon'];
-        }
-        assets.classes.splice(idx);
-        return acc;
-
-    }, []);
-
-    if (groups.length) {
-        if (assets.groups) {
-            for (let group of groups) {
-                let existingGroup = assets
-                    .groups
-                    .find(t => t.name === group.name);
-                if (!existingGroup) {
-                    assets.groups.push(group);
-                } else {
-                    existingGroup.components =
-                        existingGroup
-                            .components
-                            .concat(group.components);
-                }
-            }
-
-        } else {
-            assets.groups = groups;
-        }
-    }
-
-}
-
-
 function writeDescriptor(all, fcontext, assets) {
     let rel = fcontext.relativePath,
         target = path.dirname(rel);
-    let output = new File({
-            path: path.join(target, fcontext.base + '.json')
-        }),
-        descriptor = assets && assets.currentDescriptor;
+    let
+        descriptor = assets && assets.current;
+    if (descriptor && descriptor.group) {
+        let output = new File({
+            path: path.join(target, descriptor.group, fcontext.base + '.json')
+        });
 
-    if (descriptor) {
         output.contents = Buffer.from(JSON.stringify(descriptor));
         all.push(output);
-        delete assets['currentDescriptor'];
+        delete assets['current'];
+    } else if(typeof descriptor === 'string') {
+
+        let output = new File({
+            path: path.join(target, descriptor + '.json')
+        });
+
+        output.contents = Buffer.from(JSON.stringify(assets[descriptor]));
+        all.push(output);
     }
 }
 
@@ -348,8 +374,31 @@ function writeAssets(all, fcontext, assets) {
     let output = new File({
         path: fcontext.realFile.cwd + '/assets.json'
     });
-    output.contents = Buffer.from(JSON.stringify(assets));
+    output.contents = Buffer.from(JSON.stringify(transformAssets(assets)));
     all.push(output);
+}
+
+
+function transformAssets(assets) {
+    let result = {groups: []};
+    for (let group of Object.keys(assets)) {
+        let ag = assets[group];
+        if(ag && ag.components) {
+            result.groups.push({
+                name: group,
+                icon: ag.icon,
+                components: ag.components &&
+                    ag.components.map(t => {
+                        return {
+                            type: t.type,
+                            name: t.name,
+                            icon: t.icon
+                        }
+                    })
+            });
+        }
+    }
+    return result;
 
 }
 

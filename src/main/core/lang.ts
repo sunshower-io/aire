@@ -1,5 +1,14 @@
 export module Lazy {
 
+  /**
+   *
+   * don't do that suckas
+   * @group lang
+   * @groupIcon
+   * fal fa-tools
+   * @param o
+   * @param f
+   */
   export function over(o : Object, f : (k, v) => void) {
 
     for (let k of Lazy.keys(o)) {
@@ -8,6 +17,11 @@ export module Lazy {
   }
 
 
+  /**
+   * supfools
+   * @group lang
+   * @param o
+   */
   export function* keys(o : Object) : IterableIterator<string> {
     for (let i in o) {
       if (o.hasOwnProperty(i)) {

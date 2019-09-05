@@ -1,4 +1,19 @@
 export module dom {
+
+  /**
+   *
+   *
+   * @group dom
+   * @groupIcon fal fa-sitemap
+   *
+   *
+   * this thing does cool stuff
+   *
+   * @param sourceEl
+   * @param el
+   * @param decoration
+   * @param className
+   */
   export function decorateTo(
     sourceEl : Element,
     el : Element,
@@ -17,6 +32,12 @@ export module dom {
   }
 
 
+  /**
+   *
+   * @group dom
+   * @param el
+   * @param style
+   */
   export function setStyle(el:HTMLElement, style: string) : boolean {
     let clist = el.classList,
       set = clist.contains(style);
@@ -24,6 +45,12 @@ export module dom {
     return !set;
   }
 
+
+  /**
+   * @group dom
+   * @param el
+   * @param style
+   */
   export function unsetStyle(el: HTMLElement, style: string) : boolean {
     let clist = el.classList,
       set = clist.contains(style);
@@ -31,6 +58,12 @@ export module dom {
     return set;
   }
 
+  /**
+   * @group dom
+   * @param el
+   * @param decoration
+   * @param className
+   */
 
   export function decorate(
     el : Element,

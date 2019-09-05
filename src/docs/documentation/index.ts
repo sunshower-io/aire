@@ -38,10 +38,12 @@ export class Index {
   }
 
   async configureRouter(cfg : RouterConfiguration, router : Router) {
-    let resp = await this.client.fetch('output/components.json'),
+    let resp = await this.client.fetch('output/assets.json'),
       items = await resp.json(),
-      idx = items.categories,
-      routes = idx.map(category => {
+      idx = items.groups;
+
+    let  routes = idx.map(category => {
+      console.log(category);
         return {
           title    : category.name,
           route    : category.name,

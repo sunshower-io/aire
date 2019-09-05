@@ -7,7 +7,7 @@ import {debounce} from "aire/core/lang";
 
 
 /**
- * @group frapper
+ * @group components
  */
 @autoinject
 @customElement('aire-drawer')
