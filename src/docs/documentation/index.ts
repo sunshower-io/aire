@@ -4,6 +4,7 @@ import {
 
 import {autoinject, bindable}                  from 'aurelia-framework';
 import {NavModel, Router, RouterConfiguration} from "aurelia-router";
+import {AireDrawer}                            from "aire/component/drawer";
 
 @autoinject
 export class Index {

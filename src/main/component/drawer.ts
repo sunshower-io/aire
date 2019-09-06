@@ -5,10 +5,8 @@ import {
 }                 from 'aurelia-framework';
 import {debounce} from "aire/core/lang";
 
+import * as PerfectScrollbar from "perfect-scrollbar";
 
-/**
- * @group components
- */
 @autoinject
 @customElement('aire-drawer')
 export class AireDrawer {
@@ -17,26 +15,34 @@ export class AireDrawer {
 
 
   /**
-   * frapper
-   *
-   * don't you think so
    */
   @bindable public visible : boolean;
 
+  /**
+   * width of the drawer
+   */
+  @bindable width : number = 256;
 
   /**
-   *
+   * Container for drawer contents
+   */
+  private body: HTMLDivElement;
+
+
+  private scrollbar: any;
+  /**
+   * where are we attached?
    */
 
   private host : HTMLElement = document.body;
 
   /**
-   *
+   * Resize listener
    */
-
-  @bindable width : number = 256;
-
   private listener : EventListenerOrEventListenerObject;
+
+
+
 
   constructor(readonly el:Element) {
   }
@@ -45,12 +51,24 @@ export class AireDrawer {
   attached() : void {
     this.listener = debounce(this.updateLeft, 5);
     window.addEventListener('resize', this.listener);
+    let scrollbar = PerfectScrollbar as any;
+    this.scrollbar = new scrollbar(this.body);
     this.setWidth(0);
+
   }
 
+
   detached() : void {
+    this.scrollbar.destroy();
     window.removeEventListener('resize', this.listener);
   }
+
+
+
+  doRefresh() : void {
+    this.scrollbar.update();
+  }
+
 
   async visibleChanged() {
     if (this.visible) {
@@ -65,6 +83,7 @@ export class AireDrawer {
   };
 
 
+
   private setWidth(w: number) {
     let drawer = this.el,
       host = this.host,
@@ -73,6 +92,7 @@ export class AireDrawer {
     style.height = host.offsetHeight + 'px';
     style.left = host.offsetWidth + 'px';
     style.width = w + 'px';
+    this.scrollbar.update();
   }
 
 }

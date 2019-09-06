@@ -9,6 +9,8 @@ aire-drawer, .aire-drawer {
 
 
   .content {
+    position:relative;
+    height:100%;
     aire-button {
       display:block;
       button {
@@ -24,6 +26,11 @@ aire-drawer, .aire-drawer {
       }
     }
     .drawer-main {
+      position: relative;
+      height: calc(100% - 64px);
+      max-height: calc(100% - 64px);
+
+      overflow: hidden;
       aire-button {
         box-sizing: border-box;
       }

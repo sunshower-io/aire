@@ -62,6 +62,7 @@ SystemJS.config({
     "css": "github:systemjs/plugin-css@0.1.37",
     "fs": "npm:jspm-nodelibs-fs@0.2.1",
     "path": "npm:jspm-nodelibs-path@0.2.3",
+    "perfect-scrollbar": "npm:perfect-scrollbar@1.4.0",
     "process": "npm:jspm-nodelibs-process@0.2.1",
     "text": "github:systemjs/plugin-text@0.0.11",
     "uikit": "npm:uikit@3.1.5",

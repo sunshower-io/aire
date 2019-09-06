@@ -14,7 +14,6 @@ template
                     h2 ${currentPage.title}
                     aire-button
                         i.fal.fa-times(click.trigger="hide()")
-
                 aire-button(repeat.for="component of currentPage.settings.components")
                     i(class.bind="component.icon")
                     | ${component['tag-name'] || component['name']}
