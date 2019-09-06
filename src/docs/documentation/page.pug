@@ -1,9 +1,14 @@
 template
-    aire-header
-        h1 ${title}
+    template(if.bind="mode === 'component'")
+        aire-container(top="48px" small)
+            h1 ${component.name} : ${component.type}
+            h2 ${component.description}
+            aire-markdown(content.bind="component.comments[0]")
 
-    div(repeat.for="[key, value] of components")
-        h3 Members of type: ${key}
-        div(repeat.for="component of value") ${component.name}
+
+    template(if.bind="mode === 'page'")
+        div(repeat.for="[key, value] of components")
+            h3 Members of type: ${key}
+            div(repeat.for="component of value") ${component.name}
 
 

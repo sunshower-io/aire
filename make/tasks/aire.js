@@ -200,6 +200,7 @@ class ClassExtractorPlugin extends TypescriptPlugin {
                 }
             }
             cl.properties.push({
+                location: cl.base,
                 name: node.name.escapedText,
                 type: actual,
                 comments: comments.join('\n')
@@ -215,6 +216,7 @@ class ClassExtractorPlugin extends TypescriptPlugin {
     visit(node, fctx, assets, ctx) {
         let cl = {
             type: 'class',
+            location: fctx.base,
             base: fctx.base,
             name: node.name.escapedText,
             properties: [],
@@ -235,6 +237,7 @@ class ClassExtractorPlugin extends TypescriptPlugin {
                 }
                 comments.push(doclet[k].comment);
             }
+            cl.comments = comments;
         }
         cl.group = cl.group || 'default';
         assets[cl.group] = assets[cl.group] || {
@@ -392,7 +395,8 @@ function transformAssets(assets) {
                         return {
                             type: t.type,
                             name: t.name,
-                            icon: t.icon
+                            icon: t.icon,
+                            location: t.location
                         }
                     })
             });

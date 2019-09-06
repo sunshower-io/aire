@@ -29,6 +29,17 @@ export class Index {
     this.hide();
   }
 
+  navigateTo(c: any) {
+    let page = this.currentPage,
+      category = page.settings.category;
+    this.router.navigateToRoute(page.settings.category, {
+      category: category ,
+      component: c.location || c.name
+    });
+  }
+
+
+
   show(item: NavModel) {
     this.currentPage = item;
     this.showDrawer = true;
