@@ -43,7 +43,6 @@ export class Index {
       idx = items.groups;
 
     let  routes = idx.map(category => {
-      console.log(category);
         return {
           title    : category.name,
           route    : category.name,

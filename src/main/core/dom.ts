@@ -3,11 +3,8 @@ export module dom {
   /**
    *
    *
-   * @group dom
-   * @groupIcon fal fa-sitemap
+   * @group components
    *
-   *
-   * this thing does cool stuff
    *
    * @param sourceEl
    * @param el
@@ -34,7 +31,7 @@ export module dom {
 
   /**
    *
-   * @group dom
+   * @group components
    * @param el
    * @param style
    */
@@ -47,7 +44,7 @@ export module dom {
 
 
   /**
-   * @group dom
+   * @group components
    * @param el
    * @param style
    */
@@ -59,7 +56,7 @@ export module dom {
   }
 
   /**
-   * @group dom
+   * @group components
    * @param el
    * @param decoration
    * @param className

@@ -25,9 +25,10 @@ aire-drawer, .aire-drawer {
     }
     .drawer-main {
       aire-button {
-        border-bottom: 1px solid $dark-gray-2;
+        box-sizing: border-box;
       }
       button {
+        box-sizing: border-box;
         i {
           margin-right:8px;
         }
@@ -43,7 +44,7 @@ aire-drawer, .aire-drawer {
       border-bottom: 1px solid $primary;
       color: $light-gray-2;
       flex-direction:row;
-      box-sizing: content-box;
+      box-sizing: border-box;
       h2 {
         color: $dark-gray-2;
         padding-left:12px;

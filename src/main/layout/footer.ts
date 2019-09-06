@@ -17,10 +17,10 @@ import {dom} from "aire/core/dom";
 @customElement('aire-footer')
 export class AireFooter extends ViewportComponent {
 
-  private element : HTMLElement;
+  protected element : HTMLElement;
 
   constructor(readonly el : HTMLElement, viewport : AireViewport) {
-    super(viewport, 'footer');
+    super(viewport, {size: 'large', region: 'footer'});
   }
 
   attached() : void {

@@ -2,7 +2,7 @@ import {
   inject,
   containerless,
   customElement
-}            from 'aurelia-framework'
+}            from 'aurelia-framework';
 import {
   AireViewport,
   ViewportComponent
@@ -14,21 +14,18 @@ import {dom} from "aire/core/dom";
 @customElement('aire-header')
 export class AireHeader extends ViewportComponent {
 
-  private element:HTMLElement;
-  private hasControl: boolean;
+  private hasControl : boolean;
 
-  constructor(readonly el: Element, viewport: AireViewport) {
-    super(viewport, 'header');
+
+  protected element : HTMLElement;
+
+  constructor(readonly el : Element, viewport : AireViewport) {
+    super(viewport, {region : 'header', size : 'small'});
     this.hasControl = true;
   }
 
 
-  attached() : void {
-    super.attached();
 
-    dom.decorateTo(this.el, this.viewport.main, 'small', 'h-small');
-    dom.decorateTo(this.el, this.element, 'small', 'h-small');
-  }
 
 
 }
