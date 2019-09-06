@@ -2,9 +2,10 @@ template.aire-button
     a.uk-button(
         ref="anchor"
         href.bind="href"
+        class.bind="active ? 'active' : ''"
     )
-        slot
     button.uk-button(
         ref="button"
+        class.bind="active ? 'active' : ''"
     )
-        slot
+    slot(ref="slot")

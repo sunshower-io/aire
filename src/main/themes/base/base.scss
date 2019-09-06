@@ -25,6 +25,7 @@ template {
 
 @import 'uikit-theme.scss';
 @import "light";
+@import "brands";
 @import "solid";
 
 @import "fontawesome";
@@ -33,6 +34,7 @@ template {
 @import "layout/hero";
 @import "layout/page";
 @import "layout/viewport";
+@import "layout/drawer";
 
 
 p.primary, span.primary {

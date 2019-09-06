@@ -1,0 +1,58 @@
+aire-drawer, .aire-drawer {
+  display:block;
+  position:absolute;
+  overflow: hidden;
+  transition: width 0.2s;
+  background-color: #f9f9ff;
+  box-sizing: border-box;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+
+
+  .content {
+    aire-button {
+      display:block;
+      button {
+        &:hover {
+          text-decoration: underline;
+          background-color: unset;
+          font-weight:bold;
+          color: $primary;
+        }
+        background-color: unset;
+        color: $dark-gray-2;
+        justify-self: flex-end;
+      }
+    }
+    .drawer-main {
+      aire-button {
+        box-sizing: border-box;
+      }
+      button {
+        box-sizing: border-box;
+        i {
+          margin-right:8px;
+        }
+        width:unset;
+        margin-left: 24px;
+      }
+    }
+
+    header {
+      display: flex;
+      justify-content:space-between;
+      height:64px;
+      border-bottom: 1px solid $primary;
+      color: $light-gray-2;
+      flex-direction:row;
+      box-sizing: border-box;
+      h2 {
+        color: $dark-gray-2;
+        padding-left:12px;
+        line-height:58px;
+        display:block;
+        vertical-align: middle;
+      }
+
+    }
+  }
+}

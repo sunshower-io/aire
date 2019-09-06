@@ -14,6 +14,7 @@ export class AirePage {
 
   bind() {
     dom.decorateTo(this.el, this.page, 'hero', 'hero');
+    dom.decorateTo(this.el, this.page, 'padded', 'padded');
   }
 
 }

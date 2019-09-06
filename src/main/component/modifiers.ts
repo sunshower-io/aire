@@ -3,8 +3,9 @@ export type ButtonModifier =
   | 'default' 
   | 'primary' 
   | 'secondary' 
-  | 'danger' 
-  | 'text' 
+  | 'danger'
+  | 'text'
+  | 'link'
   | 'control';
 
 

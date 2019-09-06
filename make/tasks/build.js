@@ -5,6 +5,9 @@ const {
     series,
     parallel,
 } = require('gulp');
+const {
+    generateDocumentation
+} = require('./aire');
 const flatten = require('gulp-flatten');
 const scss = require('gulp-sass');
 const pug = require('gulp-pug');
@@ -34,6 +37,17 @@ task('copy:fonts', () => {
 
 task('copy:docs:assets', () => {
     return src(paths.docs.assets).pipe(dest(paths.docs.output + '/assets'));
+});
+
+
+task('build:docs:structure', (done) => {
+    return src('src/**/*.ts')
+        .pipe(generateDocumentation())
+        .pipe(dest('./docs'));
+});
+
+task('build:documentation', (done) => {
+    return src('docs/**/*').pipe(dest(paths.output + '/docs/output'));
 });
 
 
@@ -146,14 +160,17 @@ task('build:docs', parallel(
     'build:docs:pug'
 ));
 
-task('build', parallel(
-    series(
-        'build:source',
-        'build:docs:source'
-    ),
-    'build:html',
-    'build:styles',
-    'copy',
-    'build:docs:pug'
-));
+task('build', series(
+    'build:docs:structure',
+    'build:documentation',
+    parallel(
+        series(
+            'build:source',
+            'build:docs:source'
+        ),
+        'build:html',
+        'build:styles',
+        'copy',
+        'build:docs:pug'
+    )));
 

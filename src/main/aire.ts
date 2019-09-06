@@ -11,6 +11,13 @@ export function configure(cfg : FrameworkConfiguration) {
 
     'aire/component/image',
     'aire/component/button',
+    'aire/component/tooltip',
+    'aire/component/position',
+    'aire/component/drawer',
+    'aire/component/host',
+    'aire/component/checkbox',
+    'aire/component/list',
+    'aire/component/loader',
 
     /**
      * Layout Elements
@@ -26,8 +33,9 @@ export function configure(cfg : FrameworkConfiguration) {
      */
     'aire/nav/navbar',
     'aire/nav/location',
+    'aire/core/iterable',
 
 
-  ]).plugin(PLATFORM.moduleName('aurelia-animator-css'));
+  ]).plugin(PLATFORM.moduleName('aurelia-animator-velocity'));
 
 }

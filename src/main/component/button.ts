@@ -11,10 +11,25 @@ import {
 }                    from "aire/component/modifiers";
 
 
+/**
+ * category: buttons
+ * example: *coolbeans*
+ *
+ * @group components
+ * @icon whatever
+ * @groupIcon fal fa-cubes
+ *
+ *
+ */
+
+
 @inject(Element)
-@containerless
 @customElement('aire-button')
 export class AireButton {
+
+  /**
+   * hello
+   */
 
   public static modifiers : string[] = [
     'default',
@@ -22,7 +37,13 @@ export class AireButton {
     'secondary',
     'danger',
     'text',
-    'control'
+    'control',
+    'link'
+  ];
+
+  public static sizes : string[] = [
+    'small',
+    'large'
   ];
 
 
@@ -39,35 +60,76 @@ export class AireButton {
    * The text of the button/link
    */
 
-  @bindable label : string;
+  @bindable public label : string;
 
   /**
    * Optional link
    */
-  @bindable href : string;
+  @bindable public href : string;
+
+  /**
+   * Active?
+   */
+  @bindable public active: boolean;
 
   /**
    * The style of the button
    */
-  role : ButtonRole = 'link';
+  private role : ButtonRole = 'button';
 
-  modifier : ButtonModifier = 'default';
+
+
+  /**
+   * What kind of button are we?
+   */
+
+  private modifier : ButtonModifier = 'default';
 
 
   /**
    * Is this button disabled?
    */
-  @bindable disabled : boolean;
+  @bindable public disabled : boolean;
 
 
   constructor(private el : Element) {
     dom.decorate(el, 'expand');
-    this.role = el.hasAttribute('link') ? 'link' : 'button';
+    this.role = !!
+      (el.getAttribute("href") ||
+        el.getAttribute('href.bind'))
+                ? 'link' : 'button';
     this.modifier = AireButton.modifierFor(el);
   }
 
 
+  created() : void {
+    let el = this.el;
+    switch (this.role) {
+      case 'button': {
+        let remove = el.childNodes.item(0),
+          target = el.childNodes.item(1),
+          slot = el.childNodes.item(2);
+        remove.remove();
+        target.appendChild(slot);
+
+
+        break;
+      }
+      case 'link' : {
+        let remove = el.childNodes.item(1),
+          target = el.childNodes.item(0),
+          slot = el.childNodes.item(2);
+        remove.remove();
+        target.appendChild(slot);
+        break;
+      }
+
+    }
+  }
+
+
   dispatch(e : Event) : void {
+    console.log(this.active);
     if (!this.disabled) {
       this.el.dispatchEvent(createEvent('click', {
         cause  : e,
@@ -84,16 +146,14 @@ export class AireButton {
   private updateModifiers() {
     switch (this.role) {
       case 'button':
-        if(this.modifier == 'control') {
+        if (this.modifier == 'control') {
           this.button.classList.add('control');
         }
-        this.anchor.remove();
         break;
       case 'link':
-        if(this.modifier == 'control') {
+        if (this.modifier == 'control') {
           this.anchor.classList.add('control');
         }
-        this.button.remove();
         break;
       default:
         throw new Error("Unknown button role for modifier: " + this.role);
@@ -101,15 +161,27 @@ export class AireButton {
   }
 
   private decorate() {
-    console.log(this.el.hasAttribute('text'));
+    let target = this.role == 'link' ? this.anchor : this.button,
+      found = this.extractModifiers(target, AireButton.modifiers);
+    if (!found) {
+      target.classList.add('uk-button-default');
+    }
+    this.extractModifiers(target, AireButton.sizes);
+
+  }
+
+  private extractModifiers(target:HTMLElement, modifiers: string[]) {
     for (let modifier of AireButton.modifiers) {
-      dom.decorateTo(
+      if(dom.decorateTo(
         this.el,
-        this.anchor,
+        target,
         modifier,
         `uk-button-${modifier}`
-      );
+      )) {
+        return true;
+      }
     }
+    return false;
   }
 
   private static modifierFor(el : Element) : ButtonModifier {

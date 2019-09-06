@@ -6,11 +6,14 @@
 header, footer {
   button {
     background-color: $white;
+    border: none !important;
+    width:32px;
+    height:38px;
   }
   button.control {
     width:64px;
-    height:38.4px;
-    line-height:38.4px;
+    height:38px;
+    line-height:38px;
     background-color: $emphasis;
     padding:0;
     color: $tertiary;
@@ -24,10 +27,10 @@ header, footer {
 .main {
   nav.uk-navbar-container {
     background-color: $primary;
-    color: $tertiary;
     display:flex;
     flex-direction: column;
     button {
+      border: none !important;
       span {
         line-height:0;
         display:block;
@@ -37,11 +40,33 @@ header, footer {
         background-color: $secondary;
         transition-duration:0.4s;
       }
+      &.active {
+        background-color: $tertiary;
+        color: white;
+      }
+      &.active:after{
+        content:'';
+        width:0;
+        height:0;
+        position:absolute;
+
+        border-top:8px solid transparent;
+        border-left:8px solid transparent;
+        border-bottom:8px solid transparent;
+        border-right:8px solid #f9f9ff;
+        right:0;
+        margin-top:10px;
+      }
       background-color: $primary;
-      color: $tertiary;
+      color: lighten($tertiary, 60%);
       padding: 0;
       width: 64px;
       height:64px;
     }
   }
+}
+
+
+.aire-drawer {
+  background-color: $primary;
 }

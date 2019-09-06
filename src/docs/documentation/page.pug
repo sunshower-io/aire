@@ -1,0 +1,9 @@
+template
+    aire-header
+        h1 ${title}
+
+    div(repeat.for="[key, value] of components")
+        h3 Members of type: ${key}
+        div(repeat.for="component of value") ${component.name}
+
+

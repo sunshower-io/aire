@@ -3,17 +3,31 @@ template
         aire-header(small)
             aire-button(control)
                 i.fal.fa-cloud-sun-rain
-            location(left)
-                aire-button(small text)
-                    i.fal.fa-cog
 
         aire-navbar
-            aire-button
-                i.fal.fa-cog
-            aire-button
-                i.fal.fa-cog
-                span hello
-        aire-page
+            aire-drawer(
+                host="ancestor:nav"
+                visible.bind="showDrawer"
+                click.trigger="hide()"
+            )
+                aire-header
+                    h2 ${currentPage.title}
+                    aire-button
+                        i.fal.fa-times(click.trigger="hide()")
+
+                aire-button(repeat.for="component of currentPage.settings.components")
+                    i(class.bind="component.icon")
+                    | ${component['tag-name'] || component['name']}
+
+            aire-button(
+                repeat.for="nav of router.navigation"
+                active.bind="nav.isActive",
+                click.trigger="navigate(nav)"
+                mouseenter.trigger="show(nav)"
+            )
+                i(class.bind="nav.settings.icon")
+        aire-page(padded)
+            router-view
         aire-footer
             aire-button(control)
                 i.fal.fa-cog
