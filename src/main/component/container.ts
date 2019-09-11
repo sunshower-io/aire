@@ -7,11 +7,8 @@ import {dom} from "aire/core/dom";
 
 /**
  *
+ *
  * ## This component allows you to align and center your page content
- *
- *
- * ### Usage
- * `hai wab`
  *
  */
 
