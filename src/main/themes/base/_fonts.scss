@@ -1,4 +1,4 @@
-$notosans-fontface-path: '../fonts' !default;
+$notosans-fontface-path: '../../../themes/fonts' !default;
 
 @mixin notosans-fontface($type, $weight, $style) {
     @font-face {
@@ -15,5 +15,4 @@ $notosans-fontface-path: '../fonts' !default;
         font-style: $style;
     }
 }
-
 

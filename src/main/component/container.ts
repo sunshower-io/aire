@@ -7,9 +7,30 @@ import {dom} from "aire/core/dom";
 
 /**
  *
+ * <p class="uk-text-lead">
+ *        This component allows you to align and center page content
+ * </p>
  *
- * ## This component allows you to align and center your page content
  *
+ *
+ * @section {Usage}
+ * ..ex
+ *
+ * hello
+ * .world
+ * ..how are you?
+ *
+ * ..note
+ *
+ * This is a cool test
+ *
+ *
+ * ```this is another cool test```
+ *
+ * ..ex
+ *
+ * @section {Frapper}
+ * This is whateverp
  */
 
 @inject(Element)

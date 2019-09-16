@@ -12,13 +12,34 @@ nav {
   }
 }
 
-//@import 'variables-theme.scss';
-//@import 'mixins-theme.scss';
-//
-//@import 'uikit-theme.scss';
-//@import "light";
-//@import "solid";
+/**
+biggest font size
+ */
+$global-xxlarge-font-size: 32px;
+$global-large-font-size: 20px;
+
+.uk-text-lead {
+  font-weight:300;
+}
+
+@import 'variables-theme.scss';
+
+
+
+@import 'mixins-theme.scss';
+
+@import 'uikit-theme.scss';
+@import "light";
+@import "solid";
 @import "fontawesome";
 @import "duotone";
 @import "base";
 
+
+.sidebar-right {
+  border: 1px solid blue;
+  width: 200px;
+  left: calc(100% - 260px);
+  top: 60px;
+  position: absolute;
+}

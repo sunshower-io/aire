@@ -3,6 +3,15 @@ template
         aire-header(small)
             aire-button(control)
                 i.fal.fa-cloud-sun-rain
+            ul.uk-breadcrumb
+                li ${currentItem.category}
+                li ${currentItem.name}
+            .uk-inline.right
+                div.uk-form-icon
+                    i.fal.fa-search
+                input.uk-input(placeholder="Search...")
+
+
 
         aire-navbar
             aire-drawer(

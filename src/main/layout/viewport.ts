@@ -68,6 +68,7 @@ export abstract class ViewportComponent {
         el = this.el,
         element = this.element;
 
+      element.classList.add('viewport');
       vp.includeRegion(opts.region);
       dom.decorateTo(el, vp.main, opts.size, `h-${opts.size}`);
       dom.decorateTo(el, element, opts.size, `h-${opts.size}`);
@@ -81,10 +82,12 @@ export abstract class ViewportComponent {
   }
 
   protected isViewportMember() : boolean {
-    let el = this.el,
+    let el = this.element,
       parent = el && el.parentElement,
-      parentName = parent && parent.nodeName;
-    return parentName === 'AU-CONTENT';
+      gparent = parent && parent.parentElement,
+      name = gparent && gparent.nodeName;
+    console.log(name);
+    return name === 'BODY';
 
   }
 

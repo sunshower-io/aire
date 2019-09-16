@@ -64,7 +64,7 @@
     "require-dir": "^1.2.0",
     "showdown": "^1.9.0",
     "ts-jest": "^24.0.2",
-    "typescript": "^3.5.2",
+    "typescript": "^3.6.3",
     "uikit": "^3.1.7",
     "velocity-animate": "^1.5.2",
     "vinyl-paths": "^3.0.0"

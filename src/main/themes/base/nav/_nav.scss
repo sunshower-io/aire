@@ -4,6 +4,12 @@
 
 
 header, footer {
+
+  &.viewport {
+    background-color: $light-gray-3;
+  }
+
+
   button {
     background-color: $white;
     border: none !important;

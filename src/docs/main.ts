@@ -18,4 +18,6 @@ export async function configure(application : Aurelia) {
              .standardConfiguration();
   await application.start();
   await application.setRoot('docs/default');
+
+
 }

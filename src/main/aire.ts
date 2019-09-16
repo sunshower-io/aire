@@ -20,6 +20,7 @@ export function configure(cfg : FrameworkConfiguration) {
     'aire/component/loader',
     'aire/component/container',
     'aire/component/markdown',
+    'aire/component/panel',
 
     /**
      * Layout Elements

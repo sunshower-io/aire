@@ -8,8 +8,29 @@ body {
   flex-direction: column;
 }
 
+.right {
+  margin-left: auto;
+}
+
 header {
+  box-sizing: border-box;
   justify-self: flex-start;
+  display: flex;
+  ul.uk-breadcrumb {
+    margin: 0 0 0 16px;
+    padding:0;
+    height: $small-nav-height;
+    line-height: $small-nav-height;
+  }
+
+  .uk-input {
+    border: none;
+    height: $small-nav-height;
+
+    &::selection {
+      background: unset;
+    }
+  }
 }
 
 footer {

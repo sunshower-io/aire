@@ -1,9 +1,15 @@
 template
     template(if.bind="mode === 'component'")
         aire-container(top="48px" small)
-            h1 ${component.name} : ${component.type}
-            h2 ${component.description}
+            h1.uk-article-title
+                | ${component.type} ${component.name} (${component['tag-name']})
             aire-markdown(content.bind="component.comments[0]")
+
+            aire-section(repeat.for="section of component.sections")
+                h1 ${section.name}
+                aire-markdown(content.bind="section.content")
+
+            .sidebar-right
 
 
     template(if.bind="mode === 'page'")
