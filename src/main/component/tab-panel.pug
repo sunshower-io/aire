@@ -1,11 +1,4 @@
 template
-    ul(ref="tabs")
-        li hello
-        li world
-
-    div(ref="contents")
-        aire-page
-            h1 Hello
-        aire-page
-            h1 World
-
+    ul(ref="header")
+    .uk-switcher(ref="contents")
+        slot

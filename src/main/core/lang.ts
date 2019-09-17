@@ -2,7 +2,6 @@ export module Lazy {
 
   /**
    *
-   * don't do that suckas
    * @group lang
    * @groupIcon
    * fal fa-tools
@@ -18,7 +17,6 @@ export module Lazy {
 
 
   /**
-   * supfools
    * @group lang
    * @param o
    */
@@ -30,6 +28,10 @@ export module Lazy {
     }
   }
 
+  /**
+   * @group lang
+   * @param o
+   */
 
   export function * iterate<K, V>(o: Object): IterableIterator<[K, V]> {
     for(let k in o) {

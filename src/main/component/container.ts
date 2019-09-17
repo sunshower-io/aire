@@ -11,60 +11,7 @@ import {Strict} from "aire/core/lang";
  * <p class="uk-text-lead">
  *        This component allows you to align and center page content
  * </p>
- * @section {Usage}
  *
- *
- * Add the `aire-container` attribute class to a block element to give it a max-width and wrap
- * the main content of that element.  The element will automatically be centered within its parent
- * and have padding on the sides that adapts automatically for large screens.
- *
- *
- * ..ex
- * div(aire-container small)
- *
- * ..note
- * The padding of nested containers will be removed to avoid unnecessary spacing
- *
- * @section {Usage}
- *
- *
- * Add the `aire-container` attribute class to a block element to give it a max-width and wrap
- * the main content of that element.  The element will automatically be centered within its parent
- * and have padding on the sides that adapts automatically for large screens.
- *
- *
- * ..ex
- * div(aire-container small)
- *
- * ..note
- * The padding of nested containers will be removed to avoid unnecessary spacing
- * @section {Usage}
- *
- *
- * Add the `aire-container` attribute class to a block element to give it a max-width and wrap
- * the main content of that element.  The element will automatically be centered within its parent
- * and have padding on the sides that adapts automatically for large screens.
- *
- *
- * ..ex
- * div(aire-container small)
- *
- * ..note
- * The padding of nested containers will be removed to avoid unnecessary spacing
- *
- * @section {Usage}
- *
- *
- * Add the `aire-container` attribute class to a block element to give it a max-width and wrap
- * the main content of that element.  The element will automatically be centered within its parent
- * and have padding on the sides that adapts automatically for large screens.
- *
- *
- * ..ex
- * div(aire-container small)
- *
- * ..note
- * The padding of nested containers will be removed to avoid unnecessary spacing
  *
  * @section {Usage}
  *

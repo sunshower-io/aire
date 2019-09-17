@@ -19,6 +19,7 @@ export const components = [
     'aire/component/container',
     'aire/component/markdown',
     'aire/component/panel',
+    'aire/component/tab',
     'aire/component/tab-panel',
     'aire/component/label',
 
