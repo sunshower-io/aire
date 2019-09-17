@@ -1,5 +1,16 @@
 export module dom {
 
+
+  /**
+   * @group dom
+   */
+
+  export function setAttributes(el: Element, attributes: Map<string, string>) {
+    for(let [k, v] of attributes) {
+      decorate(el, k, v);
+    }
+  }
+
   /**
    *
    *

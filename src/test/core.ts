@@ -17,9 +17,11 @@ export async function expectComponent(
   await component.create(bootstrap);
   let aurelia = (component as any).aurelia,
     viewModel = component.viewModel;
-  await action(component, viewModel, aurelia);
-  component.dispose();
-  if (done) {
-    done();
-  }
+  setTimeout(async () => {
+    await action(component, viewModel, aurelia);
+    component.dispose();
+    if (done) {
+      done();
+    }
+  });
 }

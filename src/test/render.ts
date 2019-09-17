@@ -6,12 +6,15 @@ import {
   ComponentTester
 }                 from 'aurelia-testing';
 
-import {Aurelia} from 'aurelia-framework';
+import {Aurelia}    from 'aurelia-framework';
+import {components} from "aire/aire";
 
 export function render(template : string, options? : any) : string {
   return pug.compile(template.trim())(options);
 }
 
+
+export let current = [];
 
 export function newComponent(
   template : string,
@@ -20,8 +23,10 @@ export function newComponent(
 ) : ComponentTester {
 
   if (!(moduleNames && moduleNames.length)) {
-    moduleNames = ['component/button'];
+    // moduleNames = components.map(t => t.substr('aire/'.length));
+    moduleNames = current;
   }
+
   let result = StageComponent.withResources(
     moduleNames.map(t => PLATFORM.moduleName(t)))
                              .inView(render(template))

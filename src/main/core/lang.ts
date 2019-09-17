@@ -29,9 +29,26 @@ export module Lazy {
       }
     }
   }
+
+
+  export function * iterate<K, V>(o: Object): IterableIterator<[K, V]> {
+    for(let k in o) {
+      if(o.hasOwnProperty(k)) {
+        yield [k as any, o[k]] as [K, V];
+      }
+    }
+  }
 }
 
 export module Strict {
+
+  export function toMap<T, U>(o: Object): Map<T, U> {
+    let map = new Map<T, U>();
+    for(let [k, v] of Lazy.iterate<T, U>(o)) {
+      map.set(k, v);
+    }
+    return map;
+  }
 
 }
 

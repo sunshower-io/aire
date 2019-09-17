@@ -2,16 +2,55 @@ import {
   inject,
   bindable,
   customAttribute,
-}            from 'aurelia-framework';
-import {dom} from "aire/core/dom";
+}               from 'aurelia-framework';
+import {dom}    from "aire/core/dom";
+import {Strict} from "aire/core/lang";
 
 /**
  *
  * <p class="uk-text-lead">
  *        This component allows you to align and center page content
  * </p>
+ * @section {Usage}
  *
  *
+ * Add the `aire-container` attribute class to a block element to give it a max-width and wrap
+ * the main content of that element.  The element will automatically be centered within its parent
+ * and have padding on the sides that adapts automatically for large screens.
+ *
+ *
+ * ..ex
+ * div(aire-container small)
+ *
+ * ..note
+ * The padding of nested containers will be removed to avoid unnecessary spacing
+ *
+ * @section {Usage}
+ *
+ *
+ * Add the `aire-container` attribute class to a block element to give it a max-width and wrap
+ * the main content of that element.  The element will automatically be centered within its parent
+ * and have padding on the sides that adapts automatically for large screens.
+ *
+ *
+ * ..ex
+ * div(aire-container small)
+ *
+ * ..note
+ * The padding of nested containers will be removed to avoid unnecessary spacing
+ * @section {Usage}
+ *
+ *
+ * Add the `aire-container` attribute class to a block element to give it a max-width and wrap
+ * the main content of that element.  The element will automatically be centered within its parent
+ * and have padding on the sides that adapts automatically for large screens.
+ *
+ *
+ * ..ex
+ * div(aire-container small)
+ *
+ * ..note
+ * The padding of nested containers will be removed to avoid unnecessary spacing
  *
  * @section {Usage}
  *
@@ -27,21 +66,19 @@ import {dom} from "aire/core/dom";
  * ..note
  * The padding of nested containers will be removed to avoid unnecessary spacing
  *
- * @section {Wabbwab}
+ * @section {Usage}
  *
- * ```javascript
- * function(a, b) {
  *
- * }
+ * Add the `aire-container` attribute class to a block element to give it a max-width and wrap
+ * the main content of that element.  The element will automatically be centered within its parent
+ * and have padding on the sides that adapts automatically for large screens.
  *
- * ```
  *
+ * ..ex
+ * div(aire-container small)
  *
  * ..note
- * This is a note!
- *
- *
- *
+ * The padding of nested containers will be removed to avoid unnecessary spacing
  *
  * @section {Size Modifiers}
  *
@@ -60,9 +97,6 @@ import {dom} from "aire/core/dom";
  * ..attr
  * {expand} Add this class if you do not want to limit the container width but still want the dynamic horizontal padding
  *
- * ..attr
- * {frap} that baloo is a wap
- *
  */
 
 @inject(Element)
@@ -70,13 +104,16 @@ import {dom} from "aire/core/dom";
 export class AireContainer {
 
 
+  public static attributes: Map<string, string> = Strict.toMap<string, string>({
+    "x-small": "uk-container-xsmall",
+    "small": "uk-container-small",
+    "large": "uk-container-large",
+    "expand": "uk-container-expand"
+  });
+
   constructor(readonly el : Element) {
     el.classList.add('uk-container');
-    dom.decorate(this.el, 'x-small', 'uk-container-xsmall');
-    dom.decorate(this.el, 'small', 'uk-container-small');
-    dom.decorate(this.el, 'large', 'uk-container-large');
-    dom.decorate(this.el, 'expand', 'uk-container-expand');
-
+    dom.setAttributes(el, AireContainer.attributes);
   }
 
 
