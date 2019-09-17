@@ -86,9 +86,7 @@ export abstract class ViewportComponent {
       parent = el && el.parentElement,
       gparent = parent && parent.parentElement,
       name = gparent && gparent.nodeName;
-    console.log(name);
     return name === 'BODY';
-
   }
 
 }

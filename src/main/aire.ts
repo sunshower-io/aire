@@ -21,6 +21,8 @@ export function configure(cfg : FrameworkConfiguration) {
     'aire/component/container',
     'aire/component/markdown',
     'aire/component/panel',
+    'aire/component/tab-panel',
+    'aire/component/label',
 
     /**
      * Layout Elements

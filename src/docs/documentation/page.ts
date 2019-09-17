@@ -40,6 +40,8 @@ export class Page {
 
   }
 
+
+
   checkMe() : void {
     this.checked = true;
   }
@@ -90,9 +92,16 @@ export class Page {
   determineActivationStrategy() : string {
     return activationStrategy.replace;
   }
+
+
+  private type(sections: Tag[], type: string) {
+    return sections.filter(t => t.type === type);
+  }
 }
 
 type ComponentType = 'function' | 'class';
+
+type Tag = ExampleTag | NoteTag;
 
 interface Component {
 
@@ -103,6 +112,24 @@ interface Component {
   name : string;
   icon : string;
   properties: Property[];
+  sections: Section[];
+}
+
+interface ExampleTag {
+  type: string;
+  content: string;
+  html: string;
+  pug: string;
+}
+
+interface NoteTag {
+  type: string;
+  content: string;
+}
+interface Section {
+  name: string;
+  content: string;
+  tags: Tag[];
 }
 
 interface Property {

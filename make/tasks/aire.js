@@ -1,5 +1,6 @@
 const through = require('through2'),
     path = require('path'),
+    pug = require('pug'),
     typescript = require('typescript'),
     File = require('vinyl'),
     fs = require('fs');
@@ -179,8 +180,19 @@ class ClassExtractorPlugin extends TypescriptPlugin {
             cl['component'] = true;
             cl['tag-name'] = expr.arguments[0].text;
         };
+
+
+        let customAttributeHandler = (cl, node, expr) => {
+            cl['attribute'] = true;
+            cl['tag-name'] = expr.arguments[0].text;
+            cl.type = 'attribute';
+            cl.icon = 'fal fa-tag';
+        };
+
+
         this.decoratorHandlers = {
-            'customElement': customElementHandler
+            'customElement': customElementHandler,
+            'customAttribute': customAttributeHandler
         };
 
 
@@ -272,14 +284,14 @@ class ClassExtractorPlugin extends TypescriptPlugin {
         let len = content.length,
             tlen = tok.length,
             s = idx + tlen;
-        if(s < len) {
-            for(let i = 0; i + idx < len; i++) {
+        if (s < len) {
+            for (let i = 0; i + idx < len; i++) {
                 let tch = tok.charAt(i),
                     cch = content.charAt(i + idx);
-                if(tch !== cch) {
+                if (tch !== cch) {
                     break;
                 }
-                if(i === tlen - 1) {
+                if (i === tlen - 1) {
                     return [true, idx + i + 1];
                 }
             }
@@ -293,61 +305,90 @@ class ClassExtractorPlugin extends TypescriptPlugin {
             r = "";
         do {
             cur = content.charAt(idx + i++);
-            if(cur === ch) {
+            if (cur === ch) {
                 break;
             }
             r += cur;
 
-        } while(idx + i < content.length);
+        } while (idx + i < content.length);
         return [r, idx + i];
 
     }
 
-    readTag(content, tags, tag, i) {
+    readTag(cl, content, tags, tag, i) {
         let result = "",
             idx;
-        for(idx = i; idx < content.length;) {
+        for (idx = i; idx < content.length;) {
             let [found, j] = this.lookahead(content, idx, '..');
-            if(found) {
+            if (found) {
                 idx = j - 2;
                 break;
             } else {
                 let ch = content.charAt(idx++);
-                if(ch === '\n') {
+                if (ch === '\n') {
                     result += ch;
                     do {
                         ch = content.charAt(idx++);
-                        if(ch === '.') {
+                        if (ch === '.') {
                             result += ' ';
                         } else {
                             result += ch;
                         }
-                    } while(ch === '.');
+                    } while (ch === '.');
+
+                } else if(ch === '{') {
+                    let [name, l] = this.parseName(content, idx - 1),
+                        [v, m] = this.readUntil(content, l, '\n');
+                    cl.attributes = cl.attributes || [];
+                    cl.attributes.push({
+                        name: name,
+                        content: v
+                    });
+                    idx = m;
+                    break;
 
                 } else {
                     result += ch;
                 }
             }
         }
+
         tag.content = result;
         return idx;
     }
 
-    parseTags(content, tags, i) {
-        for(let idx = i; idx < content.length;) {
+    restructureContent(tag) {
+        let c = tag.content,
+            html = pug.compile(c)();
+        tag.type = 'example';
+        tag.html = html;
+        tag.pug = c;
+    }
+
+    parseTags(cl, content, section, tags, i) {
+        for (let idx = i; idx < content.length;) {
+
             let [found, j] = this.lookahead(content, idx, '..');
-            if(found) {
+            if (found) {
                 let [name, k] = this.readUntil(content, j, '\n'),
                     tag = {
                         type: name,
                     };
-                idx = this.readTag(content, tags, tag, k);
-
-                tags.push(tag);
+                idx = this.readTag(cl, content, tags, tag, k);
+                if (name === 'ex') {
+                    this.restructureContent(tag);
+                }
+                if(tag.type !== 'attr') {
+                    tags.push(tag);
+                }
+                if(!section.content) {
+                    section.content = content.substring(i, j - 2);
+                }
             } else {
                 idx = j;
             }
         }
+        section.tags = tags;
     }
 
 
@@ -365,8 +406,10 @@ class ClassExtractorPlugin extends TypescriptPlugin {
 
                     let tags = [];
 
-                    this.parseTags(content, tags, idx);
-                    section.tags = tags;
+                    this.parseTags(cl, content, section, tags, idx);
+                    if(!(section.content || tags.length)) {
+                        section.content = content.substring(idx);
+                    }
 
                     cl.sections.push(section);
                 }
