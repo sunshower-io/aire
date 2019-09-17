@@ -36,13 +36,5 @@ export class AireTabPanel {
       }
     }
     UIKit.tab(this.header);
-    console.log(this.tabs);
-
   }
-
-  // bind() : void {
-  //   console.log("T", this.tabs);
-  //   // UIKit.tab(this.header);
-  //   // UIKit.switcher(this.contents);
-  // }
 }

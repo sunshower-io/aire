@@ -47,6 +47,13 @@ p.note {
 
 @import 'variables-theme.scss';
 
+.example-contents {
+  border: 1px solid $global-border;
+  width:100%;
+  min-height: 64px;
+  padding:8px;
+  margin-bottom:24px;
+}
 
 
 @import 'mixins-theme.scss';

@@ -4,6 +4,7 @@ var exporSrvtRoot = 'export/';
 
 module.exports = {
     scssIncludes: [
+        'node_modules/prismjs/themes',
         'node_modules/uikit/src/scss',
         'node_modules/perfect-scrollbar/css',
         "node_modules/@fortawesome/fontawesome-pro/scss",

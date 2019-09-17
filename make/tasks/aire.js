@@ -359,7 +359,7 @@ class ClassExtractorPlugin extends TypescriptPlugin {
 
     restructureContent(tag) {
         let c = tag.content,
-            html = pug.compile(c)();
+            html = pug.compile(c, {pretty: true})();
         tag.type = 'example';
         tag.html = html;
         tag.pug = c;

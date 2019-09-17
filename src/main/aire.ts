@@ -22,6 +22,8 @@ export const components = [
     'aire/component/tab',
     'aire/component/tab-panel',
     'aire/component/label',
+    'aire/component/code',
+    'aire/component/section',
 
     /**
      * Layout Elements

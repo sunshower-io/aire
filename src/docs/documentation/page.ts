@@ -7,12 +7,14 @@ import {
 import {
   bindable,
   inject,
+  viewResources,
 } from 'aurelia-framework';
 
 import {
   HttpClient
 } from "aurelia-fetch-client";
 
+@viewResources('./example-panel')
 @inject(HttpClient)
 export class Page {
 

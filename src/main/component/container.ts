@@ -23,9 +23,21 @@ import {Strict} from "aire/core/lang";
  *
  * ..ex
  * div(aire-container small)
+ * .div
+ * ..h1 small
  *
  * ..note
  * The padding of nested containers will be removed to avoid unnecessary spacing
+ *
+ * @section {Container in sections}
+ *
+ * You can use this attribute on elements within sections to modify the
+ * width of the content inside sections from the Section component
+ *
+ * ..ex
+ * section(aire-section primary large)
+ * ..div(aire-container small)
+ * ...h1 Section!
  *
  * @section {Size Modifiers}
  *

@@ -14,12 +14,14 @@ template
                     p.note(repeat.for="note of type(section.tags, 'note')")
                         aire-label NOTE
                         | ${note.content}
-                    h2 Examples
 
-
-                    aire-tab-panel(repeat.for="example of type(section.tags, 'example')")
-                        aire-tab(title="pug") ${example.pug}
-                        aire-tab(title="html") ${example.html}
+                    example-panel(repeat.for="example of type(section.tags, 'example')" example.bind="example.html")
+                        h1 Examples
+                        aire-tab-panel
+                            aire-tab(title="pug")
+                                aire-code(code.bind="example.pug" language="pug")
+                            aire-tab(title="html")
+                                aire-code(code.bind="example.html" language="html")
 
 
                 template(if.bind="$last")
