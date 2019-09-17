@@ -18,6 +18,11 @@ export function configure(cfg : FrameworkConfiguration) {
     'aire/component/checkbox',
     'aire/component/list',
     'aire/component/loader',
+    'aire/component/container',
+    'aire/component/markdown',
+    'aire/component/panel',
+    'aire/component/tab-panel',
+    'aire/component/label',
 
     /**
      * Layout Elements

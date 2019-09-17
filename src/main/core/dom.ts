@@ -3,7 +3,7 @@ export module dom {
   /**
    *
    *
-   * @group components
+   * @group dom
    *
    *
    * @param sourceEl
@@ -29,12 +29,6 @@ export module dom {
   }
 
 
-  /**
-   *
-   * @group components
-   * @param el
-   * @param style
-   */
   export function setStyle(el:HTMLElement, style: string) : boolean {
     let clist = el.classList,
       set = clist.contains(style);

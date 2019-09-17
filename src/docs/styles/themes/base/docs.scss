@@ -12,13 +12,57 @@ nav {
   }
 }
 
-//@import 'variables-theme.scss';
-//@import 'mixins-theme.scss';
-//
-//@import 'uikit-theme.scss';
-//@import "light";
-//@import "solid";
+/**
+biggest font size
+ */
+$global-xxlarge-font-size: 32px;
+$global-large-font-size: 20px;
+
+.uk-text-lead {
+  font-weight:300;
+}
+
+.page {
+  padding-top:48px;
+  h1 {
+    i {
+      font-size:20px;
+      margin-right:16px;
+    }
+  }
+}
+
+aire-section {
+  h1 {
+    font-size:$global-large-font-size;
+  }
+}
+
+p.note {
+  span.uk-label {
+    margin-right:8px;
+  }
+
+}
+
+@import 'variables-theme.scss';
+
+
+
+@import 'mixins-theme.scss';
+
+@import 'uikit-theme.scss';
+@import "light";
+@import "solid";
 @import "fontawesome";
 @import "duotone";
 @import "base";
 
+
+.sidebar-right {
+  border: 1px solid blue;
+  width: 200px;
+  left: calc(100% - 260px);
+  top: 60px;
+  position: absolute;
+}

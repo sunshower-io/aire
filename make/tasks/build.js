@@ -5,9 +5,8 @@ const {
     series,
     parallel,
 } = require('gulp');
-const {
-    generateDocumentation
-} = require('./aire');
+
+
 const flatten = require('gulp-flatten');
 const scss = require('gulp-sass');
 const pug = require('gulp-pug');
@@ -18,62 +17,47 @@ const changed = require('gulp-changed');
 const plumber = require('gulp-plumber');
 const sourcemaps = require('gulp-sourcemaps');
 const typescript = require('gulp-typescript');
+/**
+ * Typescript project
+ */
+const tsc = typescript.createProject(
+    'tsconfig.json',
+    {
+        typescript: require('typescript')
+    });
 
 
-const tsc = typescript.createProject('tsconfig.json', {
-    typescript: require('typescript')
-});
+const docs = require('./docs')(tsc);
+
+
+/**
+ * copy package.json file to output
+ */
 task('copy:package', () => {
-    return src(['./package.json', './jspm.config.js']).pipe(dest(paths.output));
+    return src([
+        './package.json',
+        './jspm.config.js']
+    ).pipe(dest(paths.output));
+});
 
-});
+
+/**
+ * Copy all required fonts from node_modules
+ */
 task('copy:assets', function () {
-    return src(paths.assets).pipe(dest(paths.output + "/themes/webfonts/"));
+    return src(paths.assets)
+        .pipe(dest(paths.output + "/themes/webfonts/"));
 });
+
+/**
+ * Copy all supplied fonts
+ */
 
 task('copy:fonts', () => {
-    return src(paths.fonts).pipe(dest(paths.output + '/themes/webfonts/'));
+    return src(paths.fonts).pipe(
+        dest(paths.output + '/themes/webfonts/'));
 });
 
-task('copy:docs:assets', () => {
-    return src(paths.docs.assets).pipe(dest(paths.docs.output + '/assets'));
-});
-
-
-task('build:docs:structure', (done) => {
-    return src('src/**/*.ts')
-        .pipe(generateDocumentation())
-        .pipe(dest('./docs'));
-});
-
-task('build:documentation', (done) => {
-    return src('docs/**/*').pipe(dest(paths.output + '/docs/output'));
-});
-
-
-task('build:docs:source', () => {
-    return src(paths.dtsSrc.concat(paths.docs.source))
-        .pipe(plumber({
-            errorHandler: notify.onError('Error: <%= error.message %>')
-        }))
-        .pipe(changed(paths.output, {extension: '.ts'}))
-        .pipe(sourcemaps.init({loadMaps: true}))
-        .pipe(tsc())
-        .pipe(flatten({
-            includeParents: -1
-        }))
-        .pipe(sourcemaps.write('.', {includeContent: false, sourceRoot: '.'}))
-        .pipe(dest(paths.docs.output));
-});
-
-task('build:docs:pug', () => {
-    return src(paths.docs.pug)
-        .pipe(pug())
-        .pipe(flatten({
-            includeParents: -1
-        }))
-        .pipe(dest(paths.docs.output));
-});
 
 task('build:html', () => {
     return src(paths.pug)
@@ -105,25 +89,6 @@ task('build:static', () => {
     })).pipe(dest(paths.output + '/assets/styles'));
 });
 
-task('build:docs:styles', () => {
-    return src(paths.docs.scss.base).pipe(scss({
-        includePaths: paths.scssIncludes
-    })).pipe(concat('aire.css')).pipe(dest(paths.docs.output + '/themes/base'));
-});
-
-
-task('build:docs:light', () => {
-    return src(paths.docs.scss.light).pipe(scss({
-        includePaths: paths.scssIncludes
-    })).pipe(concat('aire.css')).pipe(dest(paths.docs.output + '/themes/light'));
-});
-
-
-task('build:docs:dark', () => {
-    return src(paths.docs.scss.dark).pipe(scss({
-        includePaths: paths.scssIncludes
-    })).pipe(concat('aire.css')).pipe(dest(paths.docs.output + '/themes/dark'));
-});
 
 task('build:light', () => {
     return src(paths.scss.light).pipe(scss({

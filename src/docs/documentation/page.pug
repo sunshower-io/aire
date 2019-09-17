@@ -1,9 +1,47 @@
 template
-    aire-header
-        h1 ${title}
+    template(if.bind="mode === 'component'")
+        .page(aire-container small)
 
-    div(repeat.for="[key, value] of components")
-        h3 Members of type: ${key}
-        div(repeat.for="component of value") ${component.name}
+            h1.uk-article-title
+                i(class.bind="component.icon")
+                | ${component.type} ${component.name} (${component['tag-name']})
+            aire-markdown(content.bind="component.comments[0]")
+
+            aire-section(repeat.for="section of component.sections")
+                template(if.bind="!$last")
+                    h1 ${section.name}
+                    aire-markdown(content.bind="section.content")
+                    p.note(repeat.for="note of type(section.tags, 'note')")
+                        aire-label NOTE
+                        | ${note.content}
+                template(if.bind="$last")
+                    h1 ${section.name}
+                    aire-markdown(content.bind="section.content")
+                    p.note(repeat.for="note of type(section.tags, 'note')")
+                        aire-label NOTE
+                        | ${note.content}
+                    table.uk-table
+                        thead
+                            tr
+                                th Attribute
+                                th Description
+
+                        tbody
+                            tr(repeat.for="attr of component.attributes")
+                                td(style="color: red") ${attr.name}
+                                td ${attr.content}
+
+
+
+
+
+
+            .sidebar-right
+
+
+    template(if.bind="mode === 'page'")
+        div(repeat.for="[key, value] of components")
+            h3 Members of type: ${key}
+            div(repeat.for="component of value") ${component.name}
 
 

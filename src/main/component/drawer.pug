@@ -3,6 +3,10 @@ template.aire-drawer
         ref="drawer"
     ).content
         slot(name="header")
-        .drawer-main
+        .drawer-main(
+            ref="body"
+            mouseenter.trigger="doRefresh()"
+            mouseleave.trigger="doRefresh()"
+        )
             slot
 

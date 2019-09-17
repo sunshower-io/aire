@@ -1,5 +1,6 @@
 const through = require('through2'),
     path = require('path'),
+    pug = require('pug'),
     typescript = require('typescript'),
     File = require('vinyl'),
     fs = require('fs');
@@ -157,7 +158,7 @@ class ModuleFunctionExtractorPlugin extends TypescriptPlugin {
                 }
                 funcdecl.group = funcdecl.group || 'default';
                 assets[funcdecl.group] = assets[funcdecl.group] || {components: []};
-                if(funcdecl.groupIcon) {
+                if (funcdecl.groupIcon) {
                     assets[funcdecl.group].icon = funcdecl.groupIcon;
                 }
                 assets[funcdecl.group].components.push(funcdecl);
@@ -179,8 +180,19 @@ class ClassExtractorPlugin extends TypescriptPlugin {
             cl['component'] = true;
             cl['tag-name'] = expr.arguments[0].text;
         };
+
+
+        let customAttributeHandler = (cl, node, expr) => {
+            cl['attribute'] = true;
+            cl['tag-name'] = expr.arguments[0].text;
+            cl.type = 'attribute';
+            cl.icon = 'fal fa-tag';
+        };
+
+
         this.decoratorHandlers = {
-            'customElement': customElementHandler
+            'customElement': customElementHandler,
+            'customAttribute': customAttributeHandler
         };
 
 
@@ -200,6 +212,7 @@ class ClassExtractorPlugin extends TypescriptPlugin {
                 }
             }
             cl.properties.push({
+                location: cl.base,
                 name: node.name.escapedText,
                 type: actual,
                 comments: comments.join('\n')
@@ -215,9 +228,11 @@ class ClassExtractorPlugin extends TypescriptPlugin {
     visit(node, fctx, assets, ctx) {
         let cl = {
             type: 'class',
+            location: fctx.base,
             base: fctx.base,
             name: node.name.escapedText,
             properties: [],
+            sections: []
         };
         this.extractDecorators(cl, node, assets);
         this.extractAttributes(cl, node, assets);
@@ -235,6 +250,7 @@ class ClassExtractorPlugin extends TypescriptPlugin {
                 }
                 comments.push(doclet[k].comment);
             }
+            cl.comments = comments;
         }
         cl.group = cl.group || 'default';
         assets[cl.group] = assets[cl.group] || {
@@ -250,10 +266,166 @@ class ClassExtractorPlugin extends TypescriptPlugin {
         assets.current = cl;
     }
 
+    parseName(content, idx) {
+        let result = "",
+            ch = "",
+            i = idx;
+        for (; ch !== '}'; i++, ch = content.charAt(i)) {
+            if (ch === undefined) {
+                throw new Error('Expected closing "}" tag');
+            }
+            result += ch;
+        }
+        return [result, i + 1];
+    }
+
+
+    lookahead(content, idx, tok) {
+        let len = content.length,
+            tlen = tok.length,
+            s = idx + tlen;
+        if (s < len) {
+            for (let i = 0; i + idx < len; i++) {
+                let tch = tok.charAt(i),
+                    cch = content.charAt(i + idx);
+                if (tch !== cch) {
+                    break;
+                }
+                if (i === tlen - 1) {
+                    return [true, idx + i + 1];
+                }
+            }
+        }
+        return [false, idx + 1];
+    }
+
+    readUntil(content, idx, ch) {
+        let i = 0,
+            cur,
+            r = "";
+        do {
+            cur = content.charAt(idx + i++);
+            if (cur === ch) {
+                break;
+            }
+            r += cur;
+
+        } while (idx + i < content.length);
+        return [r, idx + i];
+
+    }
+
+    readTag(cl, content, tags, tag, i) {
+        let result = "",
+            idx;
+        for (idx = i; idx < content.length;) {
+            let [found, j] = this.lookahead(content, idx, '..');
+            if (found) {
+                idx = j - 2;
+                break;
+            } else {
+                let ch = content.charAt(idx++);
+                if (ch === '\n') {
+                    result += ch;
+                    do {
+                        ch = content.charAt(idx++);
+                        if (ch === '.') {
+                            result += ' ';
+                        } else {
+                            result += ch;
+                        }
+                    } while (ch === '.');
+
+                } else if(ch === '{') {
+                    let [name, l] = this.parseName(content, idx - 1),
+                        [v, m] = this.readUntil(content, l, '\n');
+                    cl.attributes = cl.attributes || [];
+                    cl.attributes.push({
+                        name: name,
+                        content: v
+                    });
+                    idx = m;
+                    break;
+
+                } else {
+                    result += ch;
+                }
+            }
+        }
+
+        tag.content = result;
+        return idx;
+    }
+
+    restructureContent(tag) {
+        let c = tag.content,
+            html = pug.compile(c)();
+        tag.type = 'example';
+        tag.html = html;
+        tag.pug = c;
+    }
+
+    parseTags(cl, content, section, tags, i) {
+        for (let idx = i; idx < content.length;) {
+
+            let [found, j] = this.lookahead(content, idx, '..');
+            if (found) {
+                let [name, k] = this.readUntil(content, j, '\n'),
+                    tag = {
+                        type: name,
+                    };
+                idx = this.readTag(cl, content, tags, tag, k);
+                if (name === 'ex') {
+                    this.restructureContent(tag);
+                }
+                if(tag.type !== 'attr') {
+                    tags.push(tag);
+                }
+                if(!section.content) {
+                    section.content = content.substring(i, j - 2);
+                }
+            } else {
+                idx = j;
+            }
+        }
+        section.tags = tags;
+    }
+
+
+    handleSection(tag, cl) {
+
+        let content = tag.comment;
+        if (content) {
+            for (let i = 0; i < content.length;) {
+                if (content.charAt(i) === '{') {
+                    let [name, idx] = this.parseName(content, i);
+                    let section = {
+                        name: name
+                    };
+                    i = idx;
+
+                    let tags = [];
+
+                    this.parseTags(cl, content, section, tags, idx);
+                    if(!(section.content || tags.length)) {
+                        section.content = content.substring(idx);
+                    }
+
+                    cl.sections.push(section);
+                }
+                break;
+            }
+        }
+    }
+
+
     handleTag(tag, cl) {
         let tn = tag && tag.tagName,
             name = tn && tn.escapedText;
 
+        if (name == "section") {
+            this.handleSection(tag, cl);
+        }
 
         if (name === 'group') {
             cl.group = tag.comment;
@@ -359,7 +531,7 @@ function writeDescriptor(all, fcontext, assets) {
         output.contents = Buffer.from(JSON.stringify(descriptor));
         all.push(output);
         delete assets['current'];
-    } else if(typeof descriptor === 'string') {
+    } else if (typeof descriptor === 'string') {
 
         let output = new File({
             path: path.join(target, descriptor + '.json')
@@ -383,7 +555,7 @@ function transformAssets(assets) {
     let result = {groups: []};
     for (let group of Object.keys(assets)) {
         let ag = assets[group];
-        if(ag && ag.components) {
+        if (ag && ag.components) {
             result.groups.push({
                 name: group,
                 icon: ag.icon,
@@ -392,7 +564,8 @@ function transformAssets(assets) {
                         return {
                             type: t.type,
                             name: t.name,
-                            icon: t.icon
+                            icon: t.icon,
+                            location: t.location
                         }
                     })
             });

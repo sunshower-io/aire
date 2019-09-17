@@ -2,7 +2,14 @@
 article.aire-page {
   width:100%;
   height:100%;
-  background-color: #f9f9ff;
+  &.primary {
+    background-color: white;
+
+  }
+
+  &.primary-inverse {
+    background-color: #f9f9ff;
+  }
 
 
   &.padded {

@@ -2,8 +2,18 @@ import {
   HttpClient
 } from "aurelia-fetch-client";
 
-import {autoinject, bindable}                  from 'aurelia-framework';
-import {NavModel, Router, RouterConfiguration} from "aurelia-router";
+import {
+  autoinject,
+  bindable
+}                  from 'aurelia-framework';
+import {
+  NavigationInstruction,
+  NavModel, RouteConfig,
+  Router,
+  RouterConfiguration
+} from "aurelia-router";
+
+
 
 @autoinject
 export class Index {
@@ -19,6 +29,13 @@ export class Index {
   };
 
 
+  private currentItem: {
+    icon?: string,
+    name: string;
+    category: string;
+  };
+
+
   constructor(readonly client : HttpClient) {
 
   }
@@ -27,6 +44,23 @@ export class Index {
     this.router.navigateToRoute(item.settings.category);
     this.hide();
   }
+
+  navigateTo(c: any) {
+    let page = this.currentPage,
+      name = c.location || c.name,
+      category = page.settings.category;
+    this.router.navigateToRoute(page.settings.category, {
+      category: category ,
+      component: c.location || c.name
+    });
+
+    this.currentItem = {
+      name: name,
+      category: category
+    }
+  }
+
+
 
   show(item: NavModel) {
     this.currentPage = item;
@@ -60,6 +94,16 @@ export class Index {
     fst.route = ['', fst.route];
     cfg.map(routes);
     this.router = router;
+  }
+
+
+  async activate(params : any, cfg: RouteConfig, instruction: NavigationInstruction) {
+    this.currentItem = {
+      icon: cfg.settings.icon,
+      name: params.component,
+      category:  params.category
+    };
+
   }
 
 

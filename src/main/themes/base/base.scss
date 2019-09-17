@@ -18,10 +18,27 @@ template {
   height:100%;
 }
 
+@import "notosans-fontface";
+$aire-typography-font-family: "noto sans", "helvetica neue", "arial", sans serif !important;
+
+* :not(.fal):not(.fab) {
+  font-family: $aire-typography-font-family;
+}
+
+@import "perfect-scrollbar";
+
+
+$base-h1-font-size: 32px;
+$base-heading-font-weight: 100;
 
 
 @import 'variables-theme.scss';
 @import 'mixins-theme.scss';
+
+
+
+
+
 
 @import 'uikit-theme.scss';
 @import "light";
@@ -40,3 +57,5 @@ template {
 p.primary, span.primary {
   color: $purple;
 }
+
+

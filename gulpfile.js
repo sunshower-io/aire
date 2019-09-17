@@ -39,21 +39,44 @@ task('serve', series('serve:all'));
 
 task('watch:typescript', () => {
     watch(paths.source,
-        series('build:source', 'reload')).on('change', reportChange);
+        series(
+            'build:source',
+            'build:docs:source',
+            'build:docs:structure',
+            'build:documentation',
+            'reload'
+        )).on('change', reportChange);
 });
 
 task('watch:docs:typescript', () => {
     watch(paths.docs.source,
-        series('build:docs:source', 'reload')).on('change', reportChange);
+        series(
+            'build:docs:source',
+            'build:docs:structure',
+            'build:documentation',
+            'reload')
+    ).on('change', reportChange);
 });
 
 task('watch:docs:html', () => {
-    watch([paths.docs.pug], series('build:docs:pug', 'reload')).on('change', reportChange);
+    watch([paths.docs.pug], series(
+        'build:docs:pug',
+        'reload'
+    )).on('change', reportChange);
 });
-task('watch:docs', parallel('watch:docs:typescript', 'watch:docs:html'));
+
+
+task(
+    'watch:docs', parallel(
+        'watch:docs:typescript',
+        'watch:docs:html')
+);
 
 task('watch:html', () => {
-    watch(paths.pug, series('build:html', 'reload')).on('change', reportChange);
+    watch(paths.pug, series(
+        'build:html',
+        'reload'
+    )).on('change', reportChange);
 });
 
 task('watch:styles', () => {
@@ -65,7 +88,10 @@ task('watch:styles', () => {
         paths.docs.scss.dark,
         paths.docs.scss.light,
 
-    ], series('build:styles', 'reload')).on('change', reportChange);
+    ], series(
+        'build:styles',
+        'reload'
+    )).on('change', reportChange);
 });
 
 task('reload', (done) => {
@@ -86,4 +112,7 @@ function reportChange(event) {
     console.log(`File ${event} was changed.  Running tasks...`);
 }
 
+
+task('default', parallel(
+    series('clean', 'build')));
 

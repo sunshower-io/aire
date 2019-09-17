@@ -12,12 +12,6 @@ import {
 
 
 /**
- * category: buttons
- * example: *coolbeans*
- *
- * @group components
- * @icon whatever
- * @groupIcon fal fa-cubes
  *
  *
  */
