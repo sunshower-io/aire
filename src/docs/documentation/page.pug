@@ -7,7 +7,7 @@ template
                 | ${component.type} ${component.name} (${component['tag-name']})
             aire-markdown(content.bind="component.comments[0]")
 
-            aire-section(repeat.for="section of component.sections")
+            section(aire-section repeat.for="section of component.sections")
                 template(if.bind="!$last")
                     h1 ${section.name}
                     aire-markdown(content.bind="section.content")
@@ -50,8 +50,14 @@ template
 
 
     template(if.bind="mode === 'page'")
-        div(repeat.for="[key, value] of components")
-            h3 Members of type: ${key}
-            div(repeat.for="component of value") ${component.name}
+        section(aire-section repeat.for="[key, value] of components")
+            aire-tab-panel(aire-container small)
+                aire-tab(title="${key} Summary")
+                    ul.uk-list.uk-list-striped.component-list
+                        li(repeat.for="component of value")
+                            i(class.bind="component.icon" style="margin-right:16px")
+                            a(click.delegate="open(component)") ${component.name}
+                            span(aire) ${component.description}
+
 
 

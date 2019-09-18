@@ -3,6 +3,12 @@ import {
   customElement
 } from 'aurelia-framework';
 
+/**
+ * @description
+ * General-purpose image class
+ *
+ *
+ */
 
 @customElement('aire-image')
 export class AireImage {
@@ -35,7 +41,6 @@ export class AireImage {
     let w = parseFloat(this.width),
       h = parseFloat(this.height),
       r = this.ratio;
-    console.log(w, h, r);
     if(r) {
       if(!w) {
         this.height = r * w + 'px';
@@ -50,7 +55,6 @@ export class AireImage {
         this.width = h + 'px';
       }
     }
-    console.log(this.width, this.height, r);
   }
 
 }

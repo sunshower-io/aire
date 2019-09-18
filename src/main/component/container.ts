@@ -8,10 +8,14 @@ import {Strict} from "aire/core/lang";
 
 /**
  *
+ *
  * <p class="uk-text-lead">
  *        This component allows you to align and center page content
  * </p>
  *
+ *
+ * @description
+ * Attribute for aligning and centering page content
  *
  * @section {Usage}
  *

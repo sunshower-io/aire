@@ -1,4 +1,5 @@
 template
+    div(show="false" if.bind="anchor").viewport-anchor
     slot(name="header")
     .main(ref="main")
         slot(name="navigation")

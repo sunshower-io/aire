@@ -3,6 +3,10 @@ import {
   customAttribute
 } from 'aurelia-framework';
 
+/**
+ * @description
+ * Specify a host-element for elements that attach to a specific location in the DOM
+ */
 @inject(Element)
 @customAttribute('host')
 export class Host {

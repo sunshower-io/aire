@@ -1,11 +1,18 @@
 import {
   inject,
+  bindable,
   containerless,
   customElement
 }            from 'aurelia-framework';
 import {dom} from "aire/core/dom";
 import ViewportOptions = AireViewport.ViewportOptions;
 
+/**
+ * @description
+ * Top-level component for most applications
+ *
+ *
+ */
 @containerless
 @inject(Element)
 @customElement('aire-viewport')
@@ -13,6 +20,12 @@ export class AireViewport {
 
   main: HTMLDivElement;
 
+
+  /**
+   * Include anchor div for styling purposes
+   */
+  @bindable
+  public anchor: boolean;
 
   constructor(readonly el: Element) {
 

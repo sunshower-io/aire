@@ -7,12 +7,17 @@ import {
   bindable
 }                  from 'aurelia-framework';
 import {
+  activationStrategy,
   NavigationInstruction,
   NavModel, RouteConfig,
   Router,
   RouterConfiguration
 } from "aurelia-router";
 
+
+/**
+ * @exclude
+ */
 
 
 @autoinject
@@ -28,11 +33,10 @@ export class Index {
     components : string[]
   };
 
-
-  private currentItem: {
+  public currentItem: {
     icon?: string,
-    name: string;
-    category: string;
+    name?: string;
+    category?: string;
   };
 
 
@@ -40,24 +44,30 @@ export class Index {
 
   }
 
-  navigate(item : NavModel) {
-    this.router.navigateToRoute(item.settings.category);
+  async navigate(item : NavModel | string) {
+    if( typeof item === 'string') {
+      await this.router.navigateToRoute(item);
+    } else {
+      let category : string;
+      category = item.settings.category;
+      await this.router.navigateToRoute(category, {category: category});
+    }
     this.hide();
   }
 
-  navigateTo(c: any) {
+  async navigateTo(c: any) {
     let page = this.currentPage,
       name = c.location || c.name,
-      category = page.settings.category;
-    this.router.navigateToRoute(page.settings.category, {
+      category = c.category || page.settings.category;
+    await this.router.navigateToRoute(category, {
       category: category ,
-      component: c.location || c.name
+      component: name
     });
-
     this.currentItem = {
-      name: name,
-      category: category
-    }
+      category: category,
+      name: name
+    };
+    this.hide();
   }
 
 
@@ -92,18 +102,25 @@ export class Index {
       }),
       fst = routes[0];
     fst.route = ['', fst.route];
+    this.currentItem = {category: fst.settings.category};
     cfg.map(routes);
     this.router = router;
   }
 
 
   async activate(params : any, cfg: RouteConfig, instruction: NavigationInstruction) {
-    this.currentItem = {
-      icon: cfg.settings.icon,
-      name: params.component,
-      category:  params.category
-    };
+    if(params.category) {
+      this.currentItem = {
+        icon     : cfg.settings.icon,
+        name     : params.component,
+        category : params.category
+      };
+    }
+  }
 
+
+  determineActivationStrategy() : string {
+    return activationStrategy.replace;
   }
 
 

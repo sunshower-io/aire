@@ -336,7 +336,7 @@ class ClassExtractorPlugin extends TypescriptPlugin {
                         }
                     } while (ch === '.');
 
-                } else if(ch === '{') {
+                } else if (ch === '{') {
                     let [name, l] = this.parseName(content, idx - 1),
                         [v, m] = this.readUntil(content, l, '\n');
                     cl.attributes = cl.attributes || [];
@@ -378,10 +378,10 @@ class ClassExtractorPlugin extends TypescriptPlugin {
                 if (name === 'ex') {
                     this.restructureContent(tag);
                 }
-                if(tag.type !== 'attr') {
+                if (tag.type !== 'attr') {
                     tags.push(tag);
                 }
-                if(!section.content) {
+                if (!section.content) {
                     section.content = content.substring(i, j - 2);
                 }
             } else {
@@ -407,7 +407,7 @@ class ClassExtractorPlugin extends TypescriptPlugin {
                     let tags = [];
 
                     this.parseTags(cl, content, section, tags, idx);
-                    if(!(section.content || tags.length)) {
+                    if (!(section.content || tags.length)) {
                         section.content = content.substring(idx);
                     }
 
@@ -423,8 +423,12 @@ class ClassExtractorPlugin extends TypescriptPlugin {
         let tn = tag && tag.tagName,
             name = tn && tn.escapedText;
 
-        if (name == "section") {
+        if (name === "section") {
             this.handleSection(tag, cl);
+        }
+
+        if (name === 'description') {
+            cl['description'] = tag.comment;
         }
 
         if (name === 'group') {
@@ -435,6 +439,9 @@ class ClassExtractorPlugin extends TypescriptPlugin {
         }
         if (name === 'icon') {
             cl['icon'] = tag.comment;
+        }
+        if(name === 'exclude') {
+            cl.exclude = true;
         }
     }
 
@@ -560,8 +567,9 @@ function transformAssets(assets) {
                 name: group,
                 icon: ag.icon,
                 components: ag.components &&
-                    ag.components.map(t => {
+                    ag.components.filter(t => !t.exclude).map(t => {
                         return {
+                            description: t.description,
                             type: t.type,
                             name: t.name,
                             icon: t.icon,

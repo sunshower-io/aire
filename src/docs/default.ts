@@ -1,5 +1,9 @@
 import {Router, RouterConfiguration} from "aurelia-router";
 
+/**
+ * @exclude
+ */
+
 export class DefaultPage {
 
 

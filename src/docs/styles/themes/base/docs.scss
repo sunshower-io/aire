@@ -73,3 +73,27 @@ p.note {
   top: 60px;
   position: absolute;
 }
+
+.viewport-anchor {
+  & ~ header {
+    background-color: white;
+  }
+
+  & ~ footer {
+    background-color: white;
+  }
+}
+
+ul.component-list {
+  li  {
+    i {
+      margin-right: 32px;
+    }
+    a {
+      min-width:256px;
+      width:256px;
+      display:inline-block;
+    }
+  }
+}
+

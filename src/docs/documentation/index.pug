@@ -1,11 +1,13 @@
 template
     aire-viewport
         aire-header(small)
-            aire-button(control)
+            aire-button(control href="#")
                 i.fal.fa-cloud-sun-rain
             ul.uk-breadcrumb
-                li ${currentItem.category}
-                li ${currentItem.name}
+                li(if.bind="currentItem.category")
+                    a(click.delegate="navigate(currentItem.category)") ${currentItem.category}
+                li(if.bind="currentItem.name")
+                    a(click.delegate="navigateTo(currentItem)") ${currentItem.name}
             .uk-inline.right
                 div.uk-form-icon
                     i.fal.fa-search
@@ -23,7 +25,7 @@ template
                     h2 ${currentPage.title}
                     aire-button
                         i.fal.fa-times(click.trigger="hide()")
-                aire-button(repeat.for="component of currentPage.settings.components" click.trigger="navigateTo(component)")
+                aire-button(repeat.for="component of currentPage.settings.components" click.delegate="navigateTo(component)")
                     i(class.bind="component.icon")
                     | ${component['tag-name'] || component['name']}
 
@@ -39,3 +41,5 @@ template
         aire-footer
             aire-button(control)
                 i.fal.fa-cog
+            div.right
+                span version 1.0.0

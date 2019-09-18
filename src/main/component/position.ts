@@ -2,8 +2,14 @@ import {
   inject,
   customAttribute
 }                         from 'aurelia-framework';
-import {isFunction, Lazy} from "aire/core/lang";
-import {Positionable}     from "aire/component/positionable";
+import {
+  Lazy
+} from "aire/core/lang";
+
+
+import {
+  Positionable
+}     from "aire/component/positionable";
 
 @inject(Element)
 @customAttribute('position')

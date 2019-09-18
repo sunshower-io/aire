@@ -9,6 +9,9 @@ import 'prismjs/themes/prism-coy.css!';
 
 import {ViewFactory} from "aire/core/view-factory";
 
+/**
+ * @exclude
+ */
 @autoinject
 @customElement('example-panel')
 export class ExamplePanel {

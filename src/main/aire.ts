@@ -24,6 +24,7 @@ export const components = [
     'aire/component/label',
     'aire/component/code',
     'aire/component/section',
+    'aire/component/aire',
 
     /**
      * Layout Elements
