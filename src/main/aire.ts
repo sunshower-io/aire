@@ -25,6 +25,8 @@ export const components = [
     'aire/component/code',
     'aire/component/section',
     'aire/component/aire',
+    'aire/component/search',
+    'aire/component/grid',
 
     /**
      * Layout Elements

@@ -8,18 +8,19 @@ template
                     a(click.delegate="navigate(currentItem.category)") ${currentItem.category}
                 li(if.bind="currentItem.name")
                     a(click.delegate="navigateTo(currentItem)") ${currentItem.name}
-            .uk-inline.right
-                div.uk-form-icon
-                    i.fal.fa-search
-                input.uk-input(placeholder="Search...")
+            aire-search(aire inline float-right search.delegate="performSearch($event)")
+                div.result-container
+                    div.result(repeat.for="result of results")
+                        i(class.bind="result.icon")
+                        a(click.delegate="navigateTo(result)") ${result.name}
 
 
 
         aire-navbar
             aire-drawer(
-                host="ancestor:nav"
-                visible.bind="showDrawer"
-                click.trigger="hide()"
+            host="ancestor:nav"
+            visible.bind="showDrawer"
+            click.trigger="hide()"
             )
                 aire-header
                     h2 ${currentPage.title}
@@ -30,10 +31,10 @@ template
                     | ${component['tag-name'] || component['name']}
 
             aire-button(
-                repeat.for="nav of router.navigation"
-                active.bind="nav.isActive",
-                click.trigger="navigate(nav)"
-                mouseenter.trigger="show(nav)"
+            repeat.for="nav of router.navigation"
+            active.bind="nav.isActive",
+            click.trigger="navigate(nav)"
+            mouseenter.trigger="show(nav)"
             )
                 i(class.bind="nav.settings.icon")
         aire-page(padded)

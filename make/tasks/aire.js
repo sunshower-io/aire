@@ -143,17 +143,20 @@ class ModuleFunctionExtractorPlugin extends TypescriptPlugin {
 
                 if (node.parameters) {
                     for (let param of node.parameters) {
-                        let t = param.type,
-                            tn = t && t.typeName,
-                            name = tn && tn.escapedText ||
-                                typescript.SyntaxKind[param.type.kind]
-                                    .replace('Keyword', '').toLowerCase();
+
+                        let t = param.type;
+                        if(t && t.kind) {
+                            let tn = t && t.typeName,
+                                name = tn && tn.escapedText ||
+                                    typescript.SyntaxKind[t.kind]
+                                        .replace('Keyword', '').toLowerCase();
 
 
-                        funcdecl.parameters.push({
-                            name: param.name.escapedText,
-                            type: name
-                        });
+                            funcdecl.parameters.push({
+                                name: param.name.escapedText,
+                                type: name
+                            });
+                        }
                     }
                 }
                 funcdecl.group = funcdecl.group || 'default';

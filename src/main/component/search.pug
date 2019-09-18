@@ -1,0 +1,17 @@
+template
+    .uk-inline.float-right
+        div.uk-form-icon
+            i.fal.fa-search
+        input.uk-input(
+            type="text"
+            ref="input"
+            focus.delegate="doOpen()"
+            blur.delegate="doClose()"
+            placeholder="Search..."
+            input.delegate="search($event)"
+        )
+        div.aire-search(ref="panel" aire width-large show.bind="open")
+            div(aire card card-body card-default)
+                a(uk-close)
+                slot
+

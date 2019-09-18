@@ -66,6 +66,24 @@ p.note {
 @import "base";
 
 
+div.result-container {
+  display:flex;
+  flex-direction:row-reverse;
+  flex-wrap: wrap;
+
+  div.result {
+    margin-right:8px;
+    margin-bottom:8px;
+    i {
+      margin-right:4px;
+    }
+  }
+}
+
+.uk-float-right {
+  margin-left:auto;
+}
+
 .sidebar-right {
   border: 1px solid blue;
   width: 200px;

@@ -44,6 +44,10 @@ export module Lazy {
 
 export module Strict {
 
+  export function flatMap<T, U>(f: (T) => U[], xs: T[]): U[] {
+    return xs.reduce((acc, x) => acc.concat(f(x)), []);
+  }
+
   export function toMap<T, U>(o: Object): Map<T, U> {
     let map = new Map<T, U>();
     for(let [k, v] of Lazy.iterate<T, U>(o)) {

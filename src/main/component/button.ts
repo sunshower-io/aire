@@ -3,12 +3,12 @@ import {
   bindable,
   containerless,
   customElement
-}                    from 'aurelia-framework';
-import {createEvent} from "aire/core/events";
-import {dom}         from "aire/core/dom";
+}                   from 'aurelia-framework';
+import {dom as DOM} from "aire/core/events";
+import {dom}        from "aire/core/dom";
 import {
   ButtonModifier, ButtonRole
-}                    from "aire/component/modifiers";
+}                   from "aire/component/modifiers";
 
 
 /**
@@ -69,13 +69,12 @@ export class AireButton {
   /**
    * Active?
    */
-  @bindable public active: boolean;
+  @bindable public active : boolean;
 
   /**
    * The style of the button
    */
   private role : ButtonRole = 'button';
-
 
 
   /**
@@ -130,7 +129,7 @@ export class AireButton {
   dispatch(e : Event) : void {
     console.log(this.active);
     if (!this.disabled) {
-      this.el.dispatchEvent(createEvent('click', {
+      this.el.dispatchEvent(DOM.createEvent('click', {
         cause  : e,
         source : this
       }));
@@ -169,9 +168,9 @@ export class AireButton {
 
   }
 
-  private extractModifiers(target:HTMLElement, modifiers: string[]) {
+  private extractModifiers(target : HTMLElement, modifiers : string[]) {
     for (let modifier of AireButton.modifiers) {
-      if(dom.decorateTo(
+      if (dom.decorateTo(
         this.el,
         target,
         modifier,

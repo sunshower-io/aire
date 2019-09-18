@@ -1,6 +1,31 @@
 declare module "uikit" {
 
 
+  export interface GridOptions {}
+
+  export function grid(el: Element, opts?: GridOptions) {
+
+  }
+
+  export class Showable {
+    show() : void;
+  }
+
+  export interface Hideable {
+    hide(): void;
+  }
+
+  export interface Component extends Showable, Hideable {
+
+  }
+
+
+  export interface DropOptions {
+
+  }
+  export function drop(el: HTMLElement, options?: DropOptions) : Component;
+
+
   export interface SwitcherOptions {
 
   }

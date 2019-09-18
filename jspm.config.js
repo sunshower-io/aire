@@ -66,6 +66,7 @@ SystemJS.config({
     "css": "github:systemjs/plugin-css@0.1.37",
     "events": "npm:jspm-nodelibs-events@0.2.2",
     "fs": "npm:jspm-nodelibs-fs@0.2.1",
+    "fuse.js": "npm:fuse.js@3.4.5",
     "os": "npm:jspm-nodelibs-os@0.2.2",
     "path": "npm:jspm-nodelibs-path@0.2.3",
     "perfect-scrollbar": "npm:perfect-scrollbar@1.4.0",
