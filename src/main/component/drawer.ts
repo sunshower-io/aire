@@ -26,10 +26,10 @@ export class AireDrawer {
   /**
    * Container for drawer contents
    */
-  private body: HTMLDivElement;
+  private body : HTMLDivElement;
 
 
-  private scrollbar: any;
+  private scrollbar : any;
   /**
    * where are we attached?
    */
@@ -42,14 +42,12 @@ export class AireDrawer {
   private listener : EventListenerOrEventListenerObject;
 
 
-
-
-  constructor(readonly el:Element) {
+  constructor(readonly el : Element) {
   }
 
 
   attached() : void {
-    this.listener = debounce(this.updateLeft, 5);
+    this.listener = debounce(this.visibleChanged.bind(this), 5);
     window.addEventListener('resize', this.listener);
     let scrollbar = PerfectScrollbar as any;
     this.scrollbar = new scrollbar(this.body);
@@ -62,7 +60,6 @@ export class AireDrawer {
     this.scrollbar.destroy();
     window.removeEventListener('resize', this.listener);
   }
-
 
 
   doRefresh() : void {
@@ -78,13 +75,12 @@ export class AireDrawer {
     }
   }
 
-  readonly updateLeft : () => void = async () => {
+  updateLeft() : void {
     this.setWidth(this.width);
   };
 
 
-
-  private setWidth(w: number) {
+  private setWidth(w : number) {
     let drawer = this.el,
       host = this.host,
       style = (drawer as any).style;

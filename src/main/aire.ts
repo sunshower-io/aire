@@ -2,9 +2,7 @@
 import {PLATFORM}               from 'aurelia-pal';
 import {FrameworkConfiguration} from 'aurelia-framework';
 
-export function configure(cfg : FrameworkConfiguration) {
-  cfg.globalResources([
-
+export const components = [
     /**
      * Components
      */
@@ -21,8 +19,14 @@ export function configure(cfg : FrameworkConfiguration) {
     'aire/component/container',
     'aire/component/markdown',
     'aire/component/panel',
+    'aire/component/tab',
     'aire/component/tab-panel',
     'aire/component/label',
+    'aire/component/code',
+    'aire/component/section',
+    'aire/component/aire',
+    'aire/component/search',
+    'aire/component/grid',
 
     /**
      * Layout Elements
@@ -40,7 +44,10 @@ export function configure(cfg : FrameworkConfiguration) {
     'aire/nav/location',
     'aire/core/iterable',
 
-
-  ]).plugin(PLATFORM.moduleName('aurelia-animator-velocity'));
+];
+export function configure(cfg : FrameworkConfiguration) {
+  cfg.globalResources(components)
+     .plugin(PLATFORM
+       .moduleName('aurelia-animator-velocity'));
 
 }

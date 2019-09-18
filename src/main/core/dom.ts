@@ -1,5 +1,17 @@
 export module dom {
 
+
+  /**
+   * @group dom
+   * @groupIcon fal fa-sitemap
+   */
+
+  export function setAttributes(el: Element, attributes: Map<string, string>) {
+    for(let [k, v] of attributes) {
+      decorate(el, k, v);
+    }
+  }
+
   /**
    *
    *
@@ -28,6 +40,11 @@ export module dom {
     return false;
   }
 
+  /**
+   * @group dom
+   * @param el
+   * @param style
+   */
 
   export function setStyle(el:HTMLElement, style: string) : boolean {
     let clist = el.classList,
@@ -38,7 +55,7 @@ export module dom {
 
 
   /**
-   * @group components
+   * @group dom
    * @param el
    * @param style
    */
@@ -50,7 +67,7 @@ export module dom {
   }
 
   /**
-   * @group components
+   * @group dom
    * @param el
    * @param decoration
    * @param className

@@ -1,0 +1,14 @@
+
+.aire-search {
+
+  top: 18px !important;
+  position: fixed;
+  width:calc(100vw - 64px);
+  left:64px;
+  bottom:50vh;
+
+  div.uk-card {
+    height:100%;
+    width:100%;
+  }
+}

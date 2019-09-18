@@ -47,6 +47,13 @@ p.note {
 
 @import 'variables-theme.scss';
 
+.example-contents {
+  border: 1px solid $global-border;
+  width:100%;
+  min-height: 64px;
+  padding:8px;
+  margin-bottom:24px;
+}
 
 
 @import 'mixins-theme.scss';
@@ -59,6 +66,24 @@ p.note {
 @import "base";
 
 
+div.result-container {
+  display:flex;
+  flex-direction:row-reverse;
+  flex-wrap: wrap;
+
+  div.result {
+    margin-right:8px;
+    margin-bottom:8px;
+    i {
+      margin-right:4px;
+    }
+  }
+}
+
+.uk-float-right {
+  margin-left:auto;
+}
+
 .sidebar-right {
   border: 1px solid blue;
   width: 200px;
@@ -66,3 +91,27 @@ p.note {
   top: 60px;
   position: absolute;
 }
+
+.viewport-anchor {
+  & ~ header {
+    background-color: white;
+  }
+
+  & ~ footer {
+    background-color: white;
+  }
+}
+
+ul.component-list {
+  li  {
+    i {
+      margin-right: 32px;
+    }
+    a {
+      min-width:256px;
+      width:256px;
+      display:inline-block;
+    }
+  }
+}
+

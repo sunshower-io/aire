@@ -38,6 +38,17 @@ footer {
   height: $small-nav-height;
   display: flex;
   flex-direction: row;
+  align-items: center;
+
+  & > *:not(.control):not(.aire-button) {
+    margin-left:8px;
+    &.right {
+      justify-self: flex-end;
+    }
+    &.left {
+      justify-self: flex-start;
+    }
+  }
 
   &.f-large {
     height: $large-nav-height;

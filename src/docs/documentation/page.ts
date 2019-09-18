@@ -1,19 +1,26 @@
 import {
   activationStrategy,
   NavigationInstruction,
-  RouteConfig
+  RouteConfig, Router
 } from "aurelia-router";
 
 import {
   bindable,
   inject,
+  viewResources,
 } from 'aurelia-framework';
 
 import {
   HttpClient
-} from "aurelia-fetch-client";
+}              from "aurelia-fetch-client";
+import {Index} from "./index";
 
-@inject(HttpClient)
+
+/**
+ * @exclude
+ */
+@inject(Router, HttpClient)
+@viewResources('./example-panel')
 export class Page {
 
   /**
@@ -22,7 +29,7 @@ export class Page {
 
   private title : string;
 
-  private mode: 'page' | 'component';
+  private mode : 'page' | 'component';
 
   private components : Map<ComponentType, Component[]>;
 
@@ -32,14 +39,14 @@ export class Page {
    */
   @bindable public checked : boolean;
 
+  category : string;
 
-  component: Component;
+  component : Component;
 
 
-  constructor(readonly client: HttpClient) {
+  constructor(readonly router : Router, readonly client : HttpClient) {
 
   }
-
 
 
   checkMe() : void {
@@ -49,7 +56,7 @@ export class Page {
   async activate(params : any, config : RouteConfig, instruction : NavigationInstruction) {
     this.title = config.title;
     this.partition(config);
-    if(params.component) {
+    if (params.component) {
       await this.loadComponent(params);
     } else {
       await this.loadPage(params);
@@ -57,7 +64,18 @@ export class Page {
 
   }
 
-  private partition(config: RouteConfig) {
+  open(component : Component) : void {
+    let category = this.category,
+      ci = {
+        category  : this.category,
+        component : component.location
+      };
+    this.router.navigateToRoute(category, ci);
+
+  }
+
+  private partition(config : RouteConfig) {
+    this.category = config.settings.category;
     this.components = config.settings.components.reduce((
       acc : Map<ComponentType, Component[]>,
       current : Component
@@ -75,11 +93,12 @@ export class Page {
   }
 
 
-  async loadPage(params: any) : Promise<void> {
+  async loadPage(params : any) : Promise<void> {
     this.mode = 'page';
+
   }
 
-  async loadComponent(params: any) : Promise<void> {
+  async loadComponent(params : any) : Promise<void> {
     let resp = await this.client.fetch(
       `output/main/${params.category}/${params.component}.json`),
       result = await resp.json();
@@ -94,7 +113,7 @@ export class Page {
   }
 
 
-  private type(sections: Tag[], type: string) {
+  private type(sections : Tag[], type : string) {
     return sections.filter(t => t.type === type);
   }
 }
@@ -105,36 +124,37 @@ type Tag = ExampleTag | NoteTag;
 
 interface Component {
 
-  group: string;
-  location: string;
-  base: string;
+  group : string;
+  location : string;
+  base : string;
   type : ComponentType;
   name : string;
   icon : string;
-  properties: Property[];
-  sections: Section[];
+  properties : Property[];
+  sections : Section[];
 }
 
 interface ExampleTag {
-  type: string;
-  content: string;
-  html: string;
-  pug: string;
+  type : string;
+  content : string;
+  html : string;
+  pug : string;
 }
 
 interface NoteTag {
-  type: string;
-  content: string;
+  type : string;
+  content : string;
 }
+
 interface Section {
-  name: string;
-  content: string;
-  tags: Tag[];
+  name : string;
+  content : string;
+  tags : Tag[];
 }
 
 interface Property {
-  location: string;
-  label: string;
-  type: string;
-  comments: string;
+  location : string;
+  label : string;
+  type : string;
+  comments : string;
 }

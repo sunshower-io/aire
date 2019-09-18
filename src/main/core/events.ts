@@ -1,11 +1,16 @@
 import {DOM} from 'aurelia-pal';
 
 
-export function createEvent(name : string, value : any) : Event {
-  return DOM.createCustomEvent(
-    name,
-    {
-      detail : value
-    }
-  );
+export module dom {
+  export function createEvent(name : string, value : any) : Event {
+    return DOM.createCustomEvent(
+      name,
+      {
+        bubbles: true,
+        detail : value
+      }
+    );
+  }
+
 }
+

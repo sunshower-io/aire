@@ -2,16 +2,20 @@ import {
   inject,
   bindable,
   customAttribute,
-}            from 'aurelia-framework';
-import {dom} from "aire/core/dom";
+}               from 'aurelia-framework';
+import {dom}    from "aire/core/dom";
+import {Strict} from "aire/core/lang";
 
 /**
+ *
  *
  * <p class="uk-text-lead">
  *        This component allows you to align and center page content
  * </p>
  *
  *
+ * @description
+ * Attribute for aligning and centering page content
  *
  * @section {Usage}
  *
@@ -23,25 +27,21 @@ import {dom} from "aire/core/dom";
  *
  * ..ex
  * div(aire-container small)
+ * .div
+ * ..h1 small
  *
  * ..note
  * The padding of nested containers will be removed to avoid unnecessary spacing
  *
- * @section {Wabbwab}
+ * @section {Container in sections}
  *
- * ```javascript
- * function(a, b) {
+ * You can use this attribute on elements within sections to modify the
+ * width of the content inside sections from the Section component
  *
- * }
- *
- * ```
- *
- *
- * ..note
- * This is a note!
- *
- *
- *
+ * ..ex
+ * section(aire-section primary large)
+ * ..div(aire-container small)
+ * ...h1 Section!
  *
  * @section {Size Modifiers}
  *
@@ -60,9 +60,6 @@ import {dom} from "aire/core/dom";
  * ..attr
  * {expand} Add this class if you do not want to limit the container width but still want the dynamic horizontal padding
  *
- * ..attr
- * {frap} that baloo is a wap
- *
  */
 
 @inject(Element)
@@ -70,13 +67,16 @@ import {dom} from "aire/core/dom";
 export class AireContainer {
 
 
+  public static attributes: Map<string, string> = Strict.toMap<string, string>({
+    "x-small": "uk-container-xsmall",
+    "small": "uk-container-small",
+    "large": "uk-container-large",
+    "expand": "uk-container-expand"
+  });
+
   constructor(readonly el : Element) {
     el.classList.add('uk-container');
-    dom.decorate(this.el, 'x-small', 'uk-container-xsmall');
-    dom.decorate(this.el, 'small', 'uk-container-small');
-    dom.decorate(this.el, 'large', 'uk-container-large');
-    dom.decorate(this.el, 'expand', 'uk-container-expand');
-
+    dom.setAttributes(el, AireContainer.attributes);
   }
 
 

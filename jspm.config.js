@@ -62,11 +62,15 @@ SystemJS.config({
     "aurelia-templating-router": "npm:aurelia-templating-router@1.4.0",
     "buffer": "npm:jspm-nodelibs-buffer@0.2.3",
     "child_process": "npm:jspm-nodelibs-child_process@0.2.1",
+    "clipboard": "npm:clipboard@2.0.4",
     "css": "github:systemjs/plugin-css@0.1.37",
     "events": "npm:jspm-nodelibs-events@0.2.2",
     "fs": "npm:jspm-nodelibs-fs@0.2.1",
+    "fuse.js": "npm:fuse.js@3.4.5",
+    "os": "npm:jspm-nodelibs-os@0.2.2",
     "path": "npm:jspm-nodelibs-path@0.2.3",
     "perfect-scrollbar": "npm:perfect-scrollbar@1.4.0",
+    "prismjs": "npm:prismjs@1.17.1",
     "process": "npm:jspm-nodelibs-process@0.2.1",
     "showdown": "npm:showdown@1.9.0",
     "stream": "npm:jspm-nodelibs-stream@0.2.1",
@@ -355,6 +359,23 @@ SystemJS.config({
     "npm:string_decoder@1.1.1": {
       "map": {
         "safe-buffer": "npm:safe-buffer@5.1.2"
+      }
+    },
+    "npm:clipboard@2.0.4": {
+      "map": {
+        "good-listener": "npm:good-listener@1.2.2",
+        "select": "npm:select@1.1.2",
+        "tiny-emitter": "npm:tiny-emitter@2.1.0"
+      }
+    },
+    "npm:good-listener@1.2.2": {
+      "map": {
+        "delegate": "npm:delegate@3.2.0"
+      }
+    },
+    "npm:jspm-nodelibs-os@0.2.2": {
+      "map": {
+        "os-browserify": "npm:os-browserify@0.3.0"
       }
     }
   }

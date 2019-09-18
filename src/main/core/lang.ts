@@ -2,7 +2,6 @@ export module Lazy {
 
   /**
    *
-   * don't do that suckas
    * @group lang
    * @groupIcon
    * fal fa-tools
@@ -18,7 +17,6 @@ export module Lazy {
 
 
   /**
-   * supfools
    * @group lang
    * @param o
    */
@@ -29,9 +27,34 @@ export module Lazy {
       }
     }
   }
+
+  /**
+   * @group lang
+   * @param o
+   */
+
+  export function * iterate<K, V>(o: Object): IterableIterator<[K, V]> {
+    for(let k in o) {
+      if(o.hasOwnProperty(k)) {
+        yield [k as any, o[k]] as [K, V];
+      }
+    }
+  }
 }
 
 export module Strict {
+
+  export function flatMap<T, U>(f: (T) => U[], xs: T[]): U[] {
+    return xs.reduce((acc, x) => acc.concat(f(x)), []);
+  }
+
+  export function toMap<T, U>(o: Object): Map<T, U> {
+    let map = new Map<T, U>();
+    for(let [k, v] of Lazy.iterate<T, U>(o)) {
+      map.set(k, v);
+    }
+    return map;
+  }
 
 }
 
