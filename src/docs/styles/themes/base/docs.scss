@@ -1,9 +1,12 @@
 $fa-font-path: '../../../themes/webfonts';
 @import "colors";
 
+body > router-view {
+  height:100%;
+
+}
 router-view {
   display:block;
-  height:100%;
 }
 
 nav {
@@ -15,6 +18,8 @@ nav {
 /**
 biggest font size
  */
+
+$global-primary-background: $purple;
 $global-xxlarge-font-size: 32px;
 $global-large-font-size: 20px;
 
@@ -85,7 +90,6 @@ div.result-container {
 }
 
 .sidebar-right {
-  border: 1px solid blue;
   width: 200px;
   left: calc(100% - 260px);
   top: 60px;

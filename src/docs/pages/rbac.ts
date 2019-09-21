@@ -1,0 +1,7 @@
+/**
+ * @excluded
+ */
+
+export class RoleBasedAccessControl {
+
+}

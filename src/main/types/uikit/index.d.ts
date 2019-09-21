@@ -3,9 +3,8 @@ declare module "uikit" {
 
   export interface GridOptions {}
 
-  export function grid(el: Element, opts?: GridOptions) {
+  export function grid(el: Element, opts?: GridOptions);
 
-  }
 
   export class Showable {
     show() : void;
@@ -39,12 +38,16 @@ declare module "uikit" {
 
   }
 
+  export interface TabPanel {
+    show(idx: number) : void;
+  }
+
   /**
    *
    * @param el
    * @param options
    */
-  export function tab(el : HTMLElement, options? : TabOptions);
+  export function tab(el : HTMLElement, options? : TabOptions) : TabPanel;
 
 
   /**
