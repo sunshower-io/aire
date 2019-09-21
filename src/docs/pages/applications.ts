@@ -1,3 +1,6 @@
+/**
+ * @exclude
+ */
 export class Applications {
 
 

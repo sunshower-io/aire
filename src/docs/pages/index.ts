@@ -1,7 +1,7 @@
 import {Router, RouterConfiguration} from "aurelia-router";
 
 /**
- * @excluded
+ * @exclude
  */
 export class PageIndex {
 

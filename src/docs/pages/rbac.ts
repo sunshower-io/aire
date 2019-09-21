@@ -1,9 +1,9 @@
-/**
- * @excluded
- */
 
 import * as Identicon from "jdenticon";
 
+/**
+ * @exclude
+ */
 export class RoleBasedAccessControl {
 
   users = [
