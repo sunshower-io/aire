@@ -15,7 +15,7 @@ export class PageIndex {
         moduleId : './rbac',
         nav      : true,
         name     : 'rbac',
-        title    : "Roles"
+        title    : "Users"
       }, {
 
         route    : 'groups',
@@ -23,6 +23,14 @@ export class PageIndex {
         nav      : true,
         name     : 'groups',
         title    : "Groups"
+      },
+      {
+
+        route    : 'applications',
+        moduleId : './applications',
+        nav      : true,
+        name     : 'applications',
+        title    : "Applications"
       }
     ]);
 

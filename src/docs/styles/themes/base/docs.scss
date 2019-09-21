@@ -119,3 +119,97 @@ ul.component-list {
   }
 }
 
+
+/**
+Remove me or move me!
+ */
+
+.danger {
+  color: $global-danger-background;
+}
+
+.success {
+  color: $global-success-background;
+}
+
+.application-grid {
+  padding:32px;
+  .application {
+    margin-left:24px;
+    border-radius: 2px;
+    height:100px;
+    width:164px;
+    position:relative;
+    border: 1px solid $global-border;
+    display:flex;
+
+    flex-direction: column;
+    .field {
+      padding-top: 16px;
+      padding-left:4px;
+      color: $dark-gray-2;
+      span:first-child {
+        font-weight: bold;
+        display:block;
+      }
+      span:not(:first-child) {
+        font-size: 8pt;
+        margin-top:-4px;
+        display:block;
+        color: $dark-blue;
+        i {
+          margin-left:4px;
+          font-weight:bold;
+          color: $green;
+        }
+        span {
+          display: inline
+        }
+      }
+
+    }
+    .tag {
+      position: absolute;
+      right:4px;
+      color: $green;
+    }
+
+    .info {
+
+      margin-left:-24px;
+      height:80%;
+      display:flex;
+      flex-direction: row;
+      justify-content: flex-start;
+    }
+
+    .baseline {
+      border-top: 1px solid $global-border;
+      height:20%;
+      flex-direction: row;
+      display:flex;
+      justify-content:flex-end;
+      i {
+        margin-top:2px;
+        margin-left:2px;
+        display: block;
+      }
+    }
+
+
+    .icon {
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      padding:4px;
+      position: absolute;
+      border-radius: 2px;
+      width: 32px;
+      height:32px;
+      border: 1px solid $purple;
+      left:8px;
+      top: -16px;
+    }
+  }
+
+}

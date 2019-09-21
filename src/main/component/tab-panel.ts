@@ -1,13 +1,9 @@
-import {
-  children,
-  bindable,
-  customElement
-}                 from 'aurelia-framework';
-import * as UIKit from "uikit";
-import {AireTab}  from "aire/component/tab";
-import {Router}   from "aurelia-router";
-import {TabPanel} from "uikit";
-import {Aire}     from "aire/core/aire";
+import {bindable, children, customElement} from 'aurelia-framework';
+import * as UIKit                          from "uikit";
+import {TabPanel}                          from "uikit";
+import {AireTab}                           from "aire/component/tab";
+import {Router}                            from "aurelia-router";
+import {Aire, TaskType}                    from "aire/core/aire";
 
 
 @customElement('aire-tab-panel')
@@ -43,7 +39,7 @@ export class AireTabPanel {
    */
   private header : HTMLUListElement;
 
-  public type: Type;
+  public type : Type;
 
   constructor(readonly el : Element) {
     this.type = el.hasAttribute('switcher') ? Type.Switcher : Type.Tabs;
@@ -51,18 +47,14 @@ export class AireTabPanel {
 
   attached() : void {
     let router = this.router;
-    if (this.router) {
-      Aire.enqueue(() => {
-        this.navigate(this.activeIndex());
-      });
-    } else {
+    if (!this.router) {
       this.generateTabs();
     }
     this.initialize();
   }
 
-  public initialize() : void {
-    switch(this.type) {
+  public initialize() : TabPanel {
+    switch (this.type) {
       case Type.Switcher:
         this.panel = UIKit.switcher(this.header);
         this.header.classList.add('uk-subnav', 'uk-subnav-pill');
@@ -70,15 +62,15 @@ export class AireTabPanel {
       case Type.Tabs:
         this.panel = UIKit.tab(this.header);
     }
-
+    return this.panel;
   }
 
   public activeIndex() : number {
 
     let router = this.router,
       nav = router.navigation;
-    for(let i = 0; i < nav.length; i++) {
-      if(nav[i].isActive) {
+    for (let i = 0; i < nav.length; i++) {
+      if (nav[i].isActive) {
         return i;
       }
     }
@@ -91,8 +83,8 @@ export class AireTabPanel {
       router = this.router,
       destination = router.navigation[idx],
       cfg = destination.config;
-    this.panel.show(idx);
     router.navigateToRoute(cfg.name);
+    this.panel.show(idx);
   }
 
 
@@ -109,7 +101,6 @@ export class AireTabPanel {
     }
 
   }
-
 
 
 }
