@@ -54,10 +54,15 @@ $base-heading-font-weight: 100;
 @import "layout/viewport";
 @import "layout/drawer";
 @import "components/search";
+@import "components/tab-panel";
 
 
 p.primary, span.primary {
   color: $purple;
 }
 
+
+.uk-border-right {
+  border-right: 1px solid $global-border;
+}
 

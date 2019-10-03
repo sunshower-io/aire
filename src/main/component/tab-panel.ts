@@ -3,7 +3,8 @@ import * as UIKit                          from "uikit";
 import {TabPanel}                          from "uikit";
 import {AireTab}                           from "aire/component/tab";
 import {Router}                            from "aurelia-router";
-import {Aire, TaskType}                    from "aire/core/aire";
+import {dom}                               from "aire/core/dom";
+import * as PerfectScrollbar                    from "perfect-scrollbar";
 
 
 @customElement('aire-tab-panel')
@@ -34,6 +35,10 @@ export class AireTabPanel {
   private panel : TabPanel;
 
 
+  private contents: HTMLDivElement;
+
+  private scrollbar: any;
+
   /**
    * List where we put tabs
    */
@@ -43,17 +48,32 @@ export class AireTabPanel {
 
   constructor(readonly el : Element) {
     this.type = el.hasAttribute('switcher') ? Type.Switcher : Type.Tabs;
+    dom.decorate(this.el, 'bottom');
   }
 
   attached() : void {
+
+    this.doDecorate();
+
+
     let router = this.router;
-    if (!this.router) {
+    if (!router) {
       this.generateTabs();
     }
     this.initialize();
+
+    this.updateScrolling();
   }
 
-  public initialize() : TabPanel {
+  private updateScrolling() {
+    if(!this.scrollbar) {
+      let sb = PerfectScrollbar as any;
+      this.scrollbar = new sb(this.contents);
+    }
+    this.scrollbar.update();
+  }
+
+  private initialize() : TabPanel {
     switch (this.type) {
       case Type.Switcher:
         this.panel = UIKit.switcher(this.header);
@@ -65,7 +85,7 @@ export class AireTabPanel {
     return this.panel;
   }
 
-  public activeIndex() : number {
+  public get activeIndex() : number {
 
     let router = this.router,
       nav = router.navigation;
@@ -87,6 +107,10 @@ export class AireTabPanel {
     this.panel.show(idx);
   }
 
+
+  private doDecorate() : void {
+    dom.decorateTo(this.el, this.header, 'bottom', 'uk-tab-bottom');
+  }
 
   private generateTabs() : void {
     let tabs = this.tabs;

@@ -6,7 +6,11 @@ import * as Identicon from "jdenticon";
  */
 export class RoleBasedAccessControl {
 
-  users = [
+  get users() {
+    return RoleBasedAccessControl.users;
+  }
+
+  public static readonly users = [
     {
       "_id": "5d85a6261754ba3b58f4eb55",
       "index": 0,

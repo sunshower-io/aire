@@ -213,3 +213,85 @@ Remove me or move me!
   }
 
 }
+
+
+.details {
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  .dt {
+    display:flex;
+    flex-direction:column;
+
+  }
+  padding-bottom: 8px;
+}
+
+.columns {
+  display:flex;
+  flex-direction: row;
+  .right {
+    margin-left:24px;
+  }
+}
+
+.section {
+  span.uk-label {
+    i {
+      margin-right:4px;
+      color: $blue-purple;
+    }
+    &.success {
+      i {
+        margin:0;
+      }
+      background-color: #2385af;
+      color: white;
+    }
+    font-size: 0.7em;
+    margin-left:4px;
+    margin-right:4px;
+    background-color: #a366a3;
+  }
+  input {
+    margin-right: 8px;
+  }
+  h1 {
+    font-weight:bold;
+    display:block;
+    width: 100%;
+    font-size: 0.9em;
+    padding-bottom: 8px;
+    border-bottom: 1px solid $global-border;
+  }
+}
+.information {
+  margin-top:8px;
+  height:400px;
+  svg {
+    max-width: unset;
+  }
+}
+.line {
+  font-size:0.9em;
+  span:first-child {
+    font-weight:bold;
+    margin-right:4px;
+  }
+  display:inline-block;
+  margin-left:8px;
+  label {
+    margin-right: 8px;
+  }
+}
+.icon {
+  &.small {
+    width:32px;
+    height:32px;
+  }
+  border: 1px solid $global-border;
+  border-radius: 4px;
+  width:64px;
+  height:64px;
+  display:inline-block;
+}

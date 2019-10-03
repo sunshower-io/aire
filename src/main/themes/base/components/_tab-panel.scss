@@ -1,0 +1,22 @@
+aire-tab-panel {
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
+
+  &.bottom {
+    .uk-switcher {
+      @extend .uk-tab-bottom;
+    }
+    flex-direction: column-reverse;
+  }
+  .uk-switcher {
+    flex: 1;
+    position: relative;
+    .ps__rail-x, .ps__rail-y {
+      display:block !important;
+    }
+  }
+
+
+
+}

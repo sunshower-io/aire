@@ -33,6 +33,7 @@ SystemJS.config({
     "github:*/*.json"
   ],
   map: {
+    "@gitgraph/js": "npm:@gitgraph/js@1.3.2",
     "assert": "npm:jspm-nodelibs-assert@0.2.1",
     "aurelia-animator-css": "npm:aurelia-animator-css@1.0.4",
     "aurelia-animator-velocity": "npm:aurelia-animator-velocity@1.2.0",
@@ -618,6 +619,11 @@ SystemJS.config({
       "map": {
         "inherits": "npm:inherits@2.0.4",
         "minimalistic-assert": "npm:minimalistic-assert@1.0.1"
+      }
+    },
+    "npm:@gitgraph/js@1.3.2": {
+      "map": {
+        "@gitgraph/core": "npm:@gitgraph/core@1.4.2"
       }
     }
   }
