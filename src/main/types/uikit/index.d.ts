@@ -3,9 +3,7 @@ declare module "uikit" {
 
   export interface GridOptions {}
 
-  export function grid(el: Element, opts?: GridOptions) {
-
-  }
+  export function grid(el: Element, opts?: GridOptions);
 
   export class Showable {
     show() : void;
