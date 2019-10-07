@@ -1,0 +1,21 @@
+template
+    .application-grid(aire-grid)
+        .application(repeat.for="application of applications")
+            .tag
+                i.fal.fa-check-square
+            .info
+                .field
+                    span ${application.name}
+                    span Created ${application.date}
+                    span Owner: System
+                    span Public
+                        i.fal.fa-plus
+
+
+
+            .icon
+                img(src="./assets/brand-icons/${application.icon}")
+            .baseline
+                i.fal.fa-info-square
+                i.fal.fa-external-link-square.success
+                i.fal.fa-minus-square.danger

@@ -52,9 +52,14 @@ export class Index {
     if (typeof item === 'string') {
       await this.router.navigateToRoute(item);
     } else {
-      let category : string;
-      category = item.settings.category;
-      await this.router.navigateToRoute(category, {category : category});
+      let
+        settings = item.settings,
+        category = settings && item.settings.category;
+      if(category) {
+        await this.router.navigateToRoute(category, {category : category});
+      } else {
+        await this.router.navigateToRoute(item.config.route as any);
+      }
     }
     this.hide();
   }
@@ -105,6 +110,20 @@ export class Index {
         };
       }),
       fst = routes[0];
+
+    routes.unshift({
+      title: 'test',
+      route: 'pages',
+      name: 'pages',
+      moduleId: '../pages/index',
+
+      nav: true,
+      settings : {
+        icon: 'fal fa-sticky-note',
+        components: []
+      }
+
+    });
     fst.route = ['', fst.route];
     this.currentItem = {category : fst.settings.category};
     cfg.map(routes);
