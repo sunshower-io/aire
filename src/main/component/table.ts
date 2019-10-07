@@ -1,10 +1,13 @@
 
 import {
     inject,
+    bindable,
+    children,
     containerless,
     customElement
 } from 'aurelia-framework';
 import {dom} from "aire/core/dom";
+import {AireColumn} from "aire/component/column";
 
 @inject(Element)
 @containerless
@@ -28,6 +31,15 @@ export class AireTable {
         'small',
         'large'
     ];
+
+    @children('aire-column')
+    private columns: AireColumn[];
+
+    @bindable
+    hasFooter : boolean;
+
+    @bindable
+    source : any;
 
     table : HTMLTableElement;
 
