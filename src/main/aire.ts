@@ -42,7 +42,7 @@ export const components = [
      */
     'aire/nav/navbar',
     'aire/nav/location',
-    'aire/core/iterable',
+    // 'aire/core/iterable',
 
 ];
 export function configure(cfg : FrameworkConfiguration) {
