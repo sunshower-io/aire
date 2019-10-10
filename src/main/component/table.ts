@@ -58,21 +58,7 @@ export class AireTable {
     }
 
     bind() {
-        this.extractModifiers(AireTable.modifiers);
-        this.extractModifiers(AireTable.sizes, true);
-    }
-
-    private extractModifiers(modifiers : string[], blocking ?: boolean) {
-        for (let modifier of modifiers) {
-            if (dom.decorateTo(
-                this.el,
-                this.table,
-                modifier,
-                `uk-table-${modifier}`
-            ) && blocking) {
-                return true;
-            }
-        }
-        return false;
+        dom.extractModifiers(AireTable.modifiers, 'uk-table', this.el, this.table, false);
+        dom.extractModifiers(AireTable.sizes, 'uk-table', this.el, this.table, true);
     }
 }

@@ -18,13 +18,19 @@ export class AireColumn {
     ]; //TODO allow width setting with .uk-width-*
 
     /**
-     * The style of the column text -- multiple can be applied
+     * The appearance of the column text -- multiple can be applied
      */
     public static modifiers : string[] = [
         'link',
+        'middle'
+    ];
+
+    /**
+     * The treatment of the column text -- multiple can be applied
+     */
+    public static textModifiers : string[] = [
         'truncate',
         'nowrap',
-        'middle'
     ];
 
     /** Header text */
@@ -38,24 +44,9 @@ export class AireColumn {
     }
 
     bind() {
-        this.extractModifiers(AireColumn.width, true);
-        this.extractModifiers(AireColumn.modifiers)
-    }
-
-    private extractModifiers(modifiers : string[], blocking ?: boolean) {
-        for (let modifier of modifiers) {
-            let prefix = modifier === 'truncate' || modifier === 'nowrap' ? 'text' : 'table';
-
-            if (dom.decorateTo(
-                this.el,
-                this.header,
-                modifier,
-                `uk-${prefix}-${modifier}`
-            ) && blocking) {
-                return true;
-            }
-        }
-        return false;
+        dom.extractModifiers(AireColumn.width, 'uk-table', this.el, this.header, true);
+        dom.extractModifiers(AireColumn.modifiers, 'uk-table', this.el, this.header);
+        dom.extractModifiers(AireColumn.textModifiers, 'uk-text', this.el, this.header);
     }
 
 }
