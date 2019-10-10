@@ -1,9 +1,11 @@
 import {
     bindable,
-    customElement
+    customElement,
+    containerless
 } from 'aurelia-framework';
 import {dom} from "aire/core/dom";
 
+@containerless
 @customElement('aire-column')
 export class AireColumn {
 
@@ -25,11 +27,9 @@ export class AireColumn {
         'middle'
     ];
 
-    /**
-     * The attribute to map to this column
-     */
+    /** Header text */
     @bindable
-    source : string;
+    text : string;
 
     header : HTMLTableHeaderCellElement;
 

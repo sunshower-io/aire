@@ -28,6 +28,8 @@ export const components = [
     'aire/component/aire',
     'aire/component/search',
     'aire/component/grid',
+    'aire/component/table',
+    'aire/component/column',
 
     /**
      * Layout Elements

@@ -1,3 +1,10 @@
 template
     table.uk-table(ref="table")
-        slot
+        caption(if.bind="caption") ${caption}
+        thead(if.bind="hasHeader")
+            th(repeat.for="column of columns") ${column}
+        tbody
+            tr(repeat.for="row of source")
+                td(repeat.for="cell of row") ${cell}
+        tfoot(if.bind="hasFooter")
+            td(repeat.for="column of columns") ${column}

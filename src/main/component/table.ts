@@ -32,14 +32,24 @@ export class AireTable {
         'large'
     ];
 
-    @children('aire-column')
-    private columns: AireColumn[];
+    // @children('aire-column')
+    @bindable
+    columns: string[];
+
+    /** If the table has a footer; default false */
+    @bindable
+    hasFooter : boolean = false;
+
+    /** If the table has a header; default true */
+    @bindable
+    hasHeader : boolean = true;
+
+    /** Text for table caption; if null, no caption rendered */
+    @bindable
+    caption : string;
 
     @bindable
-    hasFooter : boolean;
-
-    @bindable
-    source : any;
+    source : [][];
 
     table : HTMLTableElement;
 
