@@ -40,7 +40,6 @@ export class AireList {
             ol.remove();
             list = ul;
         }
-        //TODO create aire-li with slots
 
         dom.extractModifiers(AireList.modifiers, 'uk-list', this.el, list, false)
     }

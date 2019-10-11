@@ -38,11 +38,11 @@ export class AireTable {
 
     /** If the table has a footer; default false */
     @bindable
-    hasFooter : boolean = false;
+    footer : boolean = false;
 
     /** If the table has a header; default true */
     @bindable
-    hasHeader : boolean = true;
+    header : boolean = true;
 
     /** Text for table caption; if null, no caption rendered */
     @bindable
