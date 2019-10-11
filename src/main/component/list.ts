@@ -26,7 +26,10 @@ export class AireList {
     }
 
     bind() {
-        let nodes = this.el.childNodes,
+        let el = this.el;
+
+
+        let nodes = el.childNodes,
             ul = nodes.item(0),
             ol = nodes.item(1),
             list = null;
@@ -41,7 +44,7 @@ export class AireList {
             list = ul;
         }
 
-        dom.extractModifiers(AireList.modifiers, 'uk-list', this.el, list, false)
+        dom.extractModifiers(AireList.modifiers, 'uk-list', el, list, false)
     }
 
 

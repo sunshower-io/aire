@@ -44,9 +44,12 @@ export class AireColumn {
     }
 
     bind() {
-        dom.extractModifiers(AireColumn.width, 'uk-table', this.el, this.header, true);
-        dom.extractModifiers(AireColumn.modifiers, 'uk-table', this.el, this.header);
-        dom.extractModifiers(AireColumn.textModifiers, 'uk-text', this.el, this.header);
+        let el = this.el,
+            header = this.header;
+
+        dom.extractModifiers(AireColumn.width, 'uk-table', el, header, true);
+        dom.extractModifiers(AireColumn.modifiers, 'uk-table', el, header);
+        dom.extractModifiers(AireColumn.textModifiers, 'uk-text', el, header);
     }
 
 }
