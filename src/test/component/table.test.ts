@@ -21,19 +21,17 @@ let columns = [
 let defaultTemplate = 'aire-table(source.bind="source" columns.bind="columns")',
     defaultCtx = {source: items, columns: columns};
 
-//TODO determine why stopping after first
-//TODO determine why it makes the others fail
-// test('a table must decorate itself correctly for each of its attributes', async (done) => {
-//     for(let name of AireTable.modifiers) {
-//         let template = `aire-table(${name})`;
-//         await expectComponent(template, {}, () => {
-//             let table = document.querySelector('.uk-table') as HTMLElement;
-//             expect(table).toBeTruthy();
-//             console.log(table.classList);
-//             expect(table.classList.contains(`uk-table-${name}`)).toBeTruthy();
-//         }, done)
-//     }
-// });
+test('a table must decorate itself correctly for each of its attributes', async (done) => {
+    for(let name of AireTable.modifiers) {
+        let template = `aire-table(${name})`;
+        await expectComponent(template, {}, () => {
+            let table = document.querySelector('.uk-table') as HTMLElement;
+            expect(table).toBeTruthy();
+            expect(table.classList.contains(`uk-table-${name}`)).toBeTruthy();
+        });
+    }
+    done();
+});
 
 
 test('a table must not override its additional modifier styling', async (done) => {
@@ -56,8 +54,9 @@ test('a table must decorate itself correctly for each of its sizes', async (done
             let table = document.querySelector('.uk-table') as HTMLElement;
             expect(table).toBeTruthy();
             expect(table.classList.contains(`uk-table-${name}`)).toBeTruthy();
-        }, done)
+        });
     }
+    done();
 });
 
 test('a table must have no more than one size applied', async (done) => {

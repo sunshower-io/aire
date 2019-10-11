@@ -17,8 +17,8 @@ test('a container must decorate itself correctly for each of its attributes', as
       let div = document.querySelector('.uk-container') as HTMLElement;
       expect(div).toBeTruthy();
       expect(div.classList.contains(`${cl}`)).toBeTruthy();
-    }, done);
+    });
   }
 
-
+  done();
 });

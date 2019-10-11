@@ -36,16 +36,16 @@ test('a list may be ordered', async (done) => {
     }, done)
 });
 
-//TODO determine why only running once
-// test('a list must decorate itself correctly for each of its styles', async (done) => {
-//     for(let name of AireList.modifiers) {
-//         let template = `aire-list(${name})`;
-//         await expectComponent(template, {}, () => {
-//             let list = document.querySelector('.uk-list') as HTMLElement;
-//             expect(list).toBeTruthy();
-//             console.log(list.classList);
-//             expect(list.classList.contains(`uk-list-${name}`)).toBeTruthy();
-//         }, done)
-//     }
-// });
+test('a list must decorate itself correctly for each of its styles', async (done) => {
+    for(let name of AireList.modifiers) {
+        let template = `aire-list(${name})`;
+        await expectComponent(template, {}, () => {
+            let list = document.querySelector('.uk-list') as HTMLElement;
+            expect(list).toBeTruthy();
+            console.log(list.classList);
+            expect(list.classList.contains(`uk-list-${name}`)).toBeTruthy();
+        });
+    }
+    done();
+});
 
