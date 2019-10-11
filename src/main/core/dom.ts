@@ -88,4 +88,26 @@ export module dom {
     }
     return false;
   }
+
+  export function extractModifiers(
+      modifiers : string[],
+      prefix : string,
+      element : Element,
+      target : Element,
+      blocking ?: boolean,
+  ) {
+    for (let modifier of modifiers) {
+      if (dom.decorateTo(
+          element,
+          target,
+          modifier,
+          `${prefix}-${modifier}`
+      )) {
+        if (blocking) {
+          return true;
+        }
+      }
+    }
+    return false;
+  }
 }

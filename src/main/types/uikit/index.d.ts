@@ -37,12 +37,16 @@ declare module "uikit" {
 
   }
 
+  export interface TabPanel {
+    show(idx: number) : void;
+  }
+
   /**
    *
    * @param el
    * @param options
    */
-  export function tab(el : HTMLElement, options? : TabOptions);
+  export function tab(el : HTMLElement, options? : TabOptions) : TabPanel;
 
 
   /**

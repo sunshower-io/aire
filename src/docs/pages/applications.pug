@@ -1,0 +1,25 @@
+template
+    .application-grid(aire-grid)
+        .application(repeat.for="application of applications")
+            .tag
+                i.fal.fa-check-square
+            .info
+                .field
+                    span ${application.name}
+                    span Created ${application.date}
+                    span Owner: System
+                    span Public
+                        i.fal.fa-plus
+
+
+
+            .icon
+                img(src="./assets/brand-icons/${application.icon}")
+            .baseline
+                i.fal.fa-info-square
+                i.fal.fa-external-link-square.success
+                i.fal.fa-minus-square.danger
+
+    aire-list(items.bind="['one', 'two', 'three']" divider ordered)
+
+    aire-table(source.bind="[['wab 1', 'wab 2'], ['dab 1', 'dab 2']]" columns.bind="['col 1', 'col 2']" striped hover footer header.bind="false")

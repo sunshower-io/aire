@@ -1,0 +1,20 @@
+template
+    .application-grid(aire-grid)
+        .application(repeat.for="user of users")
+            .tag
+                i.fal.fa-check-square
+            .info
+                .field
+                    span ${user.name.first} ${user.name.last}
+                    span ${user.registered.substr(20)}
+                    span
+                        span(repeat.for="role of user.roles") ${role},
+
+
+
+            .icon
+                img(src="data:image/svg+xml;base64,${iconFor(user)}")
+            .baseline
+                i.fal.fa-info-square
+                i.fal.fa-external-link-square.success
+                i.fal.fa-minus-square.danger

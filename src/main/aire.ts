@@ -1,6 +1,7 @@
 // import 'aire/themes/dark/aire.css!'
 import {PLATFORM}               from 'aurelia-pal';
 import {FrameworkConfiguration} from 'aurelia-framework';
+import {Aire}                   from "aire/core/aire";
 
 export const components = [
     /**
@@ -27,6 +28,8 @@ export const components = [
     'aire/component/aire',
     'aire/component/search',
     'aire/component/grid',
+    'aire/component/table',
+    'aire/component/column',
 
     /**
      * Layout Elements
@@ -50,4 +53,5 @@ export function configure(cfg : FrameworkConfiguration) {
      .plugin(PLATFORM
        .moduleName('aurelia-animator-velocity'));
 
+  Aire.initialize(cfg.aurelia);
 }

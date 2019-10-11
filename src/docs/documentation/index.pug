@@ -18,9 +18,9 @@ template
 
         aire-navbar
             aire-drawer(
-            host="ancestor:nav"
-            visible.bind="showDrawer"
-            click.trigger="hide()"
+                host="ancestor:nav"
+                visible.bind="showDrawer"
+                click.trigger="hide()"
             )
                 aire-header
                     h2 ${currentPage.title}
@@ -31,14 +31,14 @@ template
                     | ${component['tag-name'] || component['name']}
 
             aire-button(
-            repeat.for="nav of router.navigation"
-            active.bind="nav.isActive",
-            click.trigger="navigate(nav)"
-            mouseenter.trigger="show(nav)"
+                repeat.for="nav of router.navigation"
+                active.bind="nav.isActive",
+                click.trigger="navigate(nav)"
+                mouseenter.trigger="show(nav)"
             )
                 i(class.bind="nav.settings.icon")
         aire-page(padded)
-            router-view
+            router-view(aire height-1-1)
         aire-footer
             aire-button(control)
                 i.fal.fa-cog
