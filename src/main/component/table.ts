@@ -8,6 +8,62 @@ import {
 import {dom} from "aire/core/dom";
 import {AireColumn} from "aire/component/column";
 
+/**
+ *
+ * <p class="uk-text-lead">This component allows for easy table generation</p>
+ *
+ * @description
+ * Custom element for laying out a table.
+ *
+ * @section {Usage}
+ *
+ * The `aire-table` is a table with an optional caption. Table content is provided with the use of `aire-column` and ITS children, `aire-table-header`, `aire-table-cell` and `aire-table-footer`
+ *
+ * ..ex
+ * aire-table(striped hover caption="A Sample Table")
+ *      aire-column(shrink)
+ *          aire-table-header(content="Narrow")
+ *          aire-table-cell(content="1")
+ *          aire-table-cell(content="2")
+ *          aire-table-cell(content="3")
+ *          aire-table-footer(content="Foot")
+ *     aire-column(expand)
+ *          aire-table-header(content="This column is wider")
+ *          aire-table-cell(content="1")
+ *          aire-table-cell(content="2")
+ *          aire-table-cell(content="3")
+ *          aire-table-footer(content="Foot")
+ *
+ * @section {Style and Size Modifiers}
+ *
+ * Add one or more of `divider`, `striped`, `hover`, `justify`, `middle` and `responsive` to aire-table to change its appearance and behavior. Add `small` or `large` to change the default row padding.
+ *
+ * ..attr
+ * {divider} Add this attribute to add a line between each row
+ *
+ * ..attr
+ * {striped} Add this attribute to give odd-numbered rows a different background color
+ *
+ * ..attr
+ * {hover} Add this attribute to give rows a different appearance when hovered over
+ *
+ * ..attr
+ * {justify} Add this attribute to remove the padding of the first and last column
+ *
+ * ..attr
+ * {middle} Add this to vertically align all cell contents to the middle
+ *
+ * ..attr
+ * {responsive} Add this attribute if you want the table to stack on small screens
+ *
+ * ..attr
+ * {small} Add this attribute to decrease the size of table rows
+ *
+ * ..attr
+ * {large} Add this attribute to increase the size of table rows
+ *
+ */
+
 @inject(Element)
 @customElement('aire-table')
 export class AireTable {
