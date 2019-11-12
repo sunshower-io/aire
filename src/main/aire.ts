@@ -30,6 +30,9 @@ export const components = [
     'aire/component/grid',
     'aire/component/table',
     'aire/component/column',
+    'aire/component/table-cell',
+    'aire/component/table-header',
+    'aire/component/table-footer',
 
     /**
      * Layout Elements

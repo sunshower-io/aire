@@ -1,11 +1,12 @@
 import {
     bindable,
-    customElement,
-    containerless
+    children,
+    customElement
 } from 'aurelia-framework';
+import {AireTableHeader} from "aire/component/table-header";
+import {AireTableCell} from "aire/component/table-cell";
 import {dom} from "aire/core/dom";
 
-@containerless
 @customElement('aire-column')
 export class AireColumn {
 
@@ -33,23 +34,29 @@ export class AireColumn {
         'nowrap',
     ];
 
-    /** Header text */
-    @bindable
-    text : string;
+    @children('aire-table-header')
+    headers : AireTableHeader[];
 
-    header : HTMLTableHeaderCellElement;
+    @children('aire-table-cell')
+    cells : AireTableCell[];
+
+    @children('aire-table-footer')
+    footers : AireTableCell[];
+
+    /** Name of the column -- used as Header text if no text is provided **/
+    @bindable
+    name : string;
 
     constructor(private el : Element) {
 
     }
 
-    bind() {
-        let el = this.el,
-            header = this.header;
+    decorateCell(cell : Element) {
+        let el = this.el;
 
-        dom.extractModifiers(AireColumn.width, 'uk-table', el, header, true);
-        dom.extractModifiers(AireColumn.modifiers, 'uk-table', el, header);
-        dom.extractModifiers(AireColumn.textModifiers, 'uk-text', el, header);
+        dom.extractModifiers(AireColumn.width, 'uk-table', el, cell, true);
+        dom.extractModifiers(AireColumn.modifiers, 'uk-table', el, cell);
+        dom.extractModifiers(AireColumn.textModifiers, 'uk-text', el, cell);
     }
 
 }
