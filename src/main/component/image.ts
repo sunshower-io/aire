@@ -33,7 +33,7 @@ export class AireImage {
 
   /**
    * Allows you to set a dimension and a ratio.  For example,
-   * width = 32, ratio = 4 will result in height = 128
+   * widths = 32, ratio = 4 will result in height = 128
    */
   @bindable ratio : number;
 

@@ -19,7 +19,7 @@ import {Strict}          from "aire/core/lang";
  * element with.  For example,
  *
  * ..ex
- * div(aire inline margin width-1-1 height-large)
+ * div(aire inline margin widths-1-1 height-large)
  * .div(aire position-top)
  * ..h2(aire-text-success) top
  * .div(aire position-bottom-center)

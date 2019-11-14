@@ -1,25 +1,27 @@
 import {current, expectComponent} from "test/core";
 import {AireTable}            from "aire/component/table";
+import {AireColumn} from "aire/component/column";
+import {AireTableCell} from "aire/component/table-cell";
+
+let components = ['table', 'column', 'table-cell', 'table-footer', 'table-header'];
+
 beforeEach(() => {
-    current.push('component/table');
+    for (let component of components) {
+        current.push(`component/${component}`);
+    }
 });
 
 afterEach(() => {
-    current.pop();
+    for (let component of components) {
+        current.pop();
+    }
 });
 
-let items = [
-    ["Row 1 Item 1", "Row 1 Item 2"],
-    ["Row 2 Item 1", "Row 2 Item 2"],
-    ["Row 3 Item 1", "Row 3 Item 2"]
-];
-
-let columns = [
-    "Column 1", "Column 2"
-];
-
-let defaultTemplate = 'aire-table(source.bind="source" columns.bind="columns")',
-    defaultCtx = {source: items, columns: columns};
+let defaultTemplate = `aire-table
+                            aire-column
+                                aire-table-header(content="Header")
+                                aire-table-cell(content="Cell")
+                                aire-table-footer(content="Footer")`;
 
 test('a table must decorate itself correctly for each of its attributes', async (done) => {
     for(let name of AireTable.modifiers) {
@@ -72,63 +74,8 @@ test('a table must have no more than one size applied', async (done) => {
     }, done)
 });
 
-test('a table must have a bindable source', async (done) => {
-    await expectComponent('aire-table(source.bind="source")', {source: items}, () => {
-        let table = document.querySelector('.uk-table') as HTMLElement,
-            rows = document.querySelectorAll('.uk-table tbody tr'),
-            cells = document.querySelectorAll('.uk-table tbody td');
-        expect(table).toBeTruthy();
-        expect(rows).toBeTruthy();
-        expect(rows.length).toBe(3);
-        expect(cells).toBeTruthy();
-        expect(cells.length).toBe(6);
-    }, done)
-});
-
-test('a table must have bindable columns', async (done) => {
-    await expectComponent(defaultTemplate, defaultCtx, () => {
-        let table = document.querySelector('.uk-table') as HTMLElement,
-            thead = document.querySelector('.uk-table thead'),
-            cells = document.querySelectorAll('.uk-table th');
-        expect(table).toBeTruthy();
-        expect(thead).toBeTruthy();
-        expect(cells).toBeTruthy();
-        expect(cells.length).toBe(2);
-    }, done)
-});
-
-test('a table may optionally not have a header', async (done) => {
-    await expectComponent('aire-table(source.bind="source" header.bind="header")', {source: items, header: false}, () => {
-        let table = document.querySelector('.uk-table') as HTMLElement,
-            thead = document.querySelector('.uk-table thead');
-        expect(table).toBeTruthy();
-        expect(thead).toBeFalsy();
-    }, done)
-});
-
-test('a table has no footer by default', async (done) => {
-    await expectComponent(defaultTemplate, defaultCtx, () => {
-        let table = document.querySelector('.uk-table') as HTMLElement,
-            tfoot = document.querySelector('.uk-table tfoot');
-        expect(table).toBeTruthy();
-        expect(tfoot).toBeFalsy();
-    }, done)
-});
-
-test('a table may optionally have a footer', async (done) => {
-    await expectComponent('aire-table(source.bind="source" columns.bind="columns" footer)', defaultCtx, () => {
-        let table = document.querySelector('.uk-table') as HTMLElement,
-            tfoot = document.querySelector('.uk-table tfoot'),
-            cells = document.querySelectorAll('.uk-table tfoot td');
-        expect(table).toBeTruthy();
-        expect(tfoot).toBeTruthy();
-        expect(cells).toBeTruthy();
-        expect(cells.length).toBe(2)
-    }, done)
-});
-
 test('a table has no caption by default', async (done) => {
-    await expectComponent(defaultTemplate, defaultCtx, () => {
+    await expectComponent('aire-table', {}, () => {
         let table = document.querySelector('.uk-table') as HTMLElement,
             caption = document.querySelector('.uk-table caption');
         expect(table).toBeTruthy();
@@ -145,4 +92,158 @@ test('a table will have a caption of caption text is provided', async (done) => 
         expect(caption).toBeTruthy();
         expect(caption.textContent.toString()).toBe(text);
     }, done)
+});
+
+test('a table has no header by default', async (done) => {
+    await expectComponent('aire-table', {}, () => {
+        let table = document.querySelector('.uk-table') as HTMLElement,
+            header = document.querySelector('.uk-table thead');
+        expect(table).toBeTruthy();
+        expect(header).toBeFalsy();
+    }, done)
+});
+
+test('a table has no body by default', async (done) => {
+    await expectComponent('aire-table', {}, () => {
+        let table = document.querySelector('.uk-table') as HTMLElement,
+            body = document.querySelector('.uk-table tbody');
+        expect(table).toBeTruthy();
+        expect(body).toBeFalsy();
+    }, done)
+});
+
+test('a table has no footer by default', async (done) => {
+    await expectComponent('aire-table', {}, () => {
+        let table = document.querySelector('.uk-table') as HTMLElement,
+            footer = document.querySelector('.uk-table tfoot');
+        expect(table).toBeTruthy();
+        expect(footer).toBeFalsy();
+    }, done)
+});
+
+test('a table has a header if a column has a header cell', async(done) => {
+    await expectComponent(defaultTemplate, {}, () => {
+        let table = document.querySelector('.uk-table') as HTMLElement,
+            header = document.querySelector('.uk-table thead'),
+            th = document.querySelector('.uk-table thead th');
+        expect(table).toBeTruthy();
+        expect(header).toBeTruthy();
+        expect(th).toBeTruthy();
+    }, done)
+});
+
+test('a table has a body if a column has a body cell', async(done) => {
+    await expectComponent(defaultTemplate, {}, () => {
+        let table = document.querySelector('.uk-table') as HTMLElement,
+            body = document.querySelector('.uk-table tbody'),
+            td = document.querySelector('.uk-table tbody td');
+        expect(table).toBeTruthy();
+        expect(body).toBeTruthy();
+        expect(td).toBeTruthy();
+    }, done)
+});
+
+test('a table has a footer if a column has a footer cell', async(done) => {
+    await expectComponent(defaultTemplate, {}, () => {
+        let table = document.querySelector('.uk-table') as HTMLElement,
+            footer = document.querySelector('.uk-table tfoot'),
+            td = document.querySelector('.uk-table tfoot td');
+        expect(table).toBeTruthy();
+        expect(footer).toBeTruthy();
+        expect(td).toBeTruthy();
+    }, done)
+});
+
+test('a cell has bindable content', async(done) => {
+   await expectComponent(defaultTemplate, {}, () => {
+       let headerCell = document.querySelector('.uk-table thead th'),
+           bodyCell = document.querySelector('.uk-table tbody td'),
+           footerCell = document.querySelector('.uk-table tfoot td');
+
+       expect(headerCell.textContent.toString()).toBe("Header");
+       expect(bodyCell.textContent.toString()).toBe("Cell");
+       expect(footerCell.textContent.toString()).toBe("Footer");
+   })
+});
+
+test('a column must decorate itself correctly for each of its widths', async (done) => {
+    for(let name of AireColumn.widths) {
+        let template = `aire-table
+                            aire-column(${name})
+                                aire-table-cell`;
+        await expectComponent(template, {}, () => {
+            let cell = document.querySelector('.uk-table td');
+            expect(cell).toBeTruthy();
+            expect(cell.classList.contains(`uk-table-${name}`)).toBeTruthy();
+        });
+    }
+    done();
+});
+
+test('a column must have no more than one width applied', async (done) => {
+    let firstMod = AireColumn.widths[0],
+        secondMod = AireColumn.widths[1],
+        template = `aire-table
+                            aire-column(${firstMod} ${secondMod})
+                                aire-table-cell`;
+
+    await expectComponent(template, {}, () => {
+        let cell = document.querySelector('.uk-table td');
+        expect(cell).toBeTruthy();
+        expect(cell.classList.contains(`uk-table-${firstMod}`)).toBeTruthy();
+        expect(cell.classList.contains(`uk-table-${secondMod}`)).toBeFalsy();
+    });
+
+    done();
+});
+
+test('a cell can contain a link', async(done) => {
+    let cellContent = "Sunshower",
+        template = `aire-table
+                        aire-column
+                            aire-table-cell(href.bind="href" content.bind="content")`,
+        ctx = {href: "https://sunshower.io", content: cellContent};
+
+   await expectComponent(template, ctx, () => {
+       let cell = document.querySelector('.uk-table td'),
+            link = document.querySelector('.uk-table td a');
+
+       expect(cell).toBeTruthy();
+       expect(link).toBeTruthy();
+       expect(cell.classList.contains('uk-table-link')).toBeTruthy();
+       expect(link.classList.contains('uk-link-reset')).toBeTruthy();
+       expect(link.textContent.toString()).toBe(cellContent);
+   });
+
+   done();
+});
+
+test('a cell must decorate itself correctly for each of its styles', async (done) => {
+    for (let name of AireTableCell.modifiers) {
+        let         template = `aire-table
+                            aire-column()
+                                aire-table-cell(${name} content="cell content")`;
+
+        await expectComponent(template, {}, () => {
+            let cell = document.querySelector('.uk-table td');
+            expect(cell).toBeTruthy();
+            expect(cell.classList.contains(`uk-table-${name}`)).toBeTruthy()
+        });
+    }
+    done();
+});
+
+test('a cell must decorate itself correctly for each of its text styles', async (done) => {
+    for (let name of AireTableCell.textModifiers) {
+        let         template = `aire-table
+                            aire-column()
+                                aire-table-cell(${name} content="cell content")`;
+
+        await expectComponent(template, {}, () => {
+            let cell = document.querySelector('.uk-table td');
+            expect(cell).toBeTruthy();
+            expect(cell.classList.contains(`uk-text-${name}`)).toBeTruthy()
+        });
+    }
+    done();
 });

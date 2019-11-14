@@ -19,7 +19,7 @@ export class AireDrawer {
   @bindable public visible : boolean;
 
   /**
-   * width of the drawer
+   * widths of the drawer
    */
   @bindable width : number = 256;
 
@@ -87,7 +87,7 @@ export class AireDrawer {
     style.position = 'absolute';
     style.height = host.offsetHeight + 'px';
     style.left = host.offsetWidth + 'px';
-    style.width = w + 'px';
+    style.widths = w + 'px';
     this.scrollbar.update();
   }
 

@@ -20,7 +20,7 @@ import {Strict} from "aire/core/lang";
  * @section {Usage}
  *
  *
- * Add the `aire-container` attribute class to a block element to give it a max-width and wrap
+ * Add the `aire-container` attribute class to a block element to give it a max-widths and wrap
  * the main content of that element.  The element will automatically be centered within its parent
  * and have padding on the sides that adapts automatically for large screens.
  *
@@ -36,7 +36,7 @@ import {Strict} from "aire/core/lang";
  * @section {Container in sections}
  *
  * You can use this attribute on elements within sections to modify the
- * width of the content inside sections from the Section component
+ * widths of the content inside sections from the Section component
  *
  * ..ex
  * section(aire-section primary large)
@@ -45,7 +45,7 @@ import {Strict} from "aire/core/lang";
  *
  * @section {Size Modifiers}
  *
- * Add one of the following attributes to the container to apply a different width
+ * Add one of the following attributes to the container to apply a different widths
  *
  *
  * ..attr
@@ -58,7 +58,7 @@ import {Strict} from "aire/core/lang";
  * {large} Add this class for a large container
  *
  * ..attr
- * {expand} Add this class if you do not want to limit the container width but still want the dynamic horizontal padding
+ * {expand} Add this class if you do not want to limit the container widths but still want the dynamic horizontal padding
  *
  */
 

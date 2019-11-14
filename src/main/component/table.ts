@@ -163,14 +163,21 @@ export class AireTable {
                     }
 
                     let row = body.rows[cIndex],
-                        newCell = row.insertCell();
+                        newCell = row.insertCell(),
+                        originalCell = column.cells[cIndex];
 
                     if (!decorated) {
                         column.decorateCell(newCell);
                         decorated = true;
                     }
 
-                    newCell.innerHTML = column.cells[cIndex].content;
+                    originalCell.decorateCell(newCell);
+
+                    if (originalCell.href == null) {
+                        newCell.innerHTML = originalCell.content;
+                    } else {
+                        newCell.innerHTML = `<a href="${originalCell.href}" class="uk-link-reset">${originalCell.content}</a>`;
+                    }
                 }
             }
 

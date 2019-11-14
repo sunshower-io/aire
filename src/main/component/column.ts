@@ -37,41 +37,23 @@ export class AireColumn {
      *
      *
      * @section {Style Modifiers}
-     * Add `shrink` or `expand` to change the default column width.
+     * Add `shrink` or `expand` to change the default column widths.
      *
      * ..attr
-     * {shrink} Add this attribute to reduce the column width to fit its content
+     * {shrink} Add this attribute to reduce the column widths to fit its content
      *
      * ..attr
-     * {expand} Add this attribute to expand the column width to fill the remaining space
-     *
+     * {expand} Add this attribute to expand the column widths to fill the remaining space
      *
      */
 
     /**
-     * The width of the column -- only the first will be applied
+     * The widths of the column -- only the first will be applied
      */
-    public static width : string[] = [
+    public static widths : string[] = [
         'shrink',
         'expand'
-    ]; //TODO allow width setting with .uk-width-*
-
-    //TODO move this to table cell
-    /**
-     * The appearance of the column text -- multiple can be applied
-     */
-    public static modifiers : string[] = [
-        'link',
-        'middle'
-    ]; //link not currently supported fully so not included in docs
-
-    /**
-     * The treatment of the column text -- multiple can be applied
-     */
-    public static textModifiers : string[] = [
-        'truncate',
-        'nowrap',
-    ];
+    ]; //TODO allow widths setting with .uk-widths-*
 
     @children('aire-table-header')
     headers : AireTableHeader[];
@@ -91,11 +73,8 @@ export class AireColumn {
     }
 
     decorateCell(cell : Element) {
-        let el = this.el;
 
-        dom.extractModifiers(AireColumn.width, 'uk-table', el, cell, true);
-        dom.extractModifiers(AireColumn.modifiers, 'uk-table', el, cell);
-        dom.extractModifiers(AireColumn.textModifiers, 'uk-text', el, cell);
+        dom.extractModifiers(AireColumn.widths, 'uk-table', this.el, cell, true);
     }
 
 }
