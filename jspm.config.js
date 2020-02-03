@@ -80,6 +80,7 @@ SystemJS.config({
     "stream": "npm:jspm-nodelibs-stream@0.2.1",
     "string_decoder": "npm:jspm-nodelibs-string_decoder@0.2.2",
     "text": "github:systemjs/plugin-text@0.0.11",
+    "timers": "npm:jspm-nodelibs-timers@0.2.1",
     "uikit": "npm:uikit@3.1.5",
     "util": "npm:jspm-nodelibs-util@0.2.2",
     "velocity-animate": "npm:velocity-animate@1.5.2",
@@ -343,18 +344,7 @@ SystemJS.config({
     "npm:stream-browserify@2.0.2": {
       "map": {
         "inherits": "npm:inherits@2.0.4",
-        "readable-stream": "npm:readable-stream@2.3.6"
-      }
-    },
-    "npm:readable-stream@2.3.6": {
-      "map": {
-        "inherits": "npm:inherits@2.0.4",
-        "core-util-is": "npm:core-util-is@1.0.2",
-        "util-deprecate": "npm:util-deprecate@1.0.2",
-        "safe-buffer": "npm:safe-buffer@5.1.2",
-        "process-nextick-args": "npm:process-nextick-args@2.0.1",
-        "isarray": "npm:isarray@1.0.0",
-        "string_decoder": "npm:string_decoder@1.1.1"
+        "readable-stream": "npm:readable-stream@2.3.7"
       }
     },
     "npm:string_decoder@1.1.1": {
@@ -398,7 +388,7 @@ SystemJS.config({
     },
     "npm:browserify-zlib@0.1.4": {
       "map": {
-        "readable-stream": "npm:readable-stream@2.3.6",
+        "readable-stream": "npm:readable-stream@2.3.7",
         "pako": "npm:pako@0.2.9"
       }
     },
@@ -472,7 +462,7 @@ SystemJS.config({
         "browserify-rsa": "npm:browserify-rsa@4.0.1",
         "parse-asn1": "npm:parse-asn1@5.1.5",
         "bn.js": "npm:bn.js@4.11.8",
-        "elliptic": "npm:elliptic@6.5.1"
+        "elliptic": "npm:elliptic@6.5.2"
       }
     },
     "npm:pbkdf2@3.0.17": {
@@ -518,7 +508,7 @@ SystemJS.config({
     "npm:create-ecdh@4.0.3": {
       "map": {
         "bn.js": "npm:bn.js@4.11.8",
-        "elliptic": "npm:elliptic@6.5.1"
+        "elliptic": "npm:elliptic@6.5.2"
       }
     },
     "npm:parse-asn1@5.1.5": {
@@ -534,17 +524,6 @@ SystemJS.config({
     "npm:randombytes@2.1.0": {
       "map": {
         "safe-buffer": "npm:safe-buffer@5.1.2"
-      }
-    },
-    "npm:elliptic@6.5.1": {
-      "map": {
-        "inherits": "npm:inherits@2.0.4",
-        "bn.js": "npm:bn.js@4.11.8",
-        "hmac-drbg": "npm:hmac-drbg@1.0.1",
-        "minimalistic-crypto-utils": "npm:minimalistic-crypto-utils@1.0.1",
-        "brorand": "npm:brorand@1.1.0",
-        "hash.js": "npm:hash.js@1.1.7",
-        "minimalistic-assert": "npm:minimalistic-assert@1.0.1"
       }
     },
     "npm:hash-base@3.0.4": {
@@ -612,18 +591,50 @@ SystemJS.config({
         "cipher-base": "npm:cipher-base@1.0.4",
         "inherits": "npm:inherits@2.0.4",
         "safe-buffer": "npm:safe-buffer@5.1.2",
-        "des.js": "npm:des.js@1.0.0"
-      }
-    },
-    "npm:des.js@1.0.0": {
-      "map": {
-        "inherits": "npm:inherits@2.0.4",
-        "minimalistic-assert": "npm:minimalistic-assert@1.0.1"
+        "des.js": "npm:des.js@1.0.1"
       }
     },
     "npm:@gitgraph/js@1.3.2": {
       "map": {
         "@gitgraph/core": "npm:@gitgraph/core@1.4.2"
+      }
+    },
+    "npm:readable-stream@2.3.7": {
+      "map": {
+        "inherits": "npm:inherits@2.0.4",
+        "core-util-is": "npm:core-util-is@1.0.2",
+        "util-deprecate": "npm:util-deprecate@1.0.2",
+        "isarray": "npm:isarray@1.0.0",
+        "process-nextick-args": "npm:process-nextick-args@2.0.1",
+        "safe-buffer": "npm:safe-buffer@5.1.2",
+        "string_decoder": "npm:string_decoder@1.1.1"
+      }
+    },
+    "npm:jspm-nodelibs-timers@0.2.1": {
+      "map": {
+        "timers-browserify": "npm:timers-browserify@1.4.2"
+      }
+    },
+    "npm:timers-browserify@1.4.2": {
+      "map": {
+        "process": "npm:process@0.11.10"
+      }
+    },
+    "npm:elliptic@6.5.2": {
+      "map": {
+        "inherits": "npm:inherits@2.0.4",
+        "bn.js": "npm:bn.js@4.11.8",
+        "hmac-drbg": "npm:hmac-drbg@1.0.1",
+        "minimalistic-crypto-utils": "npm:minimalistic-crypto-utils@1.0.1",
+        "minimalistic-assert": "npm:minimalistic-assert@1.0.1",
+        "hash.js": "npm:hash.js@1.1.7",
+        "brorand": "npm:brorand@1.1.0"
+      }
+    },
+    "npm:des.js@1.0.1": {
+      "map": {
+        "inherits": "npm:inherits@2.0.4",
+        "minimalistic-assert": "npm:minimalistic-assert@1.0.1"
       }
     }
   }

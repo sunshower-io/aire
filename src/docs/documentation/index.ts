@@ -123,6 +123,16 @@ export class Index {
         components: []
       }
 
+    }, {
+      title: 'designer',
+      route: 'designer',
+      name: 'designer',
+      moduleId: "../designer/index",
+      nav: true,
+      settings : {
+        icon: 'fal fa-drafting-compass',
+        components: []
+      }
     });
     fst.route = ['', fst.route];
     this.currentItem = {category : fst.settings.category};
