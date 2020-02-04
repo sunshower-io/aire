@@ -24,8 +24,9 @@ export class AireHeader extends ViewportComponent {
     this.hasControl = true;
   }
 
-
-
-
-
+  attached() {
+    super.attached();
+    dom.decorateTo(this.el, this.viewport.main, 'large', 'h-large');
+    dom.decorateTo(this.el, this.element, 'large', 'h-large');
+  }
 }

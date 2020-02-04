@@ -3,10 +3,11 @@ SystemJS.config({
     "npm:": "jspm_packages/npm/",
     "github:": "jspm_packages/github/",
     "docs/": "dist/docs/",
-    "aire/": "dist/"
+    "aire/": "dist/",
+
   },
   browserConfig: {
-    "baseURL": "/"
+    "baseURL": "/",
   },
   devConfig: {
     "map": {
@@ -22,7 +23,13 @@ SystemJS.config({
     "/dist/docs/": {
       "defaultExtension": "js",
       "format": "cjs"
+    },
+    "mxgraph": {
+      map: {
+        'frapper': './whatever'
+      }
     }
+
   }
 });
 
@@ -71,7 +78,7 @@ SystemJS.config({
     "fs": "npm:jspm-nodelibs-fs@0.2.1",
     "fuse.js": "npm:fuse.js@3.4.5",
     "jdenticon": "npm:jdenticon@2.2.0",
-    "mxgraph": "npm:mxgraph@4.1.0",
+    "mxgraph": "github:jgraph/mxgraph-js@4.1.0",
     "os": "npm:jspm-nodelibs-os@0.2.2",
     "path": "npm:jspm-nodelibs-path@0.2.3",
     "perfect-scrollbar": "npm:perfect-scrollbar@1.4.0",

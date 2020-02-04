@@ -54,7 +54,11 @@ $base-heading-font-weight: 100;
 @import "layout/viewport";
 @import "layout/drawer";
 @import "components/search";
+@import "components/button";
 @import "components/tab-panel";
+@import "components/breadcrumbs";
+
+@import "typography/headings";
 
 
 p.primary, span.primary {

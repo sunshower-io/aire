@@ -43,7 +43,9 @@ export class Aire {
 
   static readonly skip: Map<string, boolean> = Strict.toMap({
     'class': true,
-    'au-target-id': true
+    'au-target-id': true,
+    'width': true,
+    'height': true
   });
 
   constructor(el: Element) {

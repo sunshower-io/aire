@@ -4,6 +4,7 @@ import {
   customElement
 }                 from 'aurelia-framework';
 import * as UIKit from "uikit";
+import {dom}      from "aire/core/dom";
 
 @inject(Element)
 @containerless
@@ -18,6 +19,10 @@ export class AireNavbar {
 
   attached() : void {
     UIKit.navbar(this.container);
+    dom.decorateTo(this.el, this.container, 'light');
+    dom.decorateTo(this.el, this.container, 'small');
+    dom.decorateTo(this.el, this.container, 'rotate');
+    dom.decorateTo(this.el, this.container, 'right');
   }
 
 }

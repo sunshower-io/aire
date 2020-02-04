@@ -1,7 +1,9 @@
 @import "../mixins";
 
 $small-nav-height: 38px;
-$large-nav-height: 80px;
+$large-nav-height: 64px;
+
+
 
 body {
   display: flex;
@@ -16,6 +18,7 @@ header {
   box-sizing: border-box;
   justify-self: flex-start;
   display: flex;
+  align-items: center;
   ul.uk-breadcrumb {
     margin: 0 0 0 16px;
     padding:0;
@@ -23,6 +26,13 @@ header {
     line-height: $small-nav-height;
   }
 
+  h1 {
+    color: $primary;
+  }
+
+  &.h-large {
+    height:$large-nav-height;
+  }
   .uk-input {
     border: none;
     height: $small-nav-height;
@@ -65,15 +75,22 @@ div.main {
     justify-content: flex-start;
     width: 64px;
     min-width: 64px;
-
-
+    &.small {
+      width: 32px;
+      min-width: 32px;
+    }
   }
 
 
   main {
     height: 100%;
     width: 100%;
+    display:flex;
+    flex: 1;
+    flex-direction: row;
   }
+
+
 
   /**
   Header included
@@ -109,8 +126,8 @@ div.main {
     }
     &.h-small {
       height: calc(100% - #{2 * $small-nav-height});
-
     }
+
   }
 
 

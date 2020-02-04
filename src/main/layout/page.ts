@@ -31,7 +31,9 @@ export class AirePage {
     Aire.enqueue(() => {
       if(self.scrollable) {
         let scrollbar = PerfectScrollbar as any;
-        self.scrollbar = new scrollbar(self.page);
+        self.scrollbar = new scrollbar(self.page, {
+          suppressScrollX: true
+        });
       }
     });
   }

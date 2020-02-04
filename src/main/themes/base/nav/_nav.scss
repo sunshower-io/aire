@@ -1,77 +1,146 @@
 @import "../colors";
 
 
+header {
+  border-bottom: 1px solid $tertiary;
+}
 
+footer {
+  border-top: 1px solid $tertiary;
+}
 
 header, footer {
 
   &.viewport {
-    background-color: $light-gray-3;
+    background-color: $white;
+    //background-color: $light-gray-3;
   }
 
 
   button {
     background-color: $white;
     border: none !important;
-    width:32px;
-    height:38px;
+    width: 32px;
+    height: 38px;
   }
 
 
-
   button.control, a.control {
-    width:64px;
-    height:38px;
-    line-height:38px;
+    width: 64px;
+    height: 38px;
+    line-height: 38px;
     background-color: $emphasis;
-    padding:0;
+    padding: 0;
     color: $tertiary;
+
     &:hover {
       background-color: $secondary;
-      transition-duration:0.4s;
+      transition-duration: 0.4s;
     }
   }
 }
 
-.main {
+.main, main {
   nav.uk-navbar-container {
     background-color: $primary;
-    display:flex;
+    display: flex;
     flex-direction: column;
+
     button {
       border: none !important;
+
       span {
-        line-height:0;
-        display:block;
+        line-height: 0;
+        display: block;
         text-transform: none;
       }
+
       &:hover {
         background-color: $secondary;
-        transition-duration:0.4s;
+        transition-duration: 0.4s;
       }
+
       &.active {
         background-color: $tertiary;
         color: white;
       }
-      &.active:after{
-        content:'';
-        width:0;
-        height:0;
-        position:absolute;
 
-        border-top:8px solid transparent;
-        border-left:8px solid transparent;
-        border-bottom:8px solid transparent;
-        border-right:8px solid white;
+      &.active:after {
+        content: '';
+        width: 0;
+        height: 0;
+        position: absolute;
 
-        right:0;
-        margin-top:10px;
+        border-top: 8px solid transparent;
+        border-left: 8px solid transparent;
+        border-bottom: 8px solid transparent;
+        border-right: 8px solid white;
+
+        right: 0;
+        margin-top: 10px;
       }
+
       background-color: $primary;
       color: lighten($tertiary, 60%);
       padding: 0;
       width: 64px;
-      height:64px;
+      height: 64px;
+    }
+
+
+    &.light {
+      &.right {
+        border-left: 1px solid $tertiary;
+      }
+
+      background: $white;
+      color: $primary;
+
+      button {
+        &:hover {
+          color: $white;
+          background-color: $tertiary;
+          transition-duration: 0.4s;
+        }
+
+        background: $white;
+        color: $primary;
+      }
+    }
+
+    &.rotate {
+      & > button {
+        & > * {
+          width:32px;
+          margin-top:8px;
+          display:block;
+          transform: rotate(90deg);
+        }
+        & > :last-child {
+          margin-top:20px;
+        }
+        display:flex;
+        flex-direction: column;
+        width:32px;
+      }
+
+    }
+
+    &.small {
+      width: 32px;
+
+    }
+  }
+
+
+  nav.uk-navbar-container.light {
+
+    &.small {
+
+    }
+
+    button {
+
     }
   }
 }

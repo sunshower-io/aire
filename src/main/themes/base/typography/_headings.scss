@@ -1,0 +1,14 @@
+
+header {
+  .uk-breadcrumb > :last-child > * {
+    color: $primary;
+    text-decoration: underline;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 1.1em;
+    border-right: 2px solid $primary;
+    padding-right: 8px;
+  }
+}

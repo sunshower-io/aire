@@ -1,13 +1,19 @@
 template
     aire-viewport
-        aire-header(small)
-            aire-button(control href="#")
+        aire-header(large)
+            aire-button(control href="#" large aire height-1-1)
                 i.fal.fa-cloud-sun-rain
+
+            aire-image(source="assets/logos/sunshowerio/mark.svg" width="32" height="32" aire margin-left)
+            h1 Sunshower.io
             ul.uk-breadcrumb
+                li
+                    i.fal.fa-home
                 li(if.bind="currentItem.category")
                     a(click.delegate="navigate(currentItem.category)") ${currentItem.category}
                 li(if.bind="currentItem.name")
                     a(click.delegate="navigateTo(currentItem)") ${currentItem.name}
+
             aire-search(aire inline float-right search.delegate="performSearch($event)")
                 div.result-container
                     div.result(repeat.for="result of results")
@@ -37,10 +43,10 @@ template
                 mouseenter.trigger="show(nav)"
             )
                 i(class.bind="nav.settings.icon")
-        aire-page(padded)
+        aire-page(aire width-1-1)
             router-view(aire height-1-1)
         aire-footer
-            aire-button(control)
+            aire-button(control aire height-1-1)
                 i.fal.fa-cog
             div.right
                 span version 1.0.0

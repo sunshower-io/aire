@@ -1,2 +1,12 @@
 template
-    div(ref="ref" style="width:100px; height:100px; border: 1px solid blue")
+    aire-viewport
+        div(ref="container" aire height-1-1 width-1-1)
+        div(slot="right")
+            aire-navbar(light small rotate right)
+
+                button
+                    i.fal.fa-home
+                    span Hello
+
+        //.right(slot="right" style="border:1px solid red; width:30px" )
+

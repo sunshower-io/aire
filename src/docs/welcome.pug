@@ -2,8 +2,9 @@ template
     aire-viewport(anchor="true")
         aire-header
             navbar-location(left)
-                aire-image(source="assets/icons/aire.svg" width="48", height="48")
+                aire-image(source="assets/icons/aire.svg" width="48", height="48" aire navbar-item logo)
                     p.primary Aire
+
         aire-page(hero)
             aire-image(source="assets/icons/aurelia-uikit.svg"  width="256")
             .text
@@ -11,6 +12,6 @@ template
             p.uk-margin
                 aire-button(primary href="#/docs") Get Started
                 aire-button(secondary) Examples
-        aire-footer(large)
+        aire-footer(small)
             div(aire padding align-center)
                 p.primary version 1.0.0
