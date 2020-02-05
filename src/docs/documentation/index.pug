@@ -11,9 +11,11 @@ template
                     a(click.delegate="navigate(currentItem.category)") ${currentItem.category}
                 li(if.bind="currentItem.name")
                     a(click.delegate="navigateTo(currentItem)") ${currentItem.name}
-
-            aire-button(control href="#" large aire height-1-1 float-right)
-                aire-image(source="assets/logos/sunshowerio/mark-white.svg" width="32" height="32" aire)
+            div(aire float-right height-1-1 style="display:flex;")
+                aire-button(control )
+                    span(style="color:white; font-size:0.9em") Admin
+                aire-button(control href="#" large aire height-1-1 float-right)
+                    aire-image(source="data:image/svg+xml;base64,${icon()}" width="32" height="32" aire)
         //aire-search(aire inline float-right search.delegate="performSearch($event)")
             //    div.result-container
             //        div.result(repeat.for="result of results")

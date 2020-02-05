@@ -6,6 +6,7 @@ import {
 import {debounce} from "aire/core/lang";
 
 import * as PerfectScrollbar from "perfect-scrollbar";
+import {dom}                 from "aire/core/dom";
 
 @autoinject
 @customElement('aire-drawer')
@@ -22,6 +23,11 @@ export class AireDrawer {
    * width of the drawer
    */
   @bindable width : number = 256;
+
+  /**
+   * direction to open
+   */
+  @bindable private opens : position;
 
   /**
    * Container for drawer contents
@@ -52,7 +58,7 @@ export class AireDrawer {
     let scrollbar = PerfectScrollbar as any;
     this.scrollbar = new scrollbar(this.body);
     this.setWidth(0);
-
+    this.el.classList.add(this.opens);
   }
 
 
@@ -67,13 +73,38 @@ export class AireDrawer {
   }
 
 
-  async visibleChanged() {
-    if (this.visible) {
-      this.updateLeft();
+  visibleChanged() {
+    if (this.opens) {
+
+      if(this.visible) {
+        this.updateRight();
+      } else {
+        this.setWidth(0);
+      }
+
     } else {
-      this.setWidth(0);
+      if (this.visible) {
+        this.updateLeft();
+      } else {
+        this.setWidth(0);
+      }
     }
   }
+
+  updateRight() : void {
+
+    let drawer = this.el,
+      host = this.host,
+      w = this.width || 400,
+      style = (drawer as any).style;
+    style.right = '32px';
+    style.position = 'absolute';
+    style.height = host.offsetHeight + 'px';
+    style.left = -w + 'px';
+    style.width = w + 'px';
+    style.top = 0;
+    this.scrollbar.update();
+  };
 
   updateLeft() : void {
     this.setWidth(this.width);

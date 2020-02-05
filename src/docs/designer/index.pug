@@ -7,8 +7,14 @@ template
                     i.fal.fa-palette
                     span Palettes
 
-                aire-button
+                aire-button(click.trigger="show()")
                     i.fal.fa-brackets-curly
                     span Generated
+                aire-button
+                    i.fal.fa-code-merge
+                    span History
+                aire-drawer(host="ancestor:nav" visible.bind="drawerOpen" opens="left" width="400")
+
+                    h1 Hello
         //.right(slot="right" style="border:1px solid red; width:30px" )
 

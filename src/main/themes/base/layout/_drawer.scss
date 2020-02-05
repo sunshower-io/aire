@@ -1,3 +1,4 @@
+
 aire-drawer, .aire-drawer {
   z-index:100;
   display:block;
@@ -8,6 +9,16 @@ aire-drawer, .aire-drawer {
   box-sizing: border-box;
   border-right: 1px solid $global-border;
 
+  &.right {
+    -webkit-animation-name: slideInRight;
+    animation-name: slideInRight;
+  }
+
+  &.left {
+    transition:none;
+    -webkit-animation-name: slideInRight;
+    animation-name: slideInRight;
+  }
 
   .content {
     position:relative;

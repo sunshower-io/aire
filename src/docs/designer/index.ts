@@ -23,6 +23,11 @@ export class DesignerIndex {
     this.attachNode();
   }
 
+  drawerOpen: boolean;
+  show() : void {
+    this.drawerOpen = !this.drawerOpen;
+  }
+
   private attachNode() : void {
 
 

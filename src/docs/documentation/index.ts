@@ -2,6 +2,7 @@ import {
   HttpClient
 } from "aurelia-fetch-client";
 
+import * as Identicon from "jdenticon";
 import * as Fuse from 'fuse.js';
 
 import {
@@ -140,6 +141,10 @@ export class Index {
     this.router = router;
   }
 
+
+  icon() : string {
+    return btoa(Identicon.toSvg("helloworld", 64))
+  }
   private index(items : any) {
     let options = {
       shouldSort         : true,
