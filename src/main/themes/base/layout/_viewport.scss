@@ -4,7 +4,6 @@ $small-nav-height: 38px;
 $large-nav-height: 64px;
 
 
-
 body {
   display: flex;
   flex-direction: column;
@@ -14,25 +13,29 @@ body {
   margin-left: auto;
 }
 
+
 header {
   box-sizing: border-box;
   justify-self: flex-start;
   display: flex;
   align-items: center;
+
   ul.uk-breadcrumb {
     margin: 0 0 0 16px;
-    padding:0;
+    padding: 0;
     height: $small-nav-height;
     line-height: $small-nav-height;
   }
 
-  h1 {
-    color: $primary;
+
+  * {
+    color: white;
   }
 
   &.h-large {
-    height:$large-nav-height;
+    height: $large-nav-height;
   }
+
   .uk-input {
     border: none;
     height: $small-nav-height;
@@ -41,6 +44,7 @@ header {
       background: unset;
     }
   }
+
 }
 
 footer {
@@ -51,10 +55,12 @@ footer {
   align-items: center;
 
   & > *:not(.control):not(.aire-button) {
-    margin-left:8px;
+    margin-left: 8px;
+
     &.right {
       justify-self: flex-end;
     }
+
     &.left {
       justify-self: flex-start;
     }
@@ -75,6 +81,7 @@ div.main {
     justify-content: flex-start;
     width: 64px;
     min-width: 64px;
+
     &.small {
       width: 32px;
       min-width: 32px;
@@ -85,11 +92,10 @@ div.main {
   main {
     height: 100%;
     width: 100%;
-    display:flex;
+    display: flex;
     flex: 1;
     flex-direction: row;
   }
-
 
 
   /**
@@ -124,6 +130,7 @@ div.main {
     &.f-large {
       height: calc(100% - #{2 * $large-nav-height});
     }
+
     &.h-small {
       height: calc(100% - #{2 * $small-nav-height});
     }
@@ -132,4 +139,5 @@ div.main {
 
 
 }
+
 

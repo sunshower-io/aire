@@ -1,12 +1,9 @@
 header, footer {
   .uk-breadcrumb {
     li {
-      &:last-child {
-        color:red;
-      }
       i, a {
-        color: $secondary;
-        font-weight: 500;
+        color:white !important;
+        font-weight: bold;
       }
     }
   }

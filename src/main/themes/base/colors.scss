@@ -5,7 +5,11 @@ $dark-gray-2: #666666;
 $light-gray-1: #F3F3F3;
 $light-gray-2: #F2F2F2;
 $light-gray-3: #DEDEDE;
-$dark-blue: #4D5E7C;
+$darkest-blue: #4D5E7C;
+
+$darker-blue: lighten($darkest-blue, 0.3);
+
+
 
 $white: #FFFFFF;
 $purple: #660066;

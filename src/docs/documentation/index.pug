@@ -2,9 +2,7 @@ template
     aire-viewport
         aire-header(large)
             aire-button(control href="#" large aire height-1-1)
-                i.fal.fa-cloud-sun-rain
-
-            aire-image(source="assets/logos/sunshowerio/mark.svg" width="32" height="32" aire margin-left)
+                aire-image(source="assets/logos/sunshowerio/mark-white.svg" width="32" height="32" aire)
             h1 Sunshower.io
             ul.uk-breadcrumb
                 li
@@ -14,11 +12,13 @@ template
                 li(if.bind="currentItem.name")
                     a(click.delegate="navigateTo(currentItem)") ${currentItem.name}
 
-            aire-search(aire inline float-right search.delegate="performSearch($event)")
-                div.result-container
-                    div.result(repeat.for="result of results")
-                        i(class.bind="result.icon")
-                        a(click.delegate="navigateTo(result)") ${result.name}
+            aire-button(control href="#" large aire height-1-1 float-right)
+                aire-image(source="assets/logos/sunshowerio/mark-white.svg" width="32" height="32" aire)
+        //aire-search(aire inline float-right search.delegate="performSearch($event)")
+            //    div.result-container
+            //        div.result(repeat.for="result of results")
+            //            i(class.bind="result.icon")
+            //            a(click.delegate="navigateTo(result)") ${result.name}
 
 
 

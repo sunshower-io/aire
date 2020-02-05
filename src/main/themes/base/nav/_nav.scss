@@ -2,20 +2,24 @@
 
 
 header {
-  border-bottom: 1px solid $tertiary;
+  &.viewport {
+    background-color: $emphasis;
+    //background-color: $light-gray-3;
+  }
 }
 
 footer {
   border-top: 1px solid $tertiary;
+
+  &.viewport {
+    background-color: $darker-blue;
+  }
 }
 
 header, footer {
 
-  &.viewport {
-    background-color: $white;
-    //background-color: $light-gray-3;
-  }
 
+  color: $white;
 
   button {
     background-color: $white;
@@ -89,38 +93,42 @@ header, footer {
 
 
     &.light {
+
+      background-color: $white;
+
       &.right {
         border-left: 1px solid $tertiary;
       }
 
-      background: $white;
-      color: $primary;
+      //background-color: $dark-blue;
+      //color: $light-gray-1;
 
       button {
+        color: $secondary;
+        background-color: $white;
+
         &:hover {
           color: $white;
           background-color: $tertiary;
           transition-duration: 0.4s;
         }
 
-        background: $white;
-        color: $primary;
       }
     }
 
     &.rotate {
-      & > button {
-        & > * {
-          width:32px;
-          margin-top:8px;
-          display:block;
-          transform: rotate(90deg);
-        }
-        & > :last-child {
-          margin-top:20px;
-        }
+      display: table;
+
+      button {
         display:flex;
         flex-direction: column;
+        height:130px;
+        align-items: center;
+        padding-top:50%;
+        span {
+          margin-top:calc(50% + 8px);
+          transform:rotate(90deg);
+        }
         width:32px;
       }
 
@@ -132,17 +140,6 @@ header, footer {
     }
   }
 
-
-  nav.uk-navbar-container.light {
-
-    &.small {
-
-    }
-
-    button {
-
-    }
-  }
 }
 
 
