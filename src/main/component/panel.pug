@@ -1,8 +1,8 @@
 template
-    section.aire-panel
-        section.aire-header
+    section.aire-panel(show.bind="visible")
+        header.aire-header
             slot(name="header")
-        section.aire-body
+        article.aire-body(ref="body")
             slot
-        section.aire-footer
+        footer.aire-footer
             slot(name="footer")

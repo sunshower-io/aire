@@ -1,3 +1,5 @@
+import {AireDrawer} from "aire/component/drawer";
+
 declare let SystemJS : any;
 
 (window as any).mxBasePath = `${SystemJS.map['mxgraph']}/javascript/src`;

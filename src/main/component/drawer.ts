@@ -1,4 +1,5 @@
 import {
+  children,
   bindable,
   autoinject,
   customElement
@@ -6,7 +7,7 @@ import {
 import {debounce} from "aire/core/lang";
 
 import * as PerfectScrollbar from "perfect-scrollbar";
-import {dom}                 from "aire/core/dom";
+import {AirePanel}           from "aire/component/panel";
 
 @autoinject
 @customElement('aire-drawer')
@@ -53,16 +54,14 @@ export class AireDrawer {
 
 
   attached() : void {
-    this.listener = debounce(this.visibleChanged.bind(this), 5);
-    window.addEventListener('resize', this.listener);
-    let scrollbar = PerfectScrollbar as any;
-    this.scrollbar = new scrollbar(this.body);
-    this.setWidth(0);
-    this.el.classList.add(this.opens);
+    this.configureDrawer();
   }
 
 
+
   detached() : void {
+
+
     this.scrollbar.destroy();
     window.removeEventListener('resize', this.listener);
   }
@@ -76,7 +75,7 @@ export class AireDrawer {
   visibleChanged() {
     if (this.opens) {
 
-      if(this.visible) {
+      if (this.visible) {
         this.updateRight();
       } else {
         this.setWidth(0);
@@ -109,6 +108,21 @@ export class AireDrawer {
   updateLeft() : void {
     this.setWidth(this.width);
   };
+
+
+  private configureDrawer() : void {
+    this.listener = debounce(this.visibleChanged.bind(this), 5);
+    window.addEventListener('resize', this.listener);
+    let scrollbar = PerfectScrollbar as any;
+    this.scrollbar = new scrollbar(this.body);
+    this.setWidth(0);
+    this.el.classList.add(this.opens);
+
+
+    let drawer = this.el,
+      style = (drawer as any).style;
+    style.height = 0;
+  }
 
 
   private setWidth(w : number) {

@@ -2,19 +2,42 @@ template
     aire-viewport
         div(ref="container" aire height-1-1 width-1-1)
         div(slot="right")
-            aire-navbar(light small rotate right)
-                aire-button
-                    i.fal.fa-palette
-                    span Palettes
+            aire-navbar(light small rotate right target.bind="drawer")
+                aire-panel
+                    aire-header
+                        i.fal.fa-code-merge
+                        h1 hello
 
-                aire-button(click.trigger="show()")
-                    i.fal.fa-brackets-curly
-                    span Generated
-                aire-button
-                    i.fal.fa-code-merge
-                    span History
-                aire-drawer(host="ancestor:nav" visible.bind="drawerOpen" opens="left" width="400")
+                aire-panel
+                    aire-header
+                        i.fal.fa-palette
+                        span Palettes
+                    aire-body
 
-                    h1 Hello
+                aire-panel(click.trigger="show()" active="true")
+                    aire-header
+                        i.fal.fa-brackets-curly
+                        span Generated
+                aire-panel
+                    aire-header
+                        i.fal.fa-code-merge
+                        span History
+
+
+                aire-drawer(
+                    ref="drawer"
+                    host="ancestor:nav"
+                    visible.bind="drawerOpen"
+                    opens="left" width="400"
+                )
+
+
+
+
+
+
+                //aire-drawer(host="ancestor:nav" visible.bind="drawerOpen" opens="left" width="400")
+                //
+                //    h1 Hello
         //.right(slot="right" style="border:1px solid red; width:30px" )
 

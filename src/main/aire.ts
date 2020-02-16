@@ -4,10 +4,16 @@ import {FrameworkConfiguration} from 'aurelia-framework';
 import {Aire}                   from "aire/core/aire";
 
 export const components = [
+
+    /**
+     * structural elements
+     */
+
     /**
      * Components
      */
 
+    'aire/component/dynamic-html',
     'aire/component/image',
     'aire/component/button',
     'aire/component/tooltip',

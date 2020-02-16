@@ -125,9 +125,20 @@ header, footer {
         height:130px;
         align-items: center;
         padding-top:50%;
-        span {
+        header {
+          display:flex;
+          flex-direction:column;
+        }
+        span, h1, h2, h3, h4, h5, h6 {
           margin-top:calc(50% + 8px);
           transform:rotate(90deg);
+        }
+        h1, h2, h3, h4, h5, h6, i, span {
+          border: none;
+          margin-left:0;
+          color: $secondary;
+          font-size: 1.0em;
+          font-weight: normal;
         }
         width:32px;
       }
