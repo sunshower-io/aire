@@ -9,6 +9,7 @@ task('serve:all', (done) => {
             open: false,
             port: 9000,
             server: {
+	    	host: '0.0.0.0',
                 baseDir: ['.'],
                 middleware: function (req, res, next) {
                     res.setHeader('Access-Control-Allow-Origin', '*');
