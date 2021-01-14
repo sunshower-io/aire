@@ -1,7 +1,0 @@
-template
-    ul(ref="header")
-        li(repeat.for="nav of router.navigation" class="${nav.isActive ? 'uk-active' : ''}")
-            a(click.delegate="navigate($index)") ${nav.title}
-    .uk-switcher(ref="contents")
-        aire-tab(repeat.for="nav of router.navigation" title.bind="nav.title")
-        slot

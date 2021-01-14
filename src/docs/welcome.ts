@@ -1,6 +1,0 @@
-/**
- * @exclude
- */
-export class Welcome {
-
-}
